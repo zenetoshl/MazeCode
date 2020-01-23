@@ -148,6 +148,7 @@ public class Connection : MonoBehaviour {
 	}
 
 	public void SetTargets(RectTransform t1, RectTransform t2) {
+
 		target[0] = t1;
 		target[1] = t2;
 	}

@@ -95,8 +95,8 @@ public class ConnectionManager : MonoBehaviour {
 		}
 	}
 
-	public static void CreateConnection(RectTransform t1, RectTransform t2 = null) {
-		if (!instance) return;
+	public static Connection CreateConnection(RectTransform t1, RectTransform t2 = null) {
+		if (!instance) return null;
 		
 		Connection conn;
 
@@ -107,5 +107,6 @@ public class ConnectionManager : MonoBehaviour {
 		}
 
 		conn.SetTargets(t1, t2);
+		return conn;
 	}
 }
