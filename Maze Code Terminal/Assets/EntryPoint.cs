@@ -21,30 +21,30 @@ public class EntryPoint : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (ConnectionMaker.isConnectionMode && isEmpty)
+        if (ConnectionMaker.isConnectionMode)
         {
             isEmpty = false;
             changed = true;
             ConnectionMaker cm = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
             cm.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
         }
-        else if (!ConnectionMaker.isConnectionMode && !isEmpty)
+        else if (!ConnectionMaker.isConnectionMode)
         {
             GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
             if (gObj != null)
             {
-                NewConnection ep = gObj.GetComponent<NewConnection>();
+                NewConnection nc = gObj.GetComponent<NewConnection>();
                 if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
                 {
                     isEmpty = true;
                     changed = true;
-                    ep.isEmpty = true;
-                    ep.changed = true;
-                    Debug.Log("sucesso");
+                    nc.isEmpty = true;
+                    nc.changed = true;
+                    //Debug.Log("sucesso");
                 }
                 else
                 {
-                    Debug.Log("sem sucesso");
+                    //Debug.Log("sem sucesso");
                 }
             }
         }
@@ -61,31 +61,28 @@ public class EntryPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO::::: ARRUMAR ESSA PARTE USANDO O ISINCHAIN
-        if(ConnectionMaker.isConnectionMode && changed && IsInChain() ){
+        //atualização de estado depois de um connection mode
+        if (!ConnectionMaker.isConnectionMode && changed) 
+        {
+            if (!isEmpty)
+            {
+                changed = false;
+                boxCollider.enabled = true;
+                spriteRenderer.enabled = true;
+            }
+            else
+            {
                 changed = false;
                 boxCollider.enabled = false;
                 spriteRenderer.enabled = false;
-        }
-        else if (!isEmpty && !ConnectionMaker.isConnectionMode && changed)
-        {
-            changed = false;
-            boxCollider.enabled = true;
-            spriteRenderer.enabled = true;
-            updateSprite();
-        }
-        else if (!ConnectionMaker.isConnectionMode && changed && isEmpty)
-        {
-            changed = false;
-            boxCollider.enabled = false;
-            spriteRenderer.enabled = false;
+            }
             updateSprite();
         }
         else if (ConnectionMaker.isConnectionMode && !changed)
         {
-            if (CheckConnectionsParent())
+            if (!isEmpty || CheckConnectionsParent() || IsInChain())
             {
-                changed = false;
+                changed = true;
                 boxCollider.enabled = false;
                 spriteRenderer.enabled = false;
             }
@@ -95,11 +92,11 @@ public class EntryPoint : MonoBehaviour
                 boxCollider.enabled = true;
                 spriteRenderer.enabled = true;
             }
-
             updateSprite();
         }
     }
-    private bool IsInChain(){
+    private bool IsInChain()
+    {
         return ConnectionManager.IsInChain(this.transform.parent.GetComponent<RectTransform>(), ConnectionMaker.connectionPos[0]);
     }
 

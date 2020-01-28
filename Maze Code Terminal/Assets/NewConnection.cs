@@ -20,46 +20,47 @@ public class NewConnection : MonoBehaviour
         return isEmpty ? 0 : 1;
     }
 
-     private void CancelConnectionMode()
+    private void CancelConnectionMode()
     {
         ConnectionMaker cm = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
         Destroy(cm.gameObject);
     }
 
-    private void OnMouseUp()
-    {
-        if (wasPressed){
-            isEmpty = true;
-            CancelConnectionMode();
-        }else if (!ConnectionMaker.isConnectionMode && isEmpty)
+    
+        private void OnMouseUp()
         {
-            isEmpty = false;
-            wasPressed = true;
-            Instantiate(connectionMaker);
-            ConnectionMaker connectionM = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
-            connectionM.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
-        }
-        else if (!ConnectionMaker.isConnectionMode && !isEmpty)
-        {
-            GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
-            if (gObj != null)
+            if (wasPressed){
+                isEmpty = true;
+                CancelConnectionMode();
+            }else if (!ConnectionMaker.isConnectionMode && isEmpty)
             {
-                EntryPoint ep = gObj.GetComponent<EntryPoint>();
-                if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
+                isEmpty = false;
+                wasPressed = true;
+                Instantiate(connectionMaker);
+                ConnectionMaker connectionM = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
+                connectionM.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+            }
+            else if (!ConnectionMaker.isConnectionMode && !isEmpty)
+            {
+                GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+                if (gObj != null)
                 {
-                    isEmpty = true;
-                    changed = true;
-                    ep.isEmpty = true;
-                    ep.changed = true;
-                    Debug.Log("sucesso");
-                }
-                else
-                {
-                    Debug.Log("sem sucesso");
+                    EntryPoint ep = gObj.GetComponent<EntryPoint>();
+                    if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
+                    {
+                        isEmpty = true;
+                        changed = true;
+                        ep.isEmpty = true;
+                        ep.changed = true;
+                        //Debug.Log("sucesso");
+                    }
+                    else
+                    {
+                        //Debug.Log("sem sucesso");
+                    }
                 }
             }
         }
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +72,8 @@ public class NewConnection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!ConnectionMaker.isConnectionMode){
+        if (!ConnectionMaker.isConnectionMode)
+        {
             wasPressed = false;
         }
         if (ConnectionMaker.isConnectionMode && !changed)

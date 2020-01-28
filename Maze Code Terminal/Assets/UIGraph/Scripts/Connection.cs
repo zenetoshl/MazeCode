@@ -166,5 +166,7 @@ public class Connection : MonoBehaviour {
 
 		target[0] = t1;
 		target[1] = t2;
+		
+        UpdateName();
 	}
 }

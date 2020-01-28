@@ -88,16 +88,54 @@ public class ConnectionManager : MonoBehaviour
 
     public static bool IsInChain(RectTransform transform, RectTransform newTransform)
     {
-		List<Connection> conns = FindNextNodes(transform, 0);
-		foreach(Connection c in conns){
-			Debug.Log(transform + ": " + c.target[0] + " == " + newTransform + " ?");
-			if(c.target[1].Equals(newTransform) || c.target[0].Equals(newTransform) )
-			{
-				return true;
-			} else
-			conns = conns.Concat(FindNextNodes(c.target[1], 0)).ToList();
-		}
-		return false;
+        List<Connection> conns = FindNextNodes(transform, 0);
+        //bool b = transform.Equals(newTransform);
+        if (transform.Equals(newTransform))
+        {
+            return true;
+        }
+        foreach (Connection c in conns)
+        {
+            if (IsInChain(c.target[1], newTransform))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static string ToCode(RectTransform transform)
+    {
+        string returnCode = transform.ToString();
+        string north = "";
+        string south = "";
+        string east = "";
+        List<Connection> conns = FindNextNodes(transform, 0);
+        foreach (Connection c in conns)
+        {
+            switch (c.points[0].direction)
+            {
+                case ConnectionPoint.ConnectionDirection.North:
+                    north = ToCode(c.target[1]);
+                    break;
+                case ConnectionPoint.ConnectionDirection.South:
+                    south = ToCode(c.target[1]);
+                    break;
+                case ConnectionPoint.ConnectionDirection.East:
+                    east = ToCode(c.target[1]);
+                    break;
+            }
+        }
+        returnCode = returnCode + north + south + east;
+        return returnCode;
+    }
+
+    private static void PrintList(List<Connection> conn)
+    {
+        foreach (Connection c in conn)
+        {
+            Debug.Log(c.ToString());
+        }
     }
 
     public static void AddConnection(Connection c)
@@ -162,7 +200,7 @@ public class ConnectionManager : MonoBehaviour
         }
 
         conn.SetTargets(t1, t2);
-		AddConnection(conn);
+        AddConnection(conn);
         return conn;
     }
 
