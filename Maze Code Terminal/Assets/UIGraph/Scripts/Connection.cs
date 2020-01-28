@@ -27,6 +27,10 @@ public class Connection : MonoBehaviour {
 		get { return target[0] && target[1]; }
 	}
 
+	private void Start() {
+		gameObject.GetComponent<LineRenderer>().SetWidth(.3f, .2f);
+	}
+
 	public bool Match (RectTransform start, RectTransform end) {
 		if (!start || !end) return false;
 

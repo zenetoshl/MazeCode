@@ -21,6 +21,6 @@ public class Coder : MonoBehaviour
     }
 
     public void ToCode(){
-        Debug.Log(ConnectionManager.ToCode(begin.GetComponent<RectTransform>()));
+        Debug.Log(ConnectionManager.ToCode(begin.GetComponent<RectTransform>())+ "}}}");
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Example : MonoBehaviour, IPointerDownHandler
+public class DragAndDrop : MonoBehaviour, IPointerDownHandler
 {
 
     public Transform prefab;
@@ -11,14 +11,8 @@ public class Example : MonoBehaviour, IPointerDownHandler
     private Transform spawn;
     public Button button;
 
-    private void Start() {
-        Debug.Log(button.transform);
-    }
-
     void Update()
     {
-        //Debug.Log(this.gameObject.GetComponent<RectTransform>().rect);
-
         if (Input.GetMouseButton(0) && spawn != null)
         {
             var pos = Input.mousePosition;
@@ -28,7 +22,7 @@ public class Example : MonoBehaviour, IPointerDownHandler
 
         if (Input.GetMouseButtonUp(0))
         {
-            if(EventSystem.current.IsPointerOverGameObject()){
+            if(EventSystem.current.IsPointerOverGameObject() && spawn != null){
                 Destroy(spawn.gameObject);
                 //adicionar 1 ao inventário novamente
             }
