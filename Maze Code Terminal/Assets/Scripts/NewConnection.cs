@@ -8,7 +8,7 @@ public class NewConnection : MonoBehaviour
     public GameObject connectionMaker;
 
     private bool wasPressed = false;
-    public ConnectionPoint.ConnectionDirection connectionDir = ConnectionPoint.ConnectionDirection.North;
+    public ConnectionPoint.ConnectionDirection connectionDir;
     public bool isEmpty = true;
     public bool changed = false;
     public Sprite[] sprites = new Sprite[2];
@@ -26,47 +26,67 @@ public class NewConnection : MonoBehaviour
         Destroy(cm.gameObject);
     }
 
-    
-        private void OnMouseUp()
+    private void CancelConnection()
+    {
+        GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+        if (gObj != null)
         {
-            if (wasPressed){
+            EntryPoint ep = gObj.GetComponent<EntryPoint>();
+            if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
+            {
                 isEmpty = true;
-                CancelConnectionMode();
-            }else if (!ConnectionMaker.isConnectionMode && isEmpty)
-            {
-                isEmpty = false;
-                wasPressed = true;
-                Instantiate(connectionMaker);
-                ConnectionMaker connectionM = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
-                connectionM.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+                changed = true;
+                ep.isEmpty = true;
+                ep.changed = true;
+                //Debug.Log("sucesso");
             }
-            else if (!ConnectionMaker.isConnectionMode && !isEmpty)
+            else
             {
-                GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
-                if (gObj != null)
-                {
-                    EntryPoint ep = gObj.GetComponent<EntryPoint>();
-                    if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
-                    {
-                        isEmpty = true;
-                        changed = true;
-                        ep.isEmpty = true;
-                        ep.changed = true;
-                        //Debug.Log("sucesso");
-                    }
-                    else
-                    {
-                        //Debug.Log("sem sucesso");
-                    }
-                }
+                //Debug.Log("sem sucesso");
             }
         }
+    }
+
+
+    private void OnMouseUp()
+    {
+        if (wasPressed)
+        {
+            isEmpty = true;
+            CancelConnectionMode();
+        }
+        else if (!ConnectionMaker.isConnectionMode && isEmpty)
+        {
+            isEmpty = false;
+            wasPressed = true;
+            Instantiate(connectionMaker);
+            ConnectionMaker connectionM = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
+            connectionM.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+        }
+        else if (!ConnectionMaker.isConnectionMode && !isEmpty)
+        {
+            CancelConnection();
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        if (connectionDir == ConnectionPoint.ConnectionDirection.South || connectionDir == ConnectionPoint.ConnectionDirection.East)
+        {
+            if(FindUpperConnection())
+            boxCollider.enabled = false;
+        }
         updateSprite();
+    }
+
+    private void OnDestroy()
+    {
+        if (!isEmpty)
+        {
+            CancelConnection();
+        }
     }
 
     // Update is called once per frame
@@ -94,14 +114,45 @@ public class NewConnection : MonoBehaviour
         }
         else if (!ConnectionMaker.isConnectionMode && changed)
         {
-            changed = false;
-            boxCollider.enabled = true;
-            spriteRenderer.enabled = true;
+            if (connectionDir == ConnectionPoint.ConnectionDirection.South || connectionDir == ConnectionPoint.ConnectionDirection.East)
+            {
+                if (FindUpperConnection())
+                {
+                    boxCollider.enabled = false;
+                }
+                else
+                {
+                    boxCollider.enabled = true;
+                }
+                changed = false;
+                spriteRenderer.enabled = true;
+            }
+            else
+            {
+                changed = false;
+                boxCollider.enabled = true;
+                spriteRenderer.enabled = true;
+            }
+
             updateSprite();
         }
     }
     private void updateSprite()
     {
         spriteRenderer.sprite = sprites[plusOrMinus()];
+    }
+
+    private bool FindUpperConnection()
+    {
+        //return true if exists an free upper connection, false if don't
+        NewConnection[] conns = this.transform.parent.GetComponentsInChildren<NewConnection>();
+        foreach (NewConnection c in conns)
+        {
+            if (c.connectionDir == ConnectionPoint.ConnectionDirection.North && c.isEmpty)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

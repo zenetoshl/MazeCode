@@ -107,7 +107,6 @@ public class ConnectionManager : MonoBehaviour
     public static string ToCode(RectTransform transform)
     {
         string returnCode = transform.GetComponent<ToCode>().Code();
-        Debug.Log("1");
         string north = "";
         string south = "";
         string east = "";
@@ -117,10 +116,10 @@ public class ConnectionManager : MonoBehaviour
             switch (c.points[0].direction)
             {
                 case ConnectionPoint.ConnectionDirection.North:
-                    north = ToCode(c.target[1]) + "}";
+                    north = "{" + ToCode(c.target[1]) + "}";
                     break;
                 case ConnectionPoint.ConnectionDirection.South:
-                    south = "}else{" + ToCode(c.target[1]) + "}";
+                    south = "else{" + ToCode(c.target[1]) + "}";
                     break;
                 case ConnectionPoint.ConnectionDirection.East:
                     east = ToCode(c.target[1]);

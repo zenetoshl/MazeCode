@@ -19,6 +19,27 @@ public class EntryPoint : MonoBehaviour
         return isEmpty ? 0 : 1;
     }
 
+    private void CancelConnection()
+    {
+        GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
+        if (gObj != null)
+        {
+            NewConnection nc = gObj.GetComponent<NewConnection>();
+            if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
+            {
+                isEmpty = true;
+                changed = true;
+                nc.isEmpty = true;
+                nc.changed = true;
+                //Debug.Log("sucesso");
+            }
+            else
+            {
+                //Debug.Log("sem sucesso");
+            }
+        }
+    }
+
     private void OnMouseUp()
     {
         if (ConnectionMaker.isConnectionMode)
@@ -30,23 +51,7 @@ public class EntryPoint : MonoBehaviour
         }
         else if (!ConnectionMaker.isConnectionMode)
         {
-            GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
-            if (gObj != null)
-            {
-                NewConnection nc = gObj.GetComponent<NewConnection>();
-                if (ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
-                {
-                    isEmpty = true;
-                    changed = true;
-                    nc.isEmpty = true;
-                    nc.changed = true;
-                    //Debug.Log("sucesso");
-                }
-                else
-                {
-                    //Debug.Log("sem sucesso");
-                }
-            }
+            CancelConnection();
         }
     }
     // Start is called before the first frame update
@@ -58,11 +63,19 @@ public class EntryPoint : MonoBehaviour
         updateSprite();
     }
 
+    private void OnDestroy()
+    {
+        if (!isEmpty)
+        {
+            CancelConnection();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //atualização de estado depois de um connection mode
-        if (!ConnectionMaker.isConnectionMode && changed) 
+        if (!ConnectionMaker.isConnectionMode && changed)
         {
             if (!isEmpty)
             {
