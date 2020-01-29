@@ -6,7 +6,7 @@ public class Drag : MonoBehaviour {
     // Start is called before the first frame update
     private Vector3 screenPoint;
     private Vector3 offset;
-
+    
     void OnMouseDown () {
         ClickController.isClickingOnObject = true;
         screenPoint = Camera.main.WorldToScreenPoint (transform.position);
