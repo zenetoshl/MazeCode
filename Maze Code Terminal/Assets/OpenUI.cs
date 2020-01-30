@@ -12,8 +12,6 @@ public class OpenUI : MonoBehaviour
         if (!ClickController.isClickingOnObject)
         {
             thiswindow.TurnOn();
-            Debug.Log("oi");
         }
-
     }
 }
