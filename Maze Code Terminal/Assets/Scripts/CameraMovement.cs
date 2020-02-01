@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour {
     private Vector3 ResetCamera;
@@ -15,7 +16,7 @@ public class CameraMovement : MonoBehaviour {
         ResetCamera = Camera.main.transform.position;
     }
     void LateUpdate () {
-        if (!ClickController.isClickingOnObject) {
+        if (!ClickController.isClickingOnObject || !EventSystem.current.IsPointerOverGameObject()) {
             if (Input.GetMouseButton (0)) {
                 Diference = (Camera.main.ScreenToWorldPoint (Input.mousePosition)) - Camera.main.transform.position;
                 if (Drag == false) {
