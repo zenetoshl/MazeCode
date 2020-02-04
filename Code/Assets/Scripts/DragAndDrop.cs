@@ -9,7 +9,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler
     public Transform prefab;
 
     private Transform spawn;
-    public Button button;
 
     void Update()
     {
@@ -22,10 +21,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler
 
         if (Input.GetMouseButtonUp(0))
         {
-            if(EventSystem.current.IsPointerOverGameObject() && spawn != null){
-                Destroy(spawn.gameObject);
-                //adicionar 1 ao inventário novamente
-            }
             ClickController.isClickingOnObject = false;
             spawn = null;
         }
