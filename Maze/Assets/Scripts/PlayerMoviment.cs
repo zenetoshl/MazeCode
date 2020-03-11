@@ -1,44 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using Rewired;
 
 public class PlayerMoviment : MonoBehaviour
 {
+    //public int playerId;
+    //Player player;
+    public Vector2 movementDirection;
+    public float velocidade;
+    public float MOVEMENT_BASE_SPEED = 1.0f;
     public Animator animator;
-    public float velocidade = 3f;
-    private float horizontal = 0;
-    private float vertical = 0;
-    float abs(float n) { return n > 0 ? n : -n; }
+    public Rigidbody2D rd;
 
+    // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
 
+        ProcessInputs();
+        Move();
+        Animate();
+    }
+    void ProcessInputs()
+    {
+        movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        velocidade = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
+        movementDirection.Normalize();
+    }
+    void Move()
+    {
+        rd.velocity = movementDirection * velocidade * MOVEMENT_BASE_SPEED;
     }
 
-    void FixedUpdate()
+    void Animate()
     {
-        if (abs(horizontal) >= abs(vertical))
+        if (movementDirection != Vector2.zero)
         {
-            vertical = 0;
-            if (horizontal < -0.3)
-                horizontal = -1;
-            else if (horizontal > 0.3)
-                horizontal = 1;
+            animator.SetFloat("Y", movementDirection.y);
+            animator.SetFloat("X", movementDirection.x);
         }
-        else
-        {
-            horizontal = 0;
-            if (vertical < -0.3)
-                vertical = -1;
-            else if (vertical > 0.3)
-                vertical = 1;
-        }
-        animator.SetFloat("X", horizontal);
-        animator.SetFloat("Y", vertical);
-
-        Vector3 movimento = new Vector3(horizontal, vertical, 0.0f);
-        transform.position = velocidade * movimento * Time.deltaTime + transform.position;
+        animator.SetFloat("speed", velocidade);
     }
 }
