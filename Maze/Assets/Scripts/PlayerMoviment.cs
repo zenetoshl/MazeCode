@@ -26,9 +26,18 @@ public class PlayerMoviment : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         velocidade = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
         movementDirection.Normalize();
+        if (velocidade > 0)
+        {
+            SomPassos.current.audioSource.mute = false;
+        }
+        else
+        {
+            SomPassos.current.audioSource.mute = true;
+        }
     }
     void Move()
     {
+        
         rd.velocity = movementDirection * velocidade * MOVEMENT_BASE_SPEED;
     }
 

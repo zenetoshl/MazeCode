@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SomPassos : MonoBehaviour
+public class AudioControler : MonoBehaviour
 {
-    public AudioClip Passos;
+    public AudioClip SomPassos;
 
-    public AudioSource audioSource;
-    public static SomPassos current;
+    private AudioSource audioSource;
+    public static AudioControler current;
     void Start()
     {
         current = this;
@@ -17,15 +17,11 @@ public class SomPassos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void PlayMusic()
+    public void PlayMusic(AudioClip clip)
     {
-        audioSource.Play();
-    }
-    public void StopMusic()
-    {
-        audioSource.Stop();
+        audioSource.PlayOneShot(clip);
     }
 }
