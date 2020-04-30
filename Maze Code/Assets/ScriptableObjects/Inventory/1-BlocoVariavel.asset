@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1a226cdb69b464fa2ad2fca50605b9, type: 3}
+  m_Name: 1-BlocoVariavel
+  m_EditorClassIdentifier: 
+  itemName: Variavel
+  itemDescription: "Uma vari\xE1vel \xE9 um objeto (uma posi\xE7\xE3o, frequentemente
+    localizada na mem\xF3ria) capaz de reter e representar um valor ou express\xE3o."
+  itemImage: {fileID: 21300000, guid: 65dba6fd6dfeb0b44950eee4f81e1a34, type: 3}
+  numberHeld: 12
+  usable: 1
+  unique: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
