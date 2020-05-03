@@ -42,7 +42,14 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void StartInventory()
+    void Start()
+    {
+        ClearInventorySlots();
+        MakeInventorySlots();
+        SetText("Clique em algum bloco para ver os detalhes!");
+    }
+
+    void onEnable()
     {
         ClearInventorySlots();
         MakeInventorySlots();
