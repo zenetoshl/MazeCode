@@ -11,6 +11,7 @@ public enum PlayerState {
 }
 public class PlayerMovement : MonoBehaviour
 {
+    protected Joystick joystick;
     [SerializeField]
     private GameObject circle, dot;
 
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Use this for initialization
     void Start() {
+        joystick = FindObjectOfType<Joystick>();
         currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -50,10 +52,10 @@ public class PlayerMovement : MonoBehaviour
         }
         /* */
         change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
-        
-        if(Input.GetButtonDown("attack") && currentState != PlayerState.attack
+        change.x = joystick.Horizontal * speed;
+        change.y = joystick.Vertical * speed;
+
+        if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());

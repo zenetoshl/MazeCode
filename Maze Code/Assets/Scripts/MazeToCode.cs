@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 // Scene Transition
 public class MazeToCode : Interactable
 {
+    protected JoyButton joybutton;
     [Header("New Scene Variables")]
     public string sceneToLoad;
     public Vector2 playerPosition;
@@ -29,10 +30,13 @@ public class MazeToCode : Interactable
             Destroy(panel, 1); 
         }
     }
-
+    private void Start()
+    {
+        joybutton = FindObjectOfType<JoyButton>();
+    }
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && playerInRange)
+        if(joybutton.Pressed && playerInRange)
         {
             playerStorage.initialValue = playerPosition;
             //SceneManager.LoadScene(sceneToLoad);
