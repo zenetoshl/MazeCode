@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void closeTerminal(){
+    private void CloseTerminal(){
         invent.SetActive(true);
         menu.SetActive(true);
     }
@@ -29,8 +29,13 @@ public class UIManager : MonoBehaviour
             if(isOpened){
                 OpenTerminal();
             } else {
-                closeTerminal();
+                CloseTerminal();
             }
         }
+    }
+
+    public static void ChangeWindowStatus(bool b){
+        changed = true;
+        isOpened = b;
     }
 }

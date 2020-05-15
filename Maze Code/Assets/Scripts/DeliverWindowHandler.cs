@@ -4,11 +4,13 @@ using Lean.Gui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DeliverWindowHandler : MonoBehaviour {
     public TextMeshProUGUI percent;
     public TextMeshProUGUI bodyText;
     public Image circle;
+    public Image button;
     public LeanWindow window;
 
     public Color[] colors;
@@ -20,6 +22,7 @@ public class DeliverWindowHandler : MonoBehaviour {
         int i = GetIndex();
         Debug.Log(i);
         circle.color = colors[i];
+        button.color = colors[i];
         bodyText.text = titles[i] + "\n\n" + bodies[i];
         percent.text = CodeSender.rightAnwsersPercentage + "%";
         window.TurnOn();
@@ -27,5 +30,9 @@ public class DeliverWindowHandler : MonoBehaviour {
 
     private int GetIndex(){
         return ((CodeSender.rightAnwsersPercentage > 50) ? ((CodeSender.rightAnwsersPercentage == 100) ? 0 : 1) : 2);
+    }
+
+    public void BackToMaze(){
+        SceneManager.LoadScene ("Labirinto");
     }
 }
