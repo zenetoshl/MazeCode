@@ -66,6 +66,6 @@ public class BlocoFor : Bloco
     }
 
     public override void ToUI(){
-        uiText.text = var.GetText() + " de " + initial.text + " até " + end.text;
+        uiText.text = var.GetText() + "\nDe " + initial.text + "\nAté " + end.text;
     }
 }

@@ -53,6 +53,6 @@ public class BlocoIf : Bloco
         return var.Compile(scope) && val.Compile(scope);
     }
     public override void ToUI(){
-        uiText.text = var.GetText() +" "+ op.text + " "+ val.GetActiveText();
+        uiText.text = var.GetText() +"\n"+ op.text + "\n"+ val.GetActiveText();
     }
 }
