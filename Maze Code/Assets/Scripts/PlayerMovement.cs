@@ -40,10 +40,12 @@ public class PlayerMovement : MonoBehaviour
 
         circle.SetActive(false);
         dot.SetActive(false);
+
+
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         
         // Is the player in an interaction
         if(currentState == PlayerState.interact)
@@ -52,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
         }
         /* */
         change = Vector3.zero;
-        change.x = joystick.Horizontal * speed;
-        change.y = joystick.Vertical * speed;
+        change.x = joystick.Horizontal;
+        change.y = joystick.Vertical;
 
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
