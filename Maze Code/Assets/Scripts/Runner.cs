@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using Lean.Gui;
+using RoslynCSharp;
+using RoslynCSharp.Compiler;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Runner : MonoBehaviour {
+
+    ScriptType type = null;
+    ScriptProxy proxy = null;
+
+    public BlocoInicial initBlock;
+    public TextMeshProUGUI outputText;
+    public Transform ListParent;
+
+    public void RunTest () {
+        string source = ConnectionManager.ToCode (initBlock.GetComponent<RectTransform> ()) + "}}}";
+        StartCoroutine (RunAsync (source, outputText, TextInputInstantiator.ToList (ListParent)));
+    }
+
+    public IEnumerator RunAsync (string source, TextMeshProUGUI textUI, List<int> list) {
+        LoadingCircle.UpdateLoad(true);
+        Debug.Log (source);
+        ScriptDomain domain = ScriptDomain.CreateDomain ("resposta");
+        AsyncCompileOperation compileRequest = domain.CompileAndLoadSourceAsync (source, ScriptSecurityMode.UseSettings);
+        // Wait for operation to complete
+        yield return compileRequest;
+        // Check for compiler errors
+        if (compileRequest.IsSuccessful == false) {
+            // Get all errors
+            foreach (CompilationError error in compileRequest.CompileDomain.CompileResult.Errors) {
+                if (error.IsError == true) {
+                    Debug.LogError (error.ToString ());
+                } else if (error.IsWarning == true) {
+                    Debug.LogWarning (error.ToString ());
+                }
+            }
+        } else {
+            type = compileRequest.CompiledType;
+            proxy = type.CreateInstance (this.gameObject);
+            proxy.Fields["_inputs"] = list;
+            proxy.Call (initBlock.name);
+            textUI.text = (string) proxy.Fields["_output"];
+        }
+        LoadingCircle.UpdateLoad(false);
+    }
+}
