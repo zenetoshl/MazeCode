@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Scene Transition
-public class MazeToCode : Interactable
+public class CodeToMaze : MonoBehaviour
 {
-    protected JoyButton joybutton;
+    
     [Header("New Scene Variables")]
     public string sceneToLoad;
+    public Vector2 playerPosition;
+    public VectorValue playerStorage;
+
+    public Vector2 cameraNewMin;
+    public Vector2 cameraNewMax;
+    public VectorValue cameraMin;
+    public VectorValue cameraMax;
 
     [Header("Transition Variables")]
     public GameObject fadeInPanel;
@@ -24,17 +30,11 @@ public class MazeToCode : Interactable
             Destroy(panel, 1); 
         }
     }
-    private void Start()
+    
+    public void ReturnToMaze()
     {
-        joybutton = FindObjectOfType<JoyButton>();
-    }
-    public void Update()
-    {
-        if(joybutton.Pressed && playerInRange)
-        {
-            //SceneManager.LoadScene(sceneToLoad);
-            StartCoroutine(FadeControl());
-        }
+        playerStorage.initialValue = playerPosition;
+        StartCoroutine(FadeControl());
     }
 
     public IEnumerator FadeControl()
@@ -44,11 +44,17 @@ public class MazeToCode : Interactable
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
         }
         yield return new WaitForSeconds(fadeWait);
+        ResetCameraBounds();
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
         while(!asyncOperation.isDone)
         {
             yield return null;
         }
     }
-}
 
+    public void ResetCameraBounds()
+    {
+        cameraMax.initialValue = cameraNewMax;
+        cameraMin.initialValue = cameraNewMin;
+    }
+}
