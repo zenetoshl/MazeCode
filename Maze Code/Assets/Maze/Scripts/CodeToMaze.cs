@@ -22,6 +22,10 @@ public class CodeToMaze : MonoBehaviour
     public GameObject fadeOutPanel;
     public float fadeWait;
 
+    [Header("Puzzle Status")]
+    public BoolValue puzzle;
+
+
     public void Awake()
     {
         if(fadeInPanel != null)
@@ -33,6 +37,9 @@ public class CodeToMaze : MonoBehaviour
     
     public void ReturnToMaze()
     {
+        // O jogador conseguiu realizar o desafio e destravar a porta
+        puzzle.RuntimeValue = true;
+
         playerStorage.initialValue = playerPosition;
         StartCoroutine(FadeControl());
     }

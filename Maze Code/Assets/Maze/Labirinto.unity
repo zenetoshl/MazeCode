@@ -6001,6 +6001,30 @@ PrefabInstance:
       propertyPath: dialogText
       value: 
       objectReference: {fileID: 1416421151}
+    - target: {fileID: 335580019634664348, guid: 2a533b83084dcea479d35490f7e221c9,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b,
+        type: 2}
+    - target: {fileID: 335580019634664348, guid: 2a533b83084dcea479d35490f7e221c9,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 894e4bc317f852c44bef3596189b9fe7,
+        type: 2}
+    - target: {fileID: 335580019634664348, guid: 2a533b83084dcea479d35490f7e221c9,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: f7536d05512e5ba44b8ed4eba5eac467,
+        type: 2}
+    - target: {fileID: 335580019634664348, guid: 2a533b83084dcea479d35490f7e221c9,
+        type: 3}
+      propertyPath: contents
+      value: 
+      objectReference: {fileID: 11400000, guid: 535fd4e994648014195bee776dce5c1e,
+        type: 2}
     - target: {fileID: 335580019634664349, guid: 2a533b83084dcea479d35490f7e221c9,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -7046,9 +7070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10411415b2ee7be45a963f7f9e003660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 11400000, guid: 8be475d7ede509d42ab2ba96348c9746, type: 2}
-  - {fileID: 11400000, guid: 8be475d7ede509d42ab2ba96348c9746, type: 2}
+  objects: []
 --- !u!4 &1644087008
 Transform:
   m_ObjectHideFlags: 0
@@ -7961,7 +7983,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: d88235cbe9cfbef439a04713189f49c0, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 01cd61227b5eb7a4c899ae8decadfefb, type: 2}
   roomTransfer: {fileID: 1463383677051554899}
 --- !u!4 &268541586103216594
 Transform:
@@ -8090,6 +8112,8 @@ MonoBehaviour:
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.3
+  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
+  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
 --- !u!1 &340829479686294152
 GameObject:
   m_ObjectHideFlags: 0
@@ -8200,6 +8224,24 @@ PrefabInstance:
       propertyPath: dot
       value: 
       objectReference: {fileID: 2929252283156103093}
+    - target: {fileID: 4498480006797294437, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b,
+        type: 2}
+    - target: {fileID: 4498480006797294437, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
+        type: 3}
+      propertyPath: itemToReceive
+      value: 
+      objectReference: {fileID: 11400000, guid: 894e4bc317f852c44bef3596189b9fe7,
+        type: 2}
+    - target: {fileID: 4498480006797294437, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: f7536d05512e5ba44b8ed4eba5eac467,
+        type: 2}
     - target: {fileID: 4498480006797294438, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -8218,12 +8260,12 @@ PrefabInstance:
     - target: {fileID: 4498480006797294441, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4498480006797294441, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 4498480006797294441, guid: 4cd069c36087d814ba0d72ca6f0c31e5,
         type: 3}
@@ -8326,7 +8368,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: 1580bed20eea089448a791d5d9359d3b, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 827fcf85d8ff0c64ebd91cec7570f68d, type: 2}
   roomTransfer: {fileID: 340829479686294158}
 --- !u!1001 &1434578763297856634
 PrefabInstance:
@@ -8484,7 +8526,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: 1580bed20eea089448a791d5d9359d3b, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 827fcf85d8ff0c64ebd91cec7570f68d, type: 2}
   roomTransfer: {fileID: 551241796}
 --- !u!61 &1644554283328537052
 BoxCollider2D:
@@ -8653,6 +8695,8 @@ MonoBehaviour:
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.3
+  inventory: {fileID: 0}
+  thisPuzzle: {fileID: 0}
 --- !u!212 &2630061315797570866
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8779,7 +8823,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: ea9469a4d8bb1d440a39d7a83e59cd8b, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: b25621e2bbbb5254cbf166a60c7f524c, type: 2}
   roomTransfer: {fileID: 3532774907882545291}
 --- !u!1 &2865934176599160816
 GameObject:
@@ -23367,7 +23411,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: e06f08521a300d24b8a64371bd1e5c8a, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 873f593ec03df2346957dcfeb8f40bbf, type: 2}
   roomTransfer: {fileID: 2865934178554033315}
 --- !u!114 &3705597189092121654
 MonoBehaviour:
@@ -23388,7 +23432,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: e06f08521a300d24b8a64371bd1e5c8a, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 873f593ec03df2346957dcfeb8f40bbf, type: 2}
   roomTransfer: {fileID: 2865934177771419167}
 --- !u!114 &3705597189285110940
 MonoBehaviour:
@@ -23409,7 +23453,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: ea9469a4d8bb1d440a39d7a83e59cd8b, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: b25621e2bbbb5254cbf166a60c7f524c, type: 2}
   roomTransfer: {fileID: 2865934178098384565}
 --- !u!114 &3705597190401285502
 MonoBehaviour:
@@ -23430,7 +23474,7 @@ MonoBehaviour:
   text: {fileID: 1244733288}
   placeText: {fileID: 1244733290}
   isOpen: 0
-  puzzleStatus: {fileID: 11400000, guid: d88235cbe9cfbef439a04713189f49c0, type: 2}
+  puzzleStatus: {fileID: 11400000, guid: 01cd61227b5eb7a4c899ae8decadfefb, type: 2}
   roomTransfer: {fileID: 2865934177000175447}
 --- !u!1001 &3767213163328943436
 PrefabInstance:
@@ -23814,6 +23858,8 @@ MonoBehaviour:
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.3
+  inventory: {fileID: 0}
+  thisPuzzle: {fileID: 0}
 --- !u!4 &5763109309828120382
 Transform:
   m_ObjectHideFlags: 0
@@ -23941,6 +23987,8 @@ MonoBehaviour:
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.3
+  inventory: {fileID: 0}
+  thisPuzzle: {fileID: 0}
 --- !u!4 &5763109310318254694
 Transform:
   m_ObjectHideFlags: 0
