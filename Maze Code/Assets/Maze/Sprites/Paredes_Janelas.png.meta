@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 7b6d42972dfb8c94fb57030e3880ebde
+guid: 91bee1511f7feba4cb708f39dbcb66c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -752332503401908046
-    second: Inside 2_0
+      213: -2902544879213191823
+    second: Paredes_Janelas_0
   - first:
-      213: 6684620941184707972
-    second: Inside 2_1
+      213: -8756361755933068443
+    second: Paredes_Janelas_1
   - first:
-      213: -6175482933613862063
-    second: Inside 2_2
+      213: -7013038244473844574
+    second: Paredes_Janelas_2
   - first:
-      213: -2484651216307743498
-    second: Inside 2_3
+      213: -9218785254226074033
+    second: Paredes_Janelas_3
+  - first:
+      213: -6962436118528815116
+    second: Paredes_Janelas_4
+  - first:
+      213: 596946839300815539
+    second: Paredes_Janelas_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -57,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 31.5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,76 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inside 2_0
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 66
-        width: 28
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b8bfbdf29d2f85f0800000000000000
-      internalID: -752332503401908046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 2_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 231
-        width: 64
-        height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48da371545b84cc50800000000000000
-      internalID: 6684620941184707972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 2_2
+      name: Paredes_Janelas_0
       rect:
         serializedVersion: 2
         x: 289
-        y: 320
-        width: 30
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1536571bdf64c4aa0800000000000000
-      internalID: -6175482933613862063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 2_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 32
-        height: 48
+        y: 0
+        width: 95
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +130,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f41c3d02eeb48dd0800000000000000
-      internalID: -2484651216307743498
+      spriteID: 17d5ed98fc618b7d0800000000000000
+      internalID: -2902544879213191823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paredes_Janelas_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5633bcc40672b7680800000000000000
+      internalID: -8756361755933068443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paredes_Janelas_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 107
+        width: 8
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac48e19fdeacae90800000000000000
+      internalID: -7013038244473844574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paredes_Janelas_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 9
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46ee3d87ab401080800000000000000
+      internalID: -9218785254226074033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paredes_Janelas_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 95
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff8dbf1d35706f90800000000000000
+      internalID: -6962436118528815116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paredes_Janelas_5
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 184
+        width: 48
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba3152dcf7c84800800000000000000
+      internalID: 596946839300815539
       vertices: []
       indices: 
       edges: []
