@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: Puzzle 1
   m_EditorClassIdentifier: 
-  numSala: 0
+  naSala: 0
+  destravaSala: 1
   objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
   realizado: {fileID: 11400000, guid: 827fcf85d8ff0c64ebd91cec7570f68d, type: 2}
-  variavel: 3
-  leitura: 4
-  imprime: 5
-  matematica: 6
+  variavel: 2
+  leitura: 2
+  imprime: 2
+  matematica: 0
   condicional: 0
   loopDefinido: 0
   loopIndefinido: 0
@@ -33,7 +34,3 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  desafios:
-  - {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
-  - {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
-  - {fileID: 11400000, guid: ed3ce119b88e4fa4a87ee527a5639b7b, type: 2}

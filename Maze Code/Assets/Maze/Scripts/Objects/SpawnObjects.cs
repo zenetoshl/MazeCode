@@ -4,34 +4,27 @@ using UnityEngine;
 
 public class SpawnObjects : MonoBehaviour
 {
-    public GameObject Foodprefab;
+    public GameObject block;
     public Vector2 center;
     public Vector2 size;
     
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            SpawnFood();
+            SpawnBlock();
         }
         if (Input.GetKey(KeyCode.L))
         {
-            SpawnFood();
+            SpawnBlock();
         }
     }
 
-    public void SpawnFood()
+    public void SpawnBlock()
     {
         Vector2 pos = center + new Vector2(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2));
-        Instantiate(Foodprefab, pos, Quaternion.identity);
+        Instantiate(block , pos, Quaternion.identity);
     }
     void OnDrawGizmosSelected()
     {

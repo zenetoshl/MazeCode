@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Puzzle : ScriptableObject
 {
+    [Header("Especificações do mapa")]
+    public int naSala;
+    public int destravaSala;
+
     [Header("Detalhes do Puzzle")]
-    public int numSala;
     public string objetivo;
     public BoolValue realizado;
     
@@ -31,7 +34,4 @@ public class Puzzle : ScriptableObject
     public int bonusLoopIndefinido;  // 7 - Rosa
     public int bonusVetor;           // 8 - Marrom
     public int bonusMatriz;          // 9 - Cinza
-
-    [Header("Esse puzzle destrava os seguintes puzzles")]
-    public List<Puzzle> desafios = new List<Puzzle>();
 }

@@ -128,6 +128,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752798293629820850, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMin.y
+      value: 15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752798293629820850, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMax.y
+      value: 22.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752798293629820850, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: puzzle
+      value: 
+      objectReference: {fileID: 11400000, guid: 01cd61227b5eb7a4c899ae8decadfefb,
+        type: 2}
+    - target: {fileID: 752798293629820850, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: playerPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 752798293629820850, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: playerPosition.y
+      value: 21.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1485035117608100045, guid: d33807007dfd6ed469a79354badafac1,
         type: 3}
       propertyPath: m_Mesh
@@ -227,6 +253,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: puzzle
+      value: 
+      objectReference: {fileID: 11400000, guid: 01cd61227b5eb7a4c899ae8decadfefb,
+        type: 2}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMin.x
+      value: -3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMin.y
+      value: 15.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMax.x
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: cameraNewMax.y
+      value: 22.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: playerPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905133407717872842, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: playerPosition.y
+      value: 21.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943049823266368437, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949594436220682214, guid: d33807007dfd6ed469a79354badafac1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d33807007dfd6ed469a79354badafac1, type: 3}

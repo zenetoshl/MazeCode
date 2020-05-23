@@ -39,8 +39,9 @@ public class MazeToCode : Interactable
         {
             // Confere os requerimentos do desafio
             if(CheckPuzzleRequirements())
-                Debug.Log("Problema resolvido");
-                //StartCoroutine(FadeControl());
+            {
+                StartCoroutine(FadeControl());
+            }
             // Senão, exibe mensagem que diz o jogador não tem blocos
                 // Exibir dialogBox com aviso
         }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class CodeToMaze : MonoBehaviour
 {
-    
     [Header("New Scene Variables")]
     public string sceneToLoad;
     public Vector2 playerPosition;
@@ -24,7 +23,6 @@ public class CodeToMaze : MonoBehaviour
 
     [Header("Puzzle Status")]
     public BoolValue puzzle;
-
 
     public void Awake()
     {
