@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+    protected JoyButtonInventory joybutton;
 
     private bool isPaused;
     public GameObject pausePanel;
     public GameObject inventoryPanel;
     public bool usingPausePanel; 
     public string mainMenu;
+    
     // Start is called before the first frame update
     void Start()
     {
+        joybutton = FindObjectOfType<JoyButtonInventory>();
+        
         isPaused = false;
         pausePanel.SetActive(false);
         inventoryPanel.SetActive(false);
@@ -23,7 +27,7 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("pause"))
+        if(joybutton.Pressed)
         {
             ChangePause();
         }

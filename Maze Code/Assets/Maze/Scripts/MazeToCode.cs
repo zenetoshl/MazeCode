@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 // Scene Transition
 public class MazeToCode : Interactable
 {
-    protected JoyButton joybutton;
+    protected JoyButtonAction joybutton;
     [Header("New Scene Variables")]
     public string sceneToLoad;
 
     [Header("Transition Variables")]
-    public GameObject fadeInPanel;
+    //public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
 
@@ -22,15 +22,18 @@ public class MazeToCode : Interactable
 
     public void Awake()
     {
+        /*
         if(fadeInPanel != null)
         {
             GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
             Destroy(panel, 1); 
         }
+        */
     }
+
     private void Start()
     {
-        joybutton = FindObjectOfType<JoyButton>();
+        joybutton = FindObjectOfType<JoyButtonAction>();
     }
 
     public void Update()

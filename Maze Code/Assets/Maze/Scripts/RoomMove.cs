@@ -13,7 +13,7 @@ public class RoomMove : MonoBehaviour
     public Text placeText;
 
     public bool isOpen;
-    public BoolValue puzzleStatus;
+    public Puzzle puzzleStatus;
     public BoxCollider2D roomTransfer;
 
     private CameraMovement cam;
@@ -27,7 +27,7 @@ public class RoomMove : MonoBehaviour
 
     void Update()
     {
-        isOpen = puzzleStatus.RuntimeValue;
+        isOpen = puzzleStatus.status;
         roomTransfer.isTrigger = isOpen;
     }
 

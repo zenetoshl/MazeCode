@@ -22,7 +22,7 @@ public class CodeToMaze : MonoBehaviour
     public float fadeWait;
 
     [Header("Puzzle Status")]
-    public BoolValue puzzle;
+    public Puzzle puzzleStatus;
 
     public void Awake()
     {
@@ -36,7 +36,9 @@ public class CodeToMaze : MonoBehaviour
     public void ReturnToMaze()
     {
         // O jogador conseguiu realizar o desafio e destravar a porta
-        puzzle.RuntimeValue = true;
+        puzzleStatus.status = true;
+
+        // TODO: Incrementar o invetário com o bonus do puzzle
 
         playerStorage.initialValue = playerPosition;
         StartCoroutine(FadeControl());

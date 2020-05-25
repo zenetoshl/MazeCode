@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Puzzle : ScriptableObject
+[System.Serializable]
+public class Puzzle : ScriptableObject, ISerializationCallbackReceiver
 {
     [Header("Especificações do mapa")]
     public int naSala;
@@ -11,7 +12,9 @@ public class Puzzle : ScriptableObject
 
     [Header("Detalhes do Puzzle")]
     public string objetivo;
-    public BoolValue realizado;
+    
+    [Header("Estado do puzzle (Foi Realizado ou não?)")]
+    public bool status;
     
     [Header("Número de blocos necessários")]
     public int variavel;        // 1 - Vermelho
@@ -34,4 +37,8 @@ public class Puzzle : ScriptableObject
     public int bonusLoopIndefinido;  // 7 - Rosa
     public int bonusVetor;           // 8 - Marrom
     public int bonusMatriz;          // 9 - Cinza
+
+    public void OnAfterDeserialize() { }
+
+    public void OnBeforeSerialize() { }
 }

@@ -40,7 +40,7 @@ public class MapManager : MonoBehaviour
         sala.Clear();
         for(int i=0; i<puzzle.Count; i++)
         {
-            if(puzzle[i].realizado.RuntimeValue == true)
+            if(puzzle[i].status == true)
             {
                 sala.Add(puzzle[i].destravaSala);
             }
@@ -57,7 +57,7 @@ public class MapManager : MonoBehaviour
             {
                 if(sala[j] == puzzle[i].naSala)
                 {
-                    if(puzzle[i].realizado.RuntimeValue == false)
+                    if(puzzle[i].status == false)
                     {
                         puzzleAcessivel.Add(puzzle[i]);
                     }

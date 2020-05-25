@@ -12,7 +12,6 @@ public enum PlayerState {
 public class PlayerMovement : MonoBehaviour
 {
     protected Joystick joystick;
-
     private Touch oneTouch;
     private Vector2 touchPosition;
     private Vector2 moveDirection;

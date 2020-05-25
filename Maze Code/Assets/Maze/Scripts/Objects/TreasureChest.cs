@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TreasureChest : Interactable
 {
-    protected JoyButton joybutton;
+    protected JoyButtonAction joybutton;
     [Header("Contents")]
     public Item contents;
     public Inventory playerInventory;
@@ -23,7 +23,7 @@ public class TreasureChest : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        joybutton = FindObjectOfType<JoyButton>();
+        joybutton = FindObjectOfType<JoyButtonAction>();
         anim = GetComponent<Animator>();
         isOpen = storedOpen.RuntimeValue;
         if(isOpen)
