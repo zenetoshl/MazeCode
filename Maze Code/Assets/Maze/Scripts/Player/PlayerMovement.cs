@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector3 change;
     private Animator animator;
-    //public VectorValue startingPosition;
+    public VectorValue startingPosition;
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
-        //transform.position = startingPosition.initialValue;
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
