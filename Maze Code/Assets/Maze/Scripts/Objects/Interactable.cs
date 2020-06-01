@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     
-    public Signal_Question context;
+    public Signal context;
     public bool playerInRange;
 
     // Start is called before the first frame update
