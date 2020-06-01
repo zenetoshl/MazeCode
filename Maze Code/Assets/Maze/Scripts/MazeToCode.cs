@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 // Scene Transition
 public class MazeToCode : Interactable
 {
+    public GameObject Jogador;
     protected JoyButtonAction joybutton;
     [Header("New Scene Variables")]
     public string sceneToLoad;
@@ -43,6 +44,8 @@ public class MazeToCode : Interactable
             // Confere os requerimentos do desafio
             if(CheckPuzzleRequirements())
             {
+                Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
+                SceneManager.LoadScene(sceneToLoad);
                 StartCoroutine(FadeControl());
             }
             // Senão, exibe mensagem que diz o jogador não tem blocos
