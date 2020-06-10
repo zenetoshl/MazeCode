@@ -11,9 +11,6 @@ public class InventoryItem : ScriptableObject
     public string itemDescription;
     public Sprite itemImage;
     public int numberHeld;
-    public bool usable;
-    public bool unique;
-    
     public UnityEvent thisEvent;
 
     public void Use()

@@ -36,7 +36,7 @@ public class CodeToMaze : MonoBehaviour
     public void ReturnToMaze()
     {
         // O jogador conseguiu realizar o desafio e destravar a porta
-        puzzleStatus.status = true;
+        puzzleStatus.runtimeValue = true;
 
         // TODO: Incrementar o invetário com o bonus do puzzle
 

@@ -40,7 +40,7 @@ public class MapManager : MonoBehaviour
         sala.Clear();
         for(int i=0; i<puzzle.Count; i++)
         {
-            if(puzzle[i].status == true)
+            if(puzzle[i].runtimeValue == true)
             {
                 sala.Add(puzzle[i].destravaSala);
             }
@@ -57,7 +57,7 @@ public class MapManager : MonoBehaviour
             {
                 if(sala[j] == puzzle[i].naSala)
                 {
-                    if(puzzle[i].status == false)
+                    if(puzzle[i].runtimeValue == false)
                     {
                         puzzleAcessivel.Add(puzzle[i]);
                     }
@@ -191,7 +191,7 @@ public class MapManager : MonoBehaviour
 
         if(inventory.myInventory[4].numberHeld < puzzleAcessivel[0].condicional)
         {
-
+            
         }
 
         if(inventory.myInventory[5].numberHeld < puzzleAcessivel[0].loopDefinido)

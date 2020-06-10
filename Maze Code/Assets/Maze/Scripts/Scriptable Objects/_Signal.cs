@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Signal : ScriptableObject
+public class _Signal : ScriptableObject
 {
-    public List<SignalListener> listeners = new List<SignalListener> ();
+    public List<_SignalListener> listeners = new List<_SignalListener> ();
 
     public void Raise()
     {
@@ -15,12 +15,12 @@ public class Signal : ScriptableObject
         }
     }
 
-    public void RegisterListener(SignalListener listener)
+    public void RegisterListener(_SignalListener listener)
     {
         listeners.Add(listener);
     }
 
-    public void DeRegisterListener(SignalListener listener)
+    public void DeRegisterListener(_SignalListener listener)
     {
         listeners.Remove(listener);
     }

@@ -140,7 +140,6 @@ public class MazeToCode : Interactable
             Debug.Log("O problema NÃO pode ser resolvido");
             return false;
         }
-        return false;
     }
 }
 

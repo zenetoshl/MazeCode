@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SignalListener : MonoBehaviour {
+public class _SignalListener : MonoBehaviour {
 
-    public Signal signal;
+    public _Signal signal;
     public UnityEvent signalEvent;
 
     public void OnSignalRaised()

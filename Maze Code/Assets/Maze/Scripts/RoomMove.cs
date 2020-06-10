@@ -27,7 +27,7 @@ public class RoomMove : MonoBehaviour
 
     void Update()
     {
-        isOpen = puzzleStatus.status;
+        isOpen = puzzleStatus.runtimeValue;
         roomTransfer.isTrigger = isOpen;
     }
 

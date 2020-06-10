@@ -13,8 +13,9 @@ public class Puzzle : ScriptableObject, ISerializationCallbackReceiver
     [Header("Detalhes do Puzzle")]
     public string objetivo;
     
-    [Header("Estado do puzzle (Foi Realizado ou não?)")]
-    public bool status;
+    [Header("Estado do puzzle (Foi realizado ou não?)")]
+    public bool initialValue;
+    public bool runtimeValue;
     
     [Header("Número de blocos necessários")]
     public int variavel;        // 1 - Vermelho
