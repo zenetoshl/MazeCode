@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameSaveManager : MonoBehaviour
 {
+    
     public List<ScriptableObject> objects = new List<ScriptableObject>();
 
     public void ResetScriptables()
