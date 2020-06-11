@@ -238,6 +238,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad: Labirinto
+--- !u!1001 &167587482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3748305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.896067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3222.1973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792799847281637811, guid: 75a18b1fa037646418793c5ef9348dbe,
+        type: 3}
+      propertyPath: m_Name
+      value: Inventory
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75a18b1fa037646418793c5ef9348dbe, type: 3}
+--- !u!114 &167587483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8264647859602194356, guid: 75a18b1fa037646418793c5ef9348dbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 167587482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d14714a6fd806c4a9512625a38572e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &254341784
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,12 +403,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2084930478}
-        m_MethodName: 
+      - m_Target: {fileID: 2084930481}
+        m_MethodName: LoadScriptables
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -891,12 +972,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2084930478}
-        m_MethodName: 
+      - m_Target: {fileID: 2084930481}
+        m_MethodName: ResetScriptables
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1310,6 +1391,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5023374294073641348, guid: ed9eac48cb9761b49942786de199a285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023374294073642618, guid: ed9eac48cb9761b49942786de199a285,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 167587483}
     - target: {fileID: 5023374294540581835, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: objects.Array.size
@@ -1325,12 +1416,6 @@ PrefabInstance:
 --- !u!1 &2084930477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5023374294220711080, guid: ed9eac48cb9761b49942786de199a285,
-    type: 3}
-  m_PrefabInstance: {fileID: 2084930476}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2084930478 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5023374294073641348, guid: ed9eac48cb9761b49942786de199a285,
     type: 3}
   m_PrefabInstance: {fileID: 2084930476}
   m_PrefabAsset: {fileID: 0}
@@ -1356,5 +1441,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2d2da9f181f75441b28ac7d46594ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2084930481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5023374294073642618, guid: ed9eac48cb9761b49942786de199a285,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084930476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3ac8f395d09af4cb2b454af55f6797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

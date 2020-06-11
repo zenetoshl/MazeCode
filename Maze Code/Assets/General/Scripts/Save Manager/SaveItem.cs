@@ -12,13 +12,13 @@ public class SaveItem : MonoBehaviour
     private void OnEnable()
     {
         LoadScriptables();
-        Debug.Log("Load Items OK");
+        //Debug.Log("Load Items OK");
     }
 
     private void OnDisable()
     {
         SaveScriptables();
-        Debug.Log("Save Items OK");
+        //Debug.Log("Save Items OK");
     }
 
     public void SaveScriptables()
@@ -59,6 +59,6 @@ public class SaveItem : MonoBehaviour
                 File.Delete(Application.persistentDataPath + string.Format("/{0}.itm", i));
             }
         }
-        Debug.Log("Reset Items OK");
+        //Debug.Log("Reset Items OK");
     }
 }

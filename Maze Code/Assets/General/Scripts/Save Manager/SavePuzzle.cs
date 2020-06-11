@@ -12,13 +12,13 @@ public class SavePuzzle : MonoBehaviour
     private void OnEnable()
     {
         LoadScriptables();
-        Debug.Log("Load Puzzles ok");
+        //Debug.Log("Load Puzzles ok");
     }
 
     private void OnDisable()
     {
         SaveScriptables();
-        Debug.Log("Save Puzzles OK");
+        //Debug.Log("Save Puzzles OK");
     }
 
     public void SaveScriptables()
@@ -59,6 +59,6 @@ public class SavePuzzle : MonoBehaviour
                 File.Delete(Application.persistentDataPath + string.Format("/{0}.pzz", i));
             }
         }
-        Debug.Log("Reset Puzzles OK");
+        //Debug.Log("Reset Puzzles OK");
     }
 }
