@@ -10,6 +10,9 @@ public class MapManager : MonoBehaviour
     [Header("Lista com todos os puzzles do jogo")]
     public List<Puzzle> puzzle = new List<Puzzle>();
 
+    [Header("Lista com todos os blocos que podem ser gerados")]
+    public List<GameObject> blocks = new List<GameObject>();
+
     [Header("Lista com todas as áreas pseudoaleatórias")]
     public List<RandomBlock> areasAleatorias = new List<RandomBlock>();
 
@@ -82,137 +85,109 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    // Escolhe aleatoriamente uma area para a geração de blocos
+    public int ChooseArea()
+    {
+        int a = Random.Range(0, (areasGeradoras.Count-1));
+        return a;
+    }
+
+    // Gera posição aleatória pra um bloco dentro de uma area
+    public Vector2 BlockPosition(int area)
+    {
+        Vector2 position = areasGeradoras[area].position + new Vector2(
+            Random.Range(-areasGeradoras[area].size.x / 2, areasGeradoras[area].size.x / 2), 
+            Random.Range(-areasGeradoras[area].size.y / 2, areasGeradoras[area].size.y / 2)
+        );
+        return position;
+    }
+
+    // Intancia os blocos necessários 
+    public void BlockInstantiate(int numBloco, int nomeBloco)
+    {
+        int area;
+        Vector2 position;
+
+        while(numBloco != 0)
+        {
+            // Primeiro random -> Qual área aleatória
+            area = ChooseArea();
+            // Segundo random -> Posição em que o bloco vai aparecer
+            position = BlockPosition(area);
+            Instantiate(blocks[nomeBloco] , position, Quaternion.identity);
+            numBloco--;
+        }
+    }
+
     // Gera os blocos aleatórios necessários para resolver o primeiro problema da lista puzzles
     public void SpawnBlock()
     {
-        // Compara Inventário com o primeiro problema da lista
-        int auxBloco = 0;
-        if(inventory.myInventory[0].numberHeld < puzzleAcessivel[0].variavel)
-        {
-            // Primeiro random -> Qual área aleatória
-            int a = Random.Range(0, (areasGeradoras.Count-1));
-            Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-            for(int i=0; i<areasGeradoras[a].block.Count; i++)
-            {
-                if (areasGeradoras[a].block[i].name == "1-BlocoVariavel")
-                {
-                    auxBloco = i;
-                    break;
-                }
-                else {
-                    // Nova area
-                    a = Random.Range(0, (areasGeradoras.Count-1));
-                    Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-                }
-            }
-            int auxVariavel = puzzleAcessivel[0].variavel - inventory.myInventory[0].numberHeld;
-            while(auxVariavel != 0)
-            {
-                // Segundo random -> Posição em que o bloco vai aparecer
-                Vector2 pos = areasGeradoras[a].position + new Vector2(
-                    Random.Range(-areasGeradoras[a].size.x / 2, areasGeradoras[a].size.x / 2), 
-                    Random.Range(-areasGeradoras[a].size.y / 2, areasGeradoras[a].size.y / 2)
-                );
+        // Posição dos blocos na lista blocks
+        int Variavel = 0;
+        int Leitura = 1;
+        int Imprime = 2;
+        int Matematica = 3;
+        int Condicional = 4;
+        int LoopDefinido = 5;
+        int LoopIndefinido = 6;
+        int Vetor = 7;
+        int Matriz = 8;
 
-                Instantiate(areasGeradoras[a].block[auxBloco] , pos, Quaternion.identity);
-                auxVariavel--;
-            }
+        // Numero de blocos necessários para o primeiro problema da lista
+        int numBloco;
+
+        if(inventory.myInventory[Variavel].numberHeld < puzzleAcessivel[0].variavel)
+        {
+            numBloco = puzzleAcessivel[0].variavel - inventory.myInventory[Variavel].numberHeld;
+            BlockInstantiate(numBloco, Variavel);
         }
 
-        if(inventory.myInventory[1].numberHeld < puzzleAcessivel[0].leitura)
+        if(inventory.myInventory[Leitura].numberHeld < puzzleAcessivel[0].leitura)
         {
-            // Primeiro random -> Qual área aleatória
-            int a = Random.Range(0, (areasGeradoras.Count-1));
-            Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-            for(int i=0; i<areasGeradoras[a].block.Count; i++)
-            {
-                if (areasGeradoras[a].block[i].name == "2-BlocoLeitura")
-                {
-                    auxBloco = i;
-                    break;
-                }
-                else {
-                    // Nova area
-                    a = Random.Range(0, (areasGeradoras.Count-1));
-                    Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-                }
-            }
-            int auxVariavel = puzzleAcessivel[0].leitura - inventory.myInventory[0].numberHeld;
-            while(auxVariavel != 0)
-            {
-                // Segundo random -> Posição em que o bloco vai aparecer
-                Vector2 pos = areasGeradoras[a].position + new Vector2(
-                    Random.Range(-areasGeradoras[a].size.x / 2, areasGeradoras[a].size.x / 2), 
-                    Random.Range(-areasGeradoras[a].size.y / 2, areasGeradoras[a].size.y / 2)
-                );
-
-                Instantiate(areasGeradoras[a].block[auxBloco] , pos, Quaternion.identity);
-                auxVariavel--;
-            }
+            numBloco = puzzleAcessivel[0].leitura - inventory.myInventory[Leitura].numberHeld;
+            BlockInstantiate(numBloco, Leitura);
         }
 
-        if(inventory.myInventory[2].numberHeld < puzzleAcessivel[0].imprime)
+        if(inventory.myInventory[Imprime].numberHeld < puzzleAcessivel[0].imprime)
         {
-            // Primeiro random -> Qual área aleatória
-            int a = Random.Range(0, (areasGeradoras.Count-1));
-            Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-            for(int i=0; i<areasGeradoras[a].block.Count; i++)
-            {
-                if (areasGeradoras[a].block[i].name == "3-BlocoImprime")
-                {
-                    auxBloco = i;
-                    break;
-                }
-                else {
-                    // Nova area
-                    a = Random.Range(0, (areasGeradoras.Count-1));
-                    Debug.Log("Area escolhida aleatoriamente: " + areasGeradoras[a].name);
-                }
-            }
-            int auxVariavel = puzzleAcessivel[0].imprime - inventory.myInventory[0].numberHeld;
-            while(auxVariavel != 0)
-            {
-                // Segundo random -> Posição em que o bloco vai aparecer
-                Vector2 pos = areasGeradoras[a].position + new Vector2(
-                    Random.Range(-areasGeradoras[a].size.x / 2, areasGeradoras[a].size.x / 2), 
-                    Random.Range(-areasGeradoras[a].size.y / 2, areasGeradoras[a].size.y / 2)
-                );
-
-                Instantiate(areasGeradoras[a].block[auxBloco] , pos, Quaternion.identity);
-                auxVariavel--;
-            }
+            numBloco = puzzleAcessivel[0].imprime - inventory.myInventory[Imprime].numberHeld;
+            BlockInstantiate(numBloco, Imprime);
         }
 
-        /*        Fazer gatilho para demais blocos
-        if(inventory.myInventory[3].numberHeld < puzzleAcessivel[0].matematica)
+        if(inventory.myInventory[Matematica].numberHeld < puzzleAcessivel[0].matematica)
         {
-
+            numBloco = puzzleAcessivel[0].matematica - inventory.myInventory[Matematica].numberHeld;
+            BlockInstantiate(numBloco, Matematica);
         }
 
-        if(inventory.myInventory[4].numberHeld < puzzleAcessivel[0].condicional)
+        if(inventory.myInventory[Condicional].numberHeld < puzzleAcessivel[0].condicional)
         {
-            
+            numBloco = puzzleAcessivel[0].condicional - inventory.myInventory[Condicional].numberHeld;
+            BlockInstantiate(numBloco, Condicional);
         }
 
-        if(inventory.myInventory[5].numberHeld < puzzleAcessivel[0].loopDefinido)
+        if(inventory.myInventory[LoopDefinido].numberHeld < puzzleAcessivel[0].loopDefinido)
         {
-
+            numBloco = puzzleAcessivel[0].loopDefinido - inventory.myInventory[LoopDefinido].numberHeld;
+            BlockInstantiate(numBloco, LoopDefinido);
         }
 
-        if(inventory.myInventory[6].numberHeld < puzzleAcessivel[0].loopIndefinido)
+        if(inventory.myInventory[LoopIndefinido].numberHeld < puzzleAcessivel[0].loopIndefinido)
         {
-
+            numBloco = puzzleAcessivel[0].loopIndefinido - inventory.myInventory[LoopIndefinido].numberHeld;
+            BlockInstantiate(numBloco, LoopIndefinido);
         }
 
-        if(inventory.myInventory[7].numberHeld < puzzleAcessivel[0].vetor)
+        if(inventory.myInventory[Vetor].numberHeld < puzzleAcessivel[0].vetor)
         {
-
+            numBloco = puzzleAcessivel[0].vetor - inventory.myInventory[Vetor].numberHeld;
+            BlockInstantiate(numBloco, Vetor);
         }
 
-        if(inventory.myInventory[8].numberHeld < puzzleAcessivel[0].matriz)
+        if(inventory.myInventory[Matriz].numberHeld < puzzleAcessivel[0].matriz)
         {
-
+            numBloco = puzzleAcessivel[0].matriz - inventory.myInventory[Matriz].numberHeld;
+            BlockInstantiate(numBloco, Matriz);
         }
-        */
     }
 }
