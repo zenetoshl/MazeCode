@@ -708,7 +708,8 @@ namespace RoslynCSharp {
             foreach (string reference in settings.References) {
                 if (Application.platform == RuntimePlatform.Android) {
                     // Android
-                    string oriPath = System.IO.Path.Combine (Application.streamingAssetsPath, reference);
+                    string oriPath = System.IO.Path.Combine (Application.streamingAssetsPath, "assemblies");
+                    oriPath = System.IO.Path.Combine (oriPath, reference);
                     Debug.Log(oriPath);
                     // Android only use WWW to read file
                     WWW reader = new WWW (oriPath);
