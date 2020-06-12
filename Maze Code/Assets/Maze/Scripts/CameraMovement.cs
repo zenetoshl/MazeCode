@@ -85,7 +85,7 @@ public class CameraMovement : MonoBehaviour {
         CalculateLimits ();
     }
 
-    private void OnApplicationQuit() {
+    private void OnApplicationQuit () {
         SaveLimits ();
     }
 }
