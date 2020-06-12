@@ -41,10 +41,12 @@ public class MazeToCode : Interactable
     {
         if(joybutton.Pressed && playerInRange)
         {
+            
             // Confere os requerimentos do desafio
-            if(CheckPuzzleRequirements())
+            if (CheckPuzzleRequirements())
             {
-                Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
+                SomComputador.current.PlayMusic();
+                //Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
                 SceneManager.LoadScene(sceneToLoad);
                 StartCoroutine(FadeControl());
             }

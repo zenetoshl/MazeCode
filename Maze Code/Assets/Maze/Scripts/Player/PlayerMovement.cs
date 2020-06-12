@@ -11,6 +11,8 @@ public enum PlayerState {
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject Jogador;
+    public float velocidade;
     protected Joystick joystick;
     private Touch oneTouch;
     private Vector2 touchPosition;
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() {
         
         // Is the player in an interaction
-        if(currentState == PlayerState.interact)
+        if (currentState == PlayerState.interact)
         {
             return;
         }
@@ -80,10 +82,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(currentState != PlayerState.interact)
             {
+                
                 animator.SetBool("receive item", true);
                 currentState = PlayerState.interact;
                 receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
-            } else {
+                
+
+            }
+            else {
+                
                 animator.SetBool("receive item", false);
                 currentState = PlayerState.idle;
                 receivedItemSprite.sprite = null;
@@ -96,11 +103,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if(change != Vector3.zero)
         {
+            Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
             MoveCharacter();
+            
+            SomPassos.current.PassosSom.mute = false;
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
         } else {
+            SomPassos.current.PassosSom.mute = true;
             animator.SetBool("moving", false);
         }
     }
@@ -111,5 +122,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.MovePosition(
             transform.position + change * speed * Time.deltaTime
         );
+        
+        
     }
 }

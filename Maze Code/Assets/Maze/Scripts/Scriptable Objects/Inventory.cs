@@ -14,6 +14,7 @@ public class Inventory : ScriptableObject
     {
         if(itemToAdd.isBlock)
         {
+            
             numberOfBlocks++;
         } else {
             if(!items.Contains(itemToAdd))
