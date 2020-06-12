@@ -61,7 +61,7 @@ public class CodeToMaze : MonoBehaviour
 
     public void ResetCameraBounds()
     {
-        cameraMax.initialValue = cameraNewMax;
-        cameraMin.initialValue = cameraNewMin;
+        //cameraMax.initialValue = cameraNewMax;
+        //cameraMin.initialValue = cameraNewMin;
     }
 }

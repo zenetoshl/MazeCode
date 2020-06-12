@@ -7,11 +7,11 @@ public class CameraMovement : MonoBehaviour {
     [Header ("Position Variables")]
     public Transform target;
     public float smoothing;
+    public Vector2 maxPositionMap;
+    public Vector2 minPositionMap;
+
     public Vector2 maxPosition;
     public Vector2 minPosition;
-
-    private Vector2 maxPositionMap;
-    private Vector2 minPositionMap;
 
     [Header ("Position Reset")]
     public VectorValue camMin;
@@ -19,21 +19,18 @@ public class CameraMovement : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        //maxPosition = camMax.initialValue;
-        //minPosition = camMin.initialValue;
+        maxPositionMap = camMax.initialValue;
+        minPositionMap = camMin.initialValue;
         float vertExtent = Camera.main.GetComponent<Camera> ().orthographicSize;
         float horzExtent = vertExtent * Screen.width / Screen.height;
         Debug.Log (vertExtent);
         Debug.Log (horzExtent);
 
-        minPositionMap.x = (minPosition.x + (horzExtent));
-        maxPositionMap.x = (maxPosition.x - (horzExtent));
-        minPositionMap.y = (minPosition.y + (vertExtent));
-        maxPositionMap.y = (maxPosition.y - (vertExtent));
+        minPosition.x = (minPositionMap.x + (horzExtent));
+        maxPosition.x = (maxPositionMap.x - (horzExtent));
+        minPosition.y = (minPositionMap.y + (vertExtent));
+        maxPosition.y = (maxPositionMap.y - (vertExtent));
 
-
-        Debug.Log (minPositionMap);
-        Debug.Log (maxPositionMap);
         transform.position = new Vector3 (target.position.x, target.position.y, transform.position.z);
     }
 
@@ -41,8 +38,8 @@ public class CameraMovement : MonoBehaviour {
     void LateUpdate () {
         if (transform.position != target.position) {
             Vector3 targetPosition = new Vector3 (target.position.x, target.position.y, transform.position.z);
-            targetPosition.x = Mathf.Clamp (targetPosition.x, minPositionMap.x, maxPositionMap.x);
-            targetPosition.y = Mathf.Clamp (targetPosition.y, minPositionMap.y, maxPositionMap.y);
+            targetPosition.x = Mathf.Clamp (targetPosition.x, minPosition.x, maxPosition.x);
+            targetPosition.y = Mathf.Clamp (targetPosition.y, minPosition.y, maxPosition.y);
             transform.position = Vector3.Lerp (transform.position, targetPosition, smoothing);
         }
     }
