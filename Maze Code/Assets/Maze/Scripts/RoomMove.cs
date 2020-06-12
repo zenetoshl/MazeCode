@@ -35,6 +35,7 @@ public class RoomMove : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            SomPorta.current.PlayMusic();
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
             other.transform.position += playerChange;
