@@ -12,6 +12,7 @@ public enum PlayerState {
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject Jogador;
+    public GameObject Camera;
     public float velocidade;
     protected Joystick joystick;
     private Touch oneTouch;
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         if(change != Vector3.zero)
         {
             Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
+            //Camera.GetComponent<SavePosition>().SalvarLocalizacao();
             MoveCharacter();
             
             SomPassos.current.PassosSom.mute = false;

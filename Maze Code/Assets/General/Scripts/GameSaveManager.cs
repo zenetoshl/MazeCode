@@ -18,6 +18,7 @@ public class GameSaveManager : MonoBehaviour
                 File.Delete(Application.persistentDataPath + string.Format("/{0}.dat", i));
             }
         }
+
         Debug.Log("Reset ok");
     }
 
