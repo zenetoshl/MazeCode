@@ -7256,6 +7256,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961407274}
   m_CullTransparentMesh: 0
+--- !u!1 &967316645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967316646}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967316646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967316645}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: -7.26, y: 0.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
 --- !u!1 &989404410
 GameObject:
   m_ObjectHideFlags: 0
@@ -14146,8 +14176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4045780970123433137}
   smoothing: 0.1
-  maxPosition: {x: 0.9, y: 5}
-  minPosition: {x: 0.1, y: 2}
+  maxPosition: {x: 8.25, y: 9.1}
+  minPosition: {x: -7.25, y: -2.1}
   camMin: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
   camMax: {fileID: 11400000, guid: 3b95d51742ce6fc42af1c254ba8c15b4, type: 2}
 --- !u!1 &1890717613
