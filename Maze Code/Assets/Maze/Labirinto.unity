@@ -5380,6 +5380,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 688742242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &712764277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1977036386035581212, guid: ed9eac48cb9761b49942786de199a285,
+    type: 3}
+  m_PrefabInstance: {fileID: 5023374293800331898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &712764279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712764277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb667f9b0fcd65a4aafc6486bd9dbd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPositionMap: {fileID: 11400000, guid: 3b95d51742ce6fc42af1c254ba8c15b4, type: 2}
+  minPositionMap: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
+  resetMaxPosition: {fileID: 11400000, guid: 632611b0e0e508442ac475f7878aa72c, type: 2}
+  resetMinPosition: {fileID: 11400000, guid: be73b18955fb80543a7f7ed782720eb4, type: 2}
 --- !u!1 &717752095
 GameObject:
   m_ObjectHideFlags: 0
@@ -14779,8 +14801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4045780970123433137}
   smoothing: 0.1
-  maxPositionMap: {x: 0, y: 0}
-  minPositionMap: {x: 0, y: 0}
+  maxPositionMap: {fileID: 11400000, guid: 3b95d51742ce6fc42af1c254ba8c15b4, type: 2}
+  minPositionMap: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
   maxPosition: {x: 8.25, y: 9.1}
   minPosition: {x: -7.25, y: -2.1}
   camMin: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
@@ -24202,7 +24224,9 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 4166809953166038786}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7907377385475124700, guid: ed9eac48cb9761b49942786de199a285, type: 3}
+    - {fileID: 6245774192839484931, guid: ed9eac48cb9761b49942786de199a285, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed9eac48cb9761b49942786de199a285, type: 3}
 --- !u!61 &5118884146313764237
 BoxCollider2D:

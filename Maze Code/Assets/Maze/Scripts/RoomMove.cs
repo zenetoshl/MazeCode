@@ -38,8 +38,8 @@ public class RoomMove : MonoBehaviour
             SomPorta.current.PlayMusic();
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
-            cam.minPositionMap += cameraChange;
-            cam.maxPositionMap += cameraChange;
+            cam.minPositionMap.initialValue += cameraChange;
+            cam.maxPositionMap.initialValue += cameraChange;
             other.transform.position += playerChange;
 
             if(needText)

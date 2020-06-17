@@ -1005,8 +1005,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1164332375}
-        m_MethodName: ResetLimits
+      - m_Target: {fileID: 2084930482}
+        m_MethodName: CreateNewLimits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1052,18 +1052,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123679750}
   m_CullTransparentMesh: 0
---- !u!114 &1164332375 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7907377385475124700, guid: ed9eac48cb9761b49942786de199a285,
-    type: 3}
-  m_PrefabInstance: {fileID: 2084930476}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94de554dada1d7440a536cc1cff6997a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1303981857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,11 +1422,19 @@ PrefabInstance:
       propertyPath: objects.Array.data[9]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7907377385475124700, guid: ed9eac48cb9761b49942786de199a285, type: 3}
+    - {fileID: 6245774192839484931, guid: ed9eac48cb9761b49942786de199a285, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed9eac48cb9761b49942786de199a285, type: 3}
 --- !u!1 &2084930477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5023374294220711080, guid: ed9eac48cb9761b49942786de199a285,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084930476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084930478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1977036386035581212, guid: ed9eac48cb9761b49942786de199a285,
     type: 3}
   m_PrefabInstance: {fileID: 2084930476}
   m_PrefabAsset: {fileID: 0}
@@ -1478,3 +1474,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3ac8f395d09af4cb2b454af55f6797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2084930482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084930478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb667f9b0fcd65a4aafc6486bd9dbd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPositionMap: {fileID: 11400000, guid: 3b95d51742ce6fc42af1c254ba8c15b4, type: 2}
+  minPositionMap: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
+  resetMaxPosition: {fileID: 11400000, guid: 632611b0e0e508442ac475f7878aa72c, type: 2}
+  resetMinPosition: {fileID: 11400000, guid: be73b18955fb80543a7f7ed782720eb4, type: 2}
