@@ -14805,8 +14805,6 @@ MonoBehaviour:
   minPositionMap: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
   maxPosition: {x: 8.25, y: 9.1}
   minPosition: {x: -7.25, y: -2.1}
-  camMin: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
-  camMax: {fileID: 11400000, guid: 3b95d51742ce6fc42af1c254ba8c15b4, type: 2}
 --- !u!82 &1852082220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28012,8 +28010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  sceneToLoad: Terminal-01
+  Jogador: {fileID: 125088546}
+  sceneToLoad: terminal3
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.3

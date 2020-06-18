@@ -27,7 +27,7 @@ public class TerminalCameraMovement : MonoBehaviour {
                 Drag = false;
             }
             Vector3 newPos = Origin - Diference;
-
+            
             if (Drag == true) {
                 Camera.main.transform.position = new Vector3 (
                     Mathf.Clamp (newPos.x, outerLeft, outerRight),
@@ -54,9 +54,10 @@ public class TerminalCameraMovement : MonoBehaviour {
                         }
                     }
                 }
-                */
-
+               
+*/
             }
+             
             //RESET CAMERA TO STARTING POSITION WITH RIGHT CLICK
             if (Input.GetMouseButton (1)) {
                 Camera.main.transform.position = ResetCamera;

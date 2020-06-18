@@ -108,18 +108,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
+  Jogador: {fileID: 0}
   sceneToLoad: Labirinto
-  playerPosition: {x: -0.48, y: 5}
-  playerStorage: {fileID: 11400000, guid: 4d190a529f1463840b6b1d75b5ee3129, type: 2}
-  cameraNewMin: {x: -3.1, y: -2.1}
-  cameraNewMax: {x: 2.1, y: 5.1}
-  cameraMin: {fileID: 11400000, guid: c0d767079a321334198343dd0229fa72, type: 2}
-  cameraMax: {fileID: 11400000, guid: 4e05f359eac08e8419b4030de94e2558, type: 2}
-  fadeInPanel: {fileID: 4496601505241925208, guid: d7c464682ed7ae044850cc8500cb6e9b,
-    type: 3}
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.2
+  inventory: {fileID: 0}
+  thisPuzzle: {fileID: 0}
 --- !u!1 &1234112692726009309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,17 +1239,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2201838594418585069}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5452129803398153040}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 0, y: -35}
+  m_SizeDelta: {x: 450, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &880298170429786411
 CanvasRenderer:
@@ -1311,10 +1306,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26
+  m_fontSize: 30
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1349,7 +1344,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 4.928004, z: 0, w: 14.384582}
   m_textInfo:
     textComponent: {fileID: 8654425581753124455}
     characterCount: 80
@@ -6216,7 +6211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   turnOffSiblings: 0
   onTransitions:
     speed: 5
@@ -6254,9 +6249,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452129802709035676}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &5452129802748952132
 GameObject:
@@ -7022,7 +7017,7 @@ RectTransform:
   m_GameObject: {fileID: 5452129803398153041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.01, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5452129803528949623}
   - {fileID: 5452129803628371568}
@@ -8030,7 +8025,7 @@ RectTransform:
   m_GameObject: {fileID: 6843497689736654649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0.01, z: 1}
   m_Children:
   - {fileID: 4174645411344961719}
   - {fileID: 7325752852487633988}
@@ -8096,7 +8091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   turnOffSiblings: 0
   onTransitions:
     speed: 5
@@ -8134,9 +8129,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7069829533476471653}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &7348326347216059255
 GameObject:

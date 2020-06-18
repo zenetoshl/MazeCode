@@ -33,34 +33,35 @@ public class TerminalInventoryManager : MonoBehaviour {
 
     private static void InitializeCount () {
         if (playerInventory) {
+            
             foreach (InventoryItem item in playerInventory.myInventory) {
                 if (item.numberHeld >= 0) {
                     switch (item.itemName) {
-                        case "Variavel":
+                        case "variavel":
                             varText.text = "x" + item.numberHeld;
                             break;
-                        case "Vetor":
+                        case "vetor":
                             vetText.text = "x" + item.numberHeld;
                             break;
-                        case "Matriz":
+                        case "matriz":
                             matText.text = "x" + item.numberHeld;
                             break;
-                        case "Loop Indefinido":
+                        case "loopIndefinido":
                             whileText.text = "x" + item.numberHeld;
                             break;
-                        case "Loop Definido":
+                        case "loopDefinido":
                             forText.text = "x" + item.numberHeld;
                             break;
-                        case "Condicional":
+                        case "condicional":
                             ifText.text = "x" + item.numberHeld;
                             break;
-                        case "Imprime":
+                        case "imprime":
                             writeText.text = "x" + item.numberHeld;
                             break;
-                        case "Leitura":
+                        case "leitura":
                             readText.text = "x" + item.numberHeld;
                             break;
-                        case "Metematica":
+                        case "matematica":
                             mathText.text = "x" + item.numberHeld;
                             break;
                     }
