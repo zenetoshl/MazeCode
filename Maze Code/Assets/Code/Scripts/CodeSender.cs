@@ -22,6 +22,8 @@ public class CodeSender : MonoBehaviour {
     private string source;
     public static int rightAnwsersPercentage = 0;
     public DeliverWindowHandler window;
+    public string correctCode;
+    public Puzzle puzzle;
 
     public BlocoInicial initBlock;
     public List<Lister> inputs;
@@ -33,17 +35,16 @@ public class CodeSender : MonoBehaviour {
     private void Start () {
         inputs = new List<Lister> ();
         BetterStreamingAssets.Initialize ();
-        ReadInputFiles (SceneManager.GetActiveScene ().name);
+        //ReadInputFiles (SceneManager.GetActiveScene ().name);
         domain = ScriptDomain.CreateDomain ("user");
         domainFile = ScriptDomain.CreateDomain ("correto");
     }
 
     public void RunRoslyn () {
         string sourceUser = ConnectionManager.ToCode (initBlock.GetComponent<RectTransform> ()) + "}}}";
-        string path = "term/scripts/" + SceneManager.GetActiveScene ().name + ".txt";
-        string sourceFile = BetterStreamingAssets.ReadAllText (path);
-        Debug.Log (sourceFile);
-        StartCoroutine (RunAsync (sourceUser, sourceFile));
+        //string path = "term/scripts/" + SceneManager.GetActiveScene ().name + ".txt";
+        Debug.Log (correctCode);
+        StartCoroutine (RunAsync (sourceUser, correctCode));
     }
 
     private void Update () {
@@ -52,9 +53,8 @@ public class CodeSender : MonoBehaviour {
         }
         if (changed && !LoadingCircle.loading) {
             changed = false;
-            rightAnwsersPercentage = ((_rightAnwser / ((inputs.Count == 0)? 1 : inputs.Count)) * 100);
-            window.CheckSend();
-            Debug.Log (((_rightAnwser / ((inputs.Count == 0)? 1 : inputs.Count)) * 100) + "% corretos");
+
+            Debug.Log (((_rightAnwser / ((inputs.Count == 0) ? 1 : inputs.Count)) * 100) + "% corretos");
         }
     }
 
@@ -102,6 +102,15 @@ public class CodeSender : MonoBehaviour {
             }
         }
         LoadingCircle.UpdateLoad (false);
+        CompareOutputs ();
+    }
+
+    private void CompareOutputs () {
+        rightAnwsersPercentage = ((_rightAnwser / ((inputs.Count == 0) ? 1 : inputs.Count)) * 100);
+        window.CheckSend ();
+        if (_rightAnwser == puzzle.inputs.Count) {
+            puzzle.initialValue = true;
+        }
     }
 
     private void ReadInputFiles (string dirName) {
@@ -124,19 +133,19 @@ public class CodeSender : MonoBehaviour {
         printList (inputs);
     }
 
-    private List<string> GetFiles(string path){
+    private List<string> GetFiles (string path) {
         int i = 1;
-        string filePath = GenerateNewFilePath(path, i);
-        List<string> filesList = new List<string>();
-        while(BetterStreamingAssets.FileExists(filePath)){
-            filesList.Add(filePath);
+        string filePath = GenerateNewFilePath (path, i);
+        List<string> filesList = new List<string> ();
+        while (BetterStreamingAssets.FileExists (filePath)) {
+            filesList.Add (filePath);
             i++;
-            filePath = GenerateNewFilePath(path, i);
+            filePath = GenerateNewFilePath (path, i);
         }
         return filesList;
     }
 
-    private string GenerateNewFilePath(string path, int index){
+    private string GenerateNewFilePath (string path, int index) {
         string filePath = System.IO.Path.Combine (path, index + ".txt");
         return filePath;
     }
