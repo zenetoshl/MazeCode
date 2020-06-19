@@ -39,6 +39,12 @@ public class Puzzle : ScriptableObject, ISerializationCallbackReceiver
     public int bonusVetor;           // 8 - Marrom
     public int bonusMatriz;          // 9 - Cinza
 
+    [Header("Terminal")]
+    public string correctCode;
+    public string objectiveTitle;
+    public string objective;
+    public List<CodeSender.Lister> inputs;
+
     public void OnAfterDeserialize() { }
 
     public void OnBeforeSerialize() { }
