@@ -1,40 +1,43 @@
 fileFormatVersion: 2
-guid: 9750530d7417429419b8c4110016f153
+guid: a1dc08ba65b99ab49861184ee2ff5942
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8417768224960098919
-    second: Inside_0
+      213: -6548181329885070759
+    second: SF_Inside_B_0
   - first:
-      213: -592167608525127341
-    second: Inside_1
+      213: -8657716944804953991
+    second: SF_Inside_B_1
   - first:
-      213: 1500748453081424991
-    second: Inside_2
+      213: -4429122033800505547
+    second: SF_Inside_B_2
   - first:
-      213: 7863871223244350099
-    second: Inside_3
+      213: -8314914590726658760
+    second: SF_Inside_B_3
   - first:
-      213: 8214675055065758861
-    second: Inside 0_0
+      213: -9120324684979446067
+    second: SF_Inside_B_4
   - first:
-      213: 9189325948203834942
-    second: Inside 0_1
+      213: -7730013697860777670
+    second: SF_Inside_B_5
   - first:
-      213: -5500190970103898695
-    second: Inside 0_2
+      213: 7358725072468099636
+    second: SF_Inside_B_6
   - first:
-      213: 2995177460256852400
-    second: Inside 0_3
+      213: 2842378051695866796
+    second: SF_Inside_B_7
   - first:
-      213: -8712067758581565293
-    second: Inside 0_4
+      213: 8093234557415449322
+    second: SF_Inside_B_8
   - first:
-      213: -5148690021925402576
-    second: Inside 0_5
+      213: 8263137304769449054
+    second: SF_Inside_B_9
   - first:
-      213: -6663728526256228967
-    second: Inside 0_6
+      213: -5447117177284755773
+    second: SF_Inside_B_10
+  - first:
+      213: 4015262865856126285
+    second: SF_Inside_B_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -96,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,13 +134,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inside_0
+      name: SF_Inside_B_0
       rect:
         serializedVersion: 2
-        x: 869
-        y: 244
+        x: 392
+        y: 576
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95afa5336cf2025a0800000000000000
+      internalID: -6548181329885070759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_1
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 574
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970450b2f4c99d780800000000000000
+      internalID: -8657716944804953991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 576
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537177c0af89882c0800000000000000
+      internalID: -4429122033800505547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_3
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 575
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835660aeb3d7b9c80800000000000000
+      internalID: -8314914590726658760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_4
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 671
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dced29345091e6180800000000000000
+      internalID: -9120324684979446067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_5
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 694
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39ca164f7979b490800000000000000
+      internalID: -7730013697860777670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_6
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 480
         width: 42
-        height: 45
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99dcead06641e2b80800000000000000
-      internalID: -8417768224960098919
+      spriteID: 432c83817717f1660800000000000000
+      internalID: 7358725072468099636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inside_1
+      name: SF_Inside_B_7
       rect:
         serializedVersion: 2
-        x: 831
-        y: 402
-        width: 24
-        height: 30
+        x: 625
+        y: 481
+        width: 94
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +295,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3510e5e82b238c7f0800000000000000
-      internalID: -592167608525127341
+      spriteID: ca3f2b847c7227720800000000000000
+      internalID: 2842378051695866796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inside_2
+      name: SF_Inside_B_8
       rect:
         serializedVersion: 2
-        x: 964
-        y: 399
-        width: 43
-        height: 30
+        x: 480
+        y: 289
+        width: 96
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +316,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54a22b44cab3d410800000000000000
-      internalID: 1500748453081424991
+      spriteID: ae2e9ae33f1f05070800000000000000
+      internalID: 8093234557415449322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inside_3
+      name: SF_Inside_B_9
       rect:
         serializedVersion: 2
-        x: 783
-        y: 398
-        width: 24
-        height: 30
+        x: 528
+        y: 0
+        width: 96
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +337,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39265e48635122d60800000000000000
-      internalID: 7863871223244350099
+      spriteID: e5ccf05499f8ca270800000000000000
+      internalID: 8263137304769449054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Inside 0_0
+      name: SF_Inside_B_10
       rect:
         serializedVersion: 2
-        x: 870
-        y: 397
-        width: 35
-        height: 29
+        x: 576
+        y: 385
+        width: 48
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce730e89c3f764b0800000000000000
+      internalID: -5447117177284755773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SF_Inside_B_11
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,134 +379,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8cf47a7073600270800000000000000
-      internalID: 8214675055065758861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_1
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 350
-        width: 35
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3e18f3434b078f70800000000000000
-      internalID: 9189325948203834942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_2
-      rect:
-        serializedVersion: 2
-        x: 1062
-        y: 386
-        width: 34
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bd552634756ba3b0800000000000000
-      internalID: -5500190970103898695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_3
-      rect:
-        serializedVersion: 2
-        x: 774
-        y: 245
-        width: 38
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b9cddde702019920800000000000000
-      internalID: 2995177460256852400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_4
-      rect:
-        serializedVersion: 2
-        x: 1011
-        y: 153
-        width: 46
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 398bc963884881780800000000000000
-      internalID: -8712067758581565293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_5
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 151
-        width: 31
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 038c98834bd2c88b0800000000000000
-      internalID: -5148690021925402576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Inside 0_6
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 154
-        width: 31
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9953cd8163ea583a0800000000000000
-      internalID: -6663728526256228967
+      spriteID: d4ddb2f7d4419b730800000000000000
+      internalID: 4015262865856126285
       vertices: []
       indices: 
       edges: []
