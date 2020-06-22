@@ -10,7 +10,14 @@ public class PuzzleManager : MonoBehaviour
     public TextMeshProUGUI objective;
     public TextMeshProUGUI objectiveTitle;
 
+    private void Awake() {
+        Debug.Log(StaticLoadPuzzle.path);
+        
+    }
+
     private void Start() {
+        puzzle = Resources.Load(StaticLoadPuzzle.path) as Puzzle;
+        Debug.Log(puzzle.correctCode);
         codeSender.correctCode = puzzle.correctCode;
         codeSender.inputs = puzzle.inputs;
         objectiveTitle.text = "<size=30>" + puzzle.objectiveTitle + "</size>";
