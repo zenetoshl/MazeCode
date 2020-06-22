@@ -30,11 +30,11 @@ public class MapManager : MonoBehaviour
     {
         if(puzzle.Count > 0)
         {
-            AddPuzzles();
             AddResolved();
             // Só faz sentido gerar blocos se ainda houverem puzzles
-            if(sala.Count < puzzle.Count)
+            if(sala.Count > 0)
             {
+                AddPuzzles();
                 AddRandom();
                 SpawnBlock();
             }

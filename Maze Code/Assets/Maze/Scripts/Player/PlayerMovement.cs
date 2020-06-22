@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject Jogador;
     public GameObject Camera;
-    public float velocidade;
     protected Joystick joystick;
     private Touch oneTouch;
     private Vector2 touchPosition;
@@ -25,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector3 change;
     private Animator animator;
-    //public VectorValue startingPosition;
+    public VectorValue position;
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
 
@@ -37,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
-        //transform.position = startingPosition.initialValue;
+        
+        transform.position = position.initialValue;
     }
 
     // Update is called once per frame
@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(change != Vector3.zero)
         {
-            Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
             //Camera.GetComponent<SavePosition>().SalvarLocalizacao();
             MoveCharacter();
             
@@ -124,7 +123,6 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.MovePosition(
             transform.position + change * speed * Time.deltaTime
         );
-        
-        
+        position.defaultValue = transform.position;
     }
 }

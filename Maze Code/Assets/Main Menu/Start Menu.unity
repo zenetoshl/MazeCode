@@ -412,12 +412,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2084930477}
-        m_MethodName: 
+      - m_Target: {fileID: 2084930485}
+        m_MethodName: LoadScriptables
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -983,12 +983,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2084930477}
-        m_MethodName: 
+      - m_Target: {fileID: 2084930485}
+        m_MethodName: ResetScriptables
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1465,12 +1465,6 @@ PrefabInstance:
     - {fileID: 7907377385475124700, guid: ed9eac48cb9761b49942786de199a285, type: 3}
     - {fileID: 6245774192839484931, guid: ed9eac48cb9761b49942786de199a285, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed9eac48cb9761b49942786de199a285, type: 3}
---- !u!1 &2084930477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5023374294220711080, guid: ed9eac48cb9761b49942786de199a285,
-    type: 3}
-  m_PrefabInstance: {fileID: 2084930476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084930478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1977036386035581212, guid: ed9eac48cb9761b49942786de199a285,
@@ -1529,6 +1523,18 @@ MonoBehaviour:
   minPositionMap: {fileID: 11400000, guid: 22eaebab6b82e74449ea801cdb15b476, type: 2}
   resetMaxPosition: {fileID: 11400000, guid: 632611b0e0e508442ac475f7878aa72c, type: 2}
   resetMinPosition: {fileID: 11400000, guid: be73b18955fb80543a7f7ed782720eb4, type: 2}
+--- !u!114 &2084930485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3676524736945601014, guid: ed9eac48cb9761b49942786de199a285,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084930476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff20651ae190efa41ab434e1c2c83d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &728079807081092272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1607,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c610f1a86cdcb0847b78c61a5ba89785, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1679,7 +1685,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c610f1a86cdcb0847b78c61a5ba89785, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1793,7 +1799,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c610f1a86cdcb0847b78c61a5ba89785, type: 3}
-    m_FontSize: 50
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
