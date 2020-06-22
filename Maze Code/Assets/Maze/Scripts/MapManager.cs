@@ -28,12 +28,16 @@ public class MapManager : MonoBehaviour
     // Executará toda vez que o jogador retornar do terminal para o labirinto
     void Start()
     {
-        AddResolved();
-        AddPuzzles();
-        AddRandom();
-        if(sala.Count > 0)
+        if(puzzle.Count > 0)
         {
-            SpawnBlock();
+            AddPuzzles();
+            AddResolved();
+            // Só faz sentido gerar blocos se ainda houverem puzzles
+            if(sala.Count < puzzle.Count)
+            {
+                AddRandom();
+                SpawnBlock();
+            }
         }
     }
 
