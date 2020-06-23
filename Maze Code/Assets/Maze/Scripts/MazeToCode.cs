@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 public class MazeToCode : Interactable
 {
     public GameObject Jogador;
+    public GameObject dialogBox;
+    public Text dialogText;
+    public string dialog;
+
     protected JoyButtonAction joybutton;
     [Header("New Scene Variables")]
     public string sceneToLoad;
@@ -138,11 +142,24 @@ public class MazeToCode : Interactable
 
         if(qtdVariavel && qtdLeitura && qtdImprime && qtdMatematica && qtdCondicional && qtdLoopDefinido && qtdLoopIndefinido && qtdVetor && qtdMatriz)
         {
-            Debug.Log("O problema pode SIM ser resolvido");
+            //Debug.Log("O problema pode SIM ser resolvido");
+            dialogBox.SetActive(false);
             return true;
         } else{
-            Debug.Log("O problema NÃO pode ser resolvido");
+            //Debug.Log("O problema NÃO pode ser resolvido");
+            dialogBox.SetActive(true);
+            dialogText.text = dialog;
             return false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.CompareTag("Player") && !other.isTrigger)
+        {
+            context.Raise();
+            playerInRange = false;
+            dialogBox.SetActive(false);
         }
     }
 }

@@ -11,13 +11,13 @@ public class SavePosition : MonoBehaviour
     private void OnEnable()
     {
         LoadScriptables();
-        Debug.Log("Load Position OK");
+        //Debug.Log("Load Position OK");
     }
 
     private void OnDisable()
     {
         SaveScriptables();
-        Debug.Log("Save Position OK");
+        //Debug.Log("Save Position OK");
     }
 
     public void SaveScriptables()

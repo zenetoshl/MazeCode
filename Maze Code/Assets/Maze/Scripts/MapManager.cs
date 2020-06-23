@@ -140,58 +140,63 @@ public class MapManager : MonoBehaviour
         // Numero de blocos necessários para o primeiro problema da lista
         int numBloco;
 
-        if(inventory.myInventory[Variavel].numberHeld < puzzleAcessivel[0].variavel)
+        if (puzzleAcessivel.Count > 0)
         {
-            numBloco = puzzleAcessivel[0].variavel - inventory.myInventory[Variavel].numberHeld;
-            BlockInstantiate(numBloco, Variavel);
-        }
+            if(inventory.myInventory[Variavel].numberHeld < puzzleAcessivel[0].variavel)
+            {
+                numBloco = puzzleAcessivel[0].variavel - inventory.myInventory[Variavel].numberHeld;
+                BlockInstantiate(numBloco, Variavel);
+            }
 
-        if(inventory.myInventory[Leitura].numberHeld < puzzleAcessivel[0].leitura)
-        {
-            numBloco = puzzleAcessivel[0].leitura - inventory.myInventory[Leitura].numberHeld;
-            BlockInstantiate(numBloco, Leitura);
-        }
+            if(inventory.myInventory[Leitura].numberHeld < puzzleAcessivel[0].leitura)
+            {
+                numBloco = puzzleAcessivel[0].leitura - inventory.myInventory[Leitura].numberHeld;
+                BlockInstantiate(numBloco, Leitura);
+            }
 
-        if(inventory.myInventory[Imprime].numberHeld < puzzleAcessivel[0].imprime)
-        {
-            numBloco = puzzleAcessivel[0].imprime - inventory.myInventory[Imprime].numberHeld;
-            BlockInstantiate(numBloco, Imprime);
-        }
+            if(inventory.myInventory[Imprime].numberHeld < puzzleAcessivel[0].imprime)
+            {
+                numBloco = puzzleAcessivel[0].imprime - inventory.myInventory[Imprime].numberHeld;
+                BlockInstantiate(numBloco, Imprime);
+            }
 
-        if(inventory.myInventory[Matematica].numberHeld < puzzleAcessivel[0].matematica)
-        {
-            numBloco = puzzleAcessivel[0].matematica - inventory.myInventory[Matematica].numberHeld;
-            BlockInstantiate(numBloco, Matematica);
-        }
+            if(inventory.myInventory[Matematica].numberHeld < puzzleAcessivel[0].matematica)
+            {
+                numBloco = puzzleAcessivel[0].matematica - inventory.myInventory[Matematica].numberHeld;
+                BlockInstantiate(numBloco, Matematica);
+            }
 
-        if(inventory.myInventory[Condicional].numberHeld < puzzleAcessivel[0].condicional)
-        {
-            numBloco = puzzleAcessivel[0].condicional - inventory.myInventory[Condicional].numberHeld;
-            BlockInstantiate(numBloco, Condicional);
-        }
+            if(inventory.myInventory[Condicional].numberHeld < puzzleAcessivel[0].condicional)
+            {
+                numBloco = puzzleAcessivel[0].condicional - inventory.myInventory[Condicional].numberHeld;
+                BlockInstantiate(numBloco, Condicional);
+            }
 
-        if(inventory.myInventory[LoopDefinido].numberHeld < puzzleAcessivel[0].loopDefinido)
-        {
-            numBloco = puzzleAcessivel[0].loopDefinido - inventory.myInventory[LoopDefinido].numberHeld;
-            BlockInstantiate(numBloco, LoopDefinido);
-        }
+            if(inventory.myInventory[LoopDefinido].numberHeld < puzzleAcessivel[0].loopDefinido)
+            {
+                numBloco = puzzleAcessivel[0].loopDefinido - inventory.myInventory[LoopDefinido].numberHeld;
+                BlockInstantiate(numBloco, LoopDefinido);
+            }
 
-        if(inventory.myInventory[LoopIndefinido].numberHeld < puzzleAcessivel[0].loopIndefinido)
-        {
-            numBloco = puzzleAcessivel[0].loopIndefinido - inventory.myInventory[LoopIndefinido].numberHeld;
-            BlockInstantiate(numBloco, LoopIndefinido);
-        }
+            if(inventory.myInventory[LoopIndefinido].numberHeld < puzzleAcessivel[0].loopIndefinido)
+            {
+                numBloco = puzzleAcessivel[0].loopIndefinido - inventory.myInventory[LoopIndefinido].numberHeld;
+                BlockInstantiate(numBloco, LoopIndefinido);
+            }
 
-        if(inventory.myInventory[Vetor].numberHeld < puzzleAcessivel[0].vetor)
-        {
-            numBloco = puzzleAcessivel[0].vetor - inventory.myInventory[Vetor].numberHeld;
-            BlockInstantiate(numBloco, Vetor);
-        }
+            if(inventory.myInventory[Vetor].numberHeld < puzzleAcessivel[0].vetor)
+            {
+                numBloco = puzzleAcessivel[0].vetor - inventory.myInventory[Vetor].numberHeld;
+                BlockInstantiate(numBloco, Vetor);
+            }
 
-        if(inventory.myInventory[Matriz].numberHeld < puzzleAcessivel[0].matriz)
-        {
-            numBloco = puzzleAcessivel[0].matriz - inventory.myInventory[Matriz].numberHeld;
-            BlockInstantiate(numBloco, Matriz);
+            if(inventory.myInventory[Matriz].numberHeld < puzzleAcessivel[0].matriz)
+            {
+                numBloco = puzzleAcessivel[0].matriz - inventory.myInventory[Matriz].numberHeld;
+                BlockInstantiate(numBloco, Matriz);
+            }
+        } else {
+            Debug.Log("Todos os problemas foram resolvidos");
         }
     }
 }
