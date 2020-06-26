@@ -15,7 +15,6 @@ public class MazeToCode : Interactable
     protected JoyButtonAction joybutton;
     [Header("New Scene Variables")]
     public string sceneToLoad;
-    public string puzzlePath;
 
     [Header("Transition Variables")]
     //public GameObject fadeInPanel;
@@ -66,7 +65,7 @@ public class MazeToCode : Interactable
         {
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
         }
-        StaticLoadPuzzle.path = puzzlePath;
+        StaticLoadPuzzle.puzzle = thisPuzzle;
         yield return new WaitForSeconds(fadeWait);
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
         while(!asyncOperation.isDone)

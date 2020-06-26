@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class StaticLoadPuzzle : MonoBehaviour
 {
-    public static string path;
+    public static Puzzle puzzle;
 }
