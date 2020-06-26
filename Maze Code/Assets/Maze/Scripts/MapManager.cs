@@ -107,7 +107,7 @@ public class MapManager : MonoBehaviour
     }
 
     // Intancia os blocos necessários 
-    public void BlockInstantiate(int numBloco, int nomeBloco)
+    public void BlockInstantiate(int numBloco, int idBloco)
     {
         int area;
         Vector2 position;
@@ -118,82 +118,131 @@ public class MapManager : MonoBehaviour
             area = ChooseArea();
             // Segundo random -> Posição em que o bloco vai aparecer
             position = BlockPosition(area);
-            Instantiate(blocks[nomeBloco] , position, Quaternion.identity);
+            Instantiate(blocks[idBloco] , position, Quaternion.identity);
             numBloco--;
         }
     }
+
+    // Função determina a quantidade de blocos aleatórios, levando em consideração o bonus recebido
+    public int BonusControl(int numBloco, int idBloco)
+    {
+        if(areasGeradoras.Count > 0 && numBloco > 0)
+        {
+            for(int i=0; i<areasGeradoras.Count; i++){
+                if(idBloco == 0){    // 1 - Vermelho
+                    numBloco = numBloco - areasGeradoras[i].variavel;
+                }
+                if(idBloco == 1){    // 2 - Laranja
+                    numBloco = numBloco - areasGeradoras[i].leitura;
+                }
+                if(idBloco == 2){    // 3 - Amarelo
+                    numBloco = numBloco - areasGeradoras[i].imprime;
+                }
+                if(idBloco == 3){    // 4 - Verde
+                    numBloco = numBloco - areasGeradoras[i].matematica;
+                }
+                if(idBloco == 4){    // 5 - Azul
+                    numBloco = numBloco - areasGeradoras[i].condicional;
+                }
+                if(idBloco == 5){    // 6 - Roxo
+                    numBloco = numBloco - areasGeradoras[i].loopDefinido;
+                }
+                if(idBloco == 6){     // 7 - Rosa
+                    numBloco = numBloco - areasGeradoras[i].loopIndefinido;
+                }
+                if(idBloco == 7){    // 8 - Marrom
+                    numBloco = numBloco - areasGeradoras[i].vetor;
+                }
+                if(idBloco == 8){    // 9 - Cinza
+                    numBloco = numBloco - areasGeradoras[i].matriz;
+                }
+            }
+        }
+        return numBloco;
+    }
+
+
 
     // Gera os blocos aleatórios necessários para resolver o primeiro problema da lista puzzles
     public void SpawnBlock()
     {
         // Posição dos blocos na lista blocks
-        int Variavel = 0;
-        int Leitura = 1;
-        int Imprime = 2;
-        int Matematica = 3;
-        int Condicional = 4;
-        int LoopDefinido = 5;
-        int LoopIndefinido = 6;
-        int Vetor = 7;
-        int Matriz = 8;
+        int variavel = 0;
+        int leitura = 1;
+        int imprime = 2;
+        int matematica = 3;
+        int condicional = 4;
+        int loopDefinido = 5;
+        int loopIndefinido = 6;
+        int vetor = 7;
+        int matriz = 8;
 
         // Numero de blocos necessários para o primeiro problema da lista
         int numBloco;
 
         if (puzzleAcessivel.Count > 0)
         {
-            if(inventory.myInventory[Variavel].numberHeld < puzzleAcessivel[0].variavel)
+            if(inventory.myInventory[variavel].numberHeld < puzzleAcessivel[0].variavel)
             {
-                numBloco = puzzleAcessivel[0].variavel - inventory.myInventory[Variavel].numberHeld;
-                BlockInstantiate(numBloco, Variavel);
+                numBloco = puzzleAcessivel[0].variavel - inventory.myInventory[variavel].numberHeld;
+                numBloco = BonusControl(numBloco, variavel);
+                BlockInstantiate(numBloco, variavel);
             }
 
-            if(inventory.myInventory[Leitura].numberHeld < puzzleAcessivel[0].leitura)
+            if(inventory.myInventory[leitura].numberHeld < puzzleAcessivel[0].leitura)
             {
-                numBloco = puzzleAcessivel[0].leitura - inventory.myInventory[Leitura].numberHeld;
-                BlockInstantiate(numBloco, Leitura);
+                numBloco = puzzleAcessivel[0].leitura - inventory.myInventory[leitura].numberHeld;
+                numBloco = BonusControl(numBloco, leitura);
+                BlockInstantiate(numBloco, leitura);
             }
 
-            if(inventory.myInventory[Imprime].numberHeld < puzzleAcessivel[0].imprime)
+            if(inventory.myInventory[imprime].numberHeld < puzzleAcessivel[0].imprime)
             {
-                numBloco = puzzleAcessivel[0].imprime - inventory.myInventory[Imprime].numberHeld;
-                BlockInstantiate(numBloco, Imprime);
+                numBloco = puzzleAcessivel[0].imprime - inventory.myInventory[imprime].numberHeld;
+                numBloco = BonusControl(numBloco, imprime);
+                BlockInstantiate(numBloco, imprime);
             }
 
-            if(inventory.myInventory[Matematica].numberHeld < puzzleAcessivel[0].matematica)
+            if(inventory.myInventory[matematica].numberHeld < puzzleAcessivel[0].matematica)
             {
-                numBloco = puzzleAcessivel[0].matematica - inventory.myInventory[Matematica].numberHeld;
-                BlockInstantiate(numBloco, Matematica);
+                numBloco = puzzleAcessivel[0].matematica - inventory.myInventory[matematica].numberHeld;
+                numBloco = BonusControl(numBloco, matematica);
+                BlockInstantiate(numBloco, matematica);
             }
 
-            if(inventory.myInventory[Condicional].numberHeld < puzzleAcessivel[0].condicional)
+            if(inventory.myInventory[condicional].numberHeld < puzzleAcessivel[0].condicional)
             {
-                numBloco = puzzleAcessivel[0].condicional - inventory.myInventory[Condicional].numberHeld;
-                BlockInstantiate(numBloco, Condicional);
+                numBloco = puzzleAcessivel[0].condicional - inventory.myInventory[condicional].numberHeld;
+                numBloco = BonusControl(numBloco, condicional);
+                BlockInstantiate(numBloco, condicional);
             }
 
-            if(inventory.myInventory[LoopDefinido].numberHeld < puzzleAcessivel[0].loopDefinido)
+            if(inventory.myInventory[loopDefinido].numberHeld < puzzleAcessivel[0].loopDefinido)
             {
-                numBloco = puzzleAcessivel[0].loopDefinido - inventory.myInventory[LoopDefinido].numberHeld;
-                BlockInstantiate(numBloco, LoopDefinido);
+                numBloco = puzzleAcessivel[0].loopDefinido - inventory.myInventory[loopDefinido].numberHeld;
+                numBloco = BonusControl(numBloco, loopDefinido);
+                BlockInstantiate(numBloco, loopDefinido);
             }
 
-            if(inventory.myInventory[LoopIndefinido].numberHeld < puzzleAcessivel[0].loopIndefinido)
+            if(inventory.myInventory[loopIndefinido].numberHeld < puzzleAcessivel[0].loopIndefinido)
             {
-                numBloco = puzzleAcessivel[0].loopIndefinido - inventory.myInventory[LoopIndefinido].numberHeld;
-                BlockInstantiate(numBloco, LoopIndefinido);
+                numBloco = puzzleAcessivel[0].loopIndefinido - inventory.myInventory[loopIndefinido].numberHeld;
+                numBloco = BonusControl(numBloco, loopIndefinido);
+                BlockInstantiate(numBloco, loopIndefinido);
             }
 
-            if(inventory.myInventory[Vetor].numberHeld < puzzleAcessivel[0].vetor)
+            if(inventory.myInventory[vetor].numberHeld < puzzleAcessivel[0].vetor)
             {
-                numBloco = puzzleAcessivel[0].vetor - inventory.myInventory[Vetor].numberHeld;
-                BlockInstantiate(numBloco, Vetor);
+                numBloco = puzzleAcessivel[0].vetor - inventory.myInventory[vetor].numberHeld;
+                numBloco = BonusControl(numBloco, vetor);
+                BlockInstantiate(numBloco, vetor);
             }
 
-            if(inventory.myInventory[Matriz].numberHeld < puzzleAcessivel[0].matriz)
+            if(inventory.myInventory[matriz].numberHeld < puzzleAcessivel[0].matriz)
             {
-                numBloco = puzzleAcessivel[0].matriz - inventory.myInventory[Matriz].numberHeld;
-                BlockInstantiate(numBloco, Matriz);
+                numBloco = puzzleAcessivel[0].matriz - inventory.myInventory[matriz].numberHeld;
+                numBloco = BonusControl(numBloco, matriz);
+                BlockInstantiate(numBloco, matriz);
             }
         } else {
             Debug.Log("Todos os problemas foram resolvidos");
