@@ -106,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
         {
             //Camera.GetComponent<SavePosition>().SalvarLocalizacao();
             MoveCharacter();
-            
             SomPassos.current.PassosSom.mute = false;
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);

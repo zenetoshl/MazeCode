@@ -8,6 +8,9 @@ public class PauseManager : MonoBehaviour
     private bool isPaused;
     private bool isInventory;
 
+    private int isMuteMusic = 0;
+    private int isMuteSongs = 0;
+
     public GameObject pausePanel;
     public GameObject inventoryPanel;
     
@@ -57,7 +60,38 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
+    public void MuteMusic()
+    {
+        isMuteMusic ++;
+        if(isMuteMusic %2 != 0)
+        {
+            SomSala.current.StopMusic();
+        }
+        else
+        {
+            SomSala.current.PlayMusic();
+        }
+        
+    }
+    public void MuteSongs()
+    {
+        isMuteSongs++;
+        if (isMuteSongs % 2 != 0)
+        {
+            SomPassos.current.StopMusic();
+            SomComputador.current.ComputadorSom.mute = true;
+            SomPorta.current.PortaSom.mute = true;
+            SomItem.current.ItemSom.mute = true;
+        }
+        else
+        {
+            SomPassos.current.PlayMusic();
+            SomComputador.current.ComputadorSom.mute = false;
+            SomPorta.current.PortaSom.mute = false;
+            SomItem.current.ItemSom.mute = false;
+        }
 
+    }
     public void QuitToMain()
     {
         SceneManager.LoadScene(mainMenu);
