@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 22146096}
   - component: {fileID: 22146095}
   m_Layer: 0
-  m_Name: SomPorta
+  m_Name: Porta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22146093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 331396898}
   - component: {fileID: 331396897}
   m_Layer: 0
-  m_Name: SomComputador
+  m_Name: Computador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2880,7 +2880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331396895}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -3859,7 +3859,7 @@ GameObject:
   - component: {fileID: 372008455}
   - component: {fileID: 372008454}
   m_Layer: 0
-  m_Name: SomItem
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3873,7 +3873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372008452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -5250,7 +5250,7 @@ GameObject:
   - component: {fileID: 468327424}
   - component: {fileID: 468327425}
   m_Layer: 0
-  m_Name: SomSala
+  m_Name: Sala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12307,7 +12307,7 @@ GameObject:
   - component: {fileID: 814602065}
   - component: {fileID: 814602064}
   m_Layer: 0
-  m_Name: SomPassos
+  m_Name: Passos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12431,7 +12431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814602063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -14928,7 +14928,7 @@ GameObject:
   - component: {fileID: 989404412}
   - component: {fileID: 989404411}
   m_Layer: 0
-  m_Name: MapManager
+  m_Name: Map Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15152,7 +15152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1006604283
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20035,7 +20035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404245234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.1473, y: 150.1383, z: -1400.7207}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1096617880}
@@ -25387,7 +25387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619629681}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: Audio Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25401,7 +25401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619629680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.075229, y: 1.826725, z: -4.8353176}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 331396896}
@@ -35854,6 +35854,7 @@ GameObject:
   - component: {fileID: 5306585000703852456}
   - component: {fileID: 5186535483723018452}
   - component: {fileID: 2220919485297905202}
+  - component: {fileID: 2220919485297905208}
   m_Layer: 0
   m_Name: Mainframe S6
   m_TagString: Untagged
@@ -35861,6 +35862,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2220919485297905208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2220919485297905207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!1 &2227289960105493041
 GameObject:
   m_ObjectHideFlags: 0
@@ -37234,17 +37252,17 @@ PrefabInstance:
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3748305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.896067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3222.1973
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
@@ -39386,17 +39404,17 @@ PrefabInstance:
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.222035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3892531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2588.7559
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}

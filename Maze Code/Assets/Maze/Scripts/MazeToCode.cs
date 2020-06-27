@@ -45,7 +45,6 @@ public class MazeToCode : Interactable
     {
         if(joybutton.Pressed && playerInRange)
         {
-            
             // Confere os requerimentos do desafio
             if (CheckPuzzleRequirements())
             {
@@ -54,8 +53,6 @@ public class MazeToCode : Interactable
                 SceneManager.LoadScene(sceneToLoad);
                 StartCoroutine(FadeControl());
             }
-            // Senão, exibe mensagem que diz o jogador não tem blocos
-                // Exibir dialogBox com aviso
         }
     }
 
