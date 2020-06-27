@@ -10616,23 +10616,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755550815}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &755550818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18271,23 +18264,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236699022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &1236699025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35645,30 +35631,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2171265022892778347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2171265022892778350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
 --- !u!1 &2171265022892778350
 GameObject:
   m_ObjectHideFlags: 0
@@ -35682,7 +35644,7 @@ GameObject:
   - component: {fileID: 2171265022892778345}
   - component: {fileID: 5284814152646497009}
   - component: {fileID: 5118884146313764237}
-  - component: {fileID: 2171265022892778347}
+  - component: {fileID: 2171265022892778352}
   m_Layer: 0
   m_Name: Mainframe S9
   m_TagString: Untagged
@@ -35704,6 +35666,23 @@ Transform:
   m_Father: {fileID: 2133561833631316927}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2171265022892778352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171265022892778350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &2191713425678326219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35802,30 +35781,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2220919485297905202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2220919485297905207}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.1
-  inventory: {fileID: 0}
-  thisPuzzle: {fileID: 0}
 --- !u!4 &2220919485297905206
 Transform:
   m_ObjectHideFlags: 0
@@ -35853,7 +35808,6 @@ GameObject:
   - component: {fileID: 2220919485297905200}
   - component: {fileID: 5306585000703852456}
   - component: {fileID: 5186535483723018452}
-  - component: {fileID: 2220919485297905202}
   - component: {fileID: 2220919485297905208}
   m_Layer: 0
   m_Name: Mainframe S6
@@ -39232,7 +39186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &4969870158204636694
 Grid:
   m_ObjectHideFlags: 0
@@ -42955,30 +42909,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7780356098276131336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780356098276131341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 125088546}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: terminal3
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
 --- !u!50 &7780356098276131338
 Rigidbody2D:
   serializedVersion: 4
@@ -43078,7 +43008,7 @@ GameObject:
   - component: {fileID: 7780356098276131338}
   - component: {fileID: 4363966968441189266}
   - component: {fileID: 3661827460005313774}
-  - component: {fileID: 7780356098276131336}
+  - component: {fileID: 7780356098276131342}
   m_Layer: 0
   m_Name: Mainframe S3
   m_TagString: Untagged
@@ -43086,6 +43016,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7780356098276131342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780356098276131341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
+  sceneToLoad: terminal3
+  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
+    type: 3}
+  fadeWait: 0.3
+  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
+  thisPuzzle: {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
 --- !u!1001 &7872156735659453553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45461,7 +45415,7 @@ GameObject:
   - component: {fileID: 8298882090991042709}
   - component: {fileID: 2620251910190264589}
   - component: {fileID: 3027405489017683569}
-  - component: {fileID: 8298882090991042711}
+  - component: {fileID: 8298882090991042710}
   m_Layer: 0
   m_Name: Mainframe S4
   m_TagString: Untagged
@@ -45555,7 +45509,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8298882090991042711
+--- !u!114 &8298882090991042710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45569,10 +45523,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
   sceneToLoad: terminal3
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
@@ -45862,30 +45816,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8722960392996493851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8722960392996493854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 125088546}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
 --- !u!1 &8722960392996493854
 GameObject:
   m_ObjectHideFlags: 0
@@ -45899,7 +45829,7 @@ GameObject:
   - component: {fileID: 8722960392996493849}
   - component: {fileID: 3348604662019861377}
   - component: {fileID: 2316576753645233405}
-  - component: {fileID: 8722960392996493851}
+  - component: {fileID: 8722960392996493856}
   m_Layer: 0
   m_Name: Mainframe S2
   m_TagString: Untagged
@@ -45921,6 +45851,30 @@ Transform:
   m_Father: {fileID: 8841730884923441871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8722960392996493856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722960392996493854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
+  sceneToLoad: terminal3
+  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
+    type: 3}
+  fadeWait: 0.3
+  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
+  thisPuzzle: {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
 --- !u!1 &8775017725320461121
 GameObject:
   m_ObjectHideFlags: 0
