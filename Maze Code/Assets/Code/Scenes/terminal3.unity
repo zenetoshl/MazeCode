@@ -2829,6 +2829,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a18b1fa037646418793c5ef9348dbe, type: 3}
+--- !u!114 &1193124283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8264647859602194356, guid: 75a18b1fa037646418793c5ef9348dbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193124282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d14714a6fd806c4a9512625a38572e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1366416664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3714,7 @@ GameObject:
   - component: {fileID: 1887457104}
   - component: {fileID: 1887457103}
   - component: {fileID: 1887457102}
+  - component: {fileID: 1887457101}
   m_Layer: 0
   m_Name: Labirinto
   m_TagString: Untagged
@@ -3729,6 +3742,26 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1887457101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887457099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d89a0a8bd03934ebecedb32f0cd761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Labirinto
+  fadeInPanel: {fileID: 4496601505241925208, guid: d7c464682ed7ae044850cc8500cb6e9b,
+    type: 3}
+  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
+    type: 3}
+  fadeWait: 0.5
+  puzzleStatus: {fileID: 11400000, guid: ed3ce119b88e4fa4a87ee527a5639b7b, type: 2}
+  inventory: {fileID: 1193124283}
 --- !u!114 &1887457102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,7 +3805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1887457101}
         m_MethodName: ReturnToMaze
         m_Mode: 1
         m_Arguments:
@@ -4831,7 +4864,7 @@ RectTransform:
   m_GameObject: {fileID: 3005255188445894516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 3315659007981365333}
   m_Father: {fileID: 1783835941}
@@ -4887,9 +4920,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005255188445894516}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1851577760331525493
 GameObject:
@@ -7336,10 +7369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   turnOffSiblings: 0
   onTransitions:
-    speed: 5
+    speed: 50
     roots:
     - {fileID: 4109546631880772, guid: 8c614b2a58c4e2540b396e03fbec3861, type: 3}
     - {fileID: 4781537505444806, guid: 50d5767c319bc3546995e8b4067e4083, type: 3}
@@ -7350,7 +7383,7 @@ MonoBehaviour:
     - {fileID: 1665205305966728601}
     - {fileID: 1337269367627813907}
   offTransitions:
-    speed: 5
+    speed: 50
     roots:
     - {fileID: 4109546631880772, guid: 31850616c769f194bb1e0cca518f21ca, type: 3}
     - {fileID: 4781537505444806, guid: c361efa5d59a37848aa47f921d42721c, type: 3}
@@ -9509,7 +9542,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7108167937429030114}
   - component: {fileID: 7108167937429030140}
-  - component: {fileID: 7108167937429030116}
   m_Layer: 5
   m_Name: Sair
   m_TagString: Untagged
@@ -9517,25 +9549,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7108167937429030116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7108167937429030115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d89a0a8bd03934ebecedb32f0cd761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Labirinto
-  fadeInPanel: {fileID: 4496601505241925208, guid: d7c464682ed7ae044850cc8500cb6e9b,
-    type: 3}
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.5
-  puzzleStatus: {fileID: 11400000, guid: ed3ce119b88e4fa4a87ee527a5639b7b, type: 2}
 --- !u!114 &7108167937429030140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9602,7 +9615,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7108167937429030116}
+      - m_Target: {fileID: 0}
         m_MethodName: ReturnToMaze
         m_Mode: 1
         m_Arguments:
