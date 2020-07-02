@@ -8,6 +8,7 @@ public class SomSala : MonoBehaviour
 
     public AudioSource SalaSom;
     public static SomSala current;
+    public SoundConfig soundConfig;
     void Start()
     {
         current = this;
