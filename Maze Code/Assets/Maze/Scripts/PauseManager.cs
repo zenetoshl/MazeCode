@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour {
     public GameObject inventoryPanel;
 
     public SoundConfig soundConfig;
+    public AudioSource somPassos;
 
     public string mainMenu;
 
@@ -51,6 +52,7 @@ public class PauseManager : MonoBehaviour {
     }
     public void MuteMusic () {
         soundConfig.music = !soundConfig.music;
+        SomSala.current.SalaSom.mute = soundConfig.music;
         if (soundConfig.music) {
             SomSala.current.StopMusic ();
         } else {
@@ -62,22 +64,34 @@ public class PauseManager : MonoBehaviour {
         soundConfig.sound = !soundConfig.sound;
         bool sound = soundConfig.sound;
         SomComputador.current.ComputadorSom.mute = sound;
-        SomPassos.current.PassosSom.mute = sound;
         SomPorta.current.PortaSom.mute = sound;
         SomItem.current.ItemSom.mute = sound;
+        if (sound) {
+            SomPassos.current.StopMusic ();
+        } else {
+            SomPassos.current.PlayMusic ();
+        }
+        SomPassos.current.PassosSom.mute = true;
     }
 
     public void LoadSound () {
         bool sound = soundConfig.sound;
         SomComputador.current.ComputadorSom.mute = sound;
-        SomPassos.current.PassosSom.mute = sound;
         SomPorta.current.PortaSom.mute = sound;
         SomItem.current.ItemSom.mute = sound;
+
+        SomSala.current.SalaSom.mute = soundConfig.music;
+
 
         if (soundConfig.music) {
             SomSala.current.StopMusic ();
         } else {
             SomSala.current.PlayMusic ();
+        }
+        if (sound) {
+            somPassos.Stop ();
+        } else {
+            somPassos.Play ();
         }
     }
     public void QuitToMain () {

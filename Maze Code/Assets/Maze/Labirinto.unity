@@ -5281,7 +5281,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c14a94128b7fed843827a07177ece421, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -7834,6 +7834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1006604282}
   inventoryPanel: {fileID: 1394679416}
+  soundConfig: {fileID: 11400000, guid: d31e5e39d05eca24a95645c5d6d76afb, type: 2}
+  somPassos: {fileID: 814602065}
   mainMenu: Start Menu
 --- !u!1 &560598443
 GameObject:
@@ -12331,11 +12333,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6259153caa8421148839625a811ccece, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -39350,6 +39352,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1400527473166332456, guid: ed9eac48cb9761b49942786de199a285,
+        type: 3}
+      propertyPath: soundConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: d31e5e39d05eca24a95645c5d6d76afb,
+        type: 2}
     - target: {fileID: 5023374293399720945, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_Name
@@ -39409,6 +39417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023374293637524030, guid: ed9eac48cb9761b49942786de199a285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5023374294073641348, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
