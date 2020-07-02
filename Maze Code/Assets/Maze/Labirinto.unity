@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 22146096}
   - component: {fileID: 22146095}
   m_Layer: 0
-  m_Name: SomPorta
+  m_Name: Porta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22146093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 331396898}
   - component: {fileID: 331396897}
   m_Layer: 0
-  m_Name: SomComputador
+  m_Name: Computador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2880,7 +2880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331396895}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -3859,7 +3859,7 @@ GameObject:
   - component: {fileID: 372008455}
   - component: {fileID: 372008454}
   m_Layer: 0
-  m_Name: SomItem
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3873,7 +3873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372008452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -5153,17 +5153,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1083019775}
     m_Modifications:
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.33
+      value: 0.32999998
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.83
+      value: -0.8299999
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -5225,6 +5225,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Variavel 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1434578762422227292, guid: f4f3b43f44169fd4c9d3c4ec26234254,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227293, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
       propertyPath: storedCollected
@@ -5245,7 +5250,7 @@ GameObject:
   - component: {fileID: 468327424}
   - component: {fileID: 468327425}
   m_Layer: 0
-  m_Name: SomSala
+  m_Name: Sala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8434,7 +8439,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1083019775}
     m_Modifications:
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -8444,7 +8449,7 @@ PrefabInstance:
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.98
+      value: -1.9799995
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -8505,6 +8510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Variavel 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434578762422227292, guid: f4f3b43f44169fd4c9d3c4ec26234254,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227293, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -10606,23 +10616,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755550815}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &755550818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12297,7 +12300,7 @@ GameObject:
   - component: {fileID: 814602065}
   - component: {fileID: 814602064}
   m_Layer: 0
-  m_Name: SomPassos
+  m_Name: Passos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12421,7 +12424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814602063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3735795, y: -0.0456084, z: 0.08880997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1619629681}
@@ -13558,6 +13561,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Matematica
       objectReference: {fileID: 0}
+    - target: {fileID: 4826855661822700385, guid: 646892332697c474a9b994e699fc2ffe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4826855661822700397, guid: 646892332697c474a9b994e699fc2ffe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13596,7 +13604,7 @@ PrefabInstance:
     - target: {fileID: 4826855661822700397, guid: 646892332697c474a9b994e699fc2ffe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4826855661822700397, guid: 646892332697c474a9b994e699fc2ffe,
         type: 3}
@@ -14913,7 +14921,7 @@ GameObject:
   - component: {fileID: 989404412}
   - component: {fileID: 989404411}
   m_Layer: 0
-  m_Name: MapManager
+  m_Name: Map Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15000,8 +15008,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 1434578762422227292, guid: f4f3b43f44169fd4c9d3c4ec26234254, type: 3}
-  center: {x: 1, y: 14}
-  size: {x: 6, y: 6}
+  center: {x: 14, y: 27}
+  size: {x: 7, y: 2}
 --- !u!4 &992977612
 Transform:
   m_ObjectHideFlags: 0
@@ -15137,7 +15145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1006604283
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15944,12 +15952,8 @@ Transform:
   m_LocalPosition: {x: 0.32, y: 12.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1470922396}
-  - {fileID: 415140948}
-  - {fileID: 390518730}
-  - {fileID: 1336127169}
-  - {fileID: 1455101862}
-  - {fileID: 1467234743}
+  - {fileID: 1083019775}
+  - {fileID: 1542559186}
   - {fileID: 1021675404}
   - {fileID: 1669577252}
   m_Father: {fileID: 757519402}
@@ -16069,6 +16073,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imprime
       objectReference: {fileID: 0}
+    - target: {fileID: 7190397953259385590, guid: 9e8dd2841eb27734eb1c6efeb228f8cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7190397953259385591, guid: 9e8dd2841eb27734eb1c6efeb228f8cc,
         type: 3}
       propertyPath: storedCollected
@@ -16113,7 +16122,7 @@ PrefabInstance:
     - target: {fileID: 7190397953259385594, guid: 9e8dd2841eb27734eb1c6efeb228f8cc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7190397953259385594, guid: 9e8dd2841eb27734eb1c6efeb228f8cc,
         type: 3}
@@ -16132,6 +16141,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8dd2841eb27734eb1c6efeb228f8cc, type: 3}
+--- !u!1 &1083019774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083019775}
+  m_Layer: 0
+  m_Name: Variaveis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083019775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083019774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1470922396}
+  - {fileID: 415140948}
+  - {fileID: 390518730}
+  m_Father: {fileID: 1054032418}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1087263986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 526292640579026187, guid: a9d7d165883e6394b970820f89bedb3a,
@@ -16757,7 +16799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 554416264}
-        m_MethodName: 
+        m_MethodName: MuteSongs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18222,23 +18264,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236699022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &1236699025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19485,7 +19520,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1542559186}
     m_Modifications:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19495,7 +19530,7 @@ PrefabInstance:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.73
+      value: 4.7299995
       objectReference: {fileID: 0}
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19525,7 +19560,7 @@ PrefabInstance:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19553,6 +19588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leitura 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6095400742733047839, guid: a5a9647fb3df6914ca403342bdefd492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a9647fb3df6914ca403342bdefd492, type: 3}
 --- !u!1001 &1379860725
@@ -19560,7 +19600,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1542559186}
     m_Modifications:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19570,7 +19610,7 @@ PrefabInstance:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: 0.9300003
       objectReference: {fileID: 0}
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19600,7 +19640,7 @@ PrefabInstance:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -19627,6 +19667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leitura 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095400742733047839, guid: a5a9647fb3df6914ca403342bdefd492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a9647fb3df6914ca403342bdefd492, type: 3}
@@ -19976,7 +20021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404245234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.1473, y: 150.1383, z: -1400.7207}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1096617880}
@@ -24333,7 +24378,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
+  m_CellSize: {x: 51, y: 51}
   m_Spacing: {x: 13, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 9
@@ -24583,6 +24628,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1542559185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542559186}
+  m_Layer: 0
+  m_Name: Leitura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1542559186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542559185}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1336127169}
+  - {fileID: 1455101862}
+  - {fileID: 1467234743}
+  m_Father: {fileID: 1054032418}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545795048
 GameObject:
   m_ObjectHideFlags: 0
@@ -24988,7 +25066,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1083019775}
     m_Modifications:
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -24998,7 +25076,7 @@ PrefabInstance:
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.72
+      value: 3.7199993
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227280, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -25059,6 +25137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Variavel 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434578762422227292, guid: f4f3b43f44169fd4c9d3c4ec26234254,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1434578762422227293, guid: f4f3b43f44169fd4c9d3c4ec26234254,
         type: 3}
@@ -25290,7 +25373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619629681}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: Audio Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25304,7 +25387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619629680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.075229, y: 1.826725, z: -4.8353176}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 331396896}
@@ -26939,7 +27022,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1054032418}
+    m_TransformParent: {fileID: 1542559186}
     m_Modifications:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -26979,7 +27062,7 @@ PrefabInstance:
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6095400742733047827, guid: a5a9647fb3df6914ca403342bdefd492,
         type: 3}
@@ -27006,6 +27089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leitura 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095400742733047839, guid: a5a9647fb3df6914ca403342bdefd492,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a9647fb3df6914ca403342bdefd492, type: 3}
@@ -35543,30 +35631,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2171265022892778347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2171265022892778350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
 --- !u!1 &2171265022892778350
 GameObject:
   m_ObjectHideFlags: 0
@@ -35580,7 +35644,7 @@ GameObject:
   - component: {fileID: 2171265022892778345}
   - component: {fileID: 5284814152646497009}
   - component: {fileID: 5118884146313764237}
-  - component: {fileID: 2171265022892778347}
+  - component: {fileID: 2171265022892778352}
   m_Layer: 0
   m_Name: Mainframe S9
   m_TagString: Untagged
@@ -35602,6 +35666,23 @@ Transform:
   m_Father: {fileID: 2133561833631316927}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2171265022892778352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171265022892778350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!61 &2191713425678326219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35700,30 +35781,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2220919485297905202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2220919485297905207}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.1
-  inventory: {fileID: 0}
-  thisPuzzle: {fileID: 0}
 --- !u!4 &2220919485297905206
 Transform:
   m_ObjectHideFlags: 0
@@ -35751,7 +35808,7 @@ GameObject:
   - component: {fileID: 2220919485297905200}
   - component: {fileID: 5306585000703852456}
   - component: {fileID: 5186535483723018452}
-  - component: {fileID: 2220919485297905202}
+  - component: {fileID: 2220919485297905208}
   m_Layer: 0
   m_Name: Mainframe S6
   m_TagString: Untagged
@@ -35759,6 +35816,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2220919485297905208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2220919485297905207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28c60fa23483a44bb1bf49646c38c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Esse desafio nao esta disponivel na versao demo!
 --- !u!1 &2227289960105493041
 GameObject:
   m_ObjectHideFlags: 0
@@ -37132,17 +37206,17 @@ PrefabInstance:
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3748305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.896067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3222.1973
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792249832961051110, guid: 75a18b1fa037646418793c5ef9348dbe,
         type: 3}
@@ -39112,7 +39186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &4969870158204636694
 Grid:
   m_ObjectHideFlags: 0
@@ -39284,17 +39358,17 @@ PrefabInstance:
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.222035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3892531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2588.7559
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5023374293399720950, guid: ed9eac48cb9761b49942786de199a285,
         type: 3}
@@ -42835,30 +42909,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7780356098276131336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7780356098276131341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 125088546}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: terminal3
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
 --- !u!50 &7780356098276131338
 Rigidbody2D:
   serializedVersion: 4
@@ -42958,7 +43008,7 @@ GameObject:
   - component: {fileID: 7780356098276131338}
   - component: {fileID: 4363966968441189266}
   - component: {fileID: 3661827460005313774}
-  - component: {fileID: 7780356098276131336}
+  - component: {fileID: 7780356098276131342}
   m_Layer: 0
   m_Name: Mainframe S3
   m_TagString: Untagged
@@ -42966,6 +43016,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7780356098276131342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780356098276131341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
+  sceneToLoad: terminal3
+  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
+    type: 3}
+  fadeWait: 0.3
+  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
+  thisPuzzle: {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
 --- !u!1001 &7872156735659453553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45341,7 +45415,7 @@ GameObject:
   - component: {fileID: 8298882090991042709}
   - component: {fileID: 2620251910190264589}
   - component: {fileID: 3027405489017683569}
-  - component: {fileID: 8298882090991042711}
+  - component: {fileID: 8298882090991042710}
   m_Layer: 0
   m_Name: Mainframe S4
   m_TagString: Untagged
@@ -45435,7 +45509,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8298882090991042711
+--- !u!114 &8298882090991042710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45449,10 +45523,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
   playerInRange: 0
-  Jogador: {fileID: 0}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
   sceneToLoad: terminal3
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
@@ -45742,30 +45816,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8722960392996493851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8722960392996493854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
-  playerInRange: 0
-  Jogador: {fileID: 125088546}
-  dialogBox: {fileID: 0}
-  dialogText: {fileID: 0}
-  dialog: 
-  sceneToLoad: Terminal-01
-  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
-    type: 3}
-  fadeWait: 0.3
-  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
-  thisPuzzle: {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
 --- !u!1 &8722960392996493854
 GameObject:
   m_ObjectHideFlags: 0
@@ -45779,7 +45829,7 @@ GameObject:
   - component: {fileID: 8722960392996493849}
   - component: {fileID: 3348604662019861377}
   - component: {fileID: 2316576753645233405}
-  - component: {fileID: 8722960392996493851}
+  - component: {fileID: 8722960392996493856}
   m_Layer: 0
   m_Name: Mainframe S2
   m_TagString: Untagged
@@ -45801,6 +45851,30 @@ Transform:
   m_Father: {fileID: 8841730884923441871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8722960392996493856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722960392996493854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ddf78973ff4a74599419b2086c2148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 6feffb6e1812a32468822b1a1cf77169, type: 2}
+  playerInRange: 0
+  Jogador: {fileID: 125088546}
+  dialogBox: {fileID: 1921702099}
+  dialogText: {fileID: 1416421151}
+  dialog: Os blocos que eu tenho nao sao suficientes
+  sceneToLoad: terminal3
+  fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
+    type: 3}
+  fadeWait: 0.3
+  inventory: {fileID: 11400000, guid: 3f6e3b389f605e54dafdfd73d2b1612b, type: 2}
+  thisPuzzle: {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
 --- !u!1 &8775017725320461121
 GameObject:
   m_ObjectHideFlags: 0

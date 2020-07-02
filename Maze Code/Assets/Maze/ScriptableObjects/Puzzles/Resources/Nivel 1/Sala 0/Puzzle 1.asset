@@ -17,25 +17,30 @@ MonoBehaviour:
   objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
   initialValue: 0
   runtimeValue: 0
-  variavel: 1
-  leitura: 1
+  variavel: 3
+  leitura: 2
   imprime: 1
   matematica: 1
-  condicional: 1
+  condicional: 0
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 2
-  bonusLeitura: 2
-  bonusImprime: 2
-  bonusMatematica: 2
+  bonusVariavel: 1
+  bonusLeitura: 1
+  bonusImprime: 1
+  bonusMatematica: 0
   bonusCondicional: 0
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 11111
-  objectiveTitle: 11111111
-  objective: 1111111111111111
+  correctCode: using System; using System.Collections.Generic; using System.Linq;
+    using System.Text; using System.Threading.Tasks; namespace Soma { class Program
+    { static void Main(string[] args) { int A, B, X; A = int.Parse(Console.ReadLine());
+    B = int.Parse(Console.ReadLine()); X = A + B; Console.WriteLine("X = " + X);
+    } } }
+  objectiveTitle: Soma simples
+  objective: "Leia 2 valores e armazene-os nas vari\xE1veis A e B. Efetue a soma
+    de A e B atribuindo o seu resultado na vari\xE1vel X. Exemplo da saida: X = 19"
   inputs: []
