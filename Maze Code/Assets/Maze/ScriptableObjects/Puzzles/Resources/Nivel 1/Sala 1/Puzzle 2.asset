@@ -17,25 +17,29 @@ MonoBehaviour:
   objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
   initialValue: 0
   runtimeValue: 0
-  variavel: 5
-  leitura: 5
-  imprime: 5
-  matematica: 0
+  variavel: 3
+  leitura: 2
+  imprime: 1
+  matematica: 1
   condicional: 0
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 0
-  bonusLeitura: 0
-  bonusImprime: 0
-  bonusMatematica: 0
+  bonusVariavel: 1
+  bonusLeitura: 1
+  bonusImprime: 1
+  bonusMatematica: 1
   bonusCondicional: 0
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
-  objectiveTitle: 
-  objective: 
+  correctCode: namespace Produto_Simples { class Program { static void Main(string[]
+    args) { int num1, num2, PROD; num1 = int.Parse(Console.ReadLine()); num2 = int.Parse(Console.ReadLine());
+    PROD = num1 * num2; Console.WriteLine("PROD = "+PROD);}}}
+  objectiveTitle: Produto Simples
+  objective: "Leia dois valores. A seguir, calcule o produto entre estes dois valores
+    e atribua esta opera\xE7\xE3o \xE0 vari\xE1vel PROD. A seguir mostre a vari\xE1vel
+    PROD com mensagem correspondente: PROD = 00"
   inputs: []
