@@ -20,7 +20,8 @@ public class RandomInventoryItem : MonoBehaviour
     {
         if(playerInventory && thisItem)
         {
-            if(playerInventory.myInventory.Contains(thisItem))
+            SomItem.current.PlayMusic();
+            if (playerInventory.myInventory.Contains(thisItem))
             {
                 thisItem.numberHeld += 1;
             } else {
