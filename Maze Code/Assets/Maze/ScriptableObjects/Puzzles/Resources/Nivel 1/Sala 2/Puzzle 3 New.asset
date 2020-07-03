@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
-  m_Name: Puzzle 3
+  m_Name: Puzzle 3 New
   m_EditorClassIdentifier: 
   naSala: 2
   destravaSala: 3
-  objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
+  objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 5
-  leitura: 5
-  imprime: 5
-  matematica: 0
+  variavel: 2
+  leitura: 1
+  imprime: 1
+  matematica: 1
   condicional: 0
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 0
-  bonusLeitura: 0
-  bonusImprime: 0
-  bonusMatematica: 0
+  bonusVariavel: 3
+  bonusLeitura: 1
+  bonusImprime: 1
+  bonusMatematica: 4
   bonusCondicional: 0
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
@@ -42,9 +42,4 @@ MonoBehaviour:
   objectiveTitle: "\xC1rea do quadrado"
   objective: "Leia o valor dos lados de um quadrado. A seguir, calcule a \xE1rea
     deste quadrado."
-  inputs:
-  - list: 05000000
-  - list: 19000000
-  - list: 01000000
-  - list: 06000000
-  - list: 4d000000
+  inputs: []

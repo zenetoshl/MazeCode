@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
-  m_Name: Puzzle 3
+  m_Name: Puzzle 4 New
   m_EditorClassIdentifier: 
-  naSala: 2
-  destravaSala: 3
-  objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
+  naSala: 3
+  destravaSala: 4
+  objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 5
-  leitura: 5
-  imprime: 5
-  matematica: 0
+  variavel: 3
+  leitura: 3
+  imprime: 3
+  matematica: 6
   condicional: 0
   loopDefinido: 0
   loopIndefinido: 0
@@ -37,14 +37,13 @@ MonoBehaviour:
   bonusMatriz: 0
   correctCode: using System;using System.Collections.Generic;using UnityEngine;using
     System.Text;namespace teste { class MazeCode {int _i = 0;string _output = "";List<int>
-    _inputs = new List<int>() {};void teste(){int a= 0;             if(_i < _inputs.Count)a=
-    _inputs[_i++];a = a*a;_output += a+ " ";}}}
-  objectiveTitle: "\xC1rea do quadrado"
-  objective: "Leia o valor dos lados de um quadrado. A seguir, calcule a \xE1rea
-    deste quadrado."
-  inputs:
-  - list: 05000000
-  - list: 19000000
-  - list: 01000000
-  - list: 06000000
-  - list: 4d000000
+    _inputs = new List<int>() {};void teste(){int a= 0;int b= 0;int c= 0;            
+    if(_i < _inputs.Count)a= _inputs[_i++];             if(_i < _inputs.Count)b=
+    _inputs[_i++];             if(_i < _inputs.Count)c= _inputs[_i++];a = a*2;b =
+    b*3;c = c*5;int d= 0;d = a+b;d = d+c;d = d/10;_output += d+ " ";}}}
+  objectiveTitle: Media inteira ponderada
+  objective: "Leia 3 valores, que s\xE3o as tr\xEAs notas de um aluno. A seguir,
+    calcule a m\xE9dia inteira das notas do aluno, sabendo que a nota A tem peso
+    2, a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir
+    de 0 at\xE9 10."
+  inputs: []
