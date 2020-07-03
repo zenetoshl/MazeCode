@@ -7834,9 +7834,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1006604282}
   inventoryPanel: {fileID: 1394679416}
+  buttonMusic: {fileID: 961407274}
+  buttonSound: {fileID: 1114676492}
   soundConfig: {fileID: 11400000, guid: d31e5e39d05eca24a95645c5d6d76afb, type: 2}
   somPassos: {fileID: 814602065}
   mainMenu: Start Menu
+  musicON: {r: 1, g: 0.73333335, b: 0, a: 1}
+  musicOFF: {r: 0.33962262, g: 0.33161265, b: 0.33161265, a: 1}
+  soundON: {r: 0, g: 0.8, b: 0.003921569, a: 1}
+  soundOFF: {r: 0.34117648, g: 0.33333334, b: 0.33333334, a: 1}
 --- !u!1 &560598443
 GameObject:
   m_ObjectHideFlags: 0
@@ -15147,7 +15153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1006604283
 RectTransform:
   m_ObjectHideFlags: 0

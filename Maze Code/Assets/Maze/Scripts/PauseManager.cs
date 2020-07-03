@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour {
     private bool isPaused;
@@ -9,11 +11,21 @@ public class PauseManager : MonoBehaviour {
 
     public GameObject pausePanel;
     public GameObject inventoryPanel;
+    public GameObject buttonMusic;
+    public GameObject buttonSound;
 
     public SoundConfig soundConfig;
     public AudioSource somPassos;
 
     public string mainMenu;
+
+    [Header("Music Button")]
+    public Color musicON;
+    public Color musicOFF;
+
+    [Header("Sound Button")]
+    public Color soundON;
+    public Color soundOFF;
 
     // Start is called before the first frame update
     void Start () {
@@ -54,11 +66,13 @@ public class PauseManager : MonoBehaviour {
         soundConfig.music = !soundConfig.music;
         SomSala.current.SalaSom.mute = soundConfig.music;
         if (soundConfig.music) {
+            buttonMusic.GetComponent<Image>().color = musicOFF;
             SomSala.current.StopMusic ();
         } else {
+            buttonMusic.GetComponent<Image>().color = musicON;
             SomSala.current.PlayMusic ();
         }
-
+        
     }
     public void MuteSongs () {
         soundConfig.sound = !soundConfig.sound;
@@ -67,8 +81,10 @@ public class PauseManager : MonoBehaviour {
         SomPorta.current.PortaSom.mute = sound;
         SomItem.current.ItemSom.mute = sound;
         if (sound) {
+            buttonSound.GetComponent<Image>().color = soundOFF;
             SomPassos.current.StopMusic ();
         } else {
+            buttonSound.GetComponent<Image>().color = soundON;
             SomPassos.current.PlayMusic ();
         }
         SomPassos.current.PassosSom.mute = true;
@@ -84,13 +100,17 @@ public class PauseManager : MonoBehaviour {
 
 
         if (soundConfig.music) {
+            buttonMusic.GetComponent<Image>().color = musicOFF;
             SomSala.current.StopMusic ();
         } else {
+            buttonMusic.GetComponent<Image>().color = musicON;
             SomSala.current.PlayMusic ();
         }
         if (sound) {
+            buttonSound.GetComponent<Image>().color = soundOFF;
             somPassos.Stop ();
         } else {
+            buttonSound.GetComponent<Image>().color = soundON;
             somPassos.Play ();
         }
     }
