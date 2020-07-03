@@ -11,7 +11,6 @@ public class SomPassos : MonoBehaviour
     void Start()
     {
         current = this;
-        PassosSom = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
