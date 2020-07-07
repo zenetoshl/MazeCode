@@ -18,9 +18,9 @@ public class BlocoIf : Bloco
     private void Start() {
         uiText.text = "---";
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal>().GetMyWindow();
-        var = myWindow.transform.Find("UI_Input/Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
-        op = myWindow.transform.Find("UI_Input/Panel/Operandos/Operador/Label").GetComponent<TextMeshProUGUI>();
-        val = myWindow.transform.Find("UI_Input/Panel/Operandos/num_var_vet_mat").GetComponent<Num_Var_Vet_Mat>();
+        var = myWindow.transform.Find("Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
+        op = myWindow.transform.Find("Panel/Operandos/Operador/Label").GetComponent<TextMeshProUGUI>();
+        val = myWindow.transform.Find("Panel/Operandos/num_var_vet_mat").GetComponent<Num_Var_Vet_Mat>();
         oldOp = op.text;
     }
 

@@ -1241,10 +1241,9 @@ RectTransform:
   m_GameObject: {fileID: 4478540627410816477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 186245097402648391}
-  - {fileID: 5081288378559331395}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1297,9 +1296,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4478540627410816477}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &275360439168498576
 MonoBehaviour:
@@ -1313,7 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   turnOffSiblings: 0
   onTransitions:
     speed: 50
@@ -1393,7 +1392,7 @@ MonoBehaviour:
   invalid: {fileID: 1636322468150931398}
   name: {fileID: 6998264326884495018}
   registered: {fileID: 1256724360286226138}
-  okButton: {fileID: 0}
+  okButton: {fileID: 8812143994214254223}
 --- !u!114 &3052031495269930171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,13 +2090,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8525317618423099426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 0}
   m_Children:
   - {fileID: 8421241026315458587}
   - {fileID: 4118912279328156363}
-  m_Father: {fileID: 8646691115733116692}
-  m_RootOrder: 1
+  m_Father: {fileID: 186245097402648391}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8565892918533618016
 GameObject:
@@ -2230,6 +2229,7 @@ RectTransform:
   m_Children:
   - {fileID: 6842483886208905143}
   - {fileID: 4797114370830582824}
+  - {fileID: 5081288378559331395}
   m_Father: {fileID: 8646691115733116692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

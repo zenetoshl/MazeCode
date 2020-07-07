@@ -6,7 +6,6 @@ public class UIEnabler : MonoBehaviour
 {
     // Start is called before the first frame update
     public void UpdateUI(bool b){
-        UIManager.changed = true;
-        UIManager.isOpened = b;
+        UIManager.ChangeWindowStatus(b);
     }
 }

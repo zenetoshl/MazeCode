@@ -20,10 +20,10 @@ public class BlocoFor : Bloco
     private void Start() {
         uiText.text = "---";
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal>().GetMyWindow();
-        var = myWindow.transform.Find("UI_Input/Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
-        op = myWindow.transform.Find("UI_Input/Panel/Operandos/Incremento/Label").GetComponent<TextMeshProUGUI>();
-        initial = myWindow.transform.Find("UI_Input/Panel/Operandos/de/Entrada").GetComponent<TMP_InputField>();
-        end = myWindow.transform.Find("UI_Input/Panel/Operandos/ate/Entrada").GetComponent<TMP_InputField>();
+        var = myWindow.transform.Find("Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
+        op = myWindow.transform.Find("Panel/Operandos/Incremento/Label").GetComponent<TextMeshProUGUI>();
+        initial = myWindow.transform.Find("Panel/Operandos/de/Entrada").GetComponent<TMP_InputField>();
+        end = myWindow.transform.Find("Panel/Operandos/ate/Entrada").GetComponent<TMP_InputField>();
         oldOp = op.text;
         oldEnd = end.text;
         oldInitial = initial.text;

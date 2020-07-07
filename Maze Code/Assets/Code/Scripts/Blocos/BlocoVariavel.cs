@@ -14,7 +14,7 @@ public class BlocoVariavel : Bloco
 
     private void Start() {
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal>().GetMyWindow();
-        var = myWindow.transform.Find("UI_Input/Panel/Nome").GetComponent<TMP_InputField>();
+        var = myWindow.transform.Find("Panel/Description/Nome").GetComponent<TMP_InputField>();
         oldVar = var.text;
         ToUI();
     }

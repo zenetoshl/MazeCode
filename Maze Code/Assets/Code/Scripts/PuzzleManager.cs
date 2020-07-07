@@ -12,7 +12,6 @@ public class PuzzleManager : MonoBehaviour {
 
     private void Start () {
         puzzle = StaticLoadPuzzle.puzzle;
-        Debug.Log (puzzle.correctCode);
         codeSender.correctCode = puzzle.correctCode;
         codeSender.inputs = puzzle.inputs;
         codeSender.puzzle = puzzle;

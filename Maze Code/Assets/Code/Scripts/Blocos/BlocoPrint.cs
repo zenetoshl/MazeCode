@@ -11,7 +11,7 @@ public class BlocoPrint : Bloco
     {
         uiText.text = "---";
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal>().GetMyWindow();
-        var = myWindow.transform.Find("UI_Input/Panel/var_vet_mat").GetComponent<Var_Vet_Mat>();
+        var = myWindow.transform.Find("Panel/var_vet_mat").GetComponent<Var_Vet_Mat>();
     }
     public override string ToCode()
     {

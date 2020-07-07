@@ -1,0 +1,2 @@
+using System;using System.Collections.Generic;using UnityEngine;using System.Text;namespace teste { class MazeCode {int _i = 0;string _output = "";List<int> _inputs = new List<int>() {};void teste(){int a= 0;
+            if(_i < _inputs.Count)a= _inputs[_i++];a = a*a;_output += a+ " ";}}}
