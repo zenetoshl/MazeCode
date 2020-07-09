@@ -11,7 +11,7 @@ public class InstantiateTerminal : MonoBehaviour
 
     void Awake()
     {
-        GameObject terminal = GameObject.Find("Terminal");
+        GameObject terminal = GameObject.Find("UI/Terminal") as GameObject;
         myLeanWindow = Instantiate(leanWindowPrefab, new Vector3(Screen.width / 2, Screen.height / 2, 0), Quaternion.identity);
         myLeanWindow.transform.SetParent(terminal.transform, true);
         myLeanWindow.GetComponent<BlockWindow>().myBlock = this.GetComponent<Bloco>();
