@@ -21,6 +21,7 @@ public class CodeSender : MonoBehaviour {
     private int _rightAnwser = 0;
     private string source;
     public static int rightAnwsersPercentage = 0;
+    public static bool _completed = false;
     public DeliverWindowHandler window;
     public string correctCode;
     public Puzzle puzzle;
@@ -108,9 +109,7 @@ public class CodeSender : MonoBehaviour {
     private void CompareOutputs () {
         rightAnwsersPercentage = ((_rightAnwser / ((inputs.Count == 0) ? 1 : inputs.Count)) * 100);
         window.CheckSend ();
-        if (_rightAnwser == puzzle.inputs.Count) {
-            puzzle.initialValue = true;
-        }
+        _completed = (_rightAnwser == puzzle.inputs.Count);
     }
 
     private void ReadInputFiles (string dirName) {
