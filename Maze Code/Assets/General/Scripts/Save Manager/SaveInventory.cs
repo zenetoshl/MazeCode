@@ -8,18 +8,7 @@ public class SaveInventory : MonoBehaviour
 {
     [SerializeField] private PlayerInventory inventory = null;
 
-    private void OnEnable()
-    {
-        //inventory.myInventory.Clear();
-        LoadScriptables();
-        //Debug.Log("Load Inv OK");
-    }
-
-    private void OnDisable()
-    {
-        SaveScriptables();
-        //Debug.Log("Save Inv OK");
-    }
+ 
 
     public void SaveScriptables()
     {

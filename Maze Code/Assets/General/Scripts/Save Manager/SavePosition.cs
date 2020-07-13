@@ -8,17 +8,7 @@ public class SavePosition : MonoBehaviour
 {
     [SerializeField] public VectorValue position;
 
-    private void OnEnable()
-    {
-        LoadScriptables();
-        //Debug.Log("Load Position OK");
-    }
 
-    private void OnDisable()
-    {
-        SaveScriptables();
-        //Debug.Log("Save Position OK");
-    }
 
     public void SaveScriptables()
     {

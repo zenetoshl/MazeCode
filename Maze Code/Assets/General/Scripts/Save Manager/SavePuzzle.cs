@@ -9,17 +9,6 @@ public class SavePuzzle : MonoBehaviour
     [Header("Lista de todos os Puzzles do jogo")]
     public List<Puzzle> objects = new List<Puzzle>();
 
-    private void OnEnable()
-    {
-        LoadScriptables();
-        //Debug.Log("Load Puzzles ok");
-    }
-
-    private void OnDisable()
-    {
-        SaveScriptables();
-        //Debug.Log("Save Puzzles OK");
-    }
 
     public void SaveScriptables()
     {

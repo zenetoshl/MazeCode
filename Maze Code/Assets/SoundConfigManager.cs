@@ -45,16 +45,4 @@ public class SoundConfigManager : MonoBehaviour
             file.Close ();
         }
     }
-
-    private void OnDisable () {
-        SaveConfig ();
-    }
-
-    private void OnEnable () {
-        LoadConfig ();
-    }
-
-    private void OnApplicationQuit () {
-        SaveConfig ();
-    }
 }

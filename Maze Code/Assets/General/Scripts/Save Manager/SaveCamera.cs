@@ -66,16 +66,4 @@ public class SaveCamera : MonoBehaviour {
             file.Close ();
         }
     }
-
-    private void OnDisable () {
-        SaveLimits ();
-    }
-
-    private void OnEnable () {
-        LoadLimits ();
-    }
-
-    private void OnApplicationQuit () {
-        SaveLimits ();
-    }
 }

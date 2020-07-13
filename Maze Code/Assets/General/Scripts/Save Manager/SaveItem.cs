@@ -9,17 +9,6 @@ public class SaveItem : MonoBehaviour
     [Header("Lista de todos os blocos visíveis no Labirinto")]
     public List<BoolValue> objects = new List<BoolValue>();
 
-    private void OnEnable()
-    {
-        LoadScriptables();
-        //Debug.Log("Load Items OK");
-    }
-
-    private void OnDisable()
-    {
-        SaveScriptables();
-        //Debug.Log("Save Items OK");
-    }
 
     public void SaveScriptables()
     {
