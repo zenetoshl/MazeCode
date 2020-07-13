@@ -20,9 +20,6 @@ public class CameraMovement : MonoBehaviour {
 
         CalculateLimits ();
 
-        Debug.Log(minPositionMap.initialValue);
-        Debug.Log(maxPositionMap.initialValue);
-
         transform.position = new Vector3 (target.position.x, target.position.y, transform.position.z);
     }
 
