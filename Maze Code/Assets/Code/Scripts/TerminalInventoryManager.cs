@@ -21,7 +21,6 @@ public class TerminalInventoryManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        playerInventoryDiff = new PlayerInventory ();
         varText = this.transform.Find ("Variavel/Count").GetComponent<Text> ();
         vetText = this.transform.Find ("Vetor/Count").GetComponent<Text> ();
         matText = this.transform.Find ("Matriz/Count").GetComponent<Text> ();
@@ -123,15 +122,17 @@ public class TerminalInventoryManager : MonoBehaviour {
     }
 
     public static void UpdateItemInventory (InventoryItem thisItem, int qtd) {
-        if (playerInventory && playerInventoryDiff && thisItem) {
+        Debug.Log("teste: " + (playerInventory  && thisItem));
+        if (playerInventory && playerInventoryDiff) {
             if (playerInventoryDiff.myInventory.Contains (thisItem)) {
                 thisItem.numberHeld += qtd;
             } else {
                 playerInventoryDiff.myInventory.Add (thisItem);
                 thisItem.numberHeld += qtd;
             }
+            Debug.Log("ola");
+            UpdateUI (thisItem, qtd);
         }
-        InitializeCount ();
     }
 
     public static void CalculateDiff () {
@@ -145,5 +146,38 @@ public class TerminalInventoryManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private static void UpdateUI (InventoryItem thisItem, int qtd) {
+        switch (thisItem.itemName) {
+            case "variavel":
+                varText.text = "x" + thisItem.numberHeld;
+                break;
+            case "vetor":
+                vetText.text = "x" + thisItem.numberHeld;
+                break;
+            case "matriz":
+                matText.text = "x" + thisItem.numberHeld;
+                break;
+            case "loopIndefinido":
+                whileText.text = "x" + thisItem.numberHeld;
+                break;
+            case "loopDefinido":
+                forText.text = "x" + thisItem.numberHeld;
+                break;
+            case "condicional":
+                ifText.text = "x" + thisItem.numberHeld;
+                break;
+            case "imprime":
+                writeText.text = "x" + thisItem.numberHeld;
+                break;
+            case "leitura":
+                readText.text = "x" + thisItem.numberHeld;
+                break;
+            case "matematica":
+                mathText.text = "x" + thisItem.numberHeld;
+                break;
+        }
+        CheckDisabled ();
     }
 }
