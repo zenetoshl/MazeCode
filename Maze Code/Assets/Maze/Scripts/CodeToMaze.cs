@@ -19,12 +19,18 @@ public class CodeToMaze : MonoBehaviour {
     [Header ("Incrementar Bonus")]
     public PlayerInventory inventory = null;
 
+    private FadeAnimation fade;
+
     public void Awake () {
         if (fadeInPanel != null) {
             GameObject panel = Instantiate (fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
             Destroy (panel, 1);
         }
         puzzleStatus = StaticLoadPuzzle.puzzle;
+    }
+
+    private void Start () {
+        fade = FadeAnimation.current;
     }
 
     public void ReturnToMaze () {
@@ -52,11 +58,12 @@ public class CodeToMaze : MonoBehaviour {
             // "8 - Matriz"
             inventory.myInventory[8].numberHeld = inventory.myInventory[8].numberHeld + puzzleStatus.bonusMatriz;
 
-            TerminalInventoryManager.CalculateDiff();
+            TerminalInventoryManager.CalculateDiff ();
 
         }
+        fade.StartAnimationAndLoadAsync (sceneToLoad);
 
-        StartCoroutine (FadeControl ());
+        //StartCoroutine (FadeControl ());
     }
 
     public IEnumerator FadeControl () {

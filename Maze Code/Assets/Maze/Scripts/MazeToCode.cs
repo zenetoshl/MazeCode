@@ -25,6 +25,8 @@ public class MazeToCode : Interactable
     [SerializeField] private PlayerInventory inventory = null;
     [SerializeField] private Puzzle thisPuzzle = null;
 
+    private FadeAnimation fade; 
+
     public void Awake()
     {
         /*
@@ -39,6 +41,7 @@ public class MazeToCode : Interactable
     private void Start()
     {
         joybutton = FindObjectOfType<JoyButtonAction>();
+        fade = FadeAnimation.current;
     }
 
     public void Update()
@@ -50,8 +53,10 @@ public class MazeToCode : Interactable
             {
                 SomComputador.current.PlayMusic();
                 //Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
-                SceneManager.LoadScene(sceneToLoad);
-                StartCoroutine(FadeControl());
+                StaticLoadPuzzle.puzzle = thisPuzzle;
+                fade.StartAnimationAndLoad(sceneToLoad);
+                
+                //StartCoroutine(FadeControl());
             }
         }
     }
@@ -62,7 +67,6 @@ public class MazeToCode : Interactable
         {
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
         }
-        StaticLoadPuzzle.puzzle = thisPuzzle;
         yield return new WaitForSeconds(fadeWait);
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
         while(!asyncOperation.isDone)
