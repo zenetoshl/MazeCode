@@ -1,19 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressCircle : MonoBehaviour
 {
-    private RectTransform rectComponent;
-    private float rotateSpeed = 200f;
-
-    private void Start()
-    {
-        rectComponent = GetComponent<RectTransform>();
-    }
+    public Image circle;
+    public float rotateSpeed = 0.2f;
+    private float fill = 0f;
 
     private void Update()
-    {
-        rectComponent.Rotate(0f, 0f, rotateSpeed * Time.deltaTime);
+    {   
+        fill =  Mathf.Abs(((rotateSpeed*Time.deltaTime) + fill)%1);
+        circle.fillAmount = fill;
     }
 }
