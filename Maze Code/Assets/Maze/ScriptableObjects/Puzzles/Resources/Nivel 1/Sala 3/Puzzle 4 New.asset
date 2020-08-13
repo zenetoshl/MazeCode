@@ -42,8 +42,7 @@ MonoBehaviour:
     _inputs[_i++];             if(_i < _inputs.Count)c= _inputs[_i++];a = a*2;b =
     b*3;c = c*5;int d= 0;d = a+b;d = d+c;d = d/10;_output += d+ " ";}}}
   objectiveTitle: Media inteira ponderada
-  objective: "Leia 3 valores, que s\xE3o as tr\xEAs notas de um aluno. A seguir,
-    calcule a m\xE9dia inteira das notas do aluno, sabendo que a nota A tem peso
-    2, a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir
-    de 0 at\xE9 10."
+  objective: Leia 3 valores, que sao as tres notas de um aluno. A seguir, calcule
+    a media inteira das notas do aluno, sabendo que a nota A tem peso 2, a nota B
+    tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de 0 ate 10.
   inputs: []

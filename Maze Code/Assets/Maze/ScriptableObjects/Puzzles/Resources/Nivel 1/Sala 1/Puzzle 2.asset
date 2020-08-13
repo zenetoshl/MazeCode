@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naSala: 1
   destravaSala: 2
-  objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
+  objetivo: Descricao do objetivo que sera exibida no Terminal
   initialValue: 0
-  runtimeValue: 1
+  runtimeValue: 0
   variavel: 3
   leitura: 2
   imprime: 1
@@ -40,6 +40,6 @@ MonoBehaviour:
     PROD = num1 * num2; Console.WriteLine("PROD = "+PROD);}}}
   objectiveTitle: Produto Simples
   objective: "Leia dois valores. A seguir, calcule o produto entre estes dois valores
-    e atribua esta opera\xE7\xE3o \xE0 vari\xE1vel PROD. A seguir mostre a vari\xE1vel
-    PROD com mensagem correspondente: PROD = 00"
+    e atribua esta opera\xE7\xE3o a variavel PROD. A seguir mostre a variavel PROD
+    com mensagem correspondente: PROD = 00"
   inputs: []

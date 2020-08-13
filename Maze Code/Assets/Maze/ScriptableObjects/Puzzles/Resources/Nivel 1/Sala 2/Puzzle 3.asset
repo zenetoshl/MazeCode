@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naSala: 2
   destravaSala: 3
-  objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
+  objetivo: Descricao do objetivo que sera exibida no Terminal
   initialValue: 0
-  runtimeValue: 1
+  runtimeValue: 0
   variavel: 5
   leitura: 5
   imprime: 5
@@ -40,8 +40,8 @@ MonoBehaviour:
     _inputs = new List<int>() {};void teste(){int a= 0;             if(_i < _inputs.Count)a=
     _inputs[_i++];a = a*a;_output += a+ " ";}}}
   objectiveTitle: "\xC1rea do quadrado"
-  objective: "Leia o valor dos lados de um quadrado. A seguir, calcule a \xE1rea
-    deste quadrado."
+  objective: Leia o valor dos lados de um quadrado. A seguir, calcule a area deste
+    quadrado.
   inputs:
   - list: 05000000
   - list: 19000000
