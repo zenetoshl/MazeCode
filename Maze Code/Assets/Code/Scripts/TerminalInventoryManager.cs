@@ -130,7 +130,6 @@ public class TerminalInventoryManager : MonoBehaviour {
                 playerInventoryDiff.myInventory.Add (thisItem);
                 thisItem.numberHeld += qtd;
             }
-            Debug.Log("ola");
             UpdateUI (thisItem, qtd);
         }
     }

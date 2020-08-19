@@ -1015,6 +1015,11 @@ PrefabInstance:
       propertyPath: savePuzzleManager
       value: 
       objectReference: {fileID: 1582761218}
+    - target: {fileID: 7384197710121137069, guid: d34f67b6dec25414bb9d84a66dae4629,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d34f67b6dec25414bb9d84a66dae4629, type: 3}
 --- !u!1 &780235935
@@ -1653,7 +1658,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 145625436}
-        m_MethodName: 
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
