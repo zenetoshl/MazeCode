@@ -32,7 +32,7 @@ public class BlocoFor : Bloco
 
     public override string ToCode()
     {
-        string BlocoCode = "for(" + var.GetText() + " = " + initial.text + " ;" + var.GetText() + "<=" + end.text + ";" +var.GetText()+op.text + "){";
+        string BlocoCode = "for(" + var.GetText() + " = " + initial.text + " ;" + var.GetText() + "<=" + end.text + ";" +var.GetText()+op.text + ")";
         return BlocoCode;
     }
 
