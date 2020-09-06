@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naSala: 0
   destravaSala: 1
-  objetivo: "Descri\xE7\xE3o do objetivo que ser\xE1 exibida no Terminal"
+  objetivo: Descricao do objetivo que sera exibida no Terminal
   initialValue: 0
   runtimeValue: 0
   variavel: 3
@@ -41,6 +41,6 @@ MonoBehaviour:
     B = int.Parse(Console.ReadLine()); X = A + B; Console.WriteLine("X = " + X);
     } } }
   objectiveTitle: Soma simples
-  objective: "Leia 2 valores e armazene-os nas vari\xE1veis A e B. Efetue a soma
-    de A e B atribuindo o seu resultado na vari\xE1vel X. Exemplo da saida: X = 19"
+  objective: 'Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de
+    A e B atribuindo o seu resultado na variavel X. Exemplo da saida: X = 19'
   inputs: []
