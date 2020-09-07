@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naSala: 0
   destravaSala: 1
-  objetivo: Descricao do objetivo que sera exibida no Terminal
+  objetivo: da no Terminalbjetivo que sera exibida no Terminal
   initialValue: 0
   runtimeValue: 0
   variavel: 3
@@ -35,12 +35,12 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: using System; using System.Collections.Generic; using System.Linq;
-    using System.Text; using System.Threading.Tasks; namespace Soma { class Program
-    { static void Main(string[] args) { int A, B, X; A = int.Parse(Console.ReadLine());
-    B = int.Parse(Console.ReadLine()); X = A + B; Console.WriteLine("X = " + X);
-    } } }
+  correctCode: using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _i = 0;string _output = "";List<int>
+    _inputs = new List<int>() {};void teste(){var a = 0;var b = 0;             if(_i
+    < _inputs.Count)a= _inputs[_i++];             if(_i < _inputs.Count)b= _inputs[_i++];var
+    c = 0;c = b+a;_output += c+ " ";}}}
   objectiveTitle: Soma simples
-  objective: 'Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de
-    A e B atribuindo o seu resultado na variavel X. Exemplo da saida: X = 19'
+  objective: Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de A
+    e B e depois exiba o resultado.
   inputs: []

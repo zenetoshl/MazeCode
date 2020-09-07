@@ -84,12 +84,22 @@ public class VariableManager : MonoBehaviour {
         return false;
     }
 
-    public static List<string> ListNames ( /*StructureType st*/ ) {
+    public static List<string> ListNames ( ) {
         List<string> list = new List<string> ();
         foreach (CodeVar var in vars) {
             //if(var.structType == st){
             list.Add (var.name);
             //}
+        }
+        return list;
+    }
+
+    public static List<string> ListNames ( Type type ) {
+        List<string> list = new List<string> ();
+        foreach (CodeVar var in vars) {
+            if(var.type == type){
+                list.Add (var.name);
+            }
         }
         return list;
     }

@@ -35,11 +35,12 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: namespace Produto_Simples { class Program { static void Main(string[]
-    args) { int num1, num2, PROD; num1 = int.Parse(Console.ReadLine()); num2 = int.Parse(Console.ReadLine());
-    PROD = num1 * num2; Console.WriteLine("PROD = "+PROD);}}}
+  correctCode: using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _i = 0;string _output = "";List<int>
+    _inputs = new List<int>() {};void teste(){var a = 0;var b = 0;             if(_i
+    < _inputs.Count)a= _inputs[_i++];             if(_i < _inputs.Count)b= _inputs[_i++];var
+    c = 0;c = a*b;_output += c+ " ";}}}
   objectiveTitle: Produto Simples
-  objective: 'Leia dois valores. A seguir, calcule o produto entre estes dois valores
-    e atribua esta operacao a variavel PROD. A seguir mostre a variavel PROD com
-    mensagem correspondente: PROD = 00'
+  objective: Leia dois valores. A seguir, calcule o produto entre estes dois valores
+    e exiba o resultado.
   inputs: []
