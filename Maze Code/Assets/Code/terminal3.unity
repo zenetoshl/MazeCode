@@ -373,6 +373,7 @@ Transform:
   - {fileID: 1521258757}
   - {fileID: 1634616855}
   - {fileID: 2015563985}
+  - {fileID: 7973619975699200479}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1137,6 +1138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window-Executar
       objectReference: {fileID: 0}
+    - target: {fileID: 5889102664752684925, guid: 96127705aad43e74e90d5050feaddd2d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.002385859
+      objectReference: {fileID: 0}
     - target: {fileID: 6248370543778864908, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1180,7 +1186,12 @@ PrefabInstance:
     - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5101.226
+      value: -9283.821
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.002381925
       objectReference: {fileID: 0}
     - target: {fileID: 8521122792861998219, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
@@ -4617,8 +4628,10 @@ MonoBehaviour:
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
   fadeWait: 0.5
-  puzzleStatus: {fileID: 11400000, guid: ed3ce119b88e4fa4a87ee527a5639b7b, type: 2}
+  puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
+  saveInventoryManager: {fileID: 7973619975111812179}
+  savePuzzleManager: {fileID: 7973619975413743637}
 --- !u!114 &1887457102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9208,6 +9221,8 @@ MonoBehaviour:
   fadeWait: 0
   puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
+  saveInventoryManager: {fileID: 0}
+  savePuzzleManager: {fileID: 0}
 --- !u!222 &6163793095515677975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10604,6 +10619,8 @@ MonoBehaviour:
   fadeWait: 0.3
   puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
+  saveInventoryManager: {fileID: 0}
+  savePuzzleManager: {fileID: 0}
 --- !u!114 &7108167937429030117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11202,6 +11219,130 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &7973619975111812012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973619975111812013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7973619975699200479}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7973619975111812013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7973619975111812012}
+  - component: {fileID: 7973619975111812179}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7973619975111812179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973619975111812013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3ac8f395d09af4cb2b454af55f6797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 1193124283}
+--- !u!114 &7973619975413743637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973619975413743639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbc5e4337160274b916f5947724c6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
+  - {fileID: 11400000, guid: 71f56107e80494643bcbfa9aaf4c9d77, type: 2}
+  - {fileID: 11400000, guid: 7b591b9bd610f5e44a5e103bd30b2825, type: 2}
+  - {fileID: 11400000, guid: adf1c43be59b6ba4ba89e32f8f91bd7d, type: 2}
+--- !u!4 &7973619975413743638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973619975413743639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7973619975699200479}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7973619975413743639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7973619975413743638}
+  - component: {fileID: 7973619975413743637}
+  m_Layer: 0
+  m_Name: Puzzles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &7973619975699200472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7973619975699200479}
+  m_Layer: 0
+  m_Name: Save Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7973619975699200479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973619975699200472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7973619975413743638}
+  - {fileID: 7973619975111812012}
+  m_Father: {fileID: 201159064}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8033468630186192031
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,8 +26,8 @@ MonoBehaviour:
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 1
-  bonusLeitura: 1
+  bonusVariavel: 3
+  bonusLeitura: 2
   bonusImprime: 1
   bonusMatematica: 1
   bonusCondicional: 0
@@ -43,4 +43,7 @@ MonoBehaviour:
   objectiveTitle: Produto Simples
   objective: Leia dois valores. A seguir, calcule o produto entre estes dois valores
     e exiba o resultado.
-  inputs: []
+  inputs:
+  - list: 8400000004000000
+  - list: 040d00006f000000
+  - list: 0200000005000000

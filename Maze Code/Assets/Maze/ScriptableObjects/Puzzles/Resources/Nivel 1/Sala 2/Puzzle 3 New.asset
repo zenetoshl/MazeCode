@@ -40,6 +40,11 @@ MonoBehaviour:
     _inputs = new List<int>() {};void teste(){int a= 0;             if(_i < _inputs.Count)a=
     _inputs[_i++];a = a*a;_output += a+ " ";}}}
   objectiveTitle: Area do quadrado
-  objective: Leia o valor dos lados de um quadrado. A seguir, calcule a area deste
+  objective: Leia o tamanho dos lados de um quadrado. A seguir, calcule a area deste
     quadrado.
-  inputs: []
+  inputs:
+  - list: 0d000000
+  - list: 04000000
+  - list: 2d000000
+  - list: 64000000
+  - list: 01000000

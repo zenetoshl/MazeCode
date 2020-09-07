@@ -11,7 +11,6 @@ public class RoomMove : MonoBehaviour {
     public GameObject text;
     public Text placeText;
     private bool init;
-    public bool isOpen;
     public Puzzle puzzleStatus;
     public BoxCollider2D roomTransfer;
 
@@ -29,8 +28,7 @@ public class RoomMove : MonoBehaviour {
     }
 
     void Update () {
-        isOpen = puzzleStatus.runtimeValue;
-        roomTransfer.isTrigger = isOpen;
+        roomTransfer.isTrigger = puzzleStatus.runtimeValue;
         if (init) {
             init = false;
         }

@@ -17,7 +17,9 @@ public class SoundConfigManager : MonoBehaviour
     private void Awake () {
         if (!File.Exists (Application.persistentDataPath + "/config1.snd")) {
             CreateNewConfig ();
+
         }
+        Debug.Log(Application.persistentDataPath + "/config1.snd");
     }
 
     public void CreateNewConfig () {

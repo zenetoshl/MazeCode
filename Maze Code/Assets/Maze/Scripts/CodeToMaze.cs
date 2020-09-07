@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class CodeToMaze : MonoBehaviour {
     [Header ("New Scene Variables")]
@@ -20,6 +22,8 @@ public class CodeToMaze : MonoBehaviour {
     public PlayerInventory inventory = null;
 
     private FadeAnimation fade;
+    public SavePuzzle savePuzzleManager; 
+
 
     public void Awake () {
         if (fadeInPanel != null) {
@@ -58,8 +62,11 @@ public class CodeToMaze : MonoBehaviour {
             // "8 - Matriz"
             inventory.myInventory[8].numberHeld = inventory.myInventory[8].numberHeld + puzzleStatus.bonusMatriz;
 
-            TerminalInventoryManager.CalculateDiff ();
+            //TerminalInventoryManager.CalculateDiff ();
 
+            savePuzzleManager.SaveScriptables ();
+
+            SaveScriptables ();
         }
         fade.StartAnimationAndLoadAsync (sceneToLoad);
 
@@ -70,10 +77,23 @@ public class CodeToMaze : MonoBehaviour {
         if (fadeOutPanel != null) {
             Instantiate (fadeOutPanel, Vector3.zero, Quaternion.identity);
         }
-        yield return new WaitForSeconds (fadeWait);
+        yield return new WaitForSeconds (0.5f);
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync (sceneToLoad);
         while (!asyncOperation.isDone) {
             yield return null;
+        }
+    }
+
+    public void SaveScriptables()
+    {
+        //ResetScriptables();
+        for (int i = 0; i < inventory.myInventory.Count; i++)
+        {
+            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.inv", i));
+            BinaryFormatter binary = new BinaryFormatter();
+            var json = JsonUtility.ToJson(inventory.myInventory[i]);
+            binary.Serialize(file, json);
+            file.Close();
         }
     }
 }

@@ -45,6 +45,7 @@ public class CodeSender : MonoBehaviour {
         string sourceUser = ConnectionManager.ToCode (initBlock.GetComponent<RectTransform> ()) + "}}}";
         //string path = "term/scripts/" + SceneManager.GetActiveScene ().name + ".txt";
         Debug.Log (correctCode);
+        inputs = puzzle.inputs;
         StartCoroutine (RunAsync (sourceUser, correctCode));
     }
 
@@ -110,26 +111,7 @@ public class CodeSender : MonoBehaviour {
         rightAnwsersPercentage = ((_rightAnwser / ((inputs.Count == 0) ? 1 : inputs.Count)) * 100);
         window.CheckSend ();
         _completed = (_rightAnwser == puzzle.inputs.Count);
-    }
-
-    private void ReadInputFiles (string dirName) {
-        string filePath = System.IO.Path.Combine ("term", "in");
-        filePath = System.IO.Path.Combine (filePath, dirName);
-        int i = 0;
-        foreach (string f in GetFiles (filePath)) {
-            string path = f;
-            Debug.Log (path);
-            string[] liststr = BetterStreamingAssets.ReadAllLines (path);
-            inputs.Add (new Lister ());
-            foreach (string s in liststr) {
-                if (s.Length >= 1) {
-                    int num = Convert.ToInt32 (s);
-                    inputs[i].list.Add (num);
-                }
-            }
-            i++;
-        }
-        printList (inputs);
+        Debug.Log("completed:" + _completed);
     }
 
     private List<string> GetFiles (string path) {

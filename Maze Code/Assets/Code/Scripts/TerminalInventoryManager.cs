@@ -122,7 +122,6 @@ public class TerminalInventoryManager : MonoBehaviour {
     }
 
     public static void UpdateItemInventory (InventoryItem thisItem, int qtd) {
-        Debug.Log("teste: " + (playerInventory  && thisItem));
         if (playerInventory && playerInventoryDiff) {
             if (playerInventoryDiff.myInventory.Contains (thisItem)) {
                 thisItem.numberHeld += qtd;

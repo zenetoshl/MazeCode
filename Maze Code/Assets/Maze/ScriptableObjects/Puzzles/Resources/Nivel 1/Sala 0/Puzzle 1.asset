@@ -26,10 +26,10 @@ MonoBehaviour:
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 1
+  bonusVariavel: 3
   bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 0
+  bonusMatematica: 2
   bonusCondicional: 0
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
@@ -43,4 +43,7 @@ MonoBehaviour:
   objectiveTitle: Soma simples
   objective: Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de A
     e B e depois exiba o resultado.
-  inputs: []
+  inputs:
+  - list: 0400000005000000
+  - list: 1027000039000000
+  - list: 0000000000000000

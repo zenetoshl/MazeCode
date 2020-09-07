@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour {
     public SavePuzzle savePuzzleManager;
     public SaveItem saveItemManager;
 
-    private void OnEnable () {
+    private void Start () {
         saveCameraManager.LoadLimits ();
         saveSoundConfigManager.LoadConfig ();
         savePositionManager.LoadScriptables ();
