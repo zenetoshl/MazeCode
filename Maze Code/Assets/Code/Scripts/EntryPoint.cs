@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Gui;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class EntryPoint : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class EntryPoint : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (!ConnectionManager.isConnectionMode)
+        if (!ConnectionManager.isConnectionMode && !EventSystem.current.IsPointerOverGameObject())
         {
             CancelConnection();
         }

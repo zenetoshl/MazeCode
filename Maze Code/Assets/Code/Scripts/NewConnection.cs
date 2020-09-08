@@ -50,7 +50,7 @@ public class NewConnection : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        if (!ConnectionManager.isConnectionMode && !isEmpty)
+        if (!ConnectionManager.isConnectionMode && !isEmpty && !EventSystem.current.IsPointerOverGameObject())
         {
             CancelConnection();
         }
