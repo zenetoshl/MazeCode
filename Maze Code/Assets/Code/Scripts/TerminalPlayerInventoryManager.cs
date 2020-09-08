@@ -8,6 +8,6 @@ public class TerminalPlayerInventoryManager : MonoBehaviour {
     // Start is called before the first frame update
     private void Awake () {
         TerminalInventoryManager.playerInventory = playerInventory;
-        TerminalInventoryManager.playerInventoryDiff = playerInventoryDiff;
+        TerminalInventoryManager.done = false; 
     }
 }

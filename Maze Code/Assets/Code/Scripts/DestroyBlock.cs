@@ -11,7 +11,8 @@ public class DestroyBlock : MonoBehaviour {
     }
 
     private void OnDestroy () {
-        TerminalInventoryManager.UpdateItemInventory (blockType, 1);
+        if(!TerminalInventoryManager.done)
+            TerminalInventoryManager.UpdateItemInventory (blockType, 1);
     }
     
 }

@@ -32,6 +32,11 @@ public class SavePuzzle : MonoBehaviour
                 BinaryFormatter binary = new BinaryFormatter();
                 JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects[i]);
                 file.Close();
+                if(TerminalInventoryManager.done){
+                    if(TerminalInventoryManager.puzzleDone == i + 1){
+                        objects[i].runtimeValue = true;
+                    }
+                }
             }
         }
     }

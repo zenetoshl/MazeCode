@@ -17,7 +17,30 @@ public class TerminalInventoryManager : MonoBehaviour {
     private static Text writeText;
     private static Text mathText;
     public static PlayerInventory playerInventory;
-    public static PlayerInventory playerInventoryDiff;
+
+    public static bool done = false;
+
+    public static int varUsed;
+    public static int vetUsed;
+    public static int matUsed;
+    public static int ifUsed;
+    public static int forUsed;
+    public static int whileUsed;
+    public static int readUsed;
+    public static int writeUsed;
+    public static int mathUsed;
+
+    public static int var = 0;
+    public static int vet = 0;
+    public static int mat = 0;
+    public static int ifVar = 0;
+    public static int forLoop = 0;
+    public static int whileLoop = 0;
+    public static int read = 0;
+    public static int write = 0;
+    public static int math = 0;
+
+    public static int puzzleDone;
 
     // Start is called before the first frame update
     void Start () {
@@ -31,6 +54,17 @@ public class TerminalInventoryManager : MonoBehaviour {
         writeText = this.transform.Find ("Imprime/Count").GetComponent<Text> ();
         mathText = this.transform.Find ("Matematica/Count").GetComponent<Text> ();
         InitializeCount ();
+        varUsed = 0;
+        vetUsed = 0;
+        matUsed = 0;
+        ifUsed = 0;
+        forUsed = 0;
+        whileUsed = 0;
+        readUsed = 0;
+        writeUsed = 0;
+        mathUsed = 0;
+        done = false;
+        puzzleDone = 0;
     }
 
     private static void InitializeCount () {
@@ -41,30 +75,39 @@ public class TerminalInventoryManager : MonoBehaviour {
                     switch (item.itemName) {
                         case "variavel":
                             varText.text = "x" + item.numberHeld;
+                            var = item.numberHeld;
                             break;
                         case "vetor":
                             vetText.text = "x" + item.numberHeld;
+                            vet = item.numberHeld;
                             break;
                         case "matriz":
                             matText.text = "x" + item.numberHeld;
+                            mat = item.numberHeld;
                             break;
                         case "loopIndefinido":
                             whileText.text = "x" + item.numberHeld;
+                            whileLoop = item.numberHeld;
                             break;
                         case "loopDefinido":
                             forText.text = "x" + item.numberHeld;
+                            forLoop = item.numberHeld;
                             break;
                         case "condicional":
                             ifText.text = "x" + item.numberHeld;
+                            ifVar = item.numberHeld;
                             break;
                         case "imprime":
                             writeText.text = "x" + item.numberHeld;
+                            write = item.numberHeld;
                             break;
                         case "leitura":
                             readText.text = "x" + item.numberHeld;
+                            read = item.numberHeld;
                             break;
                         case "matematica":
                             mathText.text = "x" + item.numberHeld;
+                            math = item.numberHeld;
                             break;
                     }
                     CheckDisabled ();
@@ -122,58 +165,78 @@ public class TerminalInventoryManager : MonoBehaviour {
     }
 
     public static void UpdateItemInventory (InventoryItem thisItem, int qtd) {
-        if (playerInventory && playerInventoryDiff) {
-            if (playerInventoryDiff.myInventory.Contains (thisItem)) {
-                thisItem.numberHeld += qtd;
-            } else {
-                playerInventoryDiff.myInventory.Add (thisItem);
-                thisItem.numberHeld += qtd;
-            }
-            UpdateUI (thisItem, qtd);
-        }
-    }
 
-    public static void CalculateDiff () {
-        if (playerInventory && playerInventoryDiff) {
-            foreach (InventoryItem itemDiff in playerInventoryDiff.myInventory) {
-                foreach (InventoryItem item in playerInventory.myInventory) {
-                    if (itemDiff.itemName == item.itemName) {
-                        item.numberHeld -= itemDiff.numberHeld;
-                        break;
-                    }
-                }
-            }
+        Debug.Log (thisItem.itemName + " " + qtd);
+        switch (thisItem.itemName) {
+            case "variavel":
+                varUsed -= qtd;
+                break;
+            case "vetor":
+                vetUsed -= qtd;
+                break;
+            case "matriz":
+                matUsed -= qtd;
+                break;
+            case "loopIndefinido":
+                whileUsed -= qtd;
+                break;
+            case "loopDefinido":
+                forUsed -= qtd;
+                break;
+            case "condicional":
+                ifUsed -= qtd;
+                break;
+            case "imprime":
+                writeUsed -= qtd;
+                break;
+            case "leitura":
+                readUsed -= qtd;
+                break;
+            case "matematica":
+                mathUsed -= qtd;
+                break;
         }
+        UpdateUI (thisItem, qtd);
     }
 
     private static void UpdateUI (InventoryItem thisItem, int qtd) {
+
         switch (thisItem.itemName) {
             case "variavel":
-                varText.text = "x" + thisItem.numberHeld;
+                var += qtd;
+                varText.text = "x" + var;
                 break;
             case "vetor":
-                vetText.text = "x" + thisItem.numberHeld;
+                vet += qtd;
+                vetText.text = "x" + vet;
                 break;
             case "matriz":
-                matText.text = "x" + thisItem.numberHeld;
+                mat += qtd;
+                matText.text = "x" + mat;
                 break;
             case "loopIndefinido":
-                whileText.text = "x" + thisItem.numberHeld;
+                whileLoop += qtd;
+                whileText.text = "x" + whileLoop;
                 break;
             case "loopDefinido":
-                forText.text = "x" + thisItem.numberHeld;
+                forLoop += qtd;
+                forText.text = "x" + forLoop;
                 break;
             case "condicional":
-                ifText.text = "x" + thisItem.numberHeld;
+                ifVar += qtd;
+                ifText.text = "x" + ifVar;
                 break;
             case "imprime":
-                writeText.text = "x" + thisItem.numberHeld;
+                write += qtd;
+                writeText.text = "x" + write;
                 break;
             case "leitura":
-                readText.text = "x" + thisItem.numberHeld;
+                read += qtd;
+                readText.text = "x" + read;
                 break;
             case "matematica":
-                mathText.text = "x" + thisItem.numberHeld;
+                math += qtd;
+                mathText.text = "x" + math;
                 break;
         }
         CheckDisabled ();

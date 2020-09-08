@@ -348,6 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201159064}
+  - component: {fileID: 201159065}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -377,6 +378,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201159065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201159063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24051d38f9d69743ad5969ba47832ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &222229801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9283.821
+      value: -16614.006
       objectReference: {fileID: 0}
     - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
@@ -1499,6 +1512,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852107834656398118, guid: 452a93365c149054399f74c39520f153,
+        type: 3}
+      propertyPath: duration
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2852107834656398123, guid: 452a93365c149054399f74c39520f153,
         type: 3}
@@ -4627,10 +4645,8 @@ MonoBehaviour:
     type: 3}
   fadeOutPanel: {fileID: 8354447108793335483, guid: d10162144708ed34892ac013fa78e656,
     type: 3}
-  fadeWait: 0.5
   puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
-  saveInventoryManager: {fileID: 7973619975111812179}
   savePuzzleManager: {fileID: 7973619975413743637}
 --- !u!114 &1887457102
 MonoBehaviour:
@@ -9218,10 +9234,8 @@ MonoBehaviour:
   sceneToLoad: Labirinto
   fadeInPanel: {fileID: 0}
   fadeOutPanel: {fileID: 0}
-  fadeWait: 0
   puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
-  saveInventoryManager: {fileID: 0}
   savePuzzleManager: {fileID: 0}
 --- !u!222 &6163793095515677975
 CanvasRenderer:
@@ -10616,10 +10630,8 @@ MonoBehaviour:
   sceneToLoad: Labirinto
   fadeInPanel: {fileID: 0}
   fadeOutPanel: {fileID: 0}
-  fadeWait: 0.3
   puzzleStatus: {fileID: 0}
   inventory: {fileID: 1193124283}
-  saveInventoryManager: {fileID: 0}
   savePuzzleManager: {fileID: 0}
 --- !u!114 &7108167937429030117
 MonoBehaviour:

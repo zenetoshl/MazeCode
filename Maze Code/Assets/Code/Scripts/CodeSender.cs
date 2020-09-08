@@ -34,6 +34,7 @@ public class CodeSender : MonoBehaviour {
     }
 
     private void Start () {
+        _completed = false;
         inputs = new List<Lister> ();
         BetterStreamingAssets.Initialize ();
         //ReadInputFiles (SceneManager.GetActiveScene ().name);

@@ -12,12 +12,19 @@ public class SaveManager : MonoBehaviour {
     public SaveItem saveItemManager;
 
     private void Start () {
-        saveCameraManager.LoadLimits ();
-        saveSoundConfigManager.LoadConfig ();
-        savePositionManager.LoadScriptables ();
+        Debug.Log("load1");
         saveInventoryManager.LoadScriptables ();
+        Debug.Log("load2");
+        saveCameraManager.LoadLimits ();
+        Debug.Log("load3");
+        saveSoundConfigManager.LoadConfig ();
+        Debug.Log("load4");
+        savePositionManager.LoadScriptables ();
+        Debug.Log("load5");
         savePuzzleManager.LoadScriptables ();
+        Debug.Log("load6");
         saveItemManager.LoadScriptables ();
+        Debug.Log("load acabou");
     }
 
     private void OnDisable () {

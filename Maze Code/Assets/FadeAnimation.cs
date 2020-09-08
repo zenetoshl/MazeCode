@@ -14,32 +14,29 @@ public class FadeAnimation : MonoBehaviour {
     }
 
     public void StartAnimationAndLoad (string sceneName) {
-        StartCoroutine (LoadAndAnimate (sceneName));
+        LoadAndAnimate (sceneName);
 
     }
 
     public void StartAnimationAndLoadAsync (string sceneName) {
 
-        StartCoroutine (LoadAndAnimateAsync (sceneName));
+        LoadAndAnimateAsync (sceneName);
 
     }
 
-    private IEnumerator LoadAndAnimate (string sceneName) {
-        animator.SetTrigger ("Start");
+    private void LoadAndAnimate (string sceneName) {
+        ContainerManager.isActive = false;
+        ContainerManager.changed = true; 
+        SceneManager.LoadScene (sceneName, LoadSceneMode.Additive);
+        
 
-        yield return new WaitForSeconds (duration);
-
-        SceneManager.LoadScene (sceneName);
     }
 
-    private IEnumerator LoadAndAnimateAsync (string sceneName) {
-        animator.SetTrigger ("Start");
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync (sceneName);
-
-        yield return new WaitForSeconds (duration);
-        while (!asyncLoad.isDone) {
-            yield return null;
-        }
+    private void LoadAndAnimateAsync (string sceneName) {
+        ContainerManager.isActive = true;
+        ContainerManager.changed = true;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        SceneManager.UnloadSceneAsync ("terminal3", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+         
     }
 }

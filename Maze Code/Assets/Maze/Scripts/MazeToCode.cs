@@ -51,6 +51,7 @@ public class MazeToCode : Interactable {
                 SomComputador.current.PlayMusic ();
                 //Jogador.GetComponent<SavePosition>().SalvarLocalizacao();
                 StaticLoadPuzzle.puzzle = thisPuzzle;
+                joybutton.Pressed = false;
                 fade.StartAnimationAndLoad (sceneToLoad);
 
                 //StartCoroutine(FadeControl());

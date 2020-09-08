@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class CodeToMaze : MonoBehaviour {
     [Header ("New Scene Variables")]
@@ -13,7 +13,6 @@ public class CodeToMaze : MonoBehaviour {
     [Header ("Transition Variables")]
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
-    public float fadeWait;
 
     [Header ("Puzzle Status")]
     public Puzzle puzzleStatus;
@@ -22,8 +21,7 @@ public class CodeToMaze : MonoBehaviour {
     public PlayerInventory inventory = null;
 
     private FadeAnimation fade;
-    public SavePuzzle savePuzzleManager; 
-
+    public SavePuzzle savePuzzleManager;
 
     public void Awake () {
         if (fadeInPanel != null) {
@@ -38,8 +36,10 @@ public class CodeToMaze : MonoBehaviour {
     }
 
     public void ReturnToMaze () {
-        if (CodeSender._completed) {
+        if (CodeSender._completed && !puzzleStatus.runtimeValue) {
             // O jogador conseguiu realizar o desafio e destravar a porta
+            TerminalInventoryManager.puzzleDone = puzzleStatus.destravaSala;
+            TerminalInventoryManager.done = true;
             puzzleStatus.runtimeValue = true;
 
             // Incrementar o invetário com o bonus do puzzle
@@ -62,15 +62,49 @@ public class CodeToMaze : MonoBehaviour {
             // "8 - Matriz"
             inventory.myInventory[8].numberHeld = inventory.myInventory[8].numberHeld + puzzleStatus.bonusMatriz;
 
-            //TerminalInventoryManager.CalculateDiff ();
-
-            savePuzzleManager.SaveScriptables ();
-
-            SaveScriptables ();
+            foreach (InventoryItem item in inventory.myInventory)
+            {
+                CalculateDiff (item);
+            }            
         }
         fade.StartAnimationAndLoadAsync (sceneToLoad);
 
         //StartCoroutine (FadeControl ());
+    }
+
+    private void CalculateDiff (InventoryItem item) {
+
+        switch (item.itemName) {
+            case "variavel":
+                item.numberHeld -= TerminalInventoryManager.varUsed;
+                Debug.Log(TerminalInventoryManager.varUsed);
+                break;
+            case "vetor":
+                item.numberHeld -= TerminalInventoryManager.vetUsed;
+                break;
+            case "matriz":
+                item.numberHeld -= TerminalInventoryManager.matUsed;
+                break;
+            case "loopIndefinido":
+                item.numberHeld -= TerminalInventoryManager.whileUsed;
+                break;
+            case "loopDefinido":
+                item.numberHeld -= TerminalInventoryManager.forUsed;
+                break;
+            case "condicional":
+                item.numberHeld -= TerminalInventoryManager.ifUsed;
+                break;
+            case "imprime":
+                item.numberHeld -= TerminalInventoryManager.writeUsed;
+                break;
+            case "leitura":
+                item.numberHeld -= TerminalInventoryManager.readUsed;
+                break;
+            case "matematica":
+                item.numberHeld -= TerminalInventoryManager.mathUsed;
+                break;
+        }
+
     }
 
     public IEnumerator FadeControl () {
@@ -84,16 +118,13 @@ public class CodeToMaze : MonoBehaviour {
         }
     }
 
-    public void SaveScriptables()
-    {
-        //ResetScriptables();
-        for (int i = 0; i < inventory.myInventory.Count; i++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.inv", i));
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(inventory.myInventory[i]);
-            binary.Serialize(file, json);
-            file.Close();
+    public void SaveScriptables () {
+        for (int i = 0; i < inventory.myInventory.Count; i++) {
+            FileStream file = File.Create (Application.persistentDataPath + string.Format ("/{0}.inv", i));
+            BinaryFormatter binary = new BinaryFormatter ();
+            var json = JsonUtility.ToJson (inventory.myInventory[i]);
+            binary.Serialize (file, json);
+            file.Close ();
         }
     }
 }
