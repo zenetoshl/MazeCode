@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour {
     public SavePuzzle savePuzzleManager;
     public SaveItem saveItemManager;
 
-    private void Start () {
+    private void Awake () {
         Debug.Log("load1");
         saveInventoryManager.LoadScriptables ();
         Debug.Log("load2");
