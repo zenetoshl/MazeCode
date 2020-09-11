@@ -27,6 +27,8 @@ public class PauseManager : MonoBehaviour {
     public Color soundON;
     public Color soundOFF;
 
+    private bool started = false;
+
     // Start is called before the first frame update
     void Start () {
         isPaused = false;
@@ -34,11 +36,14 @@ public class PauseManager : MonoBehaviour {
         pausePanel.SetActive (false);
         inventoryPanel.SetActive (false);
         LoadSound();
+        started = true;
     }
 
     // Update is called once per frame
-    void Update () {
-
+    private void OnEnable() {
+        if(started){
+            LoadSound();
+        }
     }
 
     public void ChangePause () {

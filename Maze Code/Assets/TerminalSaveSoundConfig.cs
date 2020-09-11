@@ -7,7 +7,7 @@ public class TerminalSaveSoundConfig : MonoBehaviour
     public SoundConfigManager saveSoundConfigManager;
 
     private void OnEnable () {
-        saveSoundConfigManager.LoadConfig ();
+        //saveSoundConfigManager.LoadConfig ();
     }
 
     private void OnDisable () {
