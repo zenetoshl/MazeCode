@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PuzzleManager : MonoBehaviour {
     public Puzzle puzzle;
     public CodeSender codeSender;
     
     public Text objectiveTitle;
-    public Text objective;
+    public TextMeshProUGUI objective;
 
     private void Start () {
         puzzle = StaticLoadPuzzle.puzzle;

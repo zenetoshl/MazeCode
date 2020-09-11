@@ -1199,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -109098.086
+      value: -115529.69
       objectReference: {fileID: 0}
     - target: {fileID: 6452427658755888571, guid: 96127705aad43e74e90d5050feaddd2d,
         type: 3}
@@ -4431,7 +4431,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 1858964455}
   m_Father: {fileID: 1106818439}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4461,8 +4462,8 @@ MonoBehaviour:
   m_text: Aqui aparece todos os detalhes e a descricao de um determinado desafio
     de uma determinada sala do labirinto
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 74766fb19ad31e743a4a685b6de6ffa9, type: 2}
-  m_sharedMaterial: {fileID: -4565634567568950217, guid: 74766fb19ad31e743a4a685b6de6ffa9,
+  m_fontAsset: {fileID: 11400000, guid: c1ba9bd963b0e7d4cb7d426ffc21ccfc, type: 2}
+  m_sharedMaterial: {fileID: -3091173347312568913, guid: c1ba9bd963b0e7d4cb7d426ffc21ccfc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4543,7 +4544,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1858964453}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5264,6 +5265,78 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5511d42e7e37ce4c96d0a55b4bd7293, type: 3}
+--- !u!1 &1858964452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858964455}
+  - component: {fileID: 1858964454}
+  - component: {fileID: 1858964453}
+  m_Layer: 5
+  m_Name: TMP SubMeshUI [ThaleahFat_TTF SDF Material + LiberationSans SDF Atlas]
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1858964453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858964452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_spriteAsset: {fileID: 0}
+  m_material: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
+  m_isDefaultMaterial: 0
+  m_padding: 1.25
+  m_canvasRenderer: {fileID: 1858964454}
+  m_TextComponent: {fileID: 1750783033}
+  m_materialReferenceIndex: 1
+--- !u!222 &1858964454
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858964452}
+  m_CullTransparentMesh: 0
+--- !u!224 &1858964455
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858964452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1750783032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1887457099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11750,7 +11823,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objective
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1750783033}
     - target: {fileID: 7725932423482548389, guid: f820831203b91e04cbc4aafbac1e6834,
         type: 3}
       propertyPath: objectiveTitle
