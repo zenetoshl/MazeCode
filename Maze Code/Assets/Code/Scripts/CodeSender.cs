@@ -45,7 +45,7 @@ public class CodeSender : MonoBehaviour {
     public void RunRoslyn () {
         string sourceUser = ConnectionManager.ToCode (initBlock.GetComponent<RectTransform> ()) + "}}}";
         //string path = "term/scripts/" + SceneManager.GetActiveScene ().name + ".txt";
-        Debug.Log (correctCode);
+        Debug.Log (sourceUser);
         inputs = puzzle.inputs;
         StartCoroutine (RunAsync (sourceUser, correctCode));
     }

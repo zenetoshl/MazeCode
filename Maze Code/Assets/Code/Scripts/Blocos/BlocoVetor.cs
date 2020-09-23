@@ -10,8 +10,10 @@ public class BlocoVetor : Bloco {
     // Start is called before the first frame update
     private TMP_InputField var;
     private TMP_InputField i;
+    private TextMeshProUGUI typeInput;
     private string oldVar;
     private string oldI;
+    private string oldType;
 
     public VariableManager.Type type;
 
@@ -20,8 +22,11 @@ public class BlocoVetor : Bloco {
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal> ().GetMyWindow ();
         var = myWindow.transform.Find ("Panel/Operandos/Description/Name/Nome").GetComponent<TMP_InputField> ();
         i = myWindow.transform.Find ("Panel/Operandos/Operando 2/Entrada").GetComponent<TMP_InputField> ();
+        typeInput =  myWindow.transform.Find ("Panel/Operandos/tipo/Label").GetComponent<TextMeshProUGUI> ();
         oldVar = var.text;
         oldI = i.text;
+        oldType = typeInput.text;
+        type = GetNewType(oldType);
     }
     public override string ToCode () {
         string vetInit = "";
@@ -59,18 +64,43 @@ public class BlocoVetor : Bloco {
     public override void UpdateUI (bool isOk) {
         if (isOk) {
             oldI = i.text;
+            type = GetNewType(typeInput.text);
             if (!(oldVar == var.text)) {
-                if (VariableManager.Create (var.text, VariableManager.Type.Int, VariableManager.StructureType.Array)) {
+                if (VariableManager.Create (var.text, type, VariableManager.StructureType.Array)) {
                     VariableManager.RemoveFromList (oldVar);
                     oldVar = var.text;
+                    oldType = typeInput.text;
                 }
+            } else if(!(oldType == typeInput.text)){
+                VariableManager.RemoveFromList (oldVar);
+                VariableManager.Create (var.text, type, VariableManager.StructureType.Array);
+                oldVar = var.text;
+                oldType = typeInput.text;
             }
             Bloco.changed = true;
             ToUI ();
         } else {
             var.text = oldVar;
             i.text = oldI;
+            typeInput.text = oldType;
         }
+    }
+
+    VariableManager.Type GetNewType(string t){
+        VariableManager.Type newType;
+         switch (t) {
+            case "Float":
+                newType = VariableManager.Type.Float;
+                break;
+            case "Int":
+                newType = VariableManager.Type.Int;
+                break;
+            default:
+                newType = VariableManager.Type.Float;
+                break;
+        }
+
+        return newType;
     }
 
     private void OnDestroy () {
