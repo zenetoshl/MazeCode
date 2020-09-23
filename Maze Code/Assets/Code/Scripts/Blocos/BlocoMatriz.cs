@@ -19,8 +19,8 @@ public class BlocoMatriz : Bloco {
     private void Start () {
         uiText.text = "---";
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal> ().GetMyWindow ();
-        i = myWindow.transform.Find ("Panel/Operandos/Tamanho/Operando 2/Entrada").GetComponent<TMP_InputField> ();
-        j = myWindow.transform.Find ("Panel/Operandos/Tamanho/Operando 2 (1)/Entrada").GetComponent<TMP_InputField> ();
+        i = myWindow.transform.Find ("Panel/Operandos/Operando 2/Entrada").GetComponent<TMP_InputField> ();
+        j = myWindow.transform.Find ("Panel/Operandos/Operando 2 (1)/Entrada").GetComponent<TMP_InputField> ();
         var = myWindow.transform.Find ("Panel/Operandos/Description/Name/Nome").GetComponent<TMP_InputField> ();
         oldVar = var.text;
         oldI = i.text;

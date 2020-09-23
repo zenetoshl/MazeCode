@@ -19,7 +19,7 @@ public class BlocoVetor : Bloco {
         uiText.text = "---";
         LeanWindow myWindow = this.GetComponent<InstantiateTerminal> ().GetMyWindow ();
         var = myWindow.transform.Find ("Panel/Operandos/Description/Name/Nome").GetComponent<TMP_InputField> ();
-        i = myWindow.transform.Find ("Panel/Operandos/Tamanho/Operando 2/Entrada").GetComponent<TMP_InputField> ();
+        i = myWindow.transform.Find ("Panel/Operandos/Operando 2/Entrada").GetComponent<TMP_InputField> ();
         oldVar = var.text;
         oldI = i.text;
     }
