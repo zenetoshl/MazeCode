@@ -23,6 +23,7 @@ public class BlocoLeitura : Bloco
 
     public override void UpdateUI(bool isOk){
         if(isOk){
+            Compiler.instance.Uncompile();
             var.SaveConfig();
             Bloco.changed = true;
             ToUI();

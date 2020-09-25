@@ -21,7 +21,7 @@ public class BlocoVariavel : Bloco {
         typeInput = myWindow.transform.Find ("Panel/tipo/Label").GetComponent<TextMeshProUGUI> ();
         oldVar = var.text;
         oldType = typeInput.text;
-        type = GetNewType(oldType);
+        type = GetNewType (oldType);
         ToUI ();
     }
     public override string ToCode () {
@@ -39,15 +39,15 @@ public class BlocoVariavel : Bloco {
 
     public override void UpdateUI (bool isOk) {
         if (isOk) {
-            type = GetNewType(typeInput.text);
+            Compiler.instance.Uncompile();
+            type = GetNewType (typeInput.text);
+            Debug.Log("teste " + type);
             if (!(oldVar == var.text)) {
                 if (VariableManager.Create (var.text, type, VariableManager.StructureType.Variable)) {
                     VariableManager.RemoveFromList (oldVar);
                     oldVar = var.text;
-                    Bloco.changed = true;
                     oldType = typeInput.text;
-                    ToUI ();
-                    return;
+                    Bloco.changed = true;
                 }
             } else if (!(oldType == typeInput.text)) {
                 VariableManager.RemoveFromList (oldVar);
@@ -55,14 +55,15 @@ public class BlocoVariavel : Bloco {
                 oldVar = var.text;
                 oldType = typeInput.text;
                 Bloco.changed = true;
-                ToUI ();
-                return;
+
             }
+        } else {
+            var.text = oldVar;
         }
         Debug.Log (oldVar);
-        var.text = oldVar;
         Bloco.changed = true;
         ToUI ();
+        return;
     }
 
     private void OnDestroy () {

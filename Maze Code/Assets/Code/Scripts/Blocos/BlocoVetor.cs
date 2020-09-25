@@ -63,6 +63,7 @@ public class BlocoVetor : Bloco {
 
     public override void UpdateUI (bool isOk) {
         if (isOk) {
+            Compiler.instance.Uncompile();
             oldI = i.text;
             type = GetNewType(typeInput.text);
             if (!(oldVar == var.text)) {

@@ -33,6 +33,7 @@ public class BlocoIf : Bloco
 
     public override void UpdateUI(bool isOk){
         if(isOk){
+            Compiler.instance.Uncompile();
             var.SaveConfig();
             oldOp = op.text;
             val.SaveConfig();

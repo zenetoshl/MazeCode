@@ -66,4 +66,12 @@ public class Num_Var_Vet_Mat : MonoBehaviour
             return vvm.Compile(scope);
         } else return (TMPinput.text != "" && TMPinput.text != null);
     }
+
+    public VariableManager.Type GetType(){
+        return lastToggle ? vvm.type : GetTextType(); 
+    }
+
+    private VariableManager.Type GetTextType(){
+        return (float.Parse(lastValue) % 1 == 0) ? VariableManager.Type.Int : VariableManager.Type.Float;
+    }
 }

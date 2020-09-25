@@ -2323,7 +2323,7 @@ PrefabInstance:
     - target: {fileID: 303355586688592387, guid: 74c2bbef5d1907e48b1016844ffc0f14,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 303355586688592387, guid: 74c2bbef5d1907e48b1016844ffc0f14,
         type: 3}
@@ -2360,6 +2360,11 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4283387727
       objectReference: {fileID: 0}
+    - target: {fileID: 303355586688592387, guid: 74c2bbef5d1907e48b1016844ffc0f14,
+        type: 3}
+      propertyPath: m_text
+      value: Int
+      objectReference: {fileID: 0}
     - target: {fileID: 303355587983911328, guid: 74c2bbef5d1907e48b1016844ffc0f14,
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
@@ -2374,6 +2379,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 303355587983911328, guid: 74c2bbef5d1907e48b1016844ffc0f14,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: Int
+      objectReference: {fileID: 0}
+    - target: {fileID: 303355587983911328, guid: 74c2bbef5d1907e48b1016844ffc0f14,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Float
       objectReference: {fileID: 0}
     - target: {fileID: 303355587983911329, guid: 74c2bbef5d1907e48b1016844ffc0f14,
         type: 3}

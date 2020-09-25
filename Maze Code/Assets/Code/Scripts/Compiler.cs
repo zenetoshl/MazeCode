@@ -9,6 +9,12 @@ public class Compiler : MonoBehaviour
     public Button executar;
     public Button enviar;
 
+    public static Compiler instance;
+
+    private void Awake() {
+        instance = this;
+    }
+    
     public void Compile(){
         if(ConnectionManager.Compile(inicial.GetComponent<RectTransform>())){
             executar.interactable = true;

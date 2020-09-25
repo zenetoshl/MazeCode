@@ -76,11 +76,12 @@ public class BlocoMatriz : Bloco {
 
     public override void UpdateUI (bool isOk) {
         if (isOk) {
+            Compiler.instance.Uncompile();
             oldI = i.text;
             oldJ = j.text;
             type = GetNewType(typeInput.text);
             if (!(oldVar == var.text)) {
-                if (VariableManager.Create (var.text, VariableManager.Type.Int, VariableManager.StructureType.Matriz)) {
+                if (VariableManager.Create (var.text, type, VariableManager.StructureType.Matriz)) {
                     VariableManager.RemoveFromList (oldVar);
                     oldVar = var.text;
                     oldType = typeInput.text;

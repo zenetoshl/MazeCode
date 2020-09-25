@@ -38,6 +38,7 @@ public class BlocoFor : Bloco
 
     public override void UpdateUI(bool isOk){
         if(isOk){
+            Compiler.instance.Uncompile();
             var.SaveConfig();
             oldOp = op.text;
             oldEnd = end.text;

@@ -11,6 +11,7 @@ public class Var_Vet_Mat : MonoBehaviour
     public GameObject dropdown;
     private TMP_Dropdown TMPdropdown;
     private VariableManager.StructureType state;
+    public VariableManager.Type type;
 
     public ToggleManager vet;
     public ToggleManager mat;
@@ -19,17 +20,20 @@ public class Var_Vet_Mat : MonoBehaviour
 
     private void Start()
     {
+        lastName = "";
         TMPdropdown = this.GetComponent<TMP_Dropdown>();
         UpdateText();
+        UpdateState();
     }
 
     public void UpdateState()
     {
         state = VariableManager.ReturnStructureType(GetName());
+        type = VariableManager.GetTypeOf(GetName());
         Debug.Log(state);
         if (state == null)
         {
-            Debug.Log("state is set as null, variable didn't exist");
+            Debug.Log("state is set as null, variable don't exist");
             state = VariableManager.StructureType.Variable;
         }
         UpdateUi();
@@ -102,19 +106,26 @@ public class Var_Vet_Mat : MonoBehaviour
     }
 
     private void UpdateText(){
+            int i = TMPdropdown.value;
             TMPdropdown.options.Clear();
             foreach (string option in VariableManager.ListNames())
             {
                 TMPdropdown.options.Add(new TMP_Dropdown.OptionData(option));
             }
-            TMPdropdown.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = TMPdropdown.options[TMPdropdown.value].text;
+            if(VariableManager.ExistSameName(lastName)){
+                i = FindByText(lastName);
+                TMPdropdown.value = i;
+            }
+            TMPdropdown.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = TMPdropdown.options[i].text;
             UpdateState();
             SaveConfig();
     }
 
+
     public void ResetConfig()
     {
         TMPdropdown.value = FindByText(lastName);
+        UpdateState();
         vet.ResetConfig();
         mat.ResetConfig();
     }
@@ -123,7 +134,6 @@ public class Var_Vet_Mat : MonoBehaviour
         switch (state)
         {
             case VariableManager.StructureType.Array:
-                
                 foreach(string str in scope){
                     if (str == GetName()){
                         return vet.Compile(scope);

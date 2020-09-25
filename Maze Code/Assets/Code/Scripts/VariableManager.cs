@@ -65,6 +65,15 @@ public class VariableManager : MonoBehaviour {
         }
     }
 
+    public static bool ExistSameName (string name) {
+        foreach (string option in VariableManager.ListNames ()) {
+            if (option == name) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static bool Create (string name, Type type, StructureType structType) {
         if (isInList (name)) {
             return false;
@@ -84,7 +93,7 @@ public class VariableManager : MonoBehaviour {
         return false;
     }
 
-    public static List<string> ListNames ( ) {
+    public static List<string> ListNames () {
         List<string> list = new List<string> ();
         foreach (CodeVar var in vars) {
             //if(var.structType == st){
@@ -94,10 +103,10 @@ public class VariableManager : MonoBehaviour {
         return list;
     }
 
-    public static List<string> ListNames ( Type type ) {
+    public static List<string> ListNames (Type type) {
         List<string> list = new List<string> ();
         foreach (CodeVar var in vars) {
-            if(var.type == type){
+            if (var.type == type) {
                 list.Add (var.name);
             }
         }
@@ -202,5 +211,14 @@ public class VariableManager : MonoBehaviour {
             }
         }
         return StructureType.Variable;
+    }
+
+    public static Type GetTypeOf (string name) {
+        foreach (CodeVar c in vars) {
+            if (c.name == name) {
+                return c.type;
+            }
+        }
+        return Type.Float;
     }
 }

@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-using TMPro;
-using UnityEngine.UI;
 using Lean.Gui;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class BlocoAritimetico : Bloco
-{
+public class BlocoAritimetico : Bloco {
     private Var_Vet_Mat var;
     private Num_Var_Vet_Mat val;
     private Num_Var_Vet_Mat val2;
@@ -15,49 +13,56 @@ public class BlocoAritimetico : Bloco
 
     private string oldOp;
 
-    private void Start() {
+    private void Start () {
         uiText.text = "---";
-        LeanWindow myWindow = this.GetComponent<InstantiateTerminal>().GetMyWindow();
-        var = myWindow.transform.Find("Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
-        op = myWindow.transform.Find("Panel/Operandos/Operador/Label").GetComponent<TextMeshProUGUI>();
-        val = myWindow.transform.Find("Panel/Operandos/num_var_vet_mat").GetComponent<Num_Var_Vet_Mat>();
-        val2 = myWindow.transform.Find("Panel/Operandos/num_var_vet_mat (1)").GetComponent<Num_Var_Vet_Mat>();
+        LeanWindow myWindow = this.GetComponent<InstantiateTerminal> ().GetMyWindow ();
+        var = myWindow.transform.Find ("Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat> ();
+        op = myWindow.transform.Find ("Panel/Operandos/Operador/Label").GetComponent<TextMeshProUGUI> ();
+        val = myWindow.transform.Find ("Panel/Operandos/num_var_vet_mat").GetComponent<Num_Var_Vet_Mat> ();
+        val2 = myWindow.transform.Find ("Panel/Operandos/num_var_vet_mat (1)").GetComponent<Num_Var_Vet_Mat> ();
         oldOp = op.text;
     }
 
-
-    public override string ToCode()
-    {
-        string BlocoCode = var.GetText() + " = " + val.GetActiveText() + op.text + val2.GetActiveText() + ";";
+    public override string ToCode () {
+        string BlocoCode = var.GetText () + " = " + val.GetActiveText () + op.text + val2.GetActiveText () + ";";
         return BlocoCode;
     }
 
-    public override void UpdateUI(bool isOk){
-        if(isOk){
-            var.SaveConfig();
+    public override void UpdateUI (bool isOk) {
+        if (isOk) {
+            Compiler.instance.Uncompile();
+            var.SaveConfig ();
             oldOp = op.text;
-            val.SaveConfig();
-            val2.SaveConfig();
+            val.SaveConfig ();
+            val2.SaveConfig ();
             Bloco.changed = true;
-            ToUI();
+            ToUI ();
         } else {
-            var.ResetConfig();
+            var.ResetConfig ();
             op.text = oldOp;
-            val.ResetConfig();
-            val2.ResetConfig();
+            val.ResetConfig ();
+            val2.ResetConfig ();
         }
     }
 
-    public override bool Compile(){
-        return  MarkError((uiText.text != "---") && CheckVars() && op.text != null && op.text != "");
+    public override bool Compile () {
+        Debug.Log("Compilando...");
+        return MarkError ((uiText.text != "---") && CheckVars () && op.text != null && op.text != "");
     }
 
-    private bool CheckVars(){
-        List<string> scope = VariableManager.GetScope(this.GetComponent<RectTransform>());
-        return var.Compile(scope) && val.Compile(scope) && val2.Compile(scope);
+    private bool CheckVars () {
+        List<string> scope = VariableManager.GetScope (this.GetComponent<RectTransform> ());
+        return (CheckTypes ()) && (var.Compile (scope) && val.Compile (scope) && val2.Compile (scope));
     }
 
-    public override void ToUI(){
-        uiText.text = var.GetText() + " = " + val.GetActiveText() + " " + op.text + " " + val2.GetActiveText();
+    private bool CheckTypes () {
+        Debug.Log(VariableManager.GetTypeOf (var.GetName()) + " = " + val.GetType () + " + " + val2.GetType ());
+        if (VariableManager.GetTypeOf (var.GetName()) == VariableManager.Type.Int) {
+            return (val.GetType () == VariableManager.Type.Int) && (val2.GetType () == VariableManager.Type.Int);
+        } else return true;
+    }
+
+    public override void ToUI () {
+        uiText.text = var.GetText () + " = " + val.GetActiveText () + " " + op.text + " " + val2.GetActiveText ();
     }
 }
