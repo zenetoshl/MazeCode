@@ -22,10 +22,10 @@ public class Runner : MonoBehaviour {
         string source = ConnectionManager.ToCode (initBlock.GetComponent<RectTransform> ()) + "}}}";
         ///teste
         //string source = "using System;using System.Collections.Generic;using UnityEngine;using System.Text;namespace teste { class MazeCode {int _i = 0;string _output = \"\";List<int> _inputs = new List<int>() {};void teste(){var a = 3.0f;a = float.Parse (\"3\");a = a*a/6f;_output += a;}}}";
-        StartCoroutine (RunAsync (source, outputText, TextInputInstantiator.ToList (ListParent)));
+        StartCoroutine (RunAsync (source, outputText, TextInputInstantiator.ToListInt (ListParent),TextInputInstantiator.ToListFloat (ListParent) ));
     }
 
-    public IEnumerator RunAsync (string source, TextMeshProUGUI textUI, List<int> list) {
+    public IEnumerator RunAsync (string source, TextMeshProUGUI textUI, List<int> list, List<double> listD) {
         LoadingCircle.UpdateLoad(true);
         Debug.Log (source);
         ScriptDomain domain = ScriptDomain.CreateDomain ("resposta");
@@ -46,6 +46,7 @@ public class Runner : MonoBehaviour {
             type = compileRequest.CompiledType;
             proxy = type.CreateInstance (this.gameObject);
             proxy.Fields["_inputs"] = list;
+            proxy.Fields["_Dinputs"] = listD;
             proxy.Call (initBlock.name);
             textUI.text = (string) proxy.Fields["_output"];
         }
