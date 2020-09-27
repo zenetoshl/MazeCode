@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class BlockManager : MonoBehaviour
 {
-    public void ClearBlocks(){
+    public static bool CheckDisconnectedBlocks(){
         Bloco[] blockList = GameObject.FindObjectsOfType<Bloco>();
-        foreach (Bloco bloco in blockList)
+        bool b = true;
+        foreach (Bloco block in blockList)
         {
-            EntryPoint ep = bloco.transform.GetComponentInChildren<EntryPoint>();
+            EntryPoint ep = block.transform.GetComponentInChildren<EntryPoint>();
             if(ep != null){
                 if(ep.isEmpty){
-                    DestroyAll(bloco.GetComponent<RectTransform> ());
+                    MarkErrorAll(block);
+                    b = false;
                 }
             }
-        } 
+        }
+        return b;
     }
 
-    public static void DestroyAll (RectTransform transform) {
-        List<Connection> conns = ConnectionManager.FindNextNodes (transform, 0);
+    public static void MarkErrorAll (Bloco block) {
+        List<Connection> conns = ConnectionManager.FindNextNodes (block.GetComponent<RectTransform>(), 0);
         foreach (Connection c in conns) {
-           DestroyAll(c.target[1]);
+           MarkErrorAll(c.target[1].GetComponent<Bloco>());
         }
-        Destroy(transform.parent.gameObject);
+        block.MarkError(false);
     }
   
 }

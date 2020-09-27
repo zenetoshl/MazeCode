@@ -16,7 +16,7 @@ public class Compiler : MonoBehaviour
     }
     
     public void Compile(){
-        if(ConnectionManager.Compile(inicial.GetComponent<RectTransform>())){
+        if(ConnectionManager.Compile(inicial.GetComponent<RectTransform>()) && BlockManager.CheckDisconnectedBlocks()){
             executar.interactable = true;
             enviar.interactable = true;
         }else{
