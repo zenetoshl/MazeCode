@@ -28,7 +28,8 @@ public class VariableManager : MonoBehaviour {
     }
     public enum Type {
         Int,
-        Float
+        Float,
+        Any
     }
 
     public enum StructureType {
@@ -75,7 +76,7 @@ public class VariableManager : MonoBehaviour {
     }
 
     public static bool Create (string name, Type type, StructureType structType) {
-        if (isInList (name)) {
+        if (isInList (name) && type == Type.Any) {
             return false;
         }
         vars.Add (new CodeVar (name, type, structType));
@@ -104,6 +105,7 @@ public class VariableManager : MonoBehaviour {
     }
 
     public static List<string> ListNames (Type type) {
+        if (type == Type.Any) return ListNames ();
         List<string> list = new List<string> ();
         foreach (CodeVar var in vars) {
             if (var.type == type) {

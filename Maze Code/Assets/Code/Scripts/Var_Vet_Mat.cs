@@ -13,6 +13,8 @@ public class Var_Vet_Mat : MonoBehaviour
     private VariableManager.StructureType state;
     public VariableManager.Type type;
 
+    public bool searchInt = false;
+
     public ToggleManager vet;
     public ToggleManager mat;
 
@@ -94,7 +96,7 @@ public class Var_Vet_Mat : MonoBehaviour
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 
     private void Update()
@@ -108,7 +110,7 @@ public class Var_Vet_Mat : MonoBehaviour
     private void UpdateText(){
             int i = TMPdropdown.value;
             TMPdropdown.options.Clear();
-            foreach (string option in VariableManager.ListNames())
+            foreach (string option in VariableManager.ListNames(searchInt ? VariableManager.Type.Int : VariableManager.Type.Any))
             {
                 TMPdropdown.options.Add(new TMP_Dropdown.OptionData(option));
             }
@@ -135,21 +137,21 @@ public class Var_Vet_Mat : MonoBehaviour
         {
             case VariableManager.StructureType.Array:
                 foreach(string str in scope){
-                    if (str == GetName()){
+                    if (str == GetName() && FindByText(GetName()) != -1){
                         return vet.Compile(scope);
                     }
                 }
                 break;
             case VariableManager.StructureType.Matriz:
                 foreach(string str in scope){
-                    if (str == GetName()){
+                    if (str == GetName() && FindByText(GetName()) != -1){
                         return vet.Compile(scope) && mat.Compile(scope);
                     }
                 }
                 break;
             case VariableManager.StructureType.Variable:
                 foreach(string str in scope){
-                    if (str == GetName()){
+                    if (str == GetName() && FindByText(GetName()) != -1){
                         return true;
                     }
                 }
