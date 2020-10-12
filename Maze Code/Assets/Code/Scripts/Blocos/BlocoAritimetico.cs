@@ -46,7 +46,7 @@ public class BlocoAritimetico : Bloco {
     }
 
     public override bool Compile () {
-        Debug.Log("Compilando...");
+        ErrorLogManager.instance.CreateError("testando 1 2 3");
         return MarkError ((uiText.text != "---") && CheckVars () && op.text != null && op.text != "");
     }
 
