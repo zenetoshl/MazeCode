@@ -54,7 +54,33 @@ public class BlocoFor : Bloco
     }
 
     public override bool Compile(){
-        return  MarkError((uiText.text != "---") && CheckVars() && CheckString(op.text) && CheckString(initial.text) && CheckString(end.text) && int.Parse(initial.text) <= int.Parse(end.text));
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!CheckVars()){
+            ErrorLogManager.instance.CreateError("Variavel nao existe no escopo deste bloco");
+            noError = MarkError(false);
+        }
+        if(!CheckString(op.text)){
+            ErrorLogManager.instance.CreateError("Operador invalido");
+            noError = MarkError(false);
+        }
+        if(!CheckString(initial.text)){
+            ErrorLogManager.instance.CreateError("Variavel inicial invalida");
+            noError = MarkError(false);
+        }
+        if(!CheckString(end.text)){
+            ErrorLogManager.instance.CreateError("Variavel final invalida");
+            noError = MarkError(false);
+        }
+        if(!(int.Parse(initial.text) <= int.Parse(end.text))){
+            ErrorLogManager.instance.CreateError("valor inicial é maior que o final");
+            noError = MarkError(false);
+        }
+        return noError;
     }
 
     private bool CheckString(string s){

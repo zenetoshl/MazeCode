@@ -109,7 +109,17 @@ public class BlocoVetor : Bloco {
     }
 
     public override bool Compile () {
-        return MarkError ((uiText.text != "---") && CheckString (i.text));
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!CheckString (i.text)){
+            ErrorLogManager.instance.CreateError("Valor invalido");
+            noError = MarkError(false);
+        }
+        return noError;
     }
 
     private bool CheckString (string s) {

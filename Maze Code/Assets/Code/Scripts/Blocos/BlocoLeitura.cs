@@ -32,7 +32,17 @@ public class BlocoLeitura : Bloco {
 
     public override bool Compile () {
         List<string> scope = VariableManager.GetScope (this.GetComponent<RectTransform> ());
-        return MarkError ((uiText.text != "---") && var.Compile (scope));
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!var.Compile (scope)){
+            ErrorLogManager.instance.CreateError("Variavel nao existe no escopo deste bloco");
+            noError = MarkError(false);
+        }
+        return noError;
     }
 
     public override void ToUI () {

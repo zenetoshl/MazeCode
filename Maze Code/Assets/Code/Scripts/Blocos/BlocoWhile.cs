@@ -45,7 +45,21 @@ public class BlocoWhile : Bloco
     }
 
     public override bool Compile(){
-        return MarkError((uiText.text != "---") && CheckVars() && op.text != null && op.text != "");
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!CheckVars()){
+            ErrorLogManager.instance.CreateError("Alguma variavel nao existe no escopo deste bloco");
+            noError = MarkError(false);
+        }
+        if(!(op.text != null && op.text != "")){
+            ErrorLogManager.instance.CreateError("Operador invalido");
+            noError = MarkError(false);
+        }
+        return noError;
     }
 
     private bool CheckVars(){

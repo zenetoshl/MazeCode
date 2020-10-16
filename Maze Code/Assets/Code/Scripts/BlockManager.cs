@@ -17,6 +17,11 @@ public class BlockManager : MonoBehaviour
                 }
             }
         }
+        
+        if(!b){
+            ErrorLogManager.instance.CreateError("Bloco(s) desconectado(s) do fluxo do programa");
+        }
+
         return b;
     }
 

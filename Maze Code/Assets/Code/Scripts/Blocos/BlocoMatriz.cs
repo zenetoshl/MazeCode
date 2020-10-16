@@ -124,6 +124,17 @@ public class BlocoMatriz : Bloco {
     }
 
     public override bool Compile () {
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!CheckString (i.text) || !CheckString (j.text)){
+            ErrorLogManager.instance.CreateError("valor invalido");
+            noError = MarkError(false);
+        }
+        return noError;
         return MarkError ((uiText.text != "---") && CheckString (i.text) && CheckString (j.text));
     }
 
