@@ -44,6 +44,12 @@ MonoBehaviour:
   objective: Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de A
     e B e depois exiba o resultado.
   inputs:
-  - list: 0400000005000000
-  - list: 1027000039000000
-  - list: 0000000000000000
+  - list:
+    - 40
+    - 50
+  - list:
+    - 10
+    - -10
+  - list:
+    - 1
+    - 0

@@ -15,7 +15,9 @@ public class BlocoLeitura : Bloco {
     }
     public override string ToCode () {
         string varName = var.GetName();
-        return( "if(" + varName + ".GetType() == typeof(int)){ if(_i < _inputs.Count)" + varName + " =  _inputs[_i++]; } else { if(_j < _Dinputs.Count)" + varName + " = _Dinputs[_j++]; }" );
+        string doubleText =  varName + " = _Dinputs[_j++];";
+        string intText = varName + " =  _inputs[_i++];";
+        return( (var.type == VariableManager.Type.Int) ? intText : doubleText);
 
     }
 

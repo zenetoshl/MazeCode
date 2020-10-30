@@ -96,18 +96,32 @@ public class ConnectionManager : MonoBehaviour {
         foreach (Connection c in conns) {
             switch (c.points[0].direction) {
                 case ConnectionPoint.ConnectionDirection.South:
-                    north = "{" + ToCode (c.target[1]) + "}";
+                    south = "{" + ToCode (c.target[1]) + "}";
                     break;
                 case ConnectionPoint.ConnectionDirection.North:
-                    south = "else{" + ToCode (c.target[1]) + "}";
+                    north = "else{" + ToCode (c.target[1]) + "}";
                     break;
                 case ConnectionPoint.ConnectionDirection.East:
                     east = ToCode (c.target[1]);
                     break;
             }
         }
-        returnCode = returnCode + north + south + east;
+        if ( south == "" && HasSouthNode(transform)){
+            south = "{}";
+        }
+        returnCode = returnCode + south + north + east;
         return returnCode;
+    }
+
+    public static bool HasSouthNode (RectTransform transform) {
+        foreach( NewConnection conn in transform.GetComponentsInChildren<NewConnection>()){
+            Debug.Log("oi");
+            if(conn.connectionDir == ConnectionPoint.ConnectionDirection.South){
+                Debug.Log("oi2");
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void PrintList (List<Connection> conn) {

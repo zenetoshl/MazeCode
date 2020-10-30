@@ -17,6 +17,7 @@ public class NewConnection : MonoBehaviour
     public bool changed = false;
     public Color[] sprites = new Color[2];
     private Image image;
+    public Image auxImg = null;
     private CircleCollider2D collider;
 
     private int plusOrMinus()
@@ -85,12 +86,18 @@ public class NewConnection : MonoBehaviour
                 changed = true;
                 collider.enabled = true;
                 image.enabled = true;
+                if(auxImg != null){
+                    auxImg.enabled = true;
+                }
             }
             else
             {
                 changed = true;
                 collider.enabled = false;
                 image.enabled = false;
+                if(auxImg != null){
+                    auxImg.enabled = false;
+                }
             }
             updateSprite();
         }
@@ -101,12 +108,18 @@ public class NewConnection : MonoBehaviour
                 collider.enabled = true;
                 changed = false;
                 image.enabled = true;
+                if(auxImg != null){
+                    auxImg.enabled = true;
+                }
             }
             else
             {
                 changed = false;
                 collider.enabled = true;
                 image.enabled = true;
+                if(auxImg != null){
+                    auxImg.enabled = true;
+                }
             }
 
             updateSprite();

@@ -27,7 +27,7 @@ public class BlocoIf : Bloco
 
     public override string ToCode()
     {
-        string BlocoCode = "if( "+var.GetText()+op.text+val.GetActiveText()+" ){";
+        string BlocoCode = "if( "+var.GetText()+op.text+val.GetActiveText()+" )";
         return BlocoCode;
     }
 

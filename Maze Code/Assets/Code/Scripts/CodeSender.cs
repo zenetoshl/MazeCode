@@ -30,7 +30,7 @@ public class CodeSender : MonoBehaviour {
     public List<Lister> inputs;
     [System.Serializable]
     public class Lister {
-        public List<int> list = new List<int> ();
+        public List<string> list = new List<string> ();
     }
 
     private void Start () {
@@ -95,8 +95,10 @@ public class CodeSender : MonoBehaviour {
             proxy = type.CreateInstance (this.gameObject);
             proxyFile = typeFile.CreateInstance (this.gameObject);
             foreach (Lister l in inputs) {
-                proxy.Fields["_inputs"] = l.list;
-                proxyFile.Fields["_inputs"] = l.list;
+                proxy.Fields["_inputs"] = ToListInt(l.list);
+                proxyFile.Fields["_inputs"] = ToListInt(l.list);
+                proxy.Fields["_Dinputs"] = ToListFloat(l.list);
+                proxyFile.Fields["_Dinputs"] = ToListFloat(l.list);
                 proxy.Call (initBlock.name);
                 proxyFile.Call (initBlock.name);
                 if ((string) proxy.Fields["_output"] == (string) proxyFile.Fields["_output"]) {
@@ -134,9 +136,46 @@ public class CodeSender : MonoBehaviour {
 
     private void printList (List<Lister> lists) {
         foreach (Lister list in lists) {
-            foreach (int i in list.list) {
+            foreach (string i in list.list) {
                 Debug.Log (i);
             }
         }
+    }
+
+     public static List<int> ToListInt (List<string> lista) {
+        List<int> list = new List<int> ();
+
+        foreach (string s in lista) {
+            if (s != "") {
+                float f = float.Parse (s);
+                Debug.Log (f);
+                bool isInt =
+                    (f % 1 == 0) ? true : false;
+                Debug.Log (isInt);
+                if (isInt) {
+                    int i = Convert.ToInt32 (s);
+                    list.Add (i);
+                }
+            }
+        }
+        return list;
+    }
+
+    public static List<double> ToListFloat (List<string> lista) {
+        List<double> list = new List<double> ();
+
+        foreach (string s in lista) {
+            if (s != "") {
+                float f = float.Parse (s);
+                Debug.Log (f);
+                bool isInt =
+                    (f % 1 == 0) ? true : false;
+                if (!isInt) {
+                    double i = double.Parse (s);
+                    list.Add (i);
+                }
+            }
+        }
+        return list;
     }
 }

@@ -46,8 +46,23 @@ MonoBehaviour:
     a media inteira das notas do aluno, sabendo que a nota A tem peso 2, a nota B
     tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de 0 ate 10.
   inputs:
-  - list: 010000000200000003000000
-  - list: 0a0000000a0000000a000000
-  - list: 000000000000000000000000
-  - list: 050000000400000006000000
-  - list: 040000000500000006000000
+  - list:
+    - 10
+    - 10
+    - 10
+  - list:
+    - 4
+    - 4
+    - 4
+  - list:
+    - 2
+    - 3
+    - 4
+  - list:
+    - 7
+    - 6
+    - 1
+  - list:
+    - 6
+    - 6
+    - 6

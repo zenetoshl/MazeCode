@@ -25,7 +25,7 @@ public class BlocoWhile : Bloco
 
     public override string ToCode()
     {
-        string BlocoCode = "while("+ var.GetText()+ op.text + val.GetActiveText()+ "){";
+        string BlocoCode = "while("+ var.GetText()+ op.text + val.GetActiveText()+ ")";
         return BlocoCode;
     }
 
