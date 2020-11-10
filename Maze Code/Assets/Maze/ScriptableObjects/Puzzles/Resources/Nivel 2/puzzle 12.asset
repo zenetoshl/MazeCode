@@ -17,50 +17,46 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 0
-  leitura: 0
-  imprime: 0
+  variavel: 2
+  leitura: 4
+  imprime: 4
   matematica: 0
-  condicional: 0
+  condicional: 4
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 4
-  bonusLeitura: 3
+  bonusVariavel: 0
+  bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 0
-  bonusCondicional: 3
+  bonusMatematica: 1
+  bonusCondicional: 2
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
   correctCode: 
-  objectiveTitle: O Maior
-  objective: "Leia tr\xEAs valores Inteiros e apresente o maior dos tr\xEAs valores
-    lidos"
+  objectiveTitle: Valores positivos
+  objective: "Leia 4 valores inteiros. Estes valores ser\xE3o somente negativos ou
+    positivos. Ent\xE3o, mostre a quantidade de valores positivos lidos."
   inputs:
   - list:
     - 1
     - 2
     - 3
+    - 4
   - list:
-    - 3
-    - 2
-    - 1
-  - list:
-    - 1
-    - 3
-    - 2
-  - list:
-    - 2
-    - 3
-    - 1
+    - 2313
+    - 3214
+    - 32
+    - 4
   - list:
     - -1
-    - -2
-    - -3
+    - -1
+    - -5
+    - -1234
   - list:
-    - -199
-    - 10000
-    - -45555555
+    - 1
+    - 2
+    - -3
+    - -4

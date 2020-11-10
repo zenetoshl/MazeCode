@@ -16,6 +16,17 @@ public class EntryPoint : MonoBehaviour
     public Color[] sprites = new Color[2];
     private Image image;
     private BoxCollider2D collider;
+    public Text xButton = null;
+
+    private void OnMouseEnter() {
+        if(!isEmpty){
+            xButton.enabled = true;
+        }
+    }
+
+    private void OnMouseExit() {
+        xButton.enabled = false;
+    }
 
     private int plusOrMinus()
     {

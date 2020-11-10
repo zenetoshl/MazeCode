@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
-  m_Name: puzzle 18
+  m_Name: puzzle 22
   m_EditorClassIdentifier: 
-  naSala: 16
-  destravaSala: 18
+  naSala: 0
+  destravaSala: 0
   objetivo: 
   initialValue: 0
   runtimeValue: 0
@@ -36,22 +36,28 @@ MonoBehaviour:
   bonusVetor: 0
   bonusMatriz: 0
   correctCode: 
-  objectiveTitle: "N\xFAmeros Multiplos"
-  objective: "Leia 2 valores inteiros (A e B). Ap\xF3s, imprima \"1\" caso A e B
-    sejam multiplos e \"0\" caso n\xE3o sejam"
+  objectiveTitle: Vetor 01
+  objective: "Leia um valor e fa\xE7a um programa que coloque o valor lido na primeira
+    posi\xE7\xE3o de um vetor de tamanho 10. Em cada posi\xE7\xE3o subsequente, coloque
+    o dobro do valor da posi\xE7\xE3o anterior. Por exemplo, se o valor lido for
+    1, os valores do vetor devem ser 1,2,4,8 e assim sucessivamente. Mostre o vetor
+    em seguida."
   inputs:
   - list:
-    - -2
-    - 5
+    - 123
   - list:
-    - 5
-    - 50
+    - 454
   - list:
-    - 10
-    - 100
+    - 432
   - list:
-    - 2
-    - 3
+    - 11
   - list:
-    - 3
-    - 1
+    - 0
+  - list:
+    - 111
+  - list:
+    - 2121
+  - list:
+    - 3333
+  - list:
+    - -5

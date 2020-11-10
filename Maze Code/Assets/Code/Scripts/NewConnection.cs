@@ -17,8 +17,8 @@ public class NewConnection : MonoBehaviour
     public bool changed = false;
     public Color[] sprites = new Color[2];
     private Image image;
-    public Image auxImg = null;
     private CircleCollider2D collider;
+    public Text xButton = null;
 
     private int plusOrMinus()
     {
@@ -27,11 +27,9 @@ public class NewConnection : MonoBehaviour
 
     private void CancelConnection()
     {
-        Debug.Log("cancel");
         GameObject gObj = ConnectionManager.GetOtherSide(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
         if (gObj != null)
         {
-            Debug.Log(gObj);
             EntryPoint ep = gObj.GetComponent<EntryPoint>();
             if (ep != null) if( ConnectionManager.DeleteThisConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir))
             {
@@ -39,11 +37,10 @@ public class NewConnection : MonoBehaviour
                 changed = true;
                 ep.isEmpty = true;
                 ep.changed = true;
-                Debug.Log("sucesso");
             }
             else
             {
-                Debug.Log("sem sucesso");
+                Debug.Log("ERROR");
             }
         }
     }
@@ -71,6 +68,16 @@ public class NewConnection : MonoBehaviour
             CancelConnection();
         }
     }
+    
+    private void OnMouseEnter() {
+        if(!isEmpty){
+            xButton.enabled = true;
+        }
+    }
+
+    private void OnMouseExit() {
+        xButton.enabled = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -86,18 +93,12 @@ public class NewConnection : MonoBehaviour
                 changed = true;
                 collider.enabled = true;
                 image.enabled = true;
-                if(auxImg != null){
-                    auxImg.enabled = true;
-                }
             }
             else
             {
                 changed = true;
                 collider.enabled = false;
                 image.enabled = false;
-                if(auxImg != null){
-                    auxImg.enabled = false;
-                }
             }
             updateSprite();
         }
@@ -108,18 +109,12 @@ public class NewConnection : MonoBehaviour
                 collider.enabled = true;
                 changed = false;
                 image.enabled = true;
-                if(auxImg != null){
-                    auxImg.enabled = true;
-                }
             }
             else
             {
                 changed = false;
                 collider.enabled = true;
                 image.enabled = true;
-                if(auxImg != null){
-                    auxImg.enabled = true;
-                }
             }
 
             updateSprite();
@@ -132,7 +127,6 @@ public class NewConnection : MonoBehaviour
 
     private bool FindUpperConnection()
     {
-        //return true if exists an free upper connection, false if don't
         NewConnection[] conns = this.transform.parent.GetComponentsInChildren<NewConnection>();
         foreach (NewConnection c in conns)
         {

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
+  m_Name: puzzle 06
+  m_EditorClassIdentifier: 
+  naSala: 0
+  destravaSala: 0
+  objetivo: 
+  initialValue: 0
+  runtimeValue: 0
+  variavel: 0
+  leitura: 0
+  imprime: 0
+  matematica: 0
+  condicional: 0
+  loopDefinido: 0
+  loopIndefinido: 0
+  vetor: 0
+  matriz: 0
+  bonusVariavel: 0
+  bonusLeitura: 0
+  bonusImprime: 0
+  bonusMatematica: 0
+  bonusCondicional: 0
+  bonusLoopDefinido: 0
+  bonusLoopIndefinido: 0
+  bonusVetor: 0
+  bonusMatriz: 0
+  correctCode: 
+  objectiveTitle: Quadrado de pares
+  objective: "Leia um valor inteiro N. Apresente o quadrado de cada um dos valores
+    pares, de 1 at\xE9 N, inclusive N, se for o caso."
+  inputs:
+  - list:
+    - 1
+  - list:
+    - 2
+  - list:
+    - 6
+  - list:
+    - 7
+  - list:
+    - 9
+  - list:
+    - 16
+  - list:
+    - 22
+  - list:
+    - 18
+  - list:
+    - 5
+  - list:
+    - 7
