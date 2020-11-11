@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 23
   m_EditorClassIdentifier: 
-  naSala: 0
-  destravaSala: 0
+  naSala: 24
+  destravaSala: 23
   objetivo: 
   initialValue: 0
   runtimeValue: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   bonusVetor: 0
   bonusMatriz: 0
   correctCode: 
-  objectiveTitle: Vetor 02
+  objectiveTitle: Preenchimento de vetor
   objective: "Fa\xE7a um programa que leia um valor T e preencha um vetor de tamanho
     100 com a sequ\xEAncia de valores de 0 at\xE9 T-1 repetidas vezes, conforme exemplo
     abaixo. Imprima o vetor N."

@@ -12,49 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 17
   m_EditorClassIdentifier: 
-  naSala: 0
-  destravaSala: 0
+  naSala: 16
+  destravaSala: 17
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 0
-  leitura: 0
-  imprime: 0
-  matematica: 0
+  variavel: 2
+  leitura: 1
+  imprime: 1
+  matematica: 1
   condicional: 0
-  loopDefinido: 0
+  loopDefinido: 1
   loopIndefinido: 0
-  vetor: 0
+  vetor: 1
   matriz: 0
-  bonusVariavel: 0
-  bonusLeitura: 0
-  bonusImprime: 0
-  bonusMatematica: 0
+  bonusVariavel: 2
+  bonusLeitura: 1
+  bonusImprime: 1
+  bonusMatematica: 1
   bonusCondicional: 0
-  bonusLoopDefinido: 0
+  bonusLoopDefinido: 1
   bonusLoopIndefinido: 0
-  bonusVetor: 0
+  bonusVetor: 1
   bonusMatriz: 0
   correctCode: 
-  objectiveTitle: Fibonacci
-  objective: "A seguinte sequ\xEAncia de n\xFAmeros 0 1 1 2 3 5 8 13 21... \xE9 conhecida
-    como s\xE9rie de Fibonacci. Nessa sequ\xEAncia, cada n\xFAmero, depois dos 2
-    primeiros, \xE9 igual \xE0 soma dos 2 anteriores. Escreva um algoritmo que leia
-    um inteiro N (N < 46) e mostre os N primeiros n\xFAmeros dessa s\xE9rie."
+  objectiveTitle: Vetor 01
+  objective: "Leia um valor e fa\xE7a um programa que coloque o valor lido na primeira
+    posi\xE7\xE3o de um vetor de tamanho 10. Em cada posi\xE7\xE3o subsequente, coloque
+    o dobro do valor da posi\xE7\xE3o anterior. Por exemplo, se o valor lido for
+    1, os valores do vetor devem ser 1,2,4,8 e assim sucessivamente. Mostre o vetor
+    em seguida."
   inputs:
   - list:
-    - 1
+    - 123
   - list:
-    - 7
+    - 454
   - list:
-    - 14
+    - 432
   - list:
-    - 10
+    - 11
   - list:
-    - 20
+    - 0
   - list:
-    - 38
+    - 111
   - list:
-    - 49
+    - 2121
   - list:
-    - 9
+    - 3333
+  - list:
+    - -5
