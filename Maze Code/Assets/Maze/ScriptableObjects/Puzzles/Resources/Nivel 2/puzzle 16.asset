@@ -17,10 +17,10 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 2
+  variavel: 7
   leitura: 6
-  imprime: 6
-  matematica: 0
+  imprime: 1
+  matematica: 6
   condicional: 6
   loopDefinido: 0
   loopIndefinido: 0
@@ -35,7 +35,14 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
+  correctCode: 'using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _i = 0; int _j = 0;string _output
+    = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>()
+    {};void teste(){var a = 0.0;var b = 0.0;var c = 0.0;var d = 0.0;var f = 0.0;var
+    e = 0.0;a = _Dinputs[_j++];b = _Dinputs[_j++];c = _Dinputs[_j++];d = _Dinputs[_j++];e
+    = _Dinputs[_j++];f = _Dinputs[_j++];var g = 0;if( a>0 ){g = g+1;}if( b>0 ){g
+    = g+1;}if( c>0 ){g = g+1;}if( d>0 ){g = g+1;}if( e>0 ){g = g+1;}if( f>0 ){g =
+    g+1;}_output += g+ " ";}}} '
   objectiveTitle: Floats positivos
   objective: Leia 6 valores Float. Em seguida, mostre quantos destes valores digitados
     foram positivos.

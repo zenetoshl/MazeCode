@@ -17,10 +17,10 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 1
-  leitura: 1
+  variavel: 2
+  leitura: 2
   imprime: 2
-  matematica: 0
+  matematica: 2
   condicional: 0
   loopDefinido: 0
   loopIndefinido: 1
@@ -35,7 +35,18 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
+  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
+    null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
+    _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
+    teste(){_loopLimit = 0;var a = 0;var b = 0;if(_inputs.Count > _i)b =  _inputs[_i++];while(b!=2002){
+    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
+    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}a = 0+0;if(_output.Length
+    >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos caracteres, por favor,
+    confira os loops da sua solu\xE7\xE3o. \"; return;}_output += a+ \" \";if(_inputs.Count
+    > _i)b =  _inputs[_i++];}a = 1+0;if(_output.Length >= 1000000) {_loopError =
+    \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
+    \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Senha
   objective: "Escreva um programa que repita a leitura de uma senha at\xE9 que ela
     seja v\xE1lida. Para cada leitura de senha incorreta informada, escrever a mensagem

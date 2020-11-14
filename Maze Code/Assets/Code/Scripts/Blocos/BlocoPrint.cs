@@ -15,7 +15,7 @@ public class BlocoPrint : Bloco
     }
     public override string ToCode()
     {
-        return "_output += " + var.GetText() + "+ \" \";";
+        return "if(_output.Length >= 1000000) {_loopError = \"Sua saída possui muitos caracteres, por favor, confira os loops da sua solução. \"; return;}_output += " + var.GetText() + "+ \" \";";
     }
 
     public override void UpdateUI(bool isOk){
@@ -41,6 +41,7 @@ public class BlocoPrint : Bloco
             ErrorLogManager.instance.CreateError("Variavel nao existe no escopo deste bloco");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 

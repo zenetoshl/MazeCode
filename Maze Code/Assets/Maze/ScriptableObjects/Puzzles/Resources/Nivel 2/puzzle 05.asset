@@ -17,11 +17,11 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 4
+  variavel: 3
   leitura: 3
-  imprime: 1
+  imprime: 6
   matematica: 0
-  condicional: 3
+  condicional: 6
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
@@ -35,10 +35,16 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
+  correctCode: 'using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _i = 0; int _j = 0;string _output
+    = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>()
+    {};void teste(){var a = 0;var b = 0;var c = 0;a =  _inputs[_i++];b =  _inputs[_i++];c
+    =  _inputs[_i++];if( a<=b ){if( b<=c ){if( c<=a ){_output += a+ " ";}else{_output
+    += c+ " ";}}else{_output += b+ " ";}}else{if( a<=c ){if( c<=b ){_output += b+
+    " ";}else{_output += c+ " ";}}else{_output += a+ " ";}}}}} '
   objectiveTitle: O Maior
   objective: "Leia tr\xEAs valores Inteiros e apresente o maior dos tr\xEAs valores
-    lidos"
+    lidos."
   inputs:
   - list:
     - 1

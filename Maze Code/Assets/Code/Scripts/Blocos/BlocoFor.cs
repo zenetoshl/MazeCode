@@ -32,7 +32,7 @@ public class BlocoFor : Bloco
 
     public override string ToCode()
     {
-        string BlocoCode = "for(" + var.GetText() + " = " + initial.text + " ;" + var.GetText() + "<=" + end.text + ";" +var.GetText()+op.text + ")";
+        string BlocoCode = "for(" + var.GetText() + " = " + initial.text + " ;" + var.GetText() + "<=" + end.text + ";" +var.GetText()+op.text + "){ if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram além do limite permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}";
         return BlocoCode;
     }
 
@@ -80,6 +80,7 @@ public class BlocoFor : Bloco
             ErrorLogManager.instance.CreateError("valor inicial é maior que o final");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 

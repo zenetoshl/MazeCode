@@ -17,7 +17,7 @@ MonoBehaviour:
   objetivo: Descricao do objetivo que sera exibida no Terminal
   initialValue: 0
   runtimeValue: 0
-  variavel: 3
+  variavel: 2
   leitura: 2
   imprime: 1
   matematica: 1
@@ -35,11 +35,14 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _i = 0;string _output = "";List<int>
-    _inputs = new List<int>() {};void teste(){var a = 0;var b = 0;             if(_i
-    < _inputs.Count)a= _inputs[_i++];             if(_i < _inputs.Count)b= _inputs[_i++];var
-    c = 0;c = a*b;_output += c+ " ";}}}
+  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
+    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
+    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
+    = 0;_loopError = null;var a = 0;var b = 0;if(_inputs.Count > _i)a =  _inputs[_i++];if(_inputs.Count
+    > _i)b =  _inputs[_i++];a = b*a;if(_output.Length >= 1000000) {_loopError = \"Sua
+    sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
+    \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Produto Simples
   objective: Leia dois valores. A seguir, calcule o produto entre estes dois valores
     e exiba o resultado.

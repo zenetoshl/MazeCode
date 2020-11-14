@@ -25,7 +25,7 @@ public class BlocoWhile : Bloco
 
     public override string ToCode()
     {
-        string BlocoCode = "while("+ var.GetText()+ op.text + val.GetActiveText()+ ")";
+        string BlocoCode = "while("+ var.GetText()+ op.text + val.GetActiveText()+ "){ if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram além do limite permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}";
         return BlocoCode;
     }
 
@@ -59,6 +59,7 @@ public class BlocoWhile : Bloco
             ErrorLogManager.instance.CreateError("Operador invalido");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 

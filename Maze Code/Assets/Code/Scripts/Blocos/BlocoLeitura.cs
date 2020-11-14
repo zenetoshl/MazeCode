@@ -15,8 +15,8 @@ public class BlocoLeitura : Bloco {
     }
     public override string ToCode () {
         string varName = var.GetName();
-        string doubleText =  varName + " = _Dinputs[_j++];";
-        string intText = varName + " =  _inputs[_i++];";
+        string doubleText ="if(_Dinputs.Count > _j)" + varName + " = _Dinputs[_j++];";
+        string intText ="if(_inputs.Count > _i)" + varName + " =  _inputs[_i++];";
         return( (var.type == VariableManager.Type.Int) ? intText : doubleText);
 
     }
@@ -44,6 +44,7 @@ public class BlocoLeitura : Bloco {
             ErrorLogManager.instance.CreateError("Variavel nao existe no escopo deste bloco");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 

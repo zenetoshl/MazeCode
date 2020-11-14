@@ -17,10 +17,10 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 2
+  variavel: 5
   leitura: 4
-  imprime: 4
-  matematica: 0
+  imprime: 1
+  matematica: 8
   condicional: 4
   loopDefinido: 0
   loopIndefinido: 0
@@ -35,7 +35,13 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
+  correctCode: 'using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _i = 0; int _j = 0;string _output
+    = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>()
+    {};void teste(){var a = 0;var b = 0;var c = 0;var d = 0;var e = 0;a =  _inputs[_i++];b
+    =  _inputs[_i++];c =  _inputs[_i++];d =  _inputs[_i++];a = a%2;if( a==0 ){e =
+    e+1;}b = b%2;if( b==0 ){e = e+1;}c = c%2;if( c==0 ){e = e+1;}d = d%2;if( d==0
+    ){e = e+1;}_output += e+ " ";}}} '
   objectiveTitle: Valores positivos
   objective: "Leia 4 valores inteiros. Estes valores ser\xE3o somente negativos ou
     positivos. Ent\xE3o, mostre a quantidade de valores positivos lidos."

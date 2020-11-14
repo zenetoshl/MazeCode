@@ -64,6 +64,7 @@ public class BlocoAritimetico : Bloco {
             ErrorLogManager.instance.CreateError("Operador invalido");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 

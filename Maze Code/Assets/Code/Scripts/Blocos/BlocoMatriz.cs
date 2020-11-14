@@ -134,8 +134,8 @@ public class BlocoMatriz : Bloco {
             ErrorLogManager.instance.CreateError("valor invalido");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
-        return MarkError ((uiText.text != "---") && CheckString (i.text) && CheckString (j.text));
     }
 
     private bool CheckString (string s) {

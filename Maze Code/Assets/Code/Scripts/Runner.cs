@@ -38,6 +38,7 @@ public class Runner : MonoBehaviour {
             foreach (CompilationError error in compileRequest.CompileDomain.CompileResult.Errors) {
                 if (error.IsError == true) {
                     Debug.LogError (error.ToString ());
+                    textUI.text = error.ToString ();
                 } else if (error.IsWarning == true) {
                     Debug.LogWarning (error.ToString ());
                 }
@@ -48,7 +49,11 @@ public class Runner : MonoBehaviour {
             proxy.Fields["_inputs"] = list;
             proxy.Fields["_Dinputs"] = listD;
             proxy.Call (initBlock.name);
-            textUI.text = (string) proxy.Fields["_output"];
+            if((string) proxy.Fields["_loopError"] != null){
+                textUI.text = (string) proxy.Fields["_loopError"];
+            } else {
+                textUI.text = (string) proxy.Fields["_output"];
+            }
         }
         LoadingCircle.UpdateLoad(false);
     }

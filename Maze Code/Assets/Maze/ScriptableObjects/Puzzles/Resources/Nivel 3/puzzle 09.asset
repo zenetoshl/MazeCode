@@ -17,11 +17,11 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 2
+  variavel: 4
   leitura: 1
-  imprime: 1
-  matematica: 0
-  condicional: 1
+  imprime: 2
+  matematica: 4
+  condicional: 2
   loopDefinido: 1
   loopIndefinido: 0
   vetor: 0
@@ -35,7 +35,19 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 
+  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
+    null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
+    _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
+    teste(){_loopLimit = 0;var a = 0;var b = 0;var c = 0;for(a = 1 ;a<=100;a++){
+    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
+    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}var d = 0;if(_inputs.Count
+    > _i)d =  _inputs[_i++];if( a!=0 ){if( d>b ){b = d+0;c = a+0;}}else{b = d+0;c
+    = a+0;}}if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos
+    caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
+    += b+ \" \";if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui
+    muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
+    += c+ \" \";}}} "
   objectiveTitle: Maior valor
   objective: "Leia 100 valores inteiros. Apresente ent\xE3o o maior valor lido e
     a posi\xE7\xE3o dentre os 100 valores lidos."

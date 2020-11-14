@@ -96,7 +96,7 @@ public class ConnectionManager : MonoBehaviour {
         foreach (Connection c in conns) {
             switch (c.points[0].direction) {
                 case ConnectionPoint.ConnectionDirection.South:
-                    south = "{" + ToCode (c.target[1]) + "}";
+                    south = ToCode (c.target[1]) + "}";
                     break;
                 case ConnectionPoint.ConnectionDirection.North:
                     north = "else{" + ToCode (c.target[1]) + "}";
@@ -107,7 +107,7 @@ public class ConnectionManager : MonoBehaviour {
             }
         }
         if ( south == "" && HasSouthNode(transform)){
-            south = "{}";
+            south = "}";
         }
         returnCode = returnCode + south + north + east;
         return returnCode;

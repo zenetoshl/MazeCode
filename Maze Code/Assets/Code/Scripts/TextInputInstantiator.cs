@@ -32,8 +32,7 @@ public class TextInputInstantiator : MonoBehaviour {
             if (s != "") {
                 float f = float.Parse (s);
                 Debug.Log (f);
-                bool isInt =
-                    (f % 1 == 0) ? true : false;
+                bool isInt = !s.Contains(".");
                 Debug.Log (isInt);
                 if (isInt) {
                     int i = Convert.ToInt32 (s);
@@ -53,8 +52,7 @@ public class TextInputInstantiator : MonoBehaviour {
             if (s != "") {
                 float f = float.Parse (s);
                 Debug.Log (f);
-                bool isInt =
-                    (f % 1 == 0) ? true : false;
+                bool isInt = !s.Contains(".");
                 if (!isInt) {
                     double i = double.Parse (s);
                     list.Add (i);

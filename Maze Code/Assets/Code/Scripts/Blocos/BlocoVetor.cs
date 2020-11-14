@@ -119,6 +119,7 @@ public class BlocoVetor : Bloco {
             ErrorLogManager.instance.CreateError("Valor invalido");
             noError = MarkError(false);
         }
+        MarkError(noError);
         return noError;
     }
 
