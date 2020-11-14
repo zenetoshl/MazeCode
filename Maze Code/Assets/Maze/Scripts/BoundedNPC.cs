@@ -44,7 +44,7 @@ public class BoundedNPC : Sign
     {
         if (joybutton.Pressed && playerInRange)
         {
-            dialog = "Desconhecido: ... [Desespero].";
+            dialog = "Desconhecido: ... Pensando.";
             dialogBox.SetActive(true);
             dialogText.text = dialog;
         }

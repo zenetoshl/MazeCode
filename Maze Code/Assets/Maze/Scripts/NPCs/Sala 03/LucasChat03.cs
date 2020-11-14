@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LucasChat : Sign
+public class LucasChat03 : Sign
 {
     private Vector3 directionVector;
     private Transform myTransform;
@@ -28,7 +28,7 @@ public class LucasChat : Sign
         {
             if (quantConversasLucas == 3)
             {
-                dialog = "Lucas: Fala Yago, nao sabia que voce estava concorrendo a bolsa tambem. \n\nAperte para continuar...";
+                dialog = "Lucas: Eae Yago, Como tá indo com os desafios?\n\nAperte para continuar...";
                 dialogBox.SetActive(true);
                 dialogText.text = dialog;
                 quantConversasLucas--;
@@ -40,7 +40,31 @@ public class LucasChat : Sign
                 if (timeChat <= 0)
                 {
                     timeChat = 0.2f;
-                    dialog = "Yago: Pois eh, estou sim, depois de terminar o ensino medio, eu pensei bastante e decidi que eh isso que eu quero. \n\nAperte para continuar...";
+                    dialog = "Yago: Acho que estou indo até bem, até agora não tive muitos problemas.\n\nAperte para continuar...";
+                    dialogBox.SetActive(true);
+                    dialogText.text = dialog;
+                    quantConversasLucas--;
+                }
+            }
+            else if (quantConversasLucas == 1)
+            {
+                timeChat -= Time.deltaTime;
+                if (timeChat <= 0)
+                {
+                    timeChat = 0.2f;
+                    dialog = "Lucas: Que top, até agora tem sido tranquilo pra mim também. Mas estou com medo do desafio do Professor Renato.\n\nAperte para continuar...";
+                    dialogBox.SetActive(true);
+                    dialogText.text = dialog;
+                    quantConversasLucas--;
+                }
+            }
+            else if (quantConversasLucas == 0)
+            {
+                timeChat -= Time.deltaTime;
+                if (timeChat <= 0)
+                {
+                    timeChat = 0.2f;
+                    dialog = "Yago: Pelo que descobri até agora, dizem que o desafio dele exige um novo tipo de bloco, que parece ser algo sobre condicionais. A recompensa pelo desafio é o Emblema do Raciocino.\nAperte para continuar...";
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
                     quantConversasLucas--;
@@ -51,7 +75,7 @@ public class LucasChat : Sign
                 timeChat -= Time.deltaTime;
                 if (timeChat <= 0)
                 {
-                    dialog = "Lucas: Boa sorte pra voce entao, espero que a gente consiga chegar ate o final. Tchau!!";
+                    dialog = "Lucas: Entendi. Até mais então.";
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
                     podeConversar = true;
