@@ -26,11 +26,11 @@ MonoBehaviour:
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 0
-  bonusLeitura: 1
-  bonusImprime: 1
-  bonusMatematica: 1
-  bonusCondicional: 2
+  bonusVariavel: 2
+  bonusLeitura: 2
+  bonusImprime: 3
+  bonusMatematica: 2
+  bonusCondicional: 3
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
     e+1;}b = b%2;if( b==0 ){e = e+1;}c = c%2;if( c==0 ){e = e+1;}d = d%2;if( d==0
     ){e = e+1;}_output += e+ " ";}}} '
   objectiveTitle: Valores positivos
-  objective: "Leia 4 valores inteiros. Estes valores ser\xE3o somente negativos ou
-    positivos. Ent\xE3o, mostre a quantidade de valores positivos lidos."
+  objective: "Leia 4 valores inteiros. Ent\xE3o, mostre a quantidade de valores positivos
+    lidos. Estes valores ser\xE3o somente negativos ou positivos."
   inputs:
   - list:
     - 1

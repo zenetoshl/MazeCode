@@ -17,39 +17,40 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 3
-  leitura: 3
-  imprime: 6
+  variavel: 2
+  leitura: 2
+  imprime: 2
   matematica: 0
-  condicional: 6
+  condicional: 1
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
   bonusVariavel: 2
-  bonusLeitura: 1
-  bonusImprime: 0
-  bonusMatematica: 0
+  bonusLeitura: 2
+  bonusImprime: 1
+  bonusMatematica: 3
   bonusCondicional: 2
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: 'using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _i = 0; int _j = 0;string _output
-    = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>()
-    {};void teste(){var a = 0;var b = 0;var c = 0;a =  _inputs[_i++];b =  _inputs[_i++];c
-    =  _inputs[_i++];if( a<=b ){if( b<=c ){if( c<=a ){_output += a+ " ";}else{_output
-    += c+ " ";}}else{_output += b+ " ";}}else{if( a<=c ){if( c<=b ){_output += b+
-    " ";}else{_output += c+ " ";}}else{_output += a+ " ";}}}}} '
+  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
+    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
+    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
+    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
+    = 0;_loopError = null;var a = 0;var b = 0;if(_inputs.Count > _i)a =  _inputs[_i++];if(_inputs.Count
+    > _i)b =  _inputs[_i++];if( a>b ){if(_output.Length >= 1000000) {_loopError =
+    \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
+    \"; return;}_output += a+ \" \";}else{if(_output.Length >= 1000000) {_loopError
+    = \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua
+    solu\xE7\xE3o. \"; return;}_output += b+ \" \";}}}} "
   objectiveTitle: O Maior
-  objective: "Leia tr\xEAs valores Inteiros e apresente o maior dos tr\xEAs valores
-    lidos."
+  objective: Leia dois valores Float e exiba o maior.
   inputs:
   - list:
     - 1
     - 2
-    - 3
   - list:
     - 3
     - 2
@@ -57,16 +58,12 @@ MonoBehaviour:
   - list:
     - 1
     - 3
-    - 2
   - list:
     - 2
     - 3
-    - 1
   - list:
     - -1
     - -2
-    - -3
   - list:
     - -199
     - 10000
-    - -45555555

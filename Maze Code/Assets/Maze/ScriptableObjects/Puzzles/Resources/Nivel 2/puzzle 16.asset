@@ -17,20 +17,20 @@ MonoBehaviour:
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 7
-  leitura: 6
-  imprime: 1
-  matematica: 6
+  variavel: 3
+  leitura: 3
+  imprime: 6
+  matematica: 0
   condicional: 6
   loopDefinido: 0
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 1
+  bonusVariavel: 3
   bonusLeitura: 2
-  bonusImprime: 3
-  bonusMatematica: 0
-  bonusCondicional: 3
+  bonusImprime: 4
+  bonusMatematica: 3
+  bonusCondicional: 1
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
   bonusVetor: 0
@@ -38,47 +38,27 @@ MonoBehaviour:
   correctCode: 'using System;using System.Collections.Generic;using UnityEngine;using
     System.Text;namespace teste { class MazeCode {int _i = 0; int _j = 0;string _output
     = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>()
-    {};void teste(){var a = 0.0;var b = 0.0;var c = 0.0;var d = 0.0;var f = 0.0;var
-    e = 0.0;a = _Dinputs[_j++];b = _Dinputs[_j++];c = _Dinputs[_j++];d = _Dinputs[_j++];e
-    = _Dinputs[_j++];f = _Dinputs[_j++];var g = 0;if( a>0 ){g = g+1;}if( b>0 ){g
-    = g+1;}if( c>0 ){g = g+1;}if( d>0 ){g = g+1;}if( e>0 ){g = g+1;}if( f>0 ){g =
-    g+1;}_output += g+ " ";}}} '
-  objectiveTitle: Floats positivos
-  objective: Leia 6 valores Float. Em seguida, mostre quantos destes valores digitados
-    foram positivos.
+    {};void teste(){var a = 0;var b = 0;var c = 0;a =  _inputs[_i++];b =  _inputs[_i++];c
+    =  _inputs[_i++];if( a<=b ){if( b<=c ){if( c<=a ){_output += a+ " ";}else{_output
+    += c+ " ";}}else{_output += b+ " ";}}else{if( a<=c ){if( c<=b ){_output += b+
+    " ";}else{_output += c+ " ";}}else{_output += a+ " ";}}}}} '
+  objectiveTitle: "Ordena\xE7\xE3o"
+  objective: "Leia tr\xEAs valores Inteiros e apresente o maior dos tr\xEAs valores
+    lidos."
   inputs:
   - list:
-    - 1.0
-    - 1.2
-    - 3.4
-    - 5.5
-    - 1.1
-    - 1.0
+    - 2
+    - 3
+    - 4
   - list:
-    - -2.2020
-    - -5.88
-    - -7.76
-    - 10.65
-    - 1000.45
-    - -15.55
+    - 7
+    - 2
+    - 6
   - list:
-    - 1.5
-    - -1.0
-    - 2.0
-    - -2.0
-    - 3.0
-    - -3.0
+    - -10
+    - 0
+    - 1
   - list:
-    - -1.4
-    - -1.5
-    - -1.3
-    - -1.2
-    - -1.1
-    - -1.1
-  - list:
-    - 4.0
-    - 5.0
-    - 2.2
-    - 1.1
-    - 13213.4
-    - 6.7
+    - 5545
+    - -4324
+    - 5

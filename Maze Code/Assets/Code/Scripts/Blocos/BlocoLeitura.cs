@@ -14,7 +14,7 @@ public class BlocoLeitura : Bloco {
         var = myWindow.transform.Find ("Panel/var_vet_mat").GetComponent<Var_Vet_Mat> ();
     }
     public override string ToCode () {
-        string varName = var.GetName();
+        string varName = var.GetText();
         string doubleText ="if(_Dinputs.Count > _j)" + varName + " = _Dinputs[_j++];";
         string intText ="if(_inputs.Count > _i)" + varName + " =  _inputs[_i++];";
         return( (var.type == VariableManager.Type.Int) ? intText : doubleText);

@@ -29,7 +29,7 @@ MonoBehaviour:
   bonusVariavel: 1
   bonusLeitura: 0
   bonusImprime: 0
-  bonusMatematica: 1
+  bonusMatematica: 4
   bonusCondicional: 2
   bonusLoopDefinido: 0
   bonusLoopIndefinido: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
     {};void teste(){var a = 0;var b = 0;var c = 0;a =  _inputs[_i++];b =  _inputs[_i++];if(
     a>b ){c = a%b;}else{c = b%a;}if( c==0 ){}else{c = 1+0;}_output += c+ " ";}}} '
   objectiveTitle: "N\xFAmeros Multiplos"
-  objective: "Leia 2 valores inteiros (A e B). Ap\xF3s, imprima \"1\" caso A e B
-    sejam multiplos e \"0\" caso n\xE3o sejam multiplos."
+  objective: "Leia 2 valores inteiros A e B. Ap\xF3s, imprima \"0\" caso A e B sejam
+    multiplos e \"1\" caso n\xE3o sejam."
   inputs:
   - list:
     - -2

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 06
   m_EditorClassIdentifier: 
-  naSala: 1
-  destravaSala: 6
+  naSala: 20
+  destravaSala: 24
   objetivo: 
   initialValue: 0
   runtimeValue: 0
@@ -26,14 +26,14 @@ MonoBehaviour:
   loopIndefinido: 1
   vetor: 0
   matriz: 0
-  bonusVariavel: 0
-  bonusLeitura: 0
-  bonusImprime: 0
-  bonusMatematica: 0
-  bonusCondicional: 0
-  bonusLoopDefinido: 0
-  bonusLoopIndefinido: 0
-  bonusVetor: 0
+  bonusVariavel: 2
+  bonusLeitura: 2
+  bonusImprime: 2
+  bonusMatematica: 2
+  bonusCondicional: 2
+  bonusLoopDefinido: 2
+  bonusLoopIndefinido: 2
+  bonusVetor: 1
   bonusMatriz: 0
   correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
     System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
