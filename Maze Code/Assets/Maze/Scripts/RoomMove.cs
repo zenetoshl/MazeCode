@@ -8,7 +8,6 @@ public class RoomMove : MonoBehaviour {
     public Vector3 playerChange;
     public bool needText;
     public string placeName;
-    public GameObject text;
     public Text placeText;
     private bool init;
     public Puzzle puzzleStatus;
@@ -50,9 +49,9 @@ public class RoomMove : MonoBehaviour {
     }
 
     private IEnumerator placeNameCo () {
-        text.SetActive (true);
+        placeText.gameObject.SetActive (true);
         placeText.text = placeName;
         yield return new WaitForSeconds (3f);
-        text.SetActive (false);
+        placeText.gameObject.SetActive (false);
     }
 }
