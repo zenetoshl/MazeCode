@@ -19,7 +19,6 @@ public class FadeAnimation : MonoBehaviour {
     }
 
     public void StartAnimationAndLoadAsync (string sceneName) {
-
         LoadAndAnimateAsync (sceneName);
 
     }
@@ -28,8 +27,6 @@ public class FadeAnimation : MonoBehaviour {
         ContainerManager.isActive = false;
         ContainerManager.changed = true; 
         SceneManager.LoadScene (sceneName, LoadSceneMode.Additive);
-        
-
     }
 
     private void LoadAndAnimateAsync (string sceneName) {
@@ -37,6 +34,5 @@ public class FadeAnimation : MonoBehaviour {
         ContainerManager.changed = true;
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         SceneManager.UnloadSceneAsync ("terminal3", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
-         
     }
 }

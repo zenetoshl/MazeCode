@@ -10,8 +10,17 @@ public class LoadingScreenControl : MonoBehaviour
     public Slider slider;
     public int fakeSpeed;
     AsyncOperation async;
+    public static bool loadLab = false;
+    public GameObject cam = null;
 
-    // Start is called before the first frame update
+    private void Update() {
+        if(loadLab){
+            loadLab = false;
+            cam.SetActive(true);
+            LoadScreenExample();
+        }
+    }
+
     public void LoadScreenExample()
     {
         StartCoroutine(LoadingScreen());
@@ -33,5 +42,12 @@ public class LoadingScreenControl : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void LoadNewGame(){
+        SceneManager.LoadScene ("TypeWriter", LoadSceneMode.Additive);
+        cam.SetActive(false);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("TypeWriter"));
+        
     }
 }
