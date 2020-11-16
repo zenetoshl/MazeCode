@@ -18,6 +18,7 @@ MonoBehaviour:
   dialogText: {fileID: 0}
   dialog: 
   bounds: {fileID: 5781164633402764134}
+  podeConversar: 0
 --- !u!1 &6631286733476461415
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,12 +44,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6631286733476461415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.43, y: -0.6, z: 0}
-  m_LocalScale: {x: 0.616, y: 0.57, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.31951064, z: 0}
+  m_LocalScale: {x: 0.41876274, y: 0.3874915, z: 0.67980963}
   m_Children: []
-  m_Father: {fileID: 5781164634380733586}
-  m_RootOrder: 2
+  m_Father: {fileID: 5781164633081212246}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6631286733476461412
 BoxCollider2D:
@@ -311,15 +312,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8960658628395069162, guid: 3524964bb607bab41bf9d880cfcd22c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3524964bb607bab41bf9d880cfcd22c9, type: 3}
---- !u!4 &5781164634380733586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8960658630249353005, guid: 3524964bb607bab41bf9d880cfcd22c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 3197684475297104831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5781164633081212247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8960658628395069160, guid: 3524964bb607bab41bf9d880cfcd22c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3197684475297104831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5781164633081212246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8960658628395069161, guid: 3524964bb607bab41bf9d880cfcd22c9,
     type: 3}
   m_PrefabInstance: {fileID: 3197684475297104831}
   m_PrefabAsset: {fileID: 0}

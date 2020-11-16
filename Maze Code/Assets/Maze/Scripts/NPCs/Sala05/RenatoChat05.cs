@@ -45,13 +45,25 @@ public class RenatoChat05 : Sign
                     dialogText.text = dialog;
                     quantConversasLucas--;
                 }
-            }          
+            }
+            else if (quantConversasLucas == 2)
+            {
+                timeChat -= Time.deltaTime;
+                if (timeChat <= 0)
+                {
+                    timeChat = 0.2f;
+                    dialog = "Renato: Se você for capaz de melhorar isso, você conseguiria ir muito além do que apenas esse labirinto. Boa sorte Garoto.\nAperte para continuar...";
+                    dialogBox.SetActive(true);
+                    dialogText.text = dialog;
+                    quantConversasLucas--;
+                }
+            }
             else
             {
                 timeChat -= Time.deltaTime;
                 if (timeChat <= 0)
                 {
-                    dialog = "Renato: Se você for capaz de melhorar isso, você conseguiria ir muito além do que apenas esse labirinto. Boa sorte Garoto.";
+                    dialog = "Parabéns, você recebeu o emblema do raciocionio lógico.";
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
                     podeConversar = true;
