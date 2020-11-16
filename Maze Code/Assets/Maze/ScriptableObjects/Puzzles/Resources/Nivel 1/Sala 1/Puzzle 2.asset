@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naSala: 1
   destravaSala: 2
-  objetivo: Descricao do objetivo que sera exibida no Terminal
+  objetivo: 
   initialValue: 0
   runtimeValue: 0
   variavel: 2
@@ -44,15 +44,15 @@ MonoBehaviour:
     sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
     \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Produto Simples
-  objective: Leia dois valores. A seguir, calcule o produto entre estes dois valores
-    e exiba o resultado.
+  objective: Leia dois valores inteiros. E a seguir, calcule o produto entre estes
+    dois valores e exiba o resultado.
   inputs:
   - list:
-    - 3
-    - 7
+    - 132
+    - 4
   - list:
-    - 10
-    - -1
+    - 3332
+    - 111
   - list:
-    - -1
-    - -1
+    - 2
+    - 5

@@ -1,12 +1,12 @@
 
 //1
-Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de A e B e depois exiba o resultado.
+Leia 2 valores inteiros e armazene-os nas variaveis A e B. Efetue a soma de A e B e depois exiba o resultado.
 //8 8 9 9 10 10 10 10 10
 //2 2 1 1 0 0 0 0 0
 using System;using System.Collections.Generic;using UnityEngine;using System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError = null; int _i = 0; int _j = 0;string _output = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit = 0;_loopError = null;var a = 0;var b = 0;if(_inputs.Count > _i)a =  _inputs[_i++];if(_inputs.Count > _i)b =  _inputs[_i++];a = b+a;if(_output.Length >= 1000000) {_loopError = "Sua saída possui muitos caracteres, por favor, confira os loops da sua solução. "; return;}_output += a+ " ";}}}
 
 //2
-Leia dois valores. A seguir, calcule o produto entre estes dois valores e exiba o resultado.
+Leia dois valores inteiros. E a seguir, calcule o produto entre estes dois valores e exiba o resultado.
 //8 8 9 9 10 10 10 10 10
 //2 2 1 1 0 0 0 0 0
 using System;using System.Collections.Generic;using UnityEngine;using System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError = null; int _i = 0; int _j = 0;string _output = "";List<int> _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit = 0;_loopError = null;var a = 0;var b = 0;if(_inputs.Count > _i)a =  _inputs[_i++];if(_inputs.Count > _i)b =  _inputs[_i++];a = b*a;if(_output.Length >= 1000000) {_loopError = "Sua saída possui muitos caracteres, por favor, confira os loops da sua solução. "; return;}_output += a+ " ";}}}

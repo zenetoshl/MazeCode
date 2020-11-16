@@ -19,7 +19,7 @@ MonoBehaviour:
   runtimeValue: 0
   variavel: 3
   leitura: 3
-  imprime: 1
+  imprime: 3
   matematica: 6
   condicional: 0
   loopDefinido: 0
@@ -44,28 +44,29 @@ MonoBehaviour:
     > _j)c = _Dinputs[_j++];a = a*2;b = b*3;c = c*5;a = a+b;a = a+c;a = a/10;if(_output.Length
     >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos caracteres, por favor,
     confira os loops da sua solu\xE7\xE3o. \"; return;}_output += a+ \" \";}}} "
-  objectiveTitle: Media inteira ponderada
-  objective: Leia 3 valores, que sao as tres notas de um aluno. A seguir, calcule
-    a media inteira das notas do aluno, sabendo que a nota A tem peso 2, a nota B
-    tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de 0 ate 10.
+  objectiveTitle: Media ponderada
+  objective: Leia 3 valores de ponto flutuante, que sao as tres notas de um aluno.
+    A seguir, calcule a media das notas do aluno, sabendo que a nota A tem peso 2,
+    a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de
+    0 ate 10.
   inputs:
   - list:
-    - 10
-    - 10
-    - 10
-  - list:
-    - 4
-    - 4
-    - 4
-  - list:
+    - 1
     - 2
     - 3
+  - list:
+    - 10
+    - 10
+    - 10
+  - list:
+    - 0
+    - 0
+    - 0
+  - list:
+    - 5
     - 4
+    - 6
   - list:
-    - 7
-    - 6
-    - 1
-  - list:
-    - 6
-    - 6
+    - 4
+    - 5
     - 6

@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 1
   objetivo: da no Terminalbjetivo que sera exibida no Terminal
   initialValue: 0
-  runtimeValue: 0
+  runtimeValue: 1
   variavel: 2
   leitura: 2
   imprime: 1
@@ -26,8 +26,8 @@ MonoBehaviour:
   loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 3
-  bonusLeitura: 1
+  bonusVariavel: 1
+  bonusLeitura: 2
   bonusImprime: 1
   bonusMatematica: 2
   bonusCondicional: 0
@@ -44,15 +44,15 @@ MonoBehaviour:
     sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
     \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Soma simples
-  objective: Leia 2 valores e armazene-os nas variaveis A e B. Efetue a soma de A
-    e B e depois exiba o resultado.
+  objective: Leia 2 valores inteiros e armazene-os nas variaveis A e B. Efetue a
+    soma de A e B e depois exiba o resultado.
   inputs:
   - list:
-    - 40
-    - 50
+    - 4
+    - 5
   - list:
-    - 10
-    - -10
+    - 10000
+    - 57
   - list:
-    - 1
+    - 0
     - 0
