@@ -12,23 +12,23 @@ public class SaveCamera : MonoBehaviour {
     public VectorValue resetMinPosition;
 
     public void ResetLimits () {
-        if (File.Exists (Application.persistentDataPath + "/min.cam")) {
-            File.Delete (Application.persistentDataPath + "/min.cam");
+        if (File.Exists (Application.persistentDataPath + "/min.cpt")) {
+            File.Delete (Application.persistentDataPath + "/min.cpt");
         }
-        if (File.Exists (Application.persistentDataPath + "/max.cam")) {
-            File.Delete (Application.persistentDataPath + "/max.cam");
+        if (File.Exists (Application.persistentDataPath + "/max.cpt")) {
+            File.Delete (Application.persistentDataPath + "/max.cpt");
         }
     }
 
     private void Awake () {
-        if (!File.Exists (Application.persistentDataPath + "/min.cam") || !File.Exists (Application.persistentDataPath + "/max.cam")) {
+        if (!File.Exists (Application.persistentDataPath + "/min.cpt") || !File.Exists (Application.persistentDataPath + "/max.cpt")) {
             CreateNewLimits ();
         }
     }
 
     public void CreateNewLimits () {
-        FileStream fileMax = File.Create (Application.persistentDataPath + "/max.cam");
-        FileStream fileMin = File.Create (Application.persistentDataPath + "/min.cam");
+        FileStream fileMax = File.Create (Application.persistentDataPath + "/max.cpt");
+        FileStream fileMin = File.Create (Application.persistentDataPath + "/min.cpt");
         BinaryFormatter binary = new BinaryFormatter ();
         var jsonMax = JsonUtility.ToJson (resetMaxPosition.initialValue /*new Vector2 (8.25f, 9.1f)*/ );
         var jsonMin = JsonUtility.ToJson (resetMinPosition.initialValue /*new Vector2 (-7.25f, -2.1f)*/ );
@@ -40,8 +40,8 @@ public class SaveCamera : MonoBehaviour {
     }
 
     public void SaveLimits () {
-        FileStream fileMax = File.Create (Application.persistentDataPath + "/max.cam");
-        FileStream fileMin = File.Create (Application.persistentDataPath + "/min.cam");
+        FileStream fileMax = File.Create (Application.persistentDataPath + "/max.cpt");
+        FileStream fileMin = File.Create (Application.persistentDataPath + "/min.cpt");
         BinaryFormatter binary = new BinaryFormatter ();
         var jsonMax = JsonUtility.ToJson (maxPositionMap.initialValue);
         var jsonMin = JsonUtility.ToJson (minPositionMap.initialValue);
@@ -53,14 +53,14 @@ public class SaveCamera : MonoBehaviour {
     }
 
     public void LoadLimits () {
-        if (File.Exists (Application.persistentDataPath + "/min.cam")) {
-            FileStream file = File.Open (Application.persistentDataPath + "/min.cam", FileMode.Open);
+        if (File.Exists (Application.persistentDataPath + "/min.cpt")) {
+            FileStream file = File.Open (Application.persistentDataPath + "/min.cpt", FileMode.Open);
             BinaryFormatter binary = new BinaryFormatter ();
             minPositionMap.initialValue = JsonUtility.FromJson<Vector2> ((string) binary.Deserialize (file));
             file.Close ();
         }
-        if (File.Exists (Application.persistentDataPath + "/max.cam")) {
-            FileStream file = File.Open (Application.persistentDataPath + "/max.cam", FileMode.Open);
+        if (File.Exists (Application.persistentDataPath + "/max.cpt")) {
+            FileStream file = File.Open (Application.persistentDataPath + "/max.cpt", FileMode.Open);
             BinaryFormatter binary = new BinaryFormatter ();
             maxPositionMap.initialValue = JsonUtility.FromJson<Vector2> ((string) binary.Deserialize (file));
             file.Close ();

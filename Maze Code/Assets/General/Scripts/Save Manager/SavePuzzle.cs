@@ -14,7 +14,7 @@ public class SavePuzzle : MonoBehaviour
     {
         for (int i = 0; i < objects.Count; i ++)
         {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.pzz", i));
+            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.pzl", i));
             BinaryFormatter binary = new BinaryFormatter();
             var json = JsonUtility.ToJson(objects[i]);
             binary.Serialize(file, json);
@@ -26,9 +26,9 @@ public class SavePuzzle : MonoBehaviour
     { 
         for(int i = 0; i < objects.Count; i ++)
         { 
-            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.pzz", i)))
+            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.pzl", i)))
             {
-                FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.pzz", i), FileMode.Open);
+                FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.pzl", i), FileMode.Open);
                 BinaryFormatter binary = new BinaryFormatter();
                 JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects[i]);
                 file.Close();
@@ -48,9 +48,9 @@ public class SavePuzzle : MonoBehaviour
             // Retorna objetos ao estado inicial
             objects[i].runtimeValue = objects[i].initialValue;
             // Exclui arquivos
-            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.pzz", i)))
+            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.pzl", i)))
             {
-                File.Delete(Application.persistentDataPath + string.Format("/{0}.pzz", i));
+                File.Delete(Application.persistentDataPath + string.Format("/{0}.pzl", i));
             }
         }
         //Debug.Log("Reset Puzzles OK");

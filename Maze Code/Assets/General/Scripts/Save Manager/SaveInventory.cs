@@ -10,7 +10,7 @@ public class SaveInventory : MonoBehaviour {
     public void SaveScriptables () {
         //ResetScriptables();
         for (int i = 0; i < inventory.myInventory.Count; i++) {
-            FileStream file = File.Create (Application.persistentDataPath + string.Format ("/{0}.inv", i));
+            FileStream file = File.Create (Application.persistentDataPath + string.Format ("/{0}.ivt", i));
             BinaryFormatter binary = new BinaryFormatter ();
             var json = JsonUtility.ToJson (inventory.myInventory[i]);
             binary.Serialize (file, json);
@@ -21,11 +21,11 @@ public class SaveInventory : MonoBehaviour {
     public void LoadScriptables () {
         if(inventory == null) return;
         for (int i = 0; i < inventory.myInventory.Count; i++) {
-            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.inv", i))) {
+            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.ivt", i))) {
                 Debug.Log("carregando variavel :"+ i);
                 var temp = ScriptableObject.CreateInstance<InventoryItem> ();
                 Debug.Log("antes do fileStream");
-                FileStream file = File.Open (Application.persistentDataPath + string.Format ("/{0}.inv", i), FileMode.Open);
+                FileStream file = File.Open (Application.persistentDataPath + string.Format ("/{0}.ivt", i), FileMode.Open);
                 Debug.Log("depois do fileStream");
                 BinaryFormatter binary = new BinaryFormatter ();
                 JsonUtility.FromJsonOverwrite ((string) binary.Deserialize (file), temp);
@@ -45,8 +45,8 @@ public class SaveInventory : MonoBehaviour {
             // Zera inventário
             inventory.myInventory[i].numberHeld = 0;
             // Exclui arquivos
-            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.inv", i))) {
-                File.Delete (Application.persistentDataPath + string.Format ("/{0}.inv", i));
+            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.ivt", i))) {
+                File.Delete (Application.persistentDataPath + string.Format ("/{0}.ivt", i));
             }
         }
         //Debug.Log("Reset Inv OK");

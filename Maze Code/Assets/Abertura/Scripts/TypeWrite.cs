@@ -29,7 +29,7 @@ public class TypeWrite : MonoBehaviour
         yield return new WaitForSeconds(waitTimeToUnload);
         LoadingScreenControl.loadLab = true;
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Start Menu"));
-        SceneManager.UnloadSceneAsync ("TypeWrite", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        SceneManager.UnloadSceneAsync ("TypeWriter", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
 
     

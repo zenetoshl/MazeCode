@@ -47,7 +47,6 @@ public class LoadingScreenControl : MonoBehaviour
     public void LoadNewGame(){
         SceneManager.LoadScene ("TypeWriter", LoadSceneMode.Additive);
         cam.SetActive(false);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("TypeWriter"));
-        
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("TypeWriter"));        
     }
 }

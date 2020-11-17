@@ -13,7 +13,7 @@ public class SavePosition : MonoBehaviour
     public void SaveScriptables()
     {
         //ResetScriptables();
-        FileStream file = File.Create(Application.persistentDataPath + string.Format("/0.pos", position));
+        FileStream file = File.Create(Application.persistentDataPath + string.Format("/0.pst", position));
         BinaryFormatter binary = new BinaryFormatter();
         var json = JsonUtility.ToJson(position);
         binary.Serialize(file, json);
@@ -22,10 +22,10 @@ public class SavePosition : MonoBehaviour
 
     public void LoadScriptables()
     {
-        if (File.Exists(Application.persistentDataPath + string.Format("/0.pos", position)))
+        if (File.Exists(Application.persistentDataPath + string.Format("/0.pst", position)))
         {
             var temp = ScriptableObject.CreateInstance<VectorValue>();
-            FileStream file = File.Open(Application.persistentDataPath + string.Format("/0.pos", position), FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + string.Format("/0.pst", position), FileMode.Open);
             BinaryFormatter binary = new BinaryFormatter();
             JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), temp);
             file.Close();
@@ -42,9 +42,9 @@ public class SavePosition : MonoBehaviour
         position.defaultValue.x = 0;
         position.defaultValue.y = 3;
         // Exclui arquivos
-        if(File.Exists(Application.persistentDataPath + string.Format("/0.pos", position)))
+        if(File.Exists(Application.persistentDataPath + string.Format("/0.pst", position)))
         {
-            File.Delete(Application.persistentDataPath + string.Format("/0.pos", position));
+            File.Delete(Application.persistentDataPath + string.Format("/0.pst", position));
         }
         //Debug.Log("Reset Position OK");
     }
