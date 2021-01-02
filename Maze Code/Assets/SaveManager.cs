@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour {
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class SaveManager : MonoBehaviour {
 
 
     private void Awake() {
+        if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Start Menu")) return;
         SaveGame();
     }
     public void SaveGame () {
