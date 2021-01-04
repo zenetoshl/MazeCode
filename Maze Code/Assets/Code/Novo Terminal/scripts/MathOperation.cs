@@ -13,9 +13,6 @@ public class MathOperation
     public MathOperation(string var){
 
     }
-    public MathOperation(string var1, string var2, string op){
-
-    }
     public double CalcDouble(){ //double tem um . separando as casas decimais, mesmo quando é 0
         return 0.0;
     }
@@ -25,10 +22,14 @@ public class MathOperation
     }
 
     public string CalcString(){ //as strings tem \" \" fechando-as
-        return "A";
+        return var1;
     }
 
     public bool CalcBool(){
         return true;
+    }
+
+    private void EmitTypeError(string type){
+        //emitir um erro quando algum tipo não for convertido com sucesso
     }
 }
