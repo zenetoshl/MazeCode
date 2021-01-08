@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TerminalMath : TerminalBlocks
 {
-    MathOperation operation;
+    //MathOperation operation;
     public override IEnumerator RunBlock(){
         yield return null;
     }

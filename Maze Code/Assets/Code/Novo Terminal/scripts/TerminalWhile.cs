@@ -5,7 +5,7 @@ using UnityEngine;
 public class TerminalWhile : TerminalBlocks
 {
     public int alternativeScopeId;
-    MathOperation condition;
+    //MathOperation condition;
     public override IEnumerator RunBlock(){
         yield return null;
     }

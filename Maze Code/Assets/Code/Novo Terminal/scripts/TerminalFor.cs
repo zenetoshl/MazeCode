@@ -5,8 +5,8 @@ using UnityEngine;
 public class TerminalFor : TerminalBlocks
 {
     public int alternativeScopeId;
-    MathOperation condition;
-    MathOperation step;
+    //MathOperation condition;
+    //MathOperation step;
 
     public override IEnumerator RunBlock(){
         yield return null;
