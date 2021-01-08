@@ -9,12 +9,13 @@ public class OperationManager : MonoBehaviour {
 
         Stack<char> brackets = new Stack<char> ();
         input = RemoveSpaces(input);
-
+        int init = -1;
         try {
             // Iterate through each character in the input string
             for (int i = 0; i < input.Length; i++) {
                 // check if the character is one of the 'opening' brackets
                 if (input[i] == '(') {
+                    init = i;
                     if (i > 0 && brackets.Count == 0) {
                         return ( new Operationtree.Node(RemoveSpaces(input.Substring (0, i - 3)),RemoveSpaces(input.Substring (i - 3, 3)), RemoveSpaces(input.Substring (i))));
                     }
@@ -27,6 +28,9 @@ public class OperationManager : MonoBehaviour {
                         if (input[i] == ')') {
                             brackets.Pop ();
                             if (i > 0 && brackets.Count == 0) {
+                                if(init < 1 && i > input.Length - 2){
+                                    return (new Operationtree.Node(RemoveSpaces(input.Substring(1,  input.Length - 2))));
+                                }
                                 return ( new Operationtree.Node(RemoveSpaces(input.Substring (1, i - 1)),RemoveSpaces(input.Substring (i + 1, 3)), RemoveSpaces(input.Substring (i + 4))));
                             }
                         } else
