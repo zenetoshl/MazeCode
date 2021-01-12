@@ -6,7 +6,7 @@ public class TerminalIf : TerminalBlocks
 {
     public int trueAlternativeScopeId;
     public int falseAlternativeScopeId;
-    MathOperation condition;
+    //MathOperation condition;
     public override IEnumerator RunBlock(){
         yield return null;
     }
