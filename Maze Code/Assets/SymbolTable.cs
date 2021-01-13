@@ -8,11 +8,29 @@ public class SymbolTable : MonoBehaviour {
         public string varValue;
         public TerminalEnums.varTypes varType;
         public TerminalEnums.varStructure varStructure;
+        public int sizex;
+        public int sizey;
 
         public Symbol (string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure) {
             varStructure = structure;
             varType = type;
             varValue = value;
+            sizex = -1;
+            sizey = -1;
+        }
+        public Symbol (string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int size) {
+            varStructure = structure;
+            varType = type;
+            varValue = value;
+            sizex = size;
+            sizey = -1;
+        }
+        public Symbol (string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int size1, int size2) {
+            varStructure = structure;
+            varType = type;
+            varValue = value;
+            sizex = size1;
+            sizey = size2;
         }
     }
 
@@ -45,6 +63,28 @@ public class SymbolTable : MonoBehaviour {
 
             return false;
         }
+        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int i) {
+            try {
+                scope.Add (name, new Symbol (value, type, structure, i));
+                return true;
+            } catch (ArgumentException) {
+                scope[name] = new Symbol (value, type, structure, i);
+                return true;
+            }
+
+            return false;
+        }
+        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int i, int j) {
+            try {
+                scope.Add (name, new Symbol (value, type, structure, i, j));
+                return true;
+            } catch (ArgumentException) {
+                scope[name] = new Symbol (value, type, structure, i, j);
+                return true;
+            }
+
+            return false;
+        }
 
         public bool ModifyVarValue (string name, string value) {
             try {
@@ -59,7 +99,37 @@ public class SymbolTable : MonoBehaviour {
         
         public string GetVarValue (string name) {
             try {
-                return scope[name].varValue;
+                Symbol s = scope[name];
+                if(s.varStructure == TerminalEnums.varStructure.Variable)
+                    return s.varValue;
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return null;
+            }
+            return null;
+        }
+
+        public string GetArrayValue (string name, int i) {
+            try {
+                Symbol s = scope[name];
+                if(s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0){
+                    string[] splited = s.varValue.Split(',');
+                    return splited[i*s.sizex];
+                }
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return null;
+            }
+            return null;
+        }
+
+        public string GetMatValue (string name, int i, int j) {
+            try {
+                Symbol s = scope[name];
+                if(s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0 && s.sizey >= 0){
+                    string[] splited = s.varValue.Split(',');
+                    return splited[i*s.sizex + j*s.sizey];
+                }
             } catch (ArgumentException) {
                 Debug.Log ("var not found");
                 return null;
@@ -122,5 +192,16 @@ public class SymbolTable : MonoBehaviour {
             } else searchScope = symbolTable[searchScope].parent;
         }
         return -1;
+    }
+
+    public string GetVarValue(string name, int startScope){
+        int searchScope = startScope;
+        while (searchScope >= 0){
+            string s = symbolTable[searchScope].GetVarValue(name);
+            if(s != null){
+                return s;
+            } else searchScope = symbolTable[searchScope].parent;
+        }
+        return null;
     }
 }

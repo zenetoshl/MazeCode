@@ -24,7 +24,7 @@ public class TerminalFor : TerminalBlocks
         return true;
     }
 
-    public override void SetNextBlock (){
+    public override void SetNextBlock (TerminalBlocks block){
         
     }
     public override TerminalBlocks GetNextBlock (){

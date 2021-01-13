@@ -11,12 +11,12 @@ abstract public class TerminalBlocks : MonoBehaviour
     public int angle = 0;
     private bool initialized = false;
     public int scopeId;
-    private TerminalBlocks nextBlock = null;
+    public TerminalBlocks nextBlock = null;
     public TextMeshProUGUI uiText;
 
     public abstract IEnumerator RunBlock();
     public abstract void ToUI ();
-    public abstract void SetNextBlock ();
+    public abstract void SetNextBlock (TerminalBlocks block);
     public abstract TerminalBlocks GetNextBlock ();
     public abstract void UpdateUI (bool isOk);
     public abstract bool Compile ();

@@ -22,7 +22,7 @@ public class TerminalIf : TerminalBlocks
     public override bool Reset (){
         return true;
     }
-    public override void SetNextBlock (){
+    public override void SetNextBlock (TerminalBlocks block){
         
     }
     public override TerminalBlocks GetNextBlock (){

@@ -2,33 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerminalVar : TerminalBlocks
-{
-    public string var;
-    public string type;
-    public string value;
-   public override IEnumerator RunBlock(){
-       yield return null;
+public class TerminalVar : TerminalBlocks {
+    public string name;
+    TerminalEnums.varTypes type;
+    SymbolTable st;
+
+    private void Start () {
+        st = SymbolTable.instance;
     }
-    public override void ToUI (){
+    public override IEnumerator RunBlock () {
+        st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type, TerminalEnums.varStructure.Variable);
+        yield return null;
+        StartCoroutine (nextBlock.RunBlock ());
+        yield return null;
+    }
+    public override void ToUI () {
 
     }
-    public override void UpdateUI (bool isOk){
-
+    //transformar em evento;
+    public override void UpdateUI (bool isOk) {
+        uiText.text = name + " = " + st.GetVarValue (name, scopeId);
     }
-    public override bool Compile (){
+    public override bool Compile () {
+        nextBlock.Compile();  
+        return MarkError((name[0] >= 'a' && name[0] <= 'z') || (name[0] >= 'A' && name[0] <= 'Z'));
+    }
+    public override bool Reset () {
+        name = "";
+        UpdateUI (true);
         return true;
     }
-    public override bool Reset (){
-        return true;
+    public override void SetNextBlock (TerminalBlocks block) {
+        nextBlock = block;
     }
-    public override void SetNextBlock (){
-        
+    public override TerminalBlocks GetNextBlock () {
+        return nextBlock;
     }
-    public override TerminalBlocks GetNextBlock (){
-        return null;
+    public override void HidefromCamera () {
+        //ainda n sei se vou precisar
     }
-    public override void HidefromCamera (){
 
+    private string GetInitValue (TerminalEnums.varTypes t) {
+        switch (t) {
+            case TerminalEnums.varTypes.String:
+                return "\"\"";
+            case TerminalEnums.varTypes.Int:
+                return "0";
+            case TerminalEnums.varTypes.Double:
+                return "0.0";
+            case TerminalEnums.varTypes.Bool:
+                return "_True";
+            default:
+                return "";
+        }
     }
 }
