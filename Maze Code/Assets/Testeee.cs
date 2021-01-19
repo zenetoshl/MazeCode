@@ -5,23 +5,15 @@ using UnityEngine;
 public class Testeee : MonoBehaviour
 {
     private void Start() {
-        string resultInt = OperationManager.IsBalanced("(111 - (1 + 3) - 234) - 43 * (1 + 2220) + 3 - (2 + 3)", "int");
-        string resultDouble = OperationManager.IsBalanced("(111.5 - (1 + 3) - 234) - 43 * (1 + 2220.3) + 3 - (2 + 3.23)", "double");
-        string resultBoolean = OperationManager.IsBalanced("!(10 < 9) && True", "bool");
-        Debug.Log(resultInt);
-        Debug.Log(resultDouble);
-        Debug.Log(resultBoolean);
-        
         SymbolTable st = SymbolTable.instance;
         st.CreateScope();
         st.symbolTable[0].CreateVar("var1", "0", TerminalEnums.varTypes.Int, TerminalEnums.varStructure.Variable);
         st.symbolTable[0].CreateVar("var1", "2", TerminalEnums.varTypes.Int, TerminalEnums.varStructure.Variable);
-        st.CreateScope(0);
-        st.symbolTable[1].CreateVar("var1", "0", TerminalEnums.varTypes.Int, TerminalEnums.varStructure.Variable);
-        st.CreateScope(1);
-        st.symbolTable[2].CreateVar("var3", resultInt, TerminalEnums.varTypes.Int, TerminalEnums.varStructure.Variable);
-        st.symbolTable[2].CreateVar("var4", resultDouble, TerminalEnums.varTypes.Double, TerminalEnums.varStructure.Variable);
-        st.PrintSymbolTable();
-        
+        string resultInt = OperationManager.StartOperation("(111 - (1 - 2 + var1) - 234) - 43 * (1 + 2220) + 3 - (2 + 3)", TerminalEnums.varTypes.Int, 0);
+        string resultDouble = OperationManager.StartOperation("(111.5 - (var1 + 3) - 234) - 43 * (1 + 2220.3) + 3 - (2 + 3.23)",TerminalEnums.varTypes.Double, 0);
+        string resultBoolean = OperationManager.StartOperation("!(var1 < 9) && True", TerminalEnums.varTypes.Bool, 0);
+        Debug.Log(resultInt);
+        Debug.Log(resultDouble);
+        Debug.Log(resultBoolean);
     }
 }
