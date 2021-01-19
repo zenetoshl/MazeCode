@@ -27,7 +27,7 @@ public class OperationManager : MonoBehaviour {
                         brackets.Pop ();
                         if (brackets.Count == 0) {
                             input = ReplaceOp (input, init, i - init, IsBalanced (RemoveSpaces (input.Substring (init + 1, i - init - 1)), typeOp));
-                            Debug.Log(input);
+                            Debug.Log (input);
                             i = 0;
                             continue;
                         }
@@ -36,7 +36,13 @@ public class OperationManager : MonoBehaviour {
                     continue;
         }
         // Ensure all brackets are closed
-        return ResolveOp (input, typeOp);
+        if (typeOp == "bool") {
+            Debug.Log("aqui");
+            return ResolveBoolOp (input, typeOp);
+        } else {
+            return ResolveOp (input, typeOp);
+        }
+
     }
 
     static string RemoveSpaces (string s) {
@@ -71,6 +77,25 @@ public class OperationManager : MonoBehaviour {
         return op;
     }
 
+    static string ResolveBoolOp (string op, string typeOp) {
+        for (int i = 0; i < op.Length; i++) {
+            if ((op[i] == '>' || op[i] == '<' || op[i] == '=')) {
+                string subOp = FindOp (i, op);
+                Debug.Log(subOp);
+                op = op.Replace (RemoveSpaces (subOp), CalculateBoolOp (subOp, typeOp, op[i]));
+                i = 0;
+            }
+        }
+        for (int i = 0; i < op.Length; i++) {
+            if ((op[i] == '|' || op[i] == '&')) {
+                string subOp = FindOp (i, op);
+                op = op.Replace (RemoveSpaces (subOp), CalculateBoolOp (RemoveSpaces (subOp), typeOp, op[i]));
+                i = 0;
+            }
+        }
+        return op;
+    }
+
     static string FindOp (int i, string op) {
         int init = 0, end = op.Length;
         int blankCont = 0;
@@ -98,7 +123,7 @@ public class OperationManager : MonoBehaviour {
     }
 
     static string CalculateOp (string op, string typeOp, char _) {
-        Debug.Log(op);
+        Debug.Log (op);
         string[] items = op.Split (' ');
         if (items.Length < 3) {
             if (items[0] != "")
@@ -116,6 +141,100 @@ public class OperationManager : MonoBehaviour {
             return items[0] + " " + items[2];
         }
         return null;
+    }
+
+    static string CalculateBoolOp (string op, string typeOp, char _) {
+        string[] items = op.Split (' ');
+        if (items.Length < 3) {
+            if (items[0] != "")
+                return items[0];
+            if (items[1] != "")
+                return items[1];
+            else return "";
+        } else
+        if (typeOp == "bool") {
+            return CalculateBool (items[0], items[1], items[2]);
+        } else {
+            return "True";
+        }
+    }
+
+    static string CalculateBool (string var1, string op, string var2) {
+        string solution = "True";
+        if (op == ">") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = "False";
+            } else{
+                solution = BoolToString (double.Parse(var1) > double.Parse(var2));
+            }
+        }
+        if (op == "<") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = "False";
+            } else{
+                solution = BoolToString (double.Parse(var1) < double.Parse(var2));
+            }
+        }
+        if (op == ">=") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = "False";
+            } else{
+                solution = BoolToString (double.Parse(var1) >= double.Parse(var2));
+            }
+        }
+        if (op == "<=") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = "False";
+            } else{
+                solution = BoolToString (double.Parse(var1) <= double.Parse(var2));
+            }
+        }
+        if (op == "==") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = BoolToString (var1 == var2);
+            } else{
+                solution = BoolToString (double.Parse(var1) == double.Parse(var2));
+            }
+        }
+        if (op == "!=") {
+            if(var1[0] == '\"' || var2[0] == '\"'){
+                solution = BoolToString (var1 != var2);
+            } else{
+                solution = BoolToString (double.Parse(var1) != double.Parse(var2));
+            }
+        }
+        if (op == "&&") {
+            bool b1 = NegateBool(var1);
+            bool b2 = NegateBool(var2);
+            solution = BoolToString (b1 && b2);
+        }
+        if (op == "||") {
+            bool b1 = NegateBool(var1);
+            bool b2 = NegateBool(var2);
+            solution = BoolToString (b1 && b2);
+        }
+        return solution;
+    }
+
+    static bool NegateBool(string var){
+        if(var[0] == '!'){
+            string s = var.Substring (1);
+            if (s == "False"){
+                return true;
+            } else return false;
+        }
+        if(var == "True"){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static string BoolToString(bool b){
+        if (b){
+            return "True";
+        }
+        return "False";
     }
 
     static string CalculateInt (int var1, string op, int var2) {
