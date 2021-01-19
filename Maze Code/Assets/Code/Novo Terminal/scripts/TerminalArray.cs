@@ -12,7 +12,7 @@ public class TerminalArray : TerminalBlocks {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
-        st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (type), sizex), type, TerminalEnums.varStructure.Array, sizex);
+        st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (type), sizex), type, sizex);
         yield return null;
         StartCoroutine (nextBlock.RunBlock ());
         yield return null;

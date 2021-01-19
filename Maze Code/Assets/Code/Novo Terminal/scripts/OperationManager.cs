@@ -6,6 +6,7 @@ using UnityEngine;
 public class OperationManager : MonoBehaviour {
     public static string StartOperation (string input, TerminalEnums.varTypes typeOp, int scope) {
         input = ClearVarNames (input, scope);
+        Debug.Log (input);
         return DoSubOperation (input, typeOp);
     }
 
@@ -41,7 +42,6 @@ public class OperationManager : MonoBehaviour {
         Stack<char> brackets = new Stack<char> ();
         input = RemoveSpaces (input);
         int init = -1;
-        Debug.Log(input);
         // Iterate through each character in the input string
         for (int i = 0; i < input.Length; i++) {
             // check if the character is one of the 'opening' brackets
@@ -57,7 +57,6 @@ public class OperationManager : MonoBehaviour {
                     if (input[i] == ')') {
                         brackets.Pop ();
                         if (brackets.Count == 0) {
-                            Debug.Log(input);
                             input = ReplaceOp (input, init, i - init, DoSubOperation (RemoveSpaces (input.Substring (init + 1, i - init - 1)), typeOp));
                             i = 0;
                             continue;
@@ -91,18 +90,34 @@ public class OperationManager : MonoBehaviour {
 
     static string ResolveOp (string op, TerminalEnums.varTypes typeOp) {
         for (int i = 0; i < op.Length; i++) {
-            if ((op[i] == '*' || op[i] == '/' || op[i] == '%') && op[i + 1] == ' ') {
-                string subOp = FindOp (i, op);
-                Debug.Log(op);
-                op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                i = 0;
+            if ((op[i] == '*' || op[i] == '/' || op[i] == '%')) {
+                if (i < op.Length - 1) {
+                    if (op[i + 1] == ' ') {
+                        string subOp = FindOp (i, op);
+                        op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
+                        i = 0;
+                    }
+                } else {
+                    string subOp = FindOp (i, op);
+                    op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
+                    i = 0;
+                }
+
             }
         }
         for (int i = 0; i < op.Length; i++) {
-            if ((op[i] == '+' || op[i] == '-') && op[i + 1] == ' ') {
-                string subOp = FindOp (i, op);
-                op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                i = 0;
+            if ((op[i] == '+' || op[i] == '-')) {
+                if (i < op.Length - 1) {
+                    if (op[i + 1] == ' ') {
+                        string subOp = FindOp (i, op);
+                        op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
+                        i = 0;
+                    }
+                } else {
+                    string subOp = FindOp (i, op);
+                    op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
+                    i = 0;
+                }
             }
         }
         return op;
@@ -153,7 +168,6 @@ public class OperationManager : MonoBehaviour {
     }
 
     static string CalculateOp (string op, TerminalEnums.varTypes typeOp, char _) {
-        Debug.Log(op);
         string[] items = op.Split (' ');
         if (items.Length < 3) {
             if (items[0] != "")

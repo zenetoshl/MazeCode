@@ -52,34 +52,34 @@ public class SymbolTable : MonoBehaviour {
             scope = new Dictionary<string, Symbol> ();
         }
 
-        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure) {
+        public bool CreateVar (string name, string value, TerminalEnums.varTypes type) {
             try {
-                scope.Add (name, new Symbol (value, type, structure));
+                scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Variable));
                 return true;
             } catch (ArgumentException) {
-                scope[name] = new Symbol (value, type, structure);
+                scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Variable);
                 return true;
             }
 
             return false;
         }
-        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int i) {
+        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, int i) {
             try {
-                scope.Add (name, new Symbol (value, type, structure, i));
+                scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Array, i));
                 return true;
             } catch (ArgumentException) {
-                scope[name] = new Symbol (value, type, structure, i);
+                scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Array, i);
                 return true;
             }
 
             return false;
         }
-        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure, int i, int j) {
+        public bool CreateVar (string name, string value, TerminalEnums.varTypes type, int i, int j) {
             try {
-                scope.Add (name, new Symbol (value, type, structure, i, j));
+                scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Matrix, i, j));
                 return true;
             } catch (ArgumentException) {
-                scope[name] = new Symbol (value, type, structure, i, j);
+                scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Matrix, i, j);
                 return true;
             }
 
@@ -98,7 +98,6 @@ public class SymbolTable : MonoBehaviour {
         }
 
         public string GetVarValue (string name) {
-            Debug.Log(name);
             try {
                 Symbol s = scope[name];
                 if (s.varStructure == TerminalEnums.varStructure.Variable)
@@ -111,11 +110,12 @@ public class SymbolTable : MonoBehaviour {
         }
 
         public string GetArrayValue (string name, int i) {
+            Debug.Log(name);
             try {
                 Symbol s = scope[name];
-                if (s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0) {
+                if (s.varStructure == TerminalEnums.varStructure.Array && s.sizex >= 0) {
                     string[] splited = s.varValue.Split (',');
-                    return splited[i * s.sizex];
+                    return splited[i];
                 }
             } catch (ArgumentException) {
                 Debug.Log ("var not found");
@@ -129,7 +129,7 @@ public class SymbolTable : MonoBehaviour {
                 Symbol s = scope[name];
                 if (s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0 && s.sizey >= 0) {
                     string[] splited = s.varValue.Split (',');
-                    return splited[i * s.sizex + j * s.sizey];
+                    return splited[(i * s.sizex) + j];
                 }
             } catch (ArgumentException) {
                 Debug.Log ("var not found");
@@ -181,7 +181,7 @@ public class SymbolTable : MonoBehaviour {
 
     public bool CreateVar (int scope, string name, string value, TerminalEnums.varTypes type, TerminalEnums.varStructure structure) {
         if (scope < symbolTable.Count) {
-            return symbolTable[scope].CreateVar (name, value, type, structure);
+            return symbolTable[scope].CreateVar (name, value, type);
         } else return false;
     }
 
@@ -252,10 +252,10 @@ public class SymbolTable : MonoBehaviour {
                     if (input[i] == ']') {
                         brackets.Pop ();
                         if (brackets.Count == 0) {
-                            if (input[init] >= '0' || input[init] <= '9') {
-                                indexes[j] = Convert.ToInt32 (input.Substring (init, i - 1));
+                            if (input[init] >= '0' && input[init] <= '9') {
+                                indexes[j] = Convert.ToInt32 (input.Substring (init, i - init));
                             } else {
-                                indexes[j] = Convert.ToInt32 (GetValueFromString (input.Substring (init, i - 1), scope));
+                                indexes[j] = Convert.ToInt32 (GetValueFromString (input.Substring (init, i - init), scope));
                             }
                             j++;
                             continue;
@@ -264,6 +264,7 @@ public class SymbolTable : MonoBehaviour {
                 } else
                     continue;
         }
+        input = input.Split('[')[0];
         // Ensure all brackets are closed
         if( indexes[1] > -1){
             return GetMatValue (input, scope, indexes[0], indexes[1]);

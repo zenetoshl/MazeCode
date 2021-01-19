@@ -11,7 +11,7 @@ public class TerminalVar : TerminalBlocks {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
-        st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type, TerminalEnums.varStructure.Variable);
+        st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type);
         yield return null;
         StartCoroutine (nextBlock.RunBlock ());
         yield return null;
