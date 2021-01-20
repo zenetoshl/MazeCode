@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Testeee : MonoBehaviour
-{
-    private void Start() {
+public class Testeee : MonoBehaviour {
+    public TerminalBlocks init;
+    private void Start () {
+        /*
         SymbolTable st = SymbolTable.instance;
         st.CreateScope();
         st.symbolTable[0].CreateVar("mat", "1,2,3,4,5,6", TerminalEnums.varTypes.Int, 2, 3);
@@ -17,5 +18,8 @@ public class Testeee : MonoBehaviour
         Debug.Log(resultInt);
         Debug.Log(resultDouble);
         Debug.Log(resultBoolean);
+        */
+
+        StartCoroutine (init.RunBlock ());
     }
 }

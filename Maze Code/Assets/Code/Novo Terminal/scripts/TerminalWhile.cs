@@ -5,8 +5,12 @@ using UnityEngine;
 public class TerminalWhile : TerminalBlocks
 {
     public int alternativeScopeId;
+    public TerminalBlocks alternativeBlock;
     //MathOperation condition;
     public override IEnumerator RunBlock(){
+        nextBlock.scopeId = scopeId;
+        alternativeScopeId = SymbolTable.instance.CreateScope(scopeId);
+        alternativeBlock.scopeId = alternativeScopeId;
         yield return null;
     }
     public override void ToUI (){

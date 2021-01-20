@@ -9,6 +9,7 @@ public class TerminalFor : TerminalBlocks
     //MathOperation step;
 
     public override IEnumerator RunBlock(){
+        nextBlock.scopeId = scopeId;
         yield return null;
     }
     public override void ToUI (){

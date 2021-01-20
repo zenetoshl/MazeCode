@@ -5,7 +5,15 @@ using UnityEngine;
 public class TerminalMath : TerminalBlocks
 {
     //MathOperation operation;
+    public string operation;
+    public string var;
     public override IEnumerator RunBlock(){
+        nextBlock.scopeId = scopeId;
+        SymbolTable st = SymbolTable.instance;
+        Debug.Log(var + " = " + operation);
+        st.SetValueFromString(var, scopeId, OperationManager.StartOperation(operation, st.GetVarType(var, scopeId), scopeId));
+        yield return null;
+        StartCoroutine (nextBlock.RunBlock ());
         yield return null;
     }
     public override void ToUI (){

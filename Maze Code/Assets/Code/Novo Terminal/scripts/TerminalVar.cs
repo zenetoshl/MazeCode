@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class TerminalVar : TerminalBlocks {
     public string name;
-    TerminalEnums.varTypes type;
+    public TerminalEnums.varTypes type;
     SymbolTable st;
 
     private void Start () {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
+        Debug.Log("Inicializando " + name + "...");
+        nextBlock.scopeId = scopeId;
         st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type);
         yield return null;
         StartCoroutine (nextBlock.RunBlock ());

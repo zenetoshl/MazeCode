@@ -97,9 +97,21 @@ public class SymbolTable : MonoBehaviour {
             return false;
         }
 
+        public TerminalEnums.varTypes GetVarType (string name) {
+            try {
+                Symbol s = scope[name];
+                return s.varType;
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return TerminalEnums.varTypes.Null;
+            }
+            return TerminalEnums.varTypes.Null;
+        }
+
         public string GetVarValue (string name) {
             try {
                 Symbol s = scope[name];
+                if(s != null)
                 if (s.varStructure == TerminalEnums.varStructure.Variable)
                     return s.varValue;
             } catch (ArgumentException) {
@@ -109,8 +121,7 @@ public class SymbolTable : MonoBehaviour {
             return null;
         }
 
-        public string GetArrayValue (string name, int i) {
-            Debug.Log(name);
+        public string GetVarValue (string name, int i) {
             try {
                 Symbol s = scope[name];
                 if (s.varStructure == TerminalEnums.varStructure.Array && s.sizex >= 0) {
@@ -124,7 +135,7 @@ public class SymbolTable : MonoBehaviour {
             return null;
         }
 
-        public string GetMatValue (string name, int i, int j) {
+        public string GetVarValue (string name, int i, int j) {
             try {
                 Symbol s = scope[name];
                 if (s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0 && s.sizey >= 0) {
@@ -136,6 +147,54 @@ public class SymbolTable : MonoBehaviour {
                 return null;
             }
             return null;
+        }
+
+        public bool SetVarValue (string name, string value) {
+            try {
+                Symbol s = scope[name];
+                if (s.varStructure == TerminalEnums.varStructure.Variable)
+                    ModifyVarValue(name, value);
+                    return true;
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return false;
+            }
+            return false;
+        }
+
+        public bool SetVarValue (string name, string value, int i) {
+            Debug.Log(name);
+            try {
+                Symbol s = scope[name];
+                if (s.varStructure == TerminalEnums.varStructure.Array && s.sizex >= 0) {
+                    string[] splited = s.varValue.Split (',');
+                    splited[i] = value;
+                    string newArr = string.Join(",", splited);
+                    ModifyVarValue(name, newArr);
+                    return true;
+                }
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return false;
+            }
+            return false;
+        }
+
+        public bool SetVarValue (string name, string value, int i, int j) {
+            try {
+                Symbol s = scope[name];
+                if (s.varStructure == TerminalEnums.varStructure.Matrix && s.sizex >= 0 && s.sizey >= 0) {
+                    string[] splited = s.varValue.Split (',');
+                    splited[(i * s.sizex) + j] = value;
+                    string newArr = string.Join(",", splited);
+                    ModifyVarValue(name, newArr);
+                    return true;
+                }
+            } catch (ArgumentException) {
+                Debug.Log ("var not found");
+                return false;
+            }
+            return false;
         }
 
         public void DeleteVar (string name) {
@@ -162,12 +221,14 @@ public class SymbolTable : MonoBehaviour {
         
     }
 
-    public void CreateScope () {
+    public int CreateScope () {
         symbolTable.Add (new Table ());
+        return symbolTable.Count - 1;
     }
 
-    public void CreateScope (int outerScope) {
+    public int CreateScope (int outerScope) {
         symbolTable.Add (new Table (outerScope));
+        return symbolTable.Count - 1;
     }
 
     public void PrintSymbolTable () {
@@ -196,6 +257,17 @@ public class SymbolTable : MonoBehaviour {
         return -1;
     }
 
+    public TerminalEnums.varTypes GetVarType (string name, int startScope) {
+        int searchScope = startScope;
+        while (searchScope >= 0) {
+            TerminalEnums.varTypes s = symbolTable[searchScope].GetVarType (name);
+            if (s != TerminalEnums.varTypes.Null) {
+                return s;
+            } else searchScope = symbolTable[searchScope].parent;
+        }
+        return TerminalEnums.varTypes.Null;
+    }
+
     public string GetVarValue (string name, int startScope) {
         int searchScope = startScope;
         while (searchScope >= 0) {
@@ -207,10 +279,10 @@ public class SymbolTable : MonoBehaviour {
         return null;
     }
 
-    public string GetArrayValue (string name, int startScope, int i) {
+    public string GetVarValue (string name, int startScope, int i) {
         int searchScope = startScope;
         while (searchScope >= 0) {
-            string s = symbolTable[searchScope].GetArrayValue (name, i);
+            string s = symbolTable[searchScope].GetVarValue (name, i);
             if (s != null) {
                 return s;
             } else searchScope = symbolTable[searchScope].parent;
@@ -218,15 +290,45 @@ public class SymbolTable : MonoBehaviour {
         return null;
     }
 
-    public string GetMatValue (string name, int startScope, int i, int j) {
+    public string GetVarValue (string name, int startScope, int i, int j) {
         int searchScope = startScope;
         while (searchScope >= 0) {
-            string s = symbolTable[searchScope].GetMatValue (name, i, j);
+            string s = symbolTable[searchScope].GetVarValue (name, i, j);
             if (s != null) {
                 return s;
             } else searchScope = symbolTable[searchScope].parent;
         }
         return null;
+    }
+
+    public bool SetVarValue (string name, string value, int startScope) {
+        int searchScope = startScope;
+        while (searchScope >= 0) {
+            if (symbolTable[searchScope].SetVarValue (name, value)) {
+                return true;
+            } else searchScope = symbolTable[searchScope].parent;
+        }
+        return false;
+    }
+
+    public bool SetVarValue (string name, string value, int startScope, int i) {
+        int searchScope = startScope;
+        while (searchScope >= 0) {
+            if (symbolTable[searchScope].SetVarValue (name, value, i)) {
+                return true;
+            } else searchScope = symbolTable[searchScope].parent;
+        }
+        return false;
+    }
+
+    public bool SetVarValue (string name, string value, int startScope, int i, int j) {
+        int searchScope = startScope;
+        while (searchScope >= 0) {
+            if (symbolTable[searchScope].SetVarValue (name, value, i, j)) {
+                return true;
+            } else searchScope = symbolTable[searchScope].parent;
+        }
+        return false;
     }
 
     public string GetValueFromString (string input, int scope) { //var, var[i], var[i][j]
@@ -267,9 +369,9 @@ public class SymbolTable : MonoBehaviour {
         input = input.Split('[')[0];
         // Ensure all brackets are closed
         if( indexes[1] > -1){
-            return GetMatValue (input, scope, indexes[0], indexes[1]);
+            return GetVarValue (input, scope, indexes[0], indexes[1]);
         } else if( indexes[0] > -1){
-            return GetArrayValue (input, scope, indexes[0]);
+            return GetVarValue (input, scope, indexes[0]);
         }
         return GetVarValue (input, scope);
     }
@@ -282,5 +384,50 @@ public class SymbolTable : MonoBehaviour {
             s = s.Substring (0, s.Length - 1);
         }
         return s;
+    }
+
+    public bool SetValueFromString (string input, int scope, string value) { //var, var[i], var[i][j]
+        Dictionary<char, char> bracketPairs = new Dictionary<char, char> () { { '[', ']' }
+        };
+        Stack<char> brackets = new Stack<char> ();
+        input = RemoveSpaces (input);
+        int init = -1;
+        int[] indexes = {-1, -1 };
+        int j = 0;
+        // Iterate through each character in the input string
+        for (int i = 0; i < input.Length; i++) {
+            // check if the character is one of the 'opening' brackets
+            if (input[i] == '[') {
+                if (brackets.Count == 0)
+                    init = i + 1;
+                // if yes, push to stack
+                brackets.Push (input[i]);
+            } else
+                // check if the character is one of the 'closing' brackets
+                if (brackets.Count > 0) {
+                    // check if the closing bracket matches the 'latest' 'opening' bracket
+                    if (input[i] == ']') {
+                        brackets.Pop ();
+                        if (brackets.Count == 0) {
+                            if (input[init] >= '0' && input[init] <= '9') {
+                                indexes[j] = Convert.ToInt32 (input.Substring (init, i - init));
+                            } else {
+                                indexes[j] = Convert.ToInt32 (GetValueFromString (input.Substring (init, i - init), scope));
+                            }
+                            j++;
+                            continue;
+                        }
+                    }
+                } else
+                    continue;
+        }
+        input = input.Split('[')[0];
+        // Ensure all brackets are closed
+        if( indexes[1] > -1){
+            return SetVarValue (input, value, scope, indexes[0], indexes[1]);
+        } else if( indexes[0] > -1){
+            return SetVarValue (input, value, scope, indexes[0]);
+        }
+        return SetVarValue (input, value, scope);
     }
 }

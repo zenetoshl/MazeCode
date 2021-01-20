@@ -6,6 +6,7 @@ public class TerminalRead : TerminalBlocks
 {
     public string var;
     public override IEnumerator RunBlock(){
+        nextBlock.scopeId = scopeId;
         yield return null;
     }
     public override void ToUI (){

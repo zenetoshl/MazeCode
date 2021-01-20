@@ -6,7 +6,6 @@ using UnityEngine;
 public class OperationManager : MonoBehaviour {
     public static string StartOperation (string input, TerminalEnums.varTypes typeOp, int scope) {
         input = ClearVarNames (input, scope);
-        Debug.Log (input);
         return DoSubOperation (input, typeOp);
     }
 
@@ -16,10 +15,16 @@ public class OperationManager : MonoBehaviour {
         bool found = false;
         int beginVarName = -1;
         for (int i = 0; i < input.Length; i++) {
-            if (input[i] == '!' || input[i] == '(' || input[i] == ' ' || input[i] == ')') {
+            if (input[i] == '!' || input[i] == '(' || input[i] == ' ' || input[i] == ')' || i == input.Length - 1) {
                 begin = true;
-                if ((input[i] == ')' || input[i] == ' ') && found) {
+                if (((input[i] == ')' || input[i] == ' ') || i == input.Length - 1) && found) {
                     found = false;
+                    if(i == input.Length - 1){
+                        if (beginVarName > -1) { //achou o nome de uma variavel
+                        input = ReplaceOp (input, beginVarName, i - beginVarName, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName + 1), scope));
+                        continue;
+                    }
+                    }
                     if (beginVarName > -1) { //achou o nome de uma variavel
                         input = ReplaceOp (input, beginVarName, i - beginVarName - 1, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName), scope));
                         i = 0;

@@ -13,6 +13,7 @@ public class TerminalMatrix : TerminalBlocks {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
+        nextBlock.scopeId = scopeId;
         st.symbolTable[scopeId].CreateVar (name, CreateInitMat (GetInitValue (type), sizex, sizey), type, sizex, sizey);
         yield return null;
         StartCoroutine (nextBlock.RunBlock ());

@@ -8,6 +8,7 @@ public class TerminalIf : TerminalBlocks
     public int falseAlternativeScopeId;
     //MathOperation condition;
     public override IEnumerator RunBlock(){
+        nextBlock.scopeId = scopeId;
         yield return null;
     }
     public override void ToUI (){
