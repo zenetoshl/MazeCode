@@ -12,10 +12,13 @@ public class TerminalArray : TerminalBlocks {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
-        nextBlock.scopeId = scopeId;
         st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (type), sizex), type, sizex);
         yield return null;
-        StartCoroutine (nextBlock.RunBlock ());
+        //call Next
+        if (nextBlock != null) {
+            nextBlock.scopeId = scopeId;
+            yield return StartCoroutine (nextBlock.RunBlock ());
+        }
         yield return null;
     }
     public override void ToUI () {

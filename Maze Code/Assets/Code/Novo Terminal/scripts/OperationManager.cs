@@ -63,7 +63,7 @@ public class OperationManager : MonoBehaviour {
                         brackets.Pop ();
                         if (brackets.Count == 0) {
                             input = ReplaceOp (input, init, i - init, DoSubOperation (RemoveSpaces (input.Substring (init + 1, i - init - 1)), typeOp));
-                            i = 0;
+                            i = -1;
                             continue;
                         }
                     }
@@ -100,12 +100,12 @@ public class OperationManager : MonoBehaviour {
                     if (op[i + 1] == ' ') {
                         string subOp = FindOp (i, op);
                         op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                        i = 0;
+                        i = -1;
                     }
                 } else {
                     string subOp = FindOp (i, op);
                     op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                    i = 0;
+                    i = -1;
                 }
 
             }
@@ -116,12 +116,12 @@ public class OperationManager : MonoBehaviour {
                     if (op[i + 1] == ' ') {
                         string subOp = FindOp (i, op);
                         op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                        i = 0;
+                        i = -1;
                     }
                 } else {
                     string subOp = FindOp (i, op);
                     op = op.Replace (RemoveSpaces (subOp), CalculateOp (RemoveSpaces (subOp), typeOp, op[i]));
-                    i = 0;
+                    i = -1;
                 }
             }
         }
@@ -133,14 +133,14 @@ public class OperationManager : MonoBehaviour {
             if ((op[i] == '>' || op[i] == '<' || op[i] == '=')) {
                 string subOp = FindOp (i, op);
                 op = op.Replace (RemoveSpaces (subOp), CalculateBoolOp (subOp, typeOp, op[i]));
-                i = 0;
+                i = -1;
             }
         }
         for (int i = 0; i < op.Length; i++) {
             if ((op[i] == '|' || op[i] == '&')) {
                 string subOp = FindOp (i, op);
                 op = op.Replace (RemoveSpaces (subOp), CalculateBoolOp (RemoveSpaces (subOp), typeOp, op[i]));
-                i = 0;
+                i = -1;
             }
         }
         return op;

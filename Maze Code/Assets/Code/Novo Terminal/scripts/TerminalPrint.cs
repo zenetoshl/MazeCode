@@ -6,10 +6,12 @@ public class TerminalPrint : TerminalBlocks
 {
     public string var;
     public override IEnumerator RunBlock(){
-        //nextBlock.scopeId = scopeId;
         Debug.Log(var + " : " + SymbolTable.instance.GetValueFromString(var, scopeId));
         yield return null;
-        //StartCoroutine (nextBlock.RunBlock ());
+        if (nextBlock != null) {
+            nextBlock.scopeId = scopeId;
+            yield return StartCoroutine (nextBlock.RunBlock ());
+        }
         yield return null;
     }
     public override void ToUI (){

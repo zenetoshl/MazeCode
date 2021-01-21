@@ -6,9 +6,12 @@ public class TerminalInit : TerminalBlocks
 {
     public override IEnumerator RunBlock(){
         scopeId = SymbolTable.instance.CreateScope();
-        nextBlock.scopeId = scopeId;
         yield return null;
-        StartCoroutine (nextBlock.RunBlock ());
+        //call Next
+        if(nextBlock != null){
+            nextBlock.scopeId = scopeId;
+            StartCoroutine (nextBlock.RunBlock ());
+        }
         yield return null;
     }
     public override void ToUI (){

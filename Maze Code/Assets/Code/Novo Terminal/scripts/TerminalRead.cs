@@ -5,8 +5,15 @@ using UnityEngine;
 public class TerminalRead : TerminalBlocks
 {
     public string var;
+    public string value;
     public override IEnumerator RunBlock(){
-        nextBlock.scopeId = scopeId;
+        SymbolTable st = SymbolTable.instance;
+        st.SetValueFromString(var, scopeId, value);
+        yield return null;
+        if (nextBlock != null) {
+            nextBlock.scopeId = scopeId;
+            yield return StartCoroutine (nextBlock.RunBlock ());
+        }
         yield return null;
     }
     public override void ToUI (){

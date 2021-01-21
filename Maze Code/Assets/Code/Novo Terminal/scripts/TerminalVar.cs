@@ -12,10 +12,12 @@ public class TerminalVar : TerminalBlocks {
     }
     public override IEnumerator RunBlock () {
         Debug.Log("Inicializando " + name + "...");
-        nextBlock.scopeId = scopeId;
         st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type);
         yield return null;
-        StartCoroutine (nextBlock.RunBlock ());
+        if (nextBlock != null) {
+            nextBlock.scopeId = scopeId;
+            yield return StartCoroutine (nextBlock.RunBlock ());
+        }
         yield return null;
     }
     public override void ToUI () {
