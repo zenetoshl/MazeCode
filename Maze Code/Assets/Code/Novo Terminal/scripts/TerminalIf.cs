@@ -17,8 +17,8 @@ public class TerminalIf : TerminalBlocks {
             isScopeCreated = true;
         }
 
-        bool resp = OperationManager.StartOperation(operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
-        
+        bool resp = OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
+
         if (nextTrue != null && resp) {
             nextTrue.scopeId = trueAlternativeScopeId;
             yield return StartCoroutine (nextTrue.RunBlock ());
@@ -45,8 +45,14 @@ public class TerminalIf : TerminalBlocks {
     public override bool Reset () {
         return true;
     }
-    public override void SetNextBlock (TerminalBlocks block) {
-
+    public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
+        if (cd == ConnectionPoint.ConnectionDirection.South) {
+            nextFalse = block;
+        } else if (cd == ConnectionPoint.ConnectionDirection.North) {
+            nextTrue = block;
+        } else {
+            nextBlock = block;
+        }
     }
     public override TerminalBlocks GetNextBlock () {
         return null;

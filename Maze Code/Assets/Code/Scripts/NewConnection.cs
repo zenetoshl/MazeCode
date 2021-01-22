@@ -20,7 +20,7 @@ public class NewConnection : MonoBehaviour
     private CircleCollider2D collider;
     public Text xButton = null;
 
-    private int plusOrMinus()
+    private int NewOrRemove()
     {
         return isEmpty ? 0 : 1;
     }
@@ -85,8 +85,7 @@ public class NewConnection : MonoBehaviour
         if (!ConnectionManager.isConnectionMode)
         {
             wasPressed = false;
-        }
-        if (ConnectionManager.isConnectionMode && !changed)
+        } else if (!changed)
         {
             if (wasPressed)
             {
@@ -101,8 +100,7 @@ public class NewConnection : MonoBehaviour
                 image.enabled = false;
             }
             updateSprite();
-        }
-        else if (!ConnectionManager.isConnectionMode && changed)
+        } else 
         {
             if (connectionDir == ConnectionPoint.ConnectionDirection.South || connectionDir == ConnectionPoint.ConnectionDirection.East)
             {
@@ -120,9 +118,10 @@ public class NewConnection : MonoBehaviour
             updateSprite();
         }
     }
+
     private void updateSprite()
     {
-        image.color = sprites[plusOrMinus()];
+        image.color = sprites[NewOrRemove()];
     }
 
     private bool FindUpperConnection()
@@ -140,7 +139,6 @@ public class NewConnection : MonoBehaviour
 
 
     //parte do drag and drop
-
     private void LateUpdate() {
         if (Input.GetMouseButton(0) && spawn != null)
         {
@@ -165,12 +163,10 @@ public class NewConnection : MonoBehaviour
             pos.z = -Camera.main.transform.position.z;
             pos = Camera.main.ScreenToWorldPoint(pos);
             spawn = Instantiate(prefab, pos, Quaternion.identity) as Transform;
-            Instantiate(connectionMaker);
-            ConnectionMaker connectionM = GameObject.Find("_ConnectionMaker(Clone)").GetComponent<ConnectionMaker>();
+            GameObject go = Instantiate(connectionMaker) as GameObject;
+            TerminalConnectionManager connectionM = go.GetComponent<TerminalConnectionManager>();
             connectionM.AddConnection(this.transform.parent.GetComponent<RectTransform>(), connectionDir);
             connectionM.AddConnection(spawn.GetComponent<RectTransform>(), ConnectionPoint.ConnectionDirection.West);
         }
-        
-    
     }
 }

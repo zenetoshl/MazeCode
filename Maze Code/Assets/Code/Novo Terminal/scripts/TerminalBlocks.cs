@@ -16,7 +16,7 @@ abstract public class TerminalBlocks : MonoBehaviour
 
     public abstract IEnumerator RunBlock();
     public abstract void ToUI ();
-    public abstract void SetNextBlock (TerminalBlocks block);
+    public abstract void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd);
     public abstract TerminalBlocks GetNextBlock ();
     public abstract void UpdateUI (bool isOk);
     public abstract bool Compile ();

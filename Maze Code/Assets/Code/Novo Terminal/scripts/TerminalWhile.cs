@@ -42,9 +42,14 @@ public class TerminalWhile : TerminalBlocks {
     public override bool Reset () {
         return true;
     }
-    public override void SetNextBlock (TerminalBlocks block) {
-
+    public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
+        if(cd == ConnectionPoint.ConnectionDirection.South){
+            alternativeBlock = block;
+        } else {
+            nextBlock = block;
+        }
     }
+
     public override TerminalBlocks GetNextBlock () {
         return null;
     }

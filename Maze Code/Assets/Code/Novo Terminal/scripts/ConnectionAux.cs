@@ -14,7 +14,6 @@ public class ConnectionAux : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        
         if (first)
         {
             first = false;

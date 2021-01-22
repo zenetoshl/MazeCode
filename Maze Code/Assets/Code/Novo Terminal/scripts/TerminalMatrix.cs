@@ -38,7 +38,7 @@ public class TerminalMatrix : TerminalBlocks {
         UpdateUI (true);
         return true;
     }
-    public override void SetNextBlock (TerminalBlocks block) {
+    public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
         nextBlock = block;
     }
     public override TerminalBlocks GetNextBlock () {
