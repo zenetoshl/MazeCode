@@ -15,7 +15,7 @@ public class linker : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if(hit.collider != null){
                 Debug.Log("2");
-                EntryPoint rt = hit.transform.GetComponent<EntryPoint>();
+                TerminalEntryConnection rt = hit.transform.GetComponent<TerminalEntryConnection>();
                 Debug.Log("4");
                 if (rt != null){
                     if(rt.transform.parent != null){
@@ -50,12 +50,13 @@ public class linker : MonoBehaviour
         GameObject gObj = ConnectionManager.GetOtherSide(transform, ConnectionPoint.ConnectionDirection.West);
         if (gObj != null)
         {
-            NewConnection nc = gObj.GetComponent<NewConnection>();
+            TerminalBlockConnection nc = gObj.GetComponent<TerminalBlockConnection>();
+            if(nc != null)
             if (ConnectionManager.DeleteThisConnection(this.GetComponent<RectTransform>(), ConnectionPoint.ConnectionDirection.West))
             {
                 nc.isEmpty = true;
                 nc.changed = true;
-                //Debug.Log("sucesso");
+                //Debug.Log("sucesso");F
             }
             else
             {

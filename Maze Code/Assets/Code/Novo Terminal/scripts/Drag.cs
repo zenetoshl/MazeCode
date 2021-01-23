@@ -18,6 +18,7 @@ public class Drag : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log(!EventSystem.current.IsPointerOverGameObject(Input.touchCount > 0 ? Input.touches[0].fingerId : -1));
         if(!EventSystem.current.IsPointerOverGameObject(Input.touchCount > 0 ? Input.touches[0].fingerId : -1)){
             scaleScript.ToNormalScale();
             scaleScript.SetScaling(true);

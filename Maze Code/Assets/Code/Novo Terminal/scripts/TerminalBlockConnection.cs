@@ -23,6 +23,10 @@ public class TerminalBlockConnection : MonoBehaviour {
     }
 
     private void CancelConnection () {
+        TerminalBlocks tb = this.transform.parent.GetComponent<TerminalBlocks> ();
+        if (tb != null) {
+            tb.SetNextBlock (null, connectionDir);
+        }
         GameObject gObj = ConnectionManager.GetOtherSide (this.transform.parent.GetComponent<RectTransform> (), connectionDir);
         if (gObj != null) {
             TerminalEntryConnection ep = gObj.GetComponent<TerminalEntryConnection> ();
@@ -59,32 +63,18 @@ public class TerminalBlockConnection : MonoBehaviour {
     void Update () {
         if (!ConnectionManager.isConnectionMode) {
             wasPressed = false;
-        } else if (!changed) {
-            if (wasPressed) {
-                changed = true;
+            if (changed) {
+                changed = false;
                 collider.enabled = true;
                 image.enabled = true;
-            } else {
-                changed = true;
-                collider.enabled = false;
-                image.enabled = false;
+                updateSprite ();
             }
-            updateSprite ();
-        } else
-        if (connectionDir == ConnectionPoint.ConnectionDirection.South || connectionDir == ConnectionPoint.ConnectionDirection.East) {
-            collider.enabled = true;
-            changed = false;
-            image.enabled = true;
-
-            updateSprite ();
-        } else {
-            changed = false;
-            collider.enabled = true;
-            image.enabled = true;
-
+        } else if (!changed) {
+            changed = true;
+            collider.enabled = wasPressed;
+            image.enabled = wasPressed;
             updateSprite ();
         }
-
     }
 
     private void updateSprite () {

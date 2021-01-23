@@ -34,7 +34,8 @@ public class TerminalEntryConnection : MonoBehaviour {
     }
 
     public void OnMouseUp () {
-        if (!ConnectionManager.isConnectionMode && !EventSystem.current.IsPointerOverGameObject ()) {
+
+        if (!ConnectionManager.isConnectionMode && !isEmpty && !EventSystem.current.IsPointerOverGameObject ()) {
             CancelConnection ();
         }
     }
@@ -57,31 +58,19 @@ public class TerminalEntryConnection : MonoBehaviour {
         //atualização de estado depois de um connection mode
         if (!ConnectionManager.isConnectionMode) {
             if (changed) {
-                if (!isEmpty) {
-                    changed = false;
-                    collider.enabled = true;
-                    image.enabled = true;
-                } else {
-                    changed = false;
-                    collider.enabled = false;
-                    image.enabled = false;
-                }
-                
+                changed = false;
+                collider.enabled = !isEmpty;
+                image.enabled = !isEmpty;
                 updateSprite ();
             }
         } else if (!changed) {
-            if (!isEmpty || CheckConnectionsParent () || IsInChain ()) {
-                changed = true;
-                collider.enabled = false;
-                image.enabled = false;
-            } else {
-                changed = true;
-                collider.enabled = true;
-                image.enabled = true;
-            }
+            bool enable = (isEmpty && !CheckConnectionsParent () && !IsInChain ());
+            Debug.Log (!CheckConnectionsParent ());
+            changed = true;
+            collider.enabled = enable;
+            image.enabled = enable;
             updateSprite ();
         }
-
     }
     private bool IsInChain () {
         return ConnectionManager.IsInChain (this.transform.parent.GetComponent<RectTransform> (), TerminalConnectionManager.connectionPos[0]);

@@ -114,7 +114,7 @@ public class ConnectionManager : MonoBehaviour {
     }
 
     public static bool HasSouthNode (RectTransform transform) {
-        foreach( NewConnection conn in transform.GetComponentsInChildren<NewConnection>()){
+        foreach( TerminalBlockConnection conn in transform.GetComponentsInChildren<TerminalBlockConnection>()){
             Debug.Log("oi");
             if(conn.connectionDir == ConnectionPoint.ConnectionDirection.South){
                 Debug.Log("oi2");
@@ -190,9 +190,9 @@ public class ConnectionManager : MonoBehaviour {
         foreach (Connection c in instance.connections) {
             if (dir == ConnectionPoint.ConnectionDirection.West) {
                 if (c.isTargetOne (t, dir) && c.isValid) {
-                    NewConnection[] conns = c.target[0].gameObject.transform.GetComponentsInChildren<NewConnection> ();
+                    TerminalBlockConnection[] conns = c.target[0].gameObject.transform.GetComponentsInChildren<TerminalBlockConnection> ();
 
-                    foreach (NewConnection conn in conns) {
+                    foreach (TerminalBlockConnection conn in conns) {
                         if (conn.connectionDir == c.points[0].direction) {
 
                             return conn.gameObject;
@@ -200,10 +200,10 @@ public class ConnectionManager : MonoBehaviour {
                     }
                 }
             } else if (c.isTargetZero (t, dir) && c.isValid) {
-                EntryPoint conn;
+                TerminalEntryConnection conn;
                 foreach (Transform child in c.target[1].gameObject.transform) {
 
-                    conn = child.gameObject.GetComponent<EntryPoint> ();
+                    conn = child.gameObject.GetComponent<TerminalEntryConnection> ();
                     if (conn != null) {
                         if (conn.connectionDir == c.points[1].direction) {
                             return child.gameObject;
