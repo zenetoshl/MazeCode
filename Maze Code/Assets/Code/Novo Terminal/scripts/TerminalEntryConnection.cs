@@ -34,7 +34,6 @@ public class TerminalEntryConnection : MonoBehaviour {
     }
 
     public void OnMouseUp () {
-
         if (!ConnectionManager.isConnectionMode && !isEmpty && !EventSystem.current.IsPointerOverGameObject ()) {
             CancelConnection ();
         }

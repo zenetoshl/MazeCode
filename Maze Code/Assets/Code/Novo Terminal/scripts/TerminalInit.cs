@@ -27,6 +27,7 @@ public class TerminalInit : TerminalBlocks
         return true;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){
+        Debug.Log(block);
         nextBlock = block;
     }
     public override TerminalBlocks GetNextBlock (){

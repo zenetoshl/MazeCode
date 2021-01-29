@@ -465,6 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 158060012}
+  - component: {fileID: 158060013}
   m_Layer: 0
   m_Name: Bloco
   m_TagString: Untagged
@@ -498,6 +499,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 95, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &158060013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158060011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c0d65ec2f05d24985ab588bec42378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShadowError: {fileID: 0}
+  ShadowExec: {fileID: 0}
+  angle: 0
+  scopeId: 0
+  nextBlock: {fileID: 0}
+  uiText: {fileID: 0}
+  operation: 
+  trueAlternativeScopeId: 0
+  falseAlternativeScopeId: 0
+  nextTrue: {fileID: 0}
+  nextFalse: {fileID: 0}
 --- !u!1 &173787510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,8 +1673,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 537793683}
+  - component: {fileID: 537793684}
   m_Layer: 0
-  m_Name: Bloco
+  m_Name: bloco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,6 +1707,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 95, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &537793684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537793682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4646079a3b0724c914f85a825e0c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShadowError: {fileID: 0}
+  ShadowExec: {fileID: 0}
+  angle: 0
+  scopeId: 0
+  nextBlock: {fileID: 0}
+  uiText: {fileID: 0}
+  var: 
+  type: 0
+  sizex: 0
 --- !u!1 &552472858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,6 +4601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1218788384}
+  - component: {fileID: 1218788385}
   m_Layer: 0
   m_Name: Bloco
   m_TagString: Untagged
@@ -4588,6 +4635,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 95, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1218788385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218788383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c5a1936917b184eadff86a8c55565e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShadowError: {fileID: 0}
+  ShadowExec: {fileID: 0}
+  angle: 0
+  scopeId: 0
+  nextBlock: {fileID: 0}
+  uiText: {fileID: 0}
 --- !u!1 &1291212099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6750,6 +6815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1794754513}
+  - component: {fileID: 1794754514}
   m_Layer: 0
   m_Name: Bloco
   m_TagString: Untagged
@@ -6783,6 +6849,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 95, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1794754514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794754512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9079b0caef0d64aafab55cd3d5f868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShadowError: {fileID: 0}
+  ShadowExec: {fileID: 0}
+  angle: 0
+  scopeId: 0
+  nextBlock: {fileID: 0}
+  uiText: {fileID: 0}
+  operation: 
+  var: 
 --- !u!1 &1812504418
 GameObject:
   m_ObjectHideFlags: 0

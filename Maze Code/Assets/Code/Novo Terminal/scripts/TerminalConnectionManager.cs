@@ -14,7 +14,7 @@ public class TerminalConnectionManager : MonoBehaviour {
         if (!connectionPos[0]) {
             connectionPos[0] = t;
             connectionDirections[0] = cd;
-        } else if (!connectionPos[1]) {
+        } else {
             connectionPos[1] = t;
             connectionDirections[1] = cd;
             MakeConnection();
@@ -24,9 +24,12 @@ public class TerminalConnectionManager : MonoBehaviour {
     // Update is called once per frame
     void MakeConnection () {
         if (connectionPos[0] != null && connectionPos[1] != null) {
+            
             conn = ConnectionManager.CreateConnection (connectionPos[0], connectionPos[1]);
             conn.points[0].direction = connectionDirections[0];
             conn.points[1].direction = connectionDirections[1];
+            
+            Debug.Log(connectionPos[1]);
             //passar a referencia de um para o outro
             Destroy (this.gameObject);
         }
