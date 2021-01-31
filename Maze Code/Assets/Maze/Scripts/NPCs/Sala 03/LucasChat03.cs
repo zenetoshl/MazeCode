@@ -52,19 +52,7 @@ public class LucasChat03 : Sign
                 if (timeChat <= 0)
                 {
                     timeChat = 0.2f;
-                    dialog = "Lucas: Que top, até agora tem sido tranquilo pra mim também. Mas estou com medo do desafio do Professor Renato.\n\nAperte para continuar...";
-                    dialogBox.SetActive(true);
-                    dialogText.text = dialog;
-                    quantConversasLucas--;
-                }
-            }
-            else if (quantConversasLucas == 0)
-            {
-                timeChat -= Time.deltaTime;
-                if (timeChat <= 0)
-                {
-                    timeChat = 0.2f;
-                    dialog = "Yago: Pelo que descobri até agora, dizem que o desafio dele exige um novo tipo de bloco, que parece ser algo sobre condicionais. A recompensa pelo desafio é o Emblema do Raciocino.\nAperte para continuar...";
+                    dialog = "Lucas: Que top, até agora tem sido tranquilo pra mim também. Mas estou com medo do desafio do Professor Renato. Mas vou conseguir.\n\nAperte para continuar...";
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
                     quantConversasLucas--;
