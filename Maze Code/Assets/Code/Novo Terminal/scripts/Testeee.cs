@@ -20,6 +20,12 @@ public class Testeee : MonoBehaviour {
         Debug.Log(resultBoolean);
         */
 
-        StartCoroutine (init.RunBlock ());
+        
+    }
+
+    private void Update() {
+        if(Input.GetKeyDown("space")){
+            StartCoroutine (init.RunBlock ());
+        }
     }
 }

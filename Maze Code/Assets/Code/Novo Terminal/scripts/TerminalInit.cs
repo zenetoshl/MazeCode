@@ -6,11 +6,13 @@ public class TerminalInit : TerminalBlocks
 {
     public override IEnumerator RunBlock(){
         scopeId = SymbolTable.instance.CreateScope();
+        TerminalPrint.printText = "";
         yield return null;
         //call Next
         if(nextBlock != null){
             nextBlock.scopeId = scopeId;
-            StartCoroutine (nextBlock.RunBlock ());
+            yield return StartCoroutine (nextBlock.RunBlock ());
+            Debug.Log(TerminalPrint.printText);
         }
         yield return null;
     }

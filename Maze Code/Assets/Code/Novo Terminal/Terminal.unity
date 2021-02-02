@@ -508,7 +508,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 158060011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c0d65ec2f05d24985ab588bec42378, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c9079b0caef0d64aafab55cd3d5f868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowError: {fileID: 0}
@@ -517,11 +517,8 @@ MonoBehaviour:
   scopeId: 0
   nextBlock: {fileID: 0}
   uiText: {fileID: 0}
-  operation: 
-  trueAlternativeScopeId: 0
-  falseAlternativeScopeId: 0
-  nextTrue: {fileID: 0}
-  nextFalse: {fileID: 0}
+  operation: (14 + 33 + 6) * 10
+  var: variavel
 --- !u!1 &173787510
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561b9e287d8b77943838e514f2e8521d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  init: {fileID: 1010057539}
+  init: {fileID: 1218788385}
 --- !u!4 &249234184
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1713,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537793682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4646079a3b0724c914f85a825e0c3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 12a484f3b10b88646b2f9e16d0daa191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowError: {fileID: 0}
@@ -1725,9 +1722,8 @@ MonoBehaviour:
   scopeId: 0
   nextBlock: {fileID: 0}
   uiText: {fileID: 0}
-  var: 
+  name: variavel
   type: 0
-  sizex: 0
 --- !u!1 &552472858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6858,7 +6854,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794754512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9079b0caef0d64aafab55cd3d5f868, type: 3}
+  m_Script: {fileID: 11500000, guid: dcef28ca40411f14eaf768dce0a74747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowError: {fileID: 0}
@@ -6867,8 +6863,7 @@ MonoBehaviour:
   scopeId: 0
   nextBlock: {fileID: 0}
   uiText: {fileID: 0}
-  operation: 
-  var: 
+  var: variavel
 --- !u!1 &1812504418
 GameObject:
   m_ObjectHideFlags: 0

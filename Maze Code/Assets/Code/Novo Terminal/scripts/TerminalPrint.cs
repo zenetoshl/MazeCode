@@ -5,8 +5,10 @@ using UnityEngine;
 public class TerminalPrint : TerminalBlocks
 {
     public string var;
+    public static string printText = "";
     public override IEnumerator RunBlock(){
-        Debug.Log(var + " : " + SymbolTable.instance.GetValueFromString(var, scopeId));
+        printText = printText + " " + SymbolTable.instance.GetValueFromString(var, scopeId);
+
         yield return null;
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
