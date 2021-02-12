@@ -84,7 +84,6 @@ public class ToggleManager : MonoBehaviour
     }
 
     public bool Compile(List<string> scope){
-        Debug.Log("olaaaaa");
         if(lastToggle){
             Debug.Log("tmpUGUI.text");
             Debug.Log(tmpUGUI.text);
