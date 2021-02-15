@@ -41,7 +41,7 @@ public class Drag : MonoBehaviour
     }
     private void OnMouseUpAsButton() {
         if(!drag && !EventSystem.current.IsPointerOverGameObject(Input.touchCount > 0 ? Input.touches[0].fingerId : -1)){
-            this.transform.GetChild(0).GetComponent<InstantiateTerminal>().TurnOn();
+            this.transform.GetChild(0).GetComponent<TerminalBlocks>().TurnOn();
         }
     }
 

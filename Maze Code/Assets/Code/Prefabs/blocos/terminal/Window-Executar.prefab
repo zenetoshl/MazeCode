@@ -411,7 +411,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5081300593787013489}
   m_HandleRect: {fileID: 6423238776853355795}
   m_Direction: 2
-  m_Value: 0.9999971
+  m_Value: 1
   m_Size: 0.44333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3579839122478830964}
   m_HandleRect: {fileID: 9150592171484054955}
   m_Direction: 2
-  m_Value: 0.9999971
+  m_Value: 1
   m_Size: 0.44333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1699,7 +1699,7 @@ RectTransform:
   m_GameObject: {fileID: 5867120981048064712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 5867120980725809131}
   m_Father: {fileID: 0}
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   turnOffSiblings: 0
   onTransitions:
     speed: 5
@@ -1782,9 +1782,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5867120981048064712}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &3986423388652962999
 MonoBehaviour:
@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2317829152301051088}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2253,7 +2253,7 @@ PrefabInstance:
     - target: {fileID: 2228423840313150731, guid: cd00cf2f26cabc24e80007eb55e2733f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -640.96533
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 2228423840313150731, guid: cd00cf2f26cabc24e80007eb55e2733f,
         type: 3}
