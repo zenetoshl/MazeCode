@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NumberPad : MonoBehaviour {
+public class BooleanPad : MonoBehaviour {
     public TextMeshProUGUI operationText;
     private string[] operation = { };
     private bool isNumber;
@@ -18,20 +18,72 @@ public class NumberPad : MonoBehaviour {
         if (!isNumber && charPut == ",") return;
         Debug.Log (index);
         Debug.Log (operation);
-        if (charPut == "()") {
+        if (charPut == "!") {
+            index = index + 1;
+            if (index > 0) {
+                if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                    if (index >= 2) {
+                        if (IsBoolOp (operation[index - 2])) {
+                            operation = InsertAt (operation, "&&", index);
+                            index = index + 1;
+                        } else {
+                            operation = InsertAt (operation, "&&", index);
+                            index = index + 1;
+                        }
+                    }
+                }
+            }
+            operation = InsertAt (operation, "!", index);
+            index = index + 1;
+            operation = InsertAt (operation, ")", index);
+            operation = InsertAt (operation, "(", index);
+        } else if (charPut == "()") {
             isNumber = false;
             hasComma = false;
             index = index + 1;
             if (index > 0) {
-                if (!IsOp (operation[index - 1]) && !(operation[index - 1] == "(")) {
-                    operation = InsertAt (operation, "+", index);
-                    index = index + 1;
+                if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                    if (index >= 2) {
+                        if (IsBoolOp (operation[index - 2])) {
+                            operation = InsertAt (operation, "&&", index);
+                            index = index + 1;
+                        } else {
+                            operation = InsertAt (operation, "&&", index);
+                            index = index + 1;
+                        }
+                    }
                 }
             }
             operation = InsertAt (operation, ")", index);
             operation = InsertAt (operation, "(", index);
         } else if (IsOp (charPut)) {
-            if (!IsOp (operation[index]) && !(operation[index] == "(")) {
+            if (index >= 2) {
+                if (IsOp (operation[index - 2])) return;
+            } else if (index <= operation.Length - 4) {
+                if (IsOp (operation[index + 2])) return;
+            }
+            if (!IsOp (operation[index]) && !IsBoolOp (operation[index]) && !(operation[index] == "(")) {
+                index = index + 1;
+                bufferString = charPut;
+                operation = InsertAt (operation, bufferString, index);
+            } else return;
+            isNumber = false;
+            hasComma = false;
+        } else if (IsBoolOp (charPut)) {
+            if (index <= 1) {
+                return;
+            } else if (index == 2) {
+                if (operation[0] == "!") {
+                    return;
+                }
+            }
+
+            if (IsBoolOp (operation[index - 1])) return;
+
+            if (index <= operation.Length - 4) {
+                if (IsBoolOp (operation[index + 3])) return;
+            }
+            if (!IsOp (operation[index]) && !IsBoolOp (operation[index]) && !(operation[index] == "(")) {
                 index = index + 1;
                 bufferString = charPut;
                 operation = InsertAt (operation, bufferString, index);
@@ -52,9 +104,16 @@ public class NumberPad : MonoBehaviour {
                 hasComma = false;
                 index = index + 1;
                 if (index > 0) {
-                    if (!IsOp (operation[index - 1]) && !(operation[index - 1] == "(")) {
-                        operation = InsertAt (operation, "+", index);
-                        index = index + 1;
+                    if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                        if (index >= 2) {
+                            if (IsBoolOp (operation[index - 2])) {
+                                operation = InsertAt (operation, "==", index);
+                                index = index + 1;
+                            } else {
+                                operation = InsertAt (operation, "&&", index);
+                                index = index + 1;
+                            }
+                        }
                     }
                 }
                 bufferString = charPut;
@@ -65,9 +124,16 @@ public class NumberPad : MonoBehaviour {
             hasComma = false;
             index = index + 1;
             if (index > 0) {
-                if (!IsOp (operation[index - 1]) && !(operation[index - 1] == "(")) {
-                    operation = InsertAt (operation, "+", index);
-                    index = index + 1;
+                if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                    if (index >= 2) {
+                        if (IsBoolOp (operation[index - 2])) {
+                            operation = InsertAt (operation, "==", index);
+                            index = index + 1;
+                        } else {
+                            operation = InsertAt (operation, "&&", index);
+                            index = index + 1;
+                        }
+                    }
                 }
             }
             bufferString = charPut;
@@ -181,7 +247,7 @@ public class NumberPad : MonoBehaviour {
     }
 
     public bool IsNumber (string s) {
-        switch ("" + s[0]) {
+        switch (s) {
             case "0":
             case "1":
             case "2":
@@ -201,11 +267,22 @@ public class NumberPad : MonoBehaviour {
 
     public bool IsOp (string s) {
         switch (s) {
-            case "+":
-            case "-":
-            case "/":
-            case "*":
-            case "%":
+            case ">=":
+            case ">":
+            case "<=":
+            case "<":
+            case "==":
+            case "!=":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public bool IsBoolOp (string s) {
+        switch (s) {
+            case "&&":
+            case "||":
                 return true;
             default:
                 return false;
@@ -225,12 +302,17 @@ public class NumberPad : MonoBehaviour {
             if (IsOp (arr[i])) {
                 if (i == 0 || i == arr.Length - 1) {
                     return false;
-                } else if (IsOp (arr[i - 1]) || IsOp (arr[i + 1])) {
+                } else if ((IsOp (arr[i + 1]) || IsBoolOp (arr[i + 1])) || !IsBoolOp (arr[i + 2])) {
+                    return false;
+                }
+            } else if (IsBoolOp (arr[i])) {
+                if (i == 0 || i == arr.Length - 1) {
+                    return false;
+                } else if (!IsOp (arr[i + 2]) || (IsBoolOp (arr[i + 1]) || IsOp (arr[i + 1]))) {
                     return false;
                 }
             }
         }
         return true;
     }
-
 }

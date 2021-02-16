@@ -142,7 +142,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -150,7 +150,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '-'
+          m_StringArgument: '>'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &431303598706043279
@@ -549,7 +549,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -557,7 +557,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '*'
+          m_StringArgument: <=
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4829644438233427103
@@ -702,7 +702,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -710,7 +710,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: /
+          m_StringArgument: <
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5141867512099839860
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -1450,7 +1450,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: +
+          m_StringArgument: '>='
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8572896345078479486
@@ -3766,7 +3766,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 0}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -4819,7 +4819,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -5153,7 +5153,7 @@ MonoBehaviour:
   name: {fileID: 8572896346590065212}
   x: {fileID: 8572896347013510395}
   y: {fileID: 8572896345084920534}
-  numpad: {fileID: 8572896346703546257}
+  numpad: {fileID: 0}
 --- !u!1 &8572896345283793978
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,7 +5610,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 0}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -5739,7 +5739,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8572896346577036297}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999904
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5886,7 +5886,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -9646,7 +9646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8572896345580734370}
-  - component: {fileID: 8572896346703546257}
+  - component: {fileID: 1969997470427607087}
   m_Layer: 0
   m_Name: numbers
   m_TagString: Untagged
@@ -9696,7 +9696,7 @@ RectTransform:
   m_AnchoredPosition: {x: 143.4, y: -59.5}
   m_SizeDelta: {x: 194.7, y: 173.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8572896346703546257
+--- !u!114 &1969997470427607087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9705,7 +9705,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8572896345580734381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be93bc2463dc5c24aa97f3587935dc6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ab5cec567acc6d4a85568c1c38f65c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   operationText: {fileID: 8572896347087007212}
@@ -12879,7 +12879,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -17877,7 +17877,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 0}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -19084,7 +19084,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -20927,7 +20927,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -22942,7 +22942,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -24052,7 +24052,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -24060,7 +24060,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: /
+          m_StringArgument: ==
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8572896346358472452
@@ -24550,7 +24550,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -25374,7 +25374,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -25382,7 +25382,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '%'
+          m_StringArgument: '!='
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8572896346413071096
@@ -26861,7 +26861,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -27817,7 +27817,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -29367,7 +29367,7 @@ RectTransform:
   m_GameObject: {fileID: 8572896346631170031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 8572896345638047602}
   m_Father: {fileID: 0}
@@ -29394,9 +29394,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8572896346631170031}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &8572896346631170029
 MonoBehaviour:
@@ -29410,7 +29410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fd146527b61614a96da3a84e74ad78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   turnOffSiblings: 0
   onTransitions:
     speed: 50
@@ -30447,7 +30447,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -31358,7 +31358,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -31366,7 +31366,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '-'
+          m_StringArgument: '||'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8572896346699501690
@@ -32021,7 +32021,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: Clear
         m_Mode: 1
         m_Arguments:
@@ -32731,7 +32731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -248.29999, y: -0.003189087}
+  m_AnchoredPosition: {x: 0, y: 0.000045776367}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8572896346772733811
@@ -32915,7 +32915,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -33068,7 +33068,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -33965,7 +33965,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8572896345821599765}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -35245,7 +35245,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: EraseAtIndex
         m_Mode: 1
         m_Arguments:
@@ -35945,7 +35945,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -35953,7 +35953,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: +
+          m_StringArgument: '!'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8572896347006259538
@@ -36155,7 +36155,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 1969997470427607087}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
@@ -37414,7 +37414,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8572896346703546257}
+      - m_Target: {fileID: 0}
         m_MethodName: InsertToOperation
         m_Mode: 5
         m_Arguments:
