@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class TerminalRead : TerminalBlocks
 {
-    public string var;
-    public string value;
+    public string varName;
+
+    private Var_Vet_Mat var;
+
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
-        st.SetValueFromString(var, scopeId, value);
+        st.SetValueFromString(varName, scopeId, ""); //fazer o read manager depois
         yield return null;
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
@@ -17,13 +21,31 @@ public class TerminalRead : TerminalBlocks
         yield return null;
     }
     public override void ToUI (){
-
+        varName = var.GetText();
+        uiText.text = varName;
     }
     public override void UpdateUI (bool isOk){
-
+        if(isOk){
+            var.SaveConfig();
+            ToUI();
+        } else {
+            var.ResetConfig();
+        }
     }
     public override bool Compile (){
-        return true;
+        List<string> scope = VariableManager.GetScope(this.GetComponent<RectTransform>());
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!var.Compile (scope)){
+            ErrorLogManager.instance.CreateError("Variavel nao existe no escopo deste bloco");
+            noError = MarkError(false);
+        }
+        MarkError(noError);
+        return noError;
     }
     public override bool Reset (){
         return true;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockWindow : MonoBehaviour
 {
-    [HideInInspector] public Bloco myBlock;
+    [HideInInspector] public TerminalBlocks myBlock;
 
     public void OnOk(){
         myBlock.UpdateUI(true);

@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class TerminalVar : TerminalBlocks {
     public string name;
-    public TerminalEnums.varTypes type;
+    
     SymbolTable st;
+    public TerminalEnums.varTypes newType;
+    VariableManager.Type type;
+
+    private TMP_InputField var;
+    private TextMeshProUGUI typeInput;
+    private string oldVar;
+    private string logicOp;
+    private string oldType;
 
     private void Start () {
         st = SymbolTable.instance;
     }
     public override IEnumerator RunBlock () {
         Debug.Log("Inicializando " + name + "...");
-        st.symbolTable[scopeId].CreateVar (name, GetInitValue (type), type);
+        st.symbolTable[scopeId].CreateVar (name, GetInitValue (newType), newType);
         yield return null;
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
@@ -21,11 +31,35 @@ public class TerminalVar : TerminalBlocks {
         yield return null;
     }
     public override void ToUI () {
-
+        uiText.text = name + " = " + st.GetVarValue (name, scopeId);
     }
     //transformar em evento;
     public override void UpdateUI (bool isOk) {
-        uiText.text = name + " = " + st.GetVarValue (name, scopeId);
+        if (isOk) {
+            type = GetType (typeInput.text);
+            if (!(oldVar == var.text)) {
+                if (VariableManager.Create (var.text, type, VariableManager.StructureType.Variable)) {
+                    VariableManager.RemoveFromList (oldVar);
+                    oldVar = var.text;
+                    oldType = typeInput.text;
+            
+                }
+            } else if (!(oldType == typeInput.text)) {
+                VariableManager.RemoveFromList (oldVar);
+                VariableManager.Create (var.text, type, VariableManager.StructureType.Variable);
+                oldVar = var.text;
+                oldType = typeInput.text;
+            }
+        } else {
+            var.text = oldVar;
+            typeInput.text = oldType;
+        }
+        ToUI ();
+        return;
+    }
+
+    private void OnDestroy () {
+        VariableManager.RemoveFromList (oldVar);
     }
     public override bool Compile () {
         nextBlock.Compile();  
@@ -33,7 +67,6 @@ public class TerminalVar : TerminalBlocks {
     }
     public override bool Reset () {
         name = "";
-        UpdateUI (true);
         return true;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
@@ -59,5 +92,39 @@ public class TerminalVar : TerminalBlocks {
             default:
                 return "";
         }
+    }
+
+    VariableManager.Type GetType (string t) {
+        VariableManager.Type newType;
+        switch (t) {
+            case "Float":
+                newType = VariableManager.Type.Float;
+                break;
+            case "Int":
+                newType = VariableManager.Type.Int;
+                break;
+            default:
+                newType = VariableManager.Type.Bool;
+                break;
+        }
+
+        return newType;
+    }
+
+    TerminalEnums.varTypes GetNewType (string t) {
+        TerminalEnums.varTypes newType;
+        switch (t) {
+            case "Float":
+                newType = TerminalEnums.varTypes.Double;
+                break;
+            case "Int":
+                newType = TerminalEnums.varTypes.Int;
+                break;
+            default:
+                newType = TerminalEnums.varTypes.Bool;
+                break;
+        }
+
+        return newType;
     }
 }

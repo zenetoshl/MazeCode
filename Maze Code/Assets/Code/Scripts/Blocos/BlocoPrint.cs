@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Gui;
+using TMPro;
 
 public class BlocoPrint : Bloco
 {

@@ -37,7 +37,6 @@ public class BlocoIf : Bloco
             var.SaveConfig();
             oldOp = op.text;
             val.SaveConfig();
-            Bloco.changed = true;
             ToUI();
         } else {
             var.ResetConfig();

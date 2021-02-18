@@ -35,16 +35,14 @@ abstract public class TerminalBlocks : MonoBehaviour {
         return b;
     }
 
-    private void Start () {
-        Debug.Log("oi");
+    private void Awake () {
+        uiText.text = "---";
         if (windowGO == null) return;
-
+        
         GameObject terminal = GameObject.Find ("/Terminal");
-        Debug.Log("oi");
         GameObject go = Instantiate (windowGO, terminal.transform);
-        Debug.Log("oi");
         window = go.transform.GetComponent<LeanWindow> ();
-        Debug.Log("oi");
+        window.GetComponent<BlockWindow>().myBlock = this.GetComponent<TerminalBlocks>();
     }
 
     public void TurnOn () {

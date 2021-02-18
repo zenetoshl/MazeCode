@@ -29,6 +29,7 @@ public class VariableManager : MonoBehaviour {
     public enum Type {
         Int,
         Float,
+        Bool,
         Any
     }
 

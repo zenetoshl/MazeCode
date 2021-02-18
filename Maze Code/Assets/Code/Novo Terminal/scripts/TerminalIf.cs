@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class TerminalIf : TerminalBlocks {
     public string operation;
@@ -9,6 +11,10 @@ public class TerminalIf : TerminalBlocks {
     public TerminalBlocks nextTrue = null;
     public TerminalBlocks nextFalse = null;
     private bool isScopeCreated = false;
+
+    private TextMeshProUGUI op;
+
+    private string oldOp;
 
     public override IEnumerator RunBlock () {
         if (!isScopeCreated) {
@@ -34,14 +40,33 @@ public class TerminalIf : TerminalBlocks {
         yield return null;
     }
     public override void ToUI () {
+        operation = op.text;
+        uiText.text = operation;
 
     }
     public override void UpdateUI (bool isOk) {
-
+        if(isOk){
+            oldOp = op.text;
+            ToUI();
+        } else {
+            op.text = oldOp;
+        }
     }
     public override bool Compile () {
-        return true;
+        bool noError = true;
+        if(!(uiText.text != "---"))
+        {
+            ErrorLogManager.instance.CreateError("Bloco não inicializado corretamente");
+            noError = MarkError(false);
+        }
+        if(!(op.text != null && op.text != "")){
+            ErrorLogManager.instance.CreateError("Operação invalida");
+            noError = MarkError(false);
+        }
+        MarkError(noError);
+        return noError;
     }
+
     public override bool Reset () {
         return true;
     }
