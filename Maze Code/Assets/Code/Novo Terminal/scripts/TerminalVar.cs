@@ -19,19 +19,29 @@ public class TerminalVar : TerminalBlocks {
 
     private void Start () {
         st = SymbolTable.instance;
+        var = window.transform.Find ("Panel/Description/Name/Nome").GetComponent<TMP_InputField> ();
+        typeInput = window.transform.Find ("Panel/tipo/Label").GetComponent<TextMeshProUGUI> ();
+        oldVar = var.text;
+        Debug.Log(oldVar);
+        oldType = typeInput.text;
+        type = GetType (oldType);
+        ToUI ();
     }
     public override IEnumerator RunBlock () {
         Debug.Log("Inicializando " + name + "...");
+        MarkExec();
         st.symbolTable[scopeId].CreateVar (name, GetInitValue (newType), newType);
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI () {
-        uiText.text = name + " = " + st.GetVarValue (name, scopeId);
+        name = var.text;
+        uiText.text = name;
     }
     //transformar em evento;
     public override void UpdateUI (bool isOk) {

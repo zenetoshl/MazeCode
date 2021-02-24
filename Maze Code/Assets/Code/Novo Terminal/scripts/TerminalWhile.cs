@@ -13,12 +13,18 @@ public class TerminalWhile : TerminalBlocks {
     private TextMeshProUGUI op;
 
     private string oldOp;
-    //MathOperation condition;
+    
+    private void Start() {
+        op = window.transform.Find("Panel/Content/Operation").GetComponent<TextMeshProUGUI>();
+        oldOp = op.text;
+    }
+
     public override IEnumerator RunBlock () {
         if (!isScopeCreated) {
             alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             isScopeCreated = true;
         }
+        MarkExec();
 
         if (alternativeBlock != null) {
             alternativeBlock.scopeId = alternativeScopeId;
@@ -28,12 +34,13 @@ public class TerminalWhile : TerminalBlocks {
             }
         }
 
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI () {

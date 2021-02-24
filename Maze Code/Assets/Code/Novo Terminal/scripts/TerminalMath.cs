@@ -13,16 +13,23 @@ public class TerminalMath : TerminalBlocks
     private TextMeshProUGUI op;
 
     private string oldOp;
+
+    private void Start() {
+        op = window.transform.Find("Panel/Content/Operation").GetComponent<TextMeshProUGUI>();
+        oldOp = op.text;
+    }
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
         Debug.Log(var + " = " + operation);
+        MarkExec();
         st.SetValueFromString(var, scopeId, OperationManager.StartOperation(operation, st.GetVarType(var, scopeId), scopeId));
         
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI (){

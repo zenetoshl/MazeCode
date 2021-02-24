@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 09
   m_EditorClassIdentifier: 
-  naSala: 6
-  destravaSala: 7
+  naSala: 4
+  destravaSala: 9
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 2
-  leitura: 2
+  variavel: 4
+  leitura: 1
   imprime: 2
-  matematica: 2
-  condicional: 0
-  loopDefinido: 0
-  loopIndefinido: 1
+  matematica: 4
+  condicional: 2
+  loopDefinido: 1
+  loopIndefinido: 0
   vetor: 0
   matriz: 0
-  bonusVariavel: 2
+  bonusVariavel: 1
   bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 2
-  bonusCondicional: 1
+  bonusMatematica: 1
+  bonusCondicional: 0
   bonusLoopDefinido: 1
   bonusLoopIndefinido: 0
   bonusVetor: 0
@@ -39,72 +39,319 @@ MonoBehaviour:
     System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
     null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
     _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
-    teste(){_loopLimit = 0;var a = 0;var b = 0;if(_inputs.Count > _i)b =  _inputs[_i++];while(b!=2002){
+    teste(){_loopLimit = 0;var a = 0;var b = 0;var c = 0;for(a = 1 ;a<=100;a++){
     if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
-    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}a = 0+0;if(_output.Length
-    >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos caracteres, por favor,
-    confira os loops da sua solu\xE7\xE3o. \"; return;}_output += a+ \" \";if(_inputs.Count
-    > _i)b =  _inputs[_i++];}a = 1+0;if(_output.Length >= 1000000) {_loopError =
-    \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
-    \"; return;}_output += a+ \" \";}}} "
-  objectiveTitle: Senha
-  objective: "Escreva um programa que repita a leitura de uma senha at\xE9 que ela
-    seja v\xE1lida. Para cada leitura de senha incorreta informada, escrever a mensagem
-    \"0 \". Quando a senha for informada corretamente deve ser impressa a mensagem
-    \"1\" e o algoritmo encerrado. Considere que a senha correta \xE9 o valor 2002."
+    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}var d = 0;if(_inputs.Count
+    > _i)d =  _inputs[_i++];if( a!=0 ){if( d>b ){b = d+0;c = a+0;}}else{b = d+0;c
+    = a+0;}}if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos
+    caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
+    += b+ \" \";if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui
+    muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
+    += c+ \" \";}}} "
+  objectiveTitle: Maior valor
+  objective: "Leia 100 valores inteiros. Apresente ent\xE3o o maior valor lido e
+    a posi\xE7\xE3o dentre os 100 valores lidos."
   inputs:
   - list:
-    - 2002
-    - 1234
-    - 5555
-    - 3333
-  - list:
-    - 1234
-    - 2342
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 99
+    - 9878
+    - 6677
+    - 567
+    - 5
+    - 46
+    - 7867
+    - 6
+    - 45
+    - 4
+    - 56
+    - 67
+    - 45
+    - 465
+    - 456
+    - -1
+    - 45
+    - 6467
+    - 87
+    - 901
+    - 78
+    - 979
+    - 5
+    - 6
+    - 574
+    - 7
+    - 7
+    - 0
+    - 89
+    - -1234
+    - -1263712
+    - -272
+    - 7839
+    - 111111111
+    - -12
+    - -1
     - 1244
-    - 2002
-    - 1234
-    - 8976
-    - 7000
-    - 4004
-  - list:
-    - 1324
-    - 2002
-    - 1111
-  - list:
-    - 1245
-    - 4432
-    - 4325
-    - 6454
-    - 4432
-    - 5534
-    - 2345
-    - 2002
-    - 1234
-    - 2355
-    - 3214
-    - 2321
-    - 4322
-    - 3321
-    - 3323
-  - list:
-    - 1234
-    - 2321
-    - 4324
-    - 3213
-    - 2346
-    - 8678
-    - 9877
-    - 7655
+    - -14
+    - -9
+    - -90
+    - 8
+    - 97
+    - 8956
+    - 7
+    - 1
+    - 7
+    - 67
+    - 121
+    - 75
+    - 67
+    - 7
+    - 6
+    - 786
+    - 78
+    - 567
+    - 4
+    - 63
+    - 546
+    - 467
+    - 68
+    - 78
+    - 7
+    - 5
+    - 764
+    - 876
+    - 34
+    - 578
+    - 689
+    - 789
     - 4444
-    - 7777
-    - 5435
-    - 3245
-    - 6546
+    - 678
+    - 45
+    - 786
+    - 678
+    - 678
+    - 5678
+    - 578
+    - 67
+    - 87
+    - 89
+    - 67
+    - 456
+    - 78
+    - 7
+    - 98
+    - 90
+    - 67
+    - 45
+    - 3
+    - 457
+    - 8790001
+  - list:
+    - -123
+    - -2
+    - -11
+    - -1
+    - -2
+    - -3
+    - 0
+    - -1
+    - -2
+    - -3
+    - -5
+    - -6
+    - 6
+    - 7
+    - 9
+    - 789
+    - 78
+    - 95
+    - 678
+    - 6789
+    - 7
+    - 85
+    - 76
+    - 678
+    - 678
+    - 567
+    - 6
+    - 78
+    - 687
+    - 6
+    - 785
+    - 7
+    - 4567
+    - 5678
+    - 789
+    - 78
+    - 4
+    - 564
+    - 566
+    - 77
+    - 8
+    - 87
+    - 567
+    - 56
+    - 78
+    - 89
+    - -1
+    - -3
+    - -122222
+    - -46534
+    - -414
+    - -122
+    - -4432
+    - -22
+    - -11
+    - -66
+    - -7
+    - -34
+    - -90
+    - 0
+    - -3
+    - -4
+    - -5
+    - -6
+    - -6
+    - -5
+    - -3
+    - -2
+    - -1
+    - -2
+    - 0
+    - -3
+    - 44
+    - -5
+    - -6
+    - -7
+    - -8
+    - -9
+    - -10
+    - -11
+    - 0
+    - -12
+    - -13
+    - -14
+    - -16
+    - -15
+    - -17
+    - 20
+    - 2
+    - 4
+    - 0
+    - 543
+    - 543
+    - 2
+    - 32
+    - 1
+    - 6
+    - 5
+    - 7
+    - 8
+  - list:
+    - 
+    - 9789279
+    - 7789
+    - 678
+    - 6
+    - 78678
+    - 89
+    - 789
+    - 789
+    - 7
+    - 8
+    - 678
+    - 67
+    - 21
+    - 78
+    - 689
+    - 567
+    - 169817
+    - 91890
     - 1789
-    - 3578
-    - 3456
-    - 2002
-    - 1245
-    - 2467
-    - 4453
+    - 6891890
+    - 167
+    - 98
+    - 789
+    - 6789
+    - 789
+    - 7
+    - 89
+    - 6786
+    - 897789
+    - 678
+    - 78907
+    - 8
+    - 123
+    - 78
+    - 67678
+    - 6
+    - 78
+    - 815
+    - 8671678
+    - 6543543
+    - 78
+    - 6781
+    - 312321
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 65
+    - 9
+    - 8
+    - 9
+    - 8
+    - 7
+    - 6
+    - 76
+    - 018
+    - 7278
+    - 891
+    - 17178
+    - 97817
+    - 12
+    - 3432
+    - 33
+    - 4534
+    - 331
+    - 345
+    - 432
+    - 56431
+    - 55433
+    - 3432
+    - 2331242
+    - 23321
+    - 1321
+    - 2321
+    - 2312
+    - 23314
+    - 41
+    - 2321
+    - 3213
+    - 221
+    - 3211
+    - 3212
+    - 24211
+    - 23213
+    - 123
+    - 1
+    - 12
+    - 2
+    - 2313
+    - 321
+    - 231
+    - 4451
+    - 5662
+    - 255432
+    - 56453
+    - 245
+    - 2312
+    - 34444

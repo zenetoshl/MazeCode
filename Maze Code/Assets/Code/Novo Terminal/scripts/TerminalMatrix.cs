@@ -24,14 +24,26 @@ public class TerminalMatrix : TerminalBlocks {
 
     private void Start () {
         st = SymbolTable.instance;
+        i = window.transform.Find ("Panel/Operandos/Operando 2/Entrada").GetComponent<TMP_InputField> ();
+        j = window.transform.Find ("Panel/Operandos/Operando 2 (1)/Entrada").GetComponent<TMP_InputField> ();
+        var = window.transform.Find ("Panel/Operandos/Description/Name/Nome").GetComponent<TMP_InputField> ();
+        typeInput =  window.transform.Find ("Panel/Operandos/tipo/Label").GetComponent<TextMeshProUGUI> ();
+        oldVar = var.text;
+        oldI = i.text;
+        oldJ = j.text;
+        oldType = typeInput.text;
+        type = GetType(oldType);
     }
     public override IEnumerator RunBlock () {
+        MarkExec();
+
         st.symbolTable[scopeId].CreateVar (name, CreateInitMat (GetInitValue (newType), sizex, sizey), newType, sizex, sizey);
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI () {

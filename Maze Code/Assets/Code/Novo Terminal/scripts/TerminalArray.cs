@@ -21,16 +21,23 @@ public class TerminalArray : TerminalBlocks {
 
     private void Start () {
         st = SymbolTable.instance;
+        var = window.transform.Find ("Panel/Operandos/Description/Name/Nome").GetComponent<TMP_InputField> ();
+        i = window.transform.Find ("Panel/Operandos/Operando 2/Entrada").GetComponent<TMP_InputField> ();
+        typeInput =  window.transform.Find ("Panel/Operandos/tipo/Label").GetComponent<TextMeshProUGUI> ();
+        oldVar = var.text;
+        oldI = i.text;
+        oldType = typeInput.text;
+        type = GetType(oldType);
     }
     public override IEnumerator RunBlock () {
         st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (newType), sizex), newType, sizex);
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
     }
     public override void ToUI () {
         name = var.text;

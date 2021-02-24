@@ -22,12 +22,22 @@ public class TerminalFor : TerminalBlocks {
     private string oldEnd;
     private string oldInitial;
 
+    private void Start() {
+        var = window.transform.Find("Panel/Operandos/var_vet_mat").GetComponent<Var_Vet_Mat>();
+        op = window.transform.Find("Panel/Operandos/Incremento/Label").GetComponent<TextMeshProUGUI>();
+        initial = window.transform.Find("Panel/Operandos/de/Entrada").GetComponent<TMP_InputField>();
+        end = window.transform.Find("Panel/Operandos/ate/Entrada").GetComponent<TMP_InputField>();
+        oldOp = op.text;
+        oldEnd = end.text;
+        oldInitial = initial.text;
+    }
+
     public override IEnumerator RunBlock () {
         if (!isScopeCreated) {
             alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             isScopeCreated = true;
         }
-
+        MarkExec();
         if (alternativeBlock != null) {
             SymbolTable st = SymbolTable.instance;
             alternativeBlock.scopeId = alternativeScopeId;
@@ -42,12 +52,13 @@ public class TerminalFor : TerminalBlocks {
             }
         }
 
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI () {

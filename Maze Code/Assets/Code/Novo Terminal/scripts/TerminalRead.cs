@@ -10,16 +10,37 @@ public class TerminalRead : TerminalBlocks
 
     private Var_Vet_Mat var;
 
+    private void Start() {
+        var = window.transform.Find ("Panel/var_vet_mat").GetComponent<Var_Vet_Mat> ();
+    }
+
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
-        st.SetValueFromString(varName, scopeId, ""); //fazer o read manager depois
-        yield return null;
+        MarkExec();
+        IOManager.instance.varName = varName;
+        RunReadWindow.instance.TurnOn();
+
+        yield return StartCoroutine(WaitRead());
+        st.SetValueFromString(varName, scopeId, IOManager.instance.input);
+        IOManager.instance.input = "";
+        IOManager.instance.varName = "---";
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
+
+    public IEnumerator WaitRead(){
+        while(!IOManager.instance.readEnded){
+            yield return null;
+        }
+        IOManager.instance.readEnded = false;
+        yield return null;
+    }
+    
     public override void ToUI (){
         varName = var.GetText();
         uiText.text = varName;

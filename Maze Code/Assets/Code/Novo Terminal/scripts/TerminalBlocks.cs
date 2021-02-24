@@ -30,9 +30,13 @@ abstract public class TerminalBlocks : MonoBehaviour {
         return b;
     }
 
-    public bool MarkExec (bool b) {
-        ShadowExec.enabled = !b;
-        return b;
+    public bool MarkExec () {
+        ShadowExec.enabled = true;
+        return true;
+    }
+
+    public void AfterExec(){
+        ShadowExec.enabled = false;
     }
 
     private void Awake () {

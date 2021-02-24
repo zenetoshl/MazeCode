@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5907817190476657722}
   - component: {fileID: 984608431613575436}
+  - component: {fileID: 6018306947061157075}
   m_Layer: 0
   m_Name: Bloco
   m_TagString: Untagged
@@ -292,11 +293,23 @@ MonoBehaviour:
   scopeId: 0
   nextBlock: {fileID: 0}
   uiText: {fileID: 5174470647950192593}
-  windowGO: {fileID: 7959745471844551794, guid: bf77622e1dd73444eb6c2b059a754fa4,
+  windowGO: {fileID: 4704212277966301891, guid: cdabed80bbe1e294eb86071eba507bfb,
     type: 3}
   window: {fileID: 0}
   operation: 
   var: 
+--- !u!114 &6018306947061157075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907817190476657669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fed3cb86b2ed794d962188984d7024f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5907817190896638612
 GameObject:
   m_ObjectHideFlags: 0

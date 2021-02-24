@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class TerminalInit : TerminalBlocks
 {
+    private void Start() {
+        uiText.text = "Inicio";
+    }
     public override IEnumerator RunBlock(){
+        UIManager.ToggleRunMode(true);
         scopeId = SymbolTable.instance.CreateScope();
+        MarkExec();
         TerminalPrint.printText = "";
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
         if(nextBlock != null){
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
-            Debug.Log(TerminalPrint.printText);
+            Debug.Log(IOManager.instance.output);
+            IOManager.instance.Reset();
         }
+        UIManager.ToggleRunMode(false);
+        AfterExec();
         yield return null;
     }
     public override void ToUI (){

@@ -12,65 +12,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 24
   m_EditorClassIdentifier: 
-  naSala: 1
-  destravaSala: 6
+  naSala: 23
+  destravaSala: 22
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 3
+  variavel: 4
   leitura: 1
-  imprime: 2
-  matematica: 4
-  condicional: 0
-  loopDefinido: 1
-  loopIndefinido: 0
+  imprime: 1
+  matematica: 6
+  condicional: 2
+  loopDefinido: 0
+  loopIndefinido: 1
   vetor: 1
   matriz: 0
-  bonusVariavel: 1
-  bonusLeitura: 2
+  bonusVariavel: 3
+  bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 4
+  bonusMatematica: 2
   bonusCondicional: 0
   bonusLoopDefinido: 1
-  bonusLoopIndefinido: 1
-  bonusVetor: 1
+  bonusLoopIndefinido: 0
+  bonusVetor: 0
   bonusMatriz: 0
   correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
     System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
     null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
     _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
-    teste(){_loopLimit = 0;var t = 0;var a = 0;if(_inputs.Count > _i)t =  _inputs[_i++];int[]
+    teste(){_loopLimit = 0;var a = 0;if(_inputs.Count > _i)a =  _inputs[_i++];int[]
     b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};b[0]
-    = 0+0;if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos
-    caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
-    += b[0]+ \" \";for(a = 1 ;a<=99;a++){ if(_loopLimit >= 100000){_loopError = \"Seus
-    loops rodaram al\xE9m do limite permitido pelo Mazecode\"; return;} else {_loopLimit
-    += 1;}var c = 0;c = a-1;c = b[c]+1;b[a] = c%t;if(_output.Length >= 1000000) {_loopError
-    = \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua
-    solu\xE7\xE3o. \"; return;}_output += b[a]+ \" \";}}}} "
-  objectiveTitle: Preenchimento de vetor
-  objective: "Fa\xE7a um programa que leia um valor T e preencha um vetor de tamanho
-    100 com a sequ\xEAncia de valores de 0 at\xE9 T-1 repetidas vezes, conforme exemplo
-    abaixo. Imprima o vetor N."
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};var c = 0;while(c<a){
+    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
+    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}if( c==0 ){b[c] =
+    0+0;}else{if( c==1 ){b[c] = 1+0;}else{var d = 0;var e = 0;d = c-1;e = d-1;b[c]
+    = b[d]+b[e];if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui
+    muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
+    += b[c]+ \" \";c = c+1;}}}}}} "
+  objectiveTitle: Fibonacci
+  objective: "A seguinte sequ\xEAncia de n\xFAmeros 0 1 1 2 3 5 8 13 21... \xE9 conhecida
+    como s\xE9rie de Fibonacci. Nessa sequ\xEAncia, cada n\xFAmero, depois dos 2
+    primeiros, \xE9 igual \xE0 soma dos 2 anteriores. Escreva um algoritmo que leia
+    um inteiro N (N < 46) e mostre os N primeiros n\xFAmeros dessa s\xE9rie."
   inputs:
+  - list:
+    - 1
+  - list:
+    - 7
+  - list:
+    - 14
   - list:
     - 10
   - list:
-    - 30
+    - 20
   - list:
-    - 99
+    - 38
   - list:
-    - 12
+    - 49
   - list:
-    - 123
-  - list:
-    - 90
-  - list:
-    - 5
-  - list:
-    - 2
-  - list:
-    - 70
+    - 9

@@ -9,7 +9,7 @@ public class VariableNamer : MonoBehaviour
     public TMP_InputField name;
     public VariableManager.StructureType type;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         name.text = VariableManager.NextName();
         VariableManager.Create( name.text, VariableManager.Type.Int, type);

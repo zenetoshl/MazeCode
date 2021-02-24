@@ -128,6 +128,8 @@ public class VariableManager : MonoBehaviour {
 
     public static bool RemoveFromList (string name) {
         foreach (CodeVar var in vars) {
+            Debug.Log(var.name);
+            Debug.Log(name);
             if (var.name == name) {
                 vars.Remove (var);
                 changed = true;
@@ -135,7 +137,7 @@ public class VariableManager : MonoBehaviour {
                 return true;
             }
         }
-        PrintNames ();
+        //PrintNames ();
         return false;
     }
 

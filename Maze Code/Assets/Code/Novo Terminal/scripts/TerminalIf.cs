@@ -16,12 +16,18 @@ public class TerminalIf : TerminalBlocks {
 
     private string oldOp;
 
+    private void Start() {
+        op = window.transform.Find("Panel/Content/Operation").GetComponent<TextMeshProUGUI>();
+        oldOp = op.text;
+    }
+
     public override IEnumerator RunBlock () {
         if (!isScopeCreated) {
             trueAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             falseAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             isScopeCreated = true;
         }
+        MarkExec();
 
         bool resp = OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
 
@@ -32,11 +38,12 @@ public class TerminalIf : TerminalBlocks {
             nextFalse.scopeId = falseAlternativeScopeId;
             yield return StartCoroutine (nextFalse.RunBlock ());
         }
-        yield return null;
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
     public override void ToUI () {

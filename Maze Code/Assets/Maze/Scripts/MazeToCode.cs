@@ -11,7 +11,6 @@ public class MazeToCode : Interactable {
     public Text dialogText;
     public string blockLimitDialog;
     public string puzzleCompletedDialog;
-    public AudioClip musicaTerminal;
 
     protected JoyButtonAction joybutton;
     [Header ("New Scene Variables")]

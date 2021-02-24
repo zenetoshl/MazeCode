@@ -10,20 +10,31 @@ public class TerminalPrint : TerminalBlocks
 
     private Var_Vet_Mat var;
     public static string printText = "";
+
+    private void Start() {
+        var = window.transform.Find("Panel/var_vet_mat").GetComponent<Var_Vet_Mat>();
+    }
+    
     public override IEnumerator RunBlock(){
         printText = printText + " " + SymbolTable.instance.GetValueFromString(varName, scopeId);
+        MarkExec();
 
-        yield return null;
+        IOManager.instance.Write(printText);
+        printText = "";
+        yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        AfterExec();
         yield return null;
     }
+    
     public override void ToUI (){
         varName = var.GetText();
         uiText.text = varName;
     }
+    
     public override void UpdateUI (bool isOk){
         if(isOk){
             var.SaveConfig();
@@ -32,6 +43,7 @@ public class TerminalPrint : TerminalBlocks
             var.ResetConfig();
         }
     }
+    
     public override bool Compile (){
         List<string> scope = VariableManager.GetScope(this.GetComponent<RectTransform>());
         bool noError = true;
@@ -47,15 +59,19 @@ public class TerminalPrint : TerminalBlocks
         MarkError(noError);
         return noError;
     }
+    
     public override bool Reset (){
         return true;
     }
+
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){
         nextBlock = block;
     }
+
     public override TerminalBlocks GetNextBlock (){
         return null;
     }
+
     public override void HidefromCamera (){
 
     }
