@@ -26,6 +26,7 @@ public class Testeee : MonoBehaviour {
     private void Update() {
         if(Input.GetKeyDown("space")){
             StartCoroutine (init.RunBlock ());
+            //StartCoroutine (ValidationManager.instance.Validate());
         }
     }
 }

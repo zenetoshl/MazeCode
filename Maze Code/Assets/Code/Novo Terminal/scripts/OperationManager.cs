@@ -15,6 +15,7 @@ public class OperationManager : MonoBehaviour {
         bool found = false;
         int beginVarName = -1;
         for (int i = 0; i < input.Length; i++) {
+            Debug.Log(input);
             if (input[i] == '!' || input[i] == '(' || input[i] == ' ' || input[i] == ')' || i == input.Length - 1) {
                 begin = true;
                 if (((input[i] == ')' || input[i] == ' ') || i == input.Length - 1) && found) {
@@ -22,6 +23,7 @@ public class OperationManager : MonoBehaviour {
                     if(i == input.Length - 1){
                         if (beginVarName > -1) { //achou o nome de uma variavel
                         input = ReplaceOp (input, beginVarName, i - beginVarName, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName + 1), scope));
+                        i = 0;
                         continue;
                     }
                     }
@@ -33,6 +35,7 @@ public class OperationManager : MonoBehaviour {
                 }
                 continue;
             } else if ((input[i] <= 'z' && input[i] >= 'a') && begin) {
+                Debug.Log("oie");
                 found = true;
                 beginVarName = i;
             }
@@ -90,6 +93,7 @@ public class OperationManager : MonoBehaviour {
     }
 
     static string ReplaceOp (string str, int init, int size, string newStr) {
+        Debug.Log(newStr);
         return str.Replace (RemoveSpaces (str.Substring (init, size + 1)), newStr);
     }
 
@@ -174,6 +178,7 @@ public class OperationManager : MonoBehaviour {
 
     static string CalculateOp (string op, TerminalEnums.varTypes typeOp, char _) {
         string[] items = op.Split (' ');
+        Debug.Log(op);
         if (items.Length < 3) {
             if (items[0] != "")
                 return items[0];

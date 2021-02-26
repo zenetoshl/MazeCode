@@ -20,6 +20,7 @@ public class TerminalPrint : TerminalBlocks
         MarkExec();
 
         IOManager.instance.Write(printText);
+        Debug.Log(printText);
         printText = "";
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
@@ -60,8 +61,8 @@ public class TerminalPrint : TerminalBlocks
         return noError;
     }
     
-    public override bool Reset (){
-        return true;
+    public override void Reset (){
+        return;
     }
 
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){

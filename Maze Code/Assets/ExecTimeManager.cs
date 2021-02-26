@@ -31,9 +31,13 @@ public class ExecTimeManager : MonoBehaviour {
         }
     }
     public const float maxTime = 1.0f;
-    public const float minTime = .05f;
+    public const float minTime = .1f;
 
     public float execTime = .5f;
+
+    private void Start() {
+        TerminalEventManager.instance.resetEvent.AddListener(Reset);
+    }
 
     public void MaxExecTime(){
         execTime = maxTime;
@@ -53,5 +57,9 @@ public class ExecTimeManager : MonoBehaviour {
         if(execTime == maxTime) return;
         execTime = execTime + .1f;
         if(execTime >= maxTime) execTime = maxTime;
+    }
+
+    public void Reset(){
+        execTime = .5f;
     }
 }

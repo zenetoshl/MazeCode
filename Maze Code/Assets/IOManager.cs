@@ -26,14 +26,19 @@ public class IOManager : MonoBehaviour
             return _instance;
         }
     }
-    public string output;
+    public string output = "";
     public string input;
     public string varName = "";
     public bool readEnded;
+
+    public int i = 0;
+    public string[] inputs;
     
 
     public void Write(string s){
-        output = output + "\n" + s;
+        if(output != ""){
+            output = output + "\n" + s;
+        } else output = s;
     }
 
     public void Read(string s){
@@ -41,13 +46,21 @@ public class IOManager : MonoBehaviour
         readEnded = true;
     }
 
+    public void ReadNext(){
+        input = inputs[i];
+        if(i != inputs.Length - 1)
+            i++;
+    }
+
     private void Start() {
         Reset();
+        TerminalEventManager.instance.resetEvent.AddListener(Reset);
     }
 
     public void Reset(){
         output = "";
         input = "";
+        i = 0;
         readEnded = false;
     }
 

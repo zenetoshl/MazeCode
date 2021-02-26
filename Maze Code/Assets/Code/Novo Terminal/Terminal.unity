@@ -839,6 +839,8 @@ GameObject:
   - component: {fileID: 652120966}
   - component: {fileID: 652120965}
   - component: {fileID: 652120967}
+  - component: {fileID: 652120969}
+  - component: {fileID: 652120968}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -888,6 +890,8 @@ MonoBehaviour:
   input: 
   varName: 
   readEnded: 0
+  i: 0
+  inputs: []
 --- !u!114 &652120967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +904,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53368db82207c747bbf4c150242fc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  execTime: 2.6
+  execTime: 0.5
+--- !u!114 &652120968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652120963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e4aa5f0c023e140b25aabc4ea69bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &652120969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652120963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2c3851447f27446ab866c5242fd6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validationMode: 0
+  hasError: 0
+  ti: {fileID: 1783484069}
 --- !u!1 &698249837
 GameObject:
   m_ObjectHideFlags: 0
@@ -27169,7 +27203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24888, y: -0.0031280518}
+  m_AnchoredPosition: {x: -58804, y: -0.0074310303}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &653104240736456009
@@ -33895,8 +33929,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 653104239726548532}
   m_HandleRect: {fileID: 653104239726548531}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9999851
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

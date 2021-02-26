@@ -17,11 +17,15 @@ public class TerminalRead : TerminalBlocks
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
         MarkExec();
-        IOManager.instance.varName = varName;
-        RunReadWindow.instance.TurnOn();
-
-        yield return StartCoroutine(WaitRead());
-        st.SetValueFromString(varName, scopeId, IOManager.instance.input);
+        if(ValidationManager.instance.validationMode){
+            IOManager.instance.ReadNext();
+            st.SetValueFromString(varName, scopeId, IOManager.instance.input);
+        } else {
+            IOManager.instance.varName = varName;
+            RunReadWindow.instance.TurnOn();
+            yield return StartCoroutine(WaitRead());
+            st.SetValueFromString(varName, scopeId, IOManager.instance.input);
+        }
         IOManager.instance.input = "";
         IOManager.instance.varName = "---";
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
@@ -68,8 +72,8 @@ public class TerminalRead : TerminalBlocks
         MarkError(noError);
         return noError;
     }
-    public override bool Reset (){
-        return true;
+    public override void Reset (){
+        return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){
         nextBlock = block;

@@ -96,6 +96,7 @@ public class VariableManager : MonoBehaviour {
     }
 
     public static List<string> ListNames () {
+        Debug.Log("oi");
         List<string> list = new List<string> ();
         foreach (CodeVar var in vars) {
             //if(var.structType == st){
@@ -176,28 +177,27 @@ public class VariableManager : MonoBehaviour {
     public static List<string> GetScope (RectTransform rt) {
         List<string> scopeList = new List<string> ();
         GameObject obj = ConnectionManager.GetOtherSide (rt, ConnectionPoint.ConnectionDirection.West);
-        BlocoVariavel variable;
-        BlocoMatriz matriz;
-        BlocoVetor vetor;
+        TerminalVar variable;
+        TerminalMatrix matriz;
+        TerminalArray vetor;
         while (obj != null) {
             obj = obj.transform.parent.gameObject;
-            variable = obj.transform.GetComponent<BlocoVariavel> ();
+            variable = obj.transform.GetComponent<TerminalVar> ();
             if (variable != null) {
-                scopeList.Add (variable.GetVarName ());
+                scopeList.Add (variable.name);
             } else {
-                vetor = obj.transform.GetComponent<BlocoVetor> ();
+                vetor = obj.transform.GetComponent<TerminalArray> ();
                 if (vetor != null) {
-                    scopeList.Add (vetor.GetVarName ());
+                    scopeList.Add (vetor.name);
                 } else {
-                    matriz = obj.transform.GetComponent<BlocoMatriz> ();
+                    matriz = obj.transform.GetComponent<TerminalMatrix> ();
                     if (matriz != null) {
-                        scopeList.Add (matriz.GetVarName ());
+                        scopeList.Add (matriz.name);
                     }
                 }
             }
             obj = ConnectionManager.GetOtherSide (obj.transform.GetComponent<RectTransform> (), ConnectionPoint.ConnectionDirection.West);
         }
-        print (scopeList);
         return scopeList;
     }
 

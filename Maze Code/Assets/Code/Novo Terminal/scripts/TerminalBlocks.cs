@@ -22,7 +22,7 @@ abstract public class TerminalBlocks : MonoBehaviour {
     public abstract TerminalBlocks GetNextBlock ();
     public abstract void UpdateUI (bool isOk);
     public abstract bool Compile ();
-    public abstract bool Reset ();
+    public abstract void Reset ();
     public abstract void HidefromCamera ();
 
     public bool MarkError (bool b) {
@@ -41,6 +41,7 @@ abstract public class TerminalBlocks : MonoBehaviour {
 
     private void Awake () {
         uiText.text = "---";
+        TerminalEventManager.instance.resetEvent.AddListener(Reset);
         if (windowGO == null) return;
         
         GameObject terminal = GameObject.Find ("/Terminal");
@@ -49,9 +50,16 @@ abstract public class TerminalBlocks : MonoBehaviour {
         window.GetComponent<BlockWindow>().myBlock = this.GetComponent<TerminalBlocks>();
     }
 
-    public void TurnOn () {
+    public virtual void TurnOn () {
         if (window == null) return;
 
         window.TurnOn ();
+    }
+
+    public void ListVars(){
+        VarLister vl = window.transform.GetComponent<VarLister>();
+        if(vl == null) return;
+        Debug.Log(VariableManager.ListNames()[1]);
+        vl.ListVars(VariableManager.ListNames());
     }
 }

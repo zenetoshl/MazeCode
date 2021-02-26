@@ -17,8 +17,6 @@ public class TerminalInit : TerminalBlocks
         if(nextBlock != null){
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
-            Debug.Log(IOManager.instance.output);
-            IOManager.instance.Reset();
         }
         UIManager.ToggleRunMode(false);
         AfterExec();
@@ -33,8 +31,8 @@ public class TerminalInit : TerminalBlocks
     public override bool Compile (){
         return true;
     }
-    public override bool Reset (){
-        return true;
+    public override void Reset (){
+        return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){
         Debug.Log(block);

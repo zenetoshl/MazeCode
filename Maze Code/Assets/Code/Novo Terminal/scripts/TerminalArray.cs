@@ -77,10 +77,9 @@ public class TerminalArray : TerminalBlocks {
         nextBlock.Compile ();
         return MarkError (((name[0] >= 'a' && name[0] <= 'z') || (name[0] >= 'A' && name[0] <= 'Z')) && (sizex > 0 && sizex < 1000));
     }
-    public override bool Reset () {
+    public override void Reset () {
         name = "";
         sizex = 0;
-        return true;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
         nextBlock = block;

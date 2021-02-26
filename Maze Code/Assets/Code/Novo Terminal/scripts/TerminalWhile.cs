@@ -19,6 +19,12 @@ public class TerminalWhile : TerminalBlocks {
         oldOp = op.text;
     }
 
+    public override void TurnOn () {
+        if (window == null) return;
+        ListVars();
+        window.TurnOn ();
+    }
+
     public override IEnumerator RunBlock () {
         if (!isScopeCreated) {
             alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
@@ -70,8 +76,8 @@ public class TerminalWhile : TerminalBlocks {
         MarkError(noError);
         return noError;
     }
-    public override bool Reset () {
-        return true;
+    public override void Reset () {
+        return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {
         if(cd == ConnectionPoint.ConnectionDirection.South){

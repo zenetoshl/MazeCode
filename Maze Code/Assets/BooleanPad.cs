@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BooleanPad : MonoBehaviour {
+public class BooleanPad : WindowPad {
     public TextMeshProUGUI operationText;
     private string[] operation = { };
     private bool isNumber;
@@ -14,7 +14,7 @@ public class BooleanPad : MonoBehaviour {
         isNumber = false;
     }
 
-    public void InsertToOperation (string charPut) {
+    public override void InsertToOperation (string charPut) {
         if (!isNumber && charPut == ",") return;
         Debug.Log (index);
         Debug.Log (operation);
@@ -139,11 +139,10 @@ public class BooleanPad : MonoBehaviour {
             bufferString = charPut;
             operation = InsertAt (operation, bufferString, index);
         }
-        //Print (operation);
         operationText.text = operation.Join (" ");
     }
 
-    public void Clear () {
+    public override void Clear () {
         operationText.text = "";
         operation = new string[0];
         index = -1;
@@ -152,7 +151,7 @@ public class BooleanPad : MonoBehaviour {
         bufferString = "";
     }
 
-    public void EraseAtIndex () {
+    public override void EraseAtIndex () {
         if (index == -1) {
             return;
         }
@@ -224,7 +223,7 @@ public class BooleanPad : MonoBehaviour {
         return -1;
     }
 
-    public string[] InsertAt (string[] arr, string item, int pos) {
+    public override string[] InsertAt (string[] arr, string item, int pos) {
         if (arr.Length == 0) {
             string[] newar = { item };
             return newar;
@@ -241,7 +240,7 @@ public class BooleanPad : MonoBehaviour {
         return newarr;
     }
 
-    public string[] ReplaceAt (string[] arr, string item, int i) {
+    public override string[] ReplaceAt (string[] arr, string item, int i) {
         arr[i] = item;
         return arr;
     }

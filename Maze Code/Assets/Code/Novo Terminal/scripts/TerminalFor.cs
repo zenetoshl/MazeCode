@@ -123,8 +123,8 @@ public class TerminalFor : TerminalBlocks {
         return var.Compile(scope);
     }
 
-    public override bool Reset () {
-        return true;
+    public override void Reset () {
+        return;
     }
 
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {

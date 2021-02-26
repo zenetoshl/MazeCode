@@ -11,13 +11,23 @@ public class TerminalMath : TerminalBlocks
     public string var;
 
     private TextMeshProUGUI op;
+    private Var_Vet_Mat _var;
 
     private string oldOp;
 
     private void Start() {
         op = window.transform.Find("Panel/Content/Operation").GetComponent<TextMeshProUGUI>();
+        _var = window.transform.Find("Panel/Content/var_vet_mat").GetComponent<Var_Vet_Mat>();
         oldOp = op.text;
+        var = _var.GetText();
     }
+
+    public override void TurnOn () {
+        if (window == null) return;
+        ListVars();
+        window.TurnOn ();
+    }
+
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
         Debug.Log(var + " = " + operation);
@@ -33,12 +43,13 @@ public class TerminalMath : TerminalBlocks
         yield return null;
     }
     public override void ToUI (){
-        operation = op.text;
+        operation = op.text + " ";
         uiText.text = operation;
     }
     public override void UpdateUI (bool isOk){
         if(isOk){
             oldOp = op.text;
+            var = _var.GetText();
             ToUI();
         } else {
             op.text = oldOp;
@@ -58,8 +69,8 @@ public class TerminalMath : TerminalBlocks
         MarkError(noError);
         return noError;
     }
-    public override bool Reset (){
-        return true;
+    public override void Reset (){
+        return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){
         nextBlock = block;

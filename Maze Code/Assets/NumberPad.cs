@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NumberPad : MonoBehaviour {
+public class NumberPad : WindowPad {
     public TextMeshProUGUI operationText;
     private string[] operation = { };
     private bool isNumber;
@@ -14,7 +14,7 @@ public class NumberPad : MonoBehaviour {
         isNumber = false;
     }
 
-    public void InsertToOperation (string charPut) {
+    public override void InsertToOperation (string charPut) {
         if (!isNumber && charPut == ",") return;
         Debug.Log (index);
         Debug.Log (operation);
@@ -77,7 +77,7 @@ public class NumberPad : MonoBehaviour {
         operationText.text = operation.Join (" ");
     }
 
-    public void Clear () {
+    public override void Clear () {
         operationText.text = "";
         operation = new string[0];
         index = -1;
@@ -86,7 +86,7 @@ public class NumberPad : MonoBehaviour {
         bufferString = "";
     }
 
-    public void EraseAtIndex () {
+    public override void EraseAtIndex () {
         if (index == -1) {
             return;
         }
@@ -158,7 +158,7 @@ public class NumberPad : MonoBehaviour {
         return -1;
     }
 
-    public string[] InsertAt (string[] arr, string item, int pos) {
+    public override string[] InsertAt (string[] arr, string item, int pos) {
         if (arr.Length == 0) {
             string[] newar = { item };
             return newar;
@@ -175,7 +175,7 @@ public class NumberPad : MonoBehaviour {
         return newarr;
     }
 
-    public string[] ReplaceAt (string[] arr, string item, int i) {
+    public override string[] ReplaceAt (string[] arr, string item, int i) {
         arr[i] = item;
         return arr;
     }
