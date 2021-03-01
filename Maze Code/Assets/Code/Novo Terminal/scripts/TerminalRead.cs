@@ -73,6 +73,7 @@ public class TerminalRead : TerminalBlocks
         return noError;
     }
     public override void Reset (){
+        ToUI();
         return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){

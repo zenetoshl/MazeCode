@@ -36,8 +36,10 @@ public class TerminalWhile : TerminalBlocks {
             alternativeBlock.scopeId = alternativeScopeId;
 
             while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True") {
+                uiText.text = "True";
                 yield return StartCoroutine (alternativeBlock.RunBlock ());
             }
+            uiText.text = "False";
         }
 
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
@@ -77,6 +79,7 @@ public class TerminalWhile : TerminalBlocks {
         return noError;
     }
     public override void Reset () {
+        ToUI();
         return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {

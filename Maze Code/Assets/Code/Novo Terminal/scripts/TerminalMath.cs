@@ -30,9 +30,10 @@ public class TerminalMath : TerminalBlocks
 
     public override IEnumerator RunBlock(){
         SymbolTable st = SymbolTable.instance;
-        Debug.Log(var + " = " + operation);
         MarkExec();
-        st.SetValueFromString(var, scopeId, OperationManager.StartOperation(operation, st.GetVarType(var, scopeId), scopeId));
+        string result = OperationManager.StartOperation(operation, st.GetVarType(var, scopeId), scopeId);
+        st.SetValueFromString(var, scopeId, result);
+        uiText.text = result;
         
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null) {
@@ -70,6 +71,7 @@ public class TerminalMath : TerminalBlocks
         return noError;
     }
     public override void Reset (){
+        ToUI();
         return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd){

@@ -37,6 +37,7 @@ public class TerminalIf : TerminalBlocks {
         MarkExec();
 
         bool resp = OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
+        uiText.text = "" + resp;
 
         if (nextTrue != null && resp) {
             nextTrue.scopeId = trueAlternativeScopeId;
@@ -82,6 +83,7 @@ public class TerminalIf : TerminalBlocks {
     }
 
     public override void Reset () {
+        ToUI();
         return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {

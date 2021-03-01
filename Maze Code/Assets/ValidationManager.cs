@@ -46,7 +46,7 @@ public class ValidationManager : MonoBehaviour
     private void Start() {
         //teste
         results = new ResultItem[1];
-        results[0] = new ResultItem(new string[]{"10", "20"}, " 30");
+        results[0] = new ResultItem(new string[]{"10", "20"}, "30");
     }
 
     public IEnumerator Validate(){

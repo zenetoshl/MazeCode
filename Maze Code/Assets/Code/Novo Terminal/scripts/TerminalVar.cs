@@ -76,7 +76,6 @@ public class TerminalVar : TerminalBlocks {
         return MarkError((name[0] >= 'a' && name[0] <= 'z') || (name[0] >= 'A' && name[0] <= 'Z'));
     }
     public override void Reset () {
-        name = "";
         return;
     }
     public override void SetNextBlock (TerminalBlocks block, ConnectionPoint.ConnectionDirection cd) {

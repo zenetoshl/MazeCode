@@ -16,13 +16,14 @@ public class TerminalPrint : TerminalBlocks
     }
     
     public override IEnumerator RunBlock(){
-        printText = printText + " " + SymbolTable.instance.GetValueFromString(varName, scopeId);
+        printText = SymbolTable.instance.GetValueFromString(varName, scopeId);
         MarkExec();
 
         IOManager.instance.Write(printText);
-        Debug.Log(printText);
-        printText = "";
+        
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
+        uiText.text = printText;
+        printText = "";
         if (nextBlock != null) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
@@ -62,6 +63,7 @@ public class TerminalPrint : TerminalBlocks
     }
     
     public override void Reset (){
+        ToUI();
         return;
     }
 

@@ -31,6 +31,11 @@ public class RunReadWindow : MonoBehaviour
     public TextMeshProUGUI varName;
     // Start is called before the first frame update
     public void OnConfirm(){
+        if (!IsNumber(readText.text)){
+            readText.text = "0";
+            return;
+        }
+        this.transform.GetComponent<LeanWindow>().TurnOff();
         IOManager.instance.Read(readText.text);
         readText.text = "";
     }
@@ -41,5 +46,24 @@ public class RunReadWindow : MonoBehaviour
 
     public void TurnOn(){
         this.transform.GetComponent<LeanWindow>().TurnOn();
+    }
+
+    public bool IsNumber (string s) {
+        switch ("" + s[0]) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+            case ",":
+                return true;
+            default:
+                return false;
+        }
     }
 }

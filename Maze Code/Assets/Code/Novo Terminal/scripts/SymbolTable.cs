@@ -214,11 +214,12 @@ public class SymbolTable : MonoBehaviour {
 
     private void Awake () {
         instance = this;
-        symbolTable = new List<Table> ();
+        TerminalEventManager.instance.resetEvent.AddListener(Reset);
+        Reset();
     }
 
-    private void Start () {
-        
+    public void Reset(){
+        symbolTable = new List<Table> ();
     }
 
     public int CreateScope () {
