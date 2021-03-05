@@ -33,7 +33,7 @@ public class CodeSender : MonoBehaviour {
         public List<string> list = new List<string> ();
     }
 
-    private void Start () {
+    /*private void Start () {
         _completed = false;
         inputs = new List<Lister> ();
         BetterStreamingAssets.Initialize ();
@@ -175,5 +175,5 @@ public class CodeSender : MonoBehaviour {
             }
         }
         return list;
-    }
+    }*/
 }

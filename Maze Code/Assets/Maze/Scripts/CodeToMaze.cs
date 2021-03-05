@@ -23,6 +23,29 @@ public class CodeToMaze : MonoBehaviour {
     private FadeAnimation fade;
     public SavePuzzle savePuzzleManager;
 
+    static CodeToMaze _instance;
+    public static CodeToMaze instance {
+        get {
+            if (!_instance) {
+                //first try to find one in the scene
+                _instance = FindObjectOfType<CodeToMaze> ();
+
+                if (!_instance) {
+                    //if that fails, make a new one
+                    GameObject go = new GameObject ("_VariablesManager");
+                    _instance = go.AddComponent<CodeToMaze> ();
+
+                    if (!_instance) {
+                        //if that still fails, we have a big problem;
+                        Debug.LogError ("Fatal Error: could not create CodeToMaze");
+                    }
+                }
+            }
+
+            return _instance;
+        }
+    }
+
     public void Awake () {
         if (fadeInPanel != null) {
             GameObject panel = Instantiate (fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
@@ -36,8 +59,8 @@ public class CodeToMaze : MonoBehaviour {
     }
 
     public void ReturnToMaze () {
-        if (CodeSender._completed && !puzzleStatus.runtimeValue) {
-            // O jogador conseguiu realizar o desafio e destravar a porta
+        if (!puzzleStatus.runtimeValue) {
+            //o puzzle ainda não havia sido completado
             TerminalInventoryManager.puzzleDone = puzzleStatus.destravaSala;
             TerminalInventoryManager.done = true;
             puzzleStatus.runtimeValue = true;
@@ -68,8 +91,6 @@ public class CodeToMaze : MonoBehaviour {
             }            
         }
         fade.StartAnimationAndLoadAsync (sceneToLoad);
-
-        //StartCoroutine (FadeControl ());
     }
 
     private void CalculateDiff (InventoryItem item) {

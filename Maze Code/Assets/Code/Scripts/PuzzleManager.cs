@@ -5,20 +5,16 @@ using UnityEngine.UI;
 
 public class PuzzleManager : MonoBehaviour {
     public Puzzle puzzle;
-    public CodeSender codeSender;
     
     public Text objectiveTitle;
     public Text objective;
 
     private void Start () {
-        puzzle = StaticLoadPuzzle.puzzle;
-        codeSender.correctCode = puzzle.correctCode;
-        codeSender.inputs = puzzle.inputs;
-        codeSender.puzzle = puzzle;
+        //puzzle = StaticLoadPuzzle.puzzle;
+        ValidationManager.instance.results = puzzle.tests;
         
         objectiveTitle.text = puzzle.objectiveTitle;
         objective.text = puzzle.objective;
-        
     }
 
 }

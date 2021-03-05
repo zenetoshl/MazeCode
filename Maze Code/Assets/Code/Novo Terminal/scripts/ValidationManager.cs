@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Gui;
 
 public class ValidationManager : MonoBehaviour
 {
-    public class ResultItem{
+    [System.Serializable] public class ResultItem{
         public string[] input;
         public string output;
 
@@ -38,16 +39,12 @@ public class ValidationManager : MonoBehaviour
     }
     public bool validationMode;
     public bool hasError = false;
+    public GameObject correctWindow;
+    public LeanWindow wrongWindow;
 
     public TerminalInit ti;
 
-    public ResultItem[] results;
-
-    private void Start() {
-        //teste
-        results = new ResultItem[1];
-        results[0] = new ResultItem(new string[]{"10", "20"}, "30");
-    }
+    public List<ResultItem> results;
 
     public IEnumerator Validate(){
         hasError = false;
@@ -58,13 +55,24 @@ public class ValidationManager : MonoBehaviour
             yield return StartCoroutine(ti.RunBlock());
 
             string outp = IOManager.instance.output;
-            TerminalEventManager.instance.resetEvent.Invoke();
             if(res.output != outp){
                 validationMode = false;
                 hasError = true;
+                wrongWindow.TurnOn();
                 yield break;
             }
+            TerminalEventManager.instance.resetEvent.Invoke();
+        }
+        if(!hasError){
+            correctWindow.SetActive(true);
+            yield return new WaitForSeconds(2.0f);
+            CodeToMaze.instance.ReturnToMaze();
         }
         validationMode = false;
+    }
+
+    public void StartValidation(){
+        StartCoroutine(Validate());
+
     }
 }

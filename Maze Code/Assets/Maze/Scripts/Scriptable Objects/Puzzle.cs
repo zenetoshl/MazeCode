@@ -40,10 +40,11 @@ public class Puzzle : ScriptableObject, ISerializationCallbackReceiver
     public int bonusMatriz;          // 9 - Cinza
 
     [Header("Terminal")]
-    public string correctCode;
+    
     public string objectiveTitle;
     public string objective;
-    public List<CodeSender.Lister> inputs;
+    public List<ValidationManager.ResultItem> tests;
+    
 
     public void OnAfterDeserialize() { }
 

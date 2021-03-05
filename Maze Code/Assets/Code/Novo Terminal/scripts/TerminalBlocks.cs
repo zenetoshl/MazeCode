@@ -59,7 +59,7 @@ abstract public class TerminalBlocks : MonoBehaviour {
     public void ListVars(){
         VarLister vl = window.transform.GetComponent<VarLister>();
         if(vl == null) return;
-        Debug.Log(VariableManager.ListNames()[1]);
+        Debug.Log(VariableManager.ListNames()[0]);
         vl.ListVars(VariableManager.ListNames());
     }
 }
