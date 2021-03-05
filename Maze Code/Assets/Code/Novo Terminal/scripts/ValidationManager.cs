@@ -62,11 +62,9 @@ public class ValidationManager : MonoBehaviour
             if(res.output != outp){
                 validationMode = false;
                 hasError = true;
-                Debug.Log("false");
                 yield break;
             }
         }
-        Debug.Log("deu certo meu camarada");
         validationMode = false;
     }
 }
