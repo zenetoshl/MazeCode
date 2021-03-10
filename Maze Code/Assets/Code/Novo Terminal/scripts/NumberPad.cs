@@ -4,8 +4,6 @@ using TMPro;
 using UnityEngine;
 
 public class NumberPad : WindowPad {
-    public TextMeshProUGUI operationText;
-    private string[] operation = { };
     private bool isNumber;
     private bool hasComma;
     private int index = -1;

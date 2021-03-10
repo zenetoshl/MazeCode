@@ -35,16 +35,19 @@ public class TerminalWhile : TerminalBlocks {
         if (alternativeBlock != null) {
             alternativeBlock.scopeId = alternativeScopeId;
 
-            while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True") {
+            while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True" && !TerminalCancelManager.instance.cancel) {
                 uiText.text = "True";
                 yield return StartCoroutine (alternativeBlock.RunBlock ());
+            }
+            if(TerminalCancelManager.instance.cancel){
+                yield return null;
             }
             uiText.text = "False";
         }
 
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

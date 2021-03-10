@@ -36,7 +36,7 @@ public class TerminalMath : TerminalBlocks
         uiText.text = result;
         
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

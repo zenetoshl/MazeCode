@@ -39,8 +39,9 @@ public class TerminalMatrix : TerminalBlocks {
 
         st.symbolTable[scopeId].CreateVar (name, CreateInitMat (GetInitValue (newType), sizex, sizey), newType, sizex, sizey);
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
+            
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
         AfterExec();

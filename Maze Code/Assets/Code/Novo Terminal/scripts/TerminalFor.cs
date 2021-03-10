@@ -44,7 +44,7 @@ public class TerminalFor : TerminalBlocks {
             //criar variavel do for com o valor inicial
             st.symbolTable[alternativeScopeId].CreateVar (varName, OperationManager.StartOperation (initialvalue, TerminalEnums.varTypes.Int, alternativeScopeId), TerminalEnums.varTypes.Int);
             //execução do for
-            while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, alternativeScopeId) == "True") {
+            while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, alternativeScopeId) == "True" && !TerminalCancelManager.instance.cancel) {
                 //roda o proximo bloco
                 yield return StartCoroutine (alternativeBlock.RunBlock ());
                 //passo do for
@@ -52,9 +52,13 @@ public class TerminalFor : TerminalBlocks {
             }
         }
 
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
+
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

@@ -24,7 +24,7 @@ public class TerminalPrint : TerminalBlocks
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         uiText.text = printText;
         printText = "";
-        if (nextBlock != null) {
+        if (nextBlock != null && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

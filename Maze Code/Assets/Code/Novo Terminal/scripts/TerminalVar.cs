@@ -32,7 +32,7 @@ public class TerminalVar : TerminalBlocks {
         MarkExec();
         st.symbolTable[scopeId].CreateVar (name, GetInitValue (newType), newType);
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

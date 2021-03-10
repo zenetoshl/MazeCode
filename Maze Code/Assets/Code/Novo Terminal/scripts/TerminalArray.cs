@@ -33,7 +33,7 @@ public class TerminalArray : TerminalBlocks {
         st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (newType), sizex), newType, sizex);
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }

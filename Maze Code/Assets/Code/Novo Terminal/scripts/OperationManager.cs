@@ -15,7 +15,6 @@ public class OperationManager : MonoBehaviour {
         bool found = false;
         int beginVarName = -1;
         for (int i = 0; i < input.Length; i++) {
-            Debug.Log(input);
             if (input[i] == '!' || input[i] == '(' || input[i] == ' ' || input[i] == ')' || i == input.Length - 1) {
                 begin = true;
                 if (((input[i] == ')' || input[i] == ' ') || i == input.Length - 1) && found) {
@@ -35,7 +34,6 @@ public class OperationManager : MonoBehaviour {
                 }
                 continue;
             } else if ((input[i] <= 'z' && input[i] >= 'a') && begin) {
-                Debug.Log("oie");
                 found = true;
                 beginVarName = i;
             }

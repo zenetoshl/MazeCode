@@ -39,15 +39,15 @@ public class TerminalIf : TerminalBlocks {
         bool resp = OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
         uiText.text = "" + resp;
 
-        if (nextTrue != null && resp) {
+        if (nextTrue != null && resp  && !TerminalCancelManager.instance.cancel) {
             nextTrue.scopeId = trueAlternativeScopeId;
             yield return StartCoroutine (nextTrue.RunBlock ());
-        } else if (nextFalse != null && !resp) {
+        } else if (nextFalse != null && !resp  && !TerminalCancelManager.instance.cancel) {
             nextFalse.scopeId = falseAlternativeScopeId;
             yield return StartCoroutine (nextFalse.RunBlock ());
         }
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
-        if (nextBlock != null) {
+        if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
