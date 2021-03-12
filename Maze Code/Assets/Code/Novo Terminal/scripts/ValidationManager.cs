@@ -46,26 +46,37 @@ public class ValidationManager : MonoBehaviour
 
     public List<ResultItem> results;
 
+    public FadeAnimation fa;
+
+    public GameObject loadingAnimation;
+
     public IEnumerator Validate(){
         hasError = false;
         validationMode = true;
         foreach(ResultItem res in results){
+            loadingAnimation.SetActive(true);
             ExecTimeManager.instance.MinExecTime();
             IOManager.instance.inputs = res.input;
             yield return StartCoroutine(ti.RunBlock());
+            Debug.Log("eae");
 
             string outp = IOManager.instance.output;
             if(res.output != outp){
+                TerminalEventManager.instance.resetEvent.Invoke();
                 validationMode = false;
                 hasError = true;
+                loadingAnimation.SetActive(false);
                 wrongWindow.TurnOn();
                 yield break;
             }
             TerminalEventManager.instance.resetEvent.Invoke();
         }
         if(!hasError){
+            loadingAnimation.SetActive(false);
             correctWindow.SetActive(true);
-            yield return new WaitForSeconds(2.0f);
+            validationMode = false;
+            yield return new WaitForSeconds(1.0f);
+            correctWindow.SetActive(false);
             CodeToMaze.instance.ReturnToMaze();
         }
         validationMode = false;
@@ -73,6 +84,5 @@ public class ValidationManager : MonoBehaviour
 
     public void StartValidation(){
         StartCoroutine(Validate());
-
     }
 }

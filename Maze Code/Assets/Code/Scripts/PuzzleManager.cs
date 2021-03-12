@@ -10,7 +10,7 @@ public class PuzzleManager : MonoBehaviour {
     public Text objective;
 
     private void Start () {
-        //puzzle = StaticLoadPuzzle.puzzle;
+        puzzle = StaticLoadPuzzle.puzzle;
         ValidationManager.instance.results = puzzle.tests;
         CodeToMaze.instance.puzzleStatus = puzzle;
         
