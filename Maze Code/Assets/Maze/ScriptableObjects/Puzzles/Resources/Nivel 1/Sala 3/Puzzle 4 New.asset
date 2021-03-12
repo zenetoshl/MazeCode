@@ -35,38 +35,24 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
-    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
-    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
-    = 0;_loopError = null;var a = 0.0;var b = 0.0;var c = 0.0;if(_Dinputs.Count >
-    _j)a = _Dinputs[_j++];if(_Dinputs.Count > _j)b = _Dinputs[_j++];if(_Dinputs.Count
-    > _j)c = _Dinputs[_j++];a = a*2;b = b*3;c = c*5;a = a+b;a = a+c;a = a/10;if(_output.Length
-    >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos caracteres, por favor,
-    confira os loops da sua solu\xE7\xE3o. \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Media ponderada
   objective: Leia 3 valores de ponto flutuante, que sao as tres notas de um aluno.
     A seguir, calcule a media das notas do aluno, sabendo que a nota A tem peso 2,
     a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de
     0 ate 10.
-  inputs:
-  - list:
-    - 1.5
+  tests:
+  - input:
     - 2.0
-    - 3.0
-  - list:
-    - 10.0
-    - 10.0
-    - 10.0
-  - list:
-    - 0.0
-    - 0.0
-    - 0.0
-  - list:
     - 5.0
+    - 7.0
+    output: 5.4
+  - input:
+    - 8.0
     - 4.0
-    - 6.0
-  - list:
-    - 4.0
+    - 9.0
+    output: 7.3
+  - input:
     - 5.0
     - 6.0
+    - 10.0
+    output: 7.8

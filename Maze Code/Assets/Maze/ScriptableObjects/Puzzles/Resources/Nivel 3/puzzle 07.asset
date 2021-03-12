@@ -35,76 +35,28 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
-    null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
-    _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
-    teste(){_loopLimit = 0;var a = 0;var b = 0;if(_inputs.Count > _i)b =  _inputs[_i++];while(b!=2002){
-    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
-    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}a = 0+0;if(_output.Length
-    >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos caracteres, por favor,
-    confira os loops da sua solu\xE7\xE3o. \"; return;}_output += a+ \" \";if(_inputs.Count
-    > _i)b =  _inputs[_i++];}a = 1+0;if(_output.Length >= 1000000) {_loopError =
-    \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
-    \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Senha
   objective: "Escreva um programa que repita a leitura de uma senha at\xE9 que ela
     seja v\xE1lida. Para cada leitura de senha incorreta informada, escrever a mensagem
     \"0 \". Quando a senha for informada corretamente deve ser impressa a mensagem
     \"1\" e o algoritmo encerrado. Considere que a senha correta \xE9 o valor 2002."
-  inputs:
-  - list:
+  tests:
+  - input:
+    - 1342
+    - 5421
     - 2002
-    - 1234
-    - 5555
-    - 3333
-  - list:
-    - 1234
-    - 2342
-    - 1244
+    output: 0\n0\n1
+  - input:
+    - 1345
+    - 2421
+    - 5448
+    - 1342
     - 2002
-    - 1234
-    - 8976
-    - 7000
-    - 4004
-  - list:
-    - 1324
+    output: 0\n0\n0\n0\n1
+  - input:
+    - 1345
     - 2002
-    - 1111
-  - list:
-    - 1245
-    - 4432
-    - 4325
-    - 6454
-    - 4432
-    - 5534
-    - 2345
+    output: 0\n1
+  - input:
     - 2002
-    - 1234
-    - 2355
-    - 3214
-    - 2321
-    - 4322
-    - 3321
-    - 3323
-  - list:
-    - 1234
-    - 2321
-    - 4324
-    - 3213
-    - 2346
-    - 8678
-    - 9877
-    - 7655
-    - 4444
-    - 7777
-    - 5435
-    - 3245
-    - 6546
-    - 1789
-    - 3578
-    - 3456
-    - 2002
-    - 1245
-    - 2467
-    - 4453
+    output: 1

@@ -35,38 +35,18 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
-    null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
-    _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
-    teste(){_loopLimit = 0;var a = 0;if(_inputs.Count > _i)a =  _inputs[_i++];int[]
-    b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};var c = 0;while(c<a){
-    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
-    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}if( c==0 ){b[c] =
-    0+0;}else{if( c==1 ){b[c] = 1+0;}else{var d = 0;var e = 0;d = c-1;e = d-1;b[c]
-    = b[d]+b[e];if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui
-    muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
-    += b[c]+ \" \";c = c+1;}}}}}} "
   objectiveTitle: Fibonacci
   objective: "A seguinte sequ\xEAncia de n\xFAmeros 0 1 1 2 3 5 8 13 21... \xE9 conhecida
     como s\xE9rie de Fibonacci. Nessa sequ\xEAncia, cada n\xFAmero, depois dos 2
     primeiros, \xE9 igual \xE0 soma dos 2 anteriores. Escreva um algoritmo que leia
-    um inteiro N (N < 46) e mostre os N primeiros n\xFAmeros dessa s\xE9rie."
-  inputs:
-  - list:
-    - 1
-  - list:
-    - 7
-  - list:
-    - 14
-  - list:
-    - 10
-  - list:
-    - 20
-  - list:
-    - 38
-  - list:
-    - 49
-  - list:
+    um inteiro N  e mostre os N primeiros n\xFAmeros dessa s\xE9rie."
+  tests:
+  - input:
+    - 5
+    output: 0\n1\n1\n2\n3\n5
+  - input:
     - 9
+    output: 0\n1\n1\n2\n3\n5\n8\n13\n21\n34
+  - input:
+    - 13
+    output: 0\n1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233

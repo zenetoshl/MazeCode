@@ -35,113 +35,26 @@ MonoBehaviour:
   bonusLoopIndefinido: 1
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
-    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
-    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
-    = 0;_loopError = null;var a = 0;int[] b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};for(a = 0 ;a<=29;a++){
-    if(_loopLimit >= 100000){_loopError = \"Seus loops rodaram al\xE9m do limite
-    permitido pelo Mazecode\"; return;} else {_loopLimit += 1;}if(_inputs.Count >
-    _i)b[a] =  _inputs[_i++];if( b[a]<0 ){if(_output.Length >= 1000000) {_loopError
-    = \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua
-    solu\xE7\xE3o. \"; return;}_output += a+ \" \";}}}}} "
   objectiveTitle: "N\xFAmeros negativos"
-  objective: "Fa\xE7a um programa que leia um vetor de tamanho 30. No final, mostre
-    todas as posi\xE7\xF5es do vetor que armazenam um valor menor ou igual a 10 e
-    o valor armazenado em cada uma das posi\xE7\xF5es. Ex: Para uma entrada 0, -5,
-    63 -8, -9... a sa\xEDda ser\xE1 1, 3, 4..."
-  inputs:
-  - list:
-    - 67
-    - 6
-    - 78
-    - 67
-    - 5
-    - -3
-    - 86786
-    - 7
-    - 67
-    - 67
-    - 86
-    - 786
-    - 7
-    - 67
-    - 78
-    - 67
-    - 5
-    - 56
-    - -6
+  objective: "Fa\xE7a um programa que leia um vetor de tamanho N. No final, mostre
+    todos os valores menores ou iguais a 10 Ex: Para uma entrada 0, -5, 63 -8, -9...
+    a sa\xEDda ser\xE1 1, 3, 4..."
+  tests:
+  - input:
     - 4
-    - 64
-    - 4
-    - 4
-    - 5
-    - -1
-    - -2
-    - 46
-    - -3
-    - -4
-    - -5
-  - list:
-    - 31
-    - 32
-    - 546
-    - 5
-    - 78
-    - 5
-    - 5
-    - 678
-    - 8
-    - 4
-    - 53
-    - 6
-    - 78
-    - 8
-    - 5
+    - 14
+    - 85
+    - 20
+    - 3
+    output: 14\n85\n20
+  - input:
+    - 3
     - 12
-    - 35
-    - 7
-    - 7
-    - 94
-    - 56
-    - 567
+    - 11
     - 8
-    - 5
-    - 7
-    - 678
-    - 8
-    - 67
-    - 4
-    - 46
-  - list:
-    - -21
-    - -78
-    - -678
-    - -56
-    - -456
-    - -456
-    - -45
-    - -4
-    - -21
-    - -35
-    - -456
-    - -568
-    - -9
-    - -890
-    - -21
-    - -890
-    - -6
-    - -784
-    - -56
-    - -45
-    - -23
-    - -34
-    - -567
-    - -689
-    - -890
-    - -9
-    - -321
-    - -784
-    - -56
-    - 35
+    output: 12\n11
+  - input:
+    - 2
+    - 1
+    - 15
+    output: 15

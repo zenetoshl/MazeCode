@@ -35,24 +35,19 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
-    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
-    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
-    = 0;_loopError = null;var a = 0;var b = 0;if(_inputs.Count > _i)a =  _inputs[_i++];if(_inputs.Count
-    > _i)b =  _inputs[_i++];a = b*a;if(_output.Length >= 1000000) {_loopError = \"Sua
-    sa\xEDda possui muitos caracteres, por favor, confira os loops da sua solu\xE7\xE3o.
-    \"; return;}_output += a+ \" \";}}} "
   objectiveTitle: Produto Simples
   objective: Leia dois valores inteiros. E a seguir, calcule o produto entre estes
     dois valores e exiba o resultado.
-  inputs:
-  - list:
-    - 132
-    - 4
-  - list:
-    - 3332
-    - 111
-  - list:
-    - 2
+  tests:
+  - input:
     - 5
+    - 6
+    output: 30
+  - input:
+    - 7
+    - 3
+    output: 21
+  - input:
+    - 8
+    - 0
+    output: 0

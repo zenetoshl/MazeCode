@@ -35,38 +35,19 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 1
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;_loopError =
-    null;string _loopError = null; int _i = 0; int _j = 0;string _output = \"\";List<int>
-    _inputs = new List<int>() {}; List<double> _Dinputs = new List<double>() {};void
-    teste(){_loopLimit = 0;var a = 0;int[] b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};if(_inputs.Count
-    > _i)a =  _inputs[_i++];var c = 0;for(c = 0 ;c<=9;c++){ if(_loopLimit >= 100000){_loopError
-    = \"Seus loops rodaram al\xE9m do limite permitido pelo Mazecode\"; return;}
-    else {_loopLimit += 1;}b[c] = a+0;a = a+a;if(_output.Length >= 1000000) {_loopError
-    = \"Sua sa\xEDda possui muitos caracteres, por favor, confira os loops da sua
-    solu\xE7\xE3o. \"; return;}_output += b[c]+ \" \";}}}} "
   objectiveTitle: Vetor
   objective: "Leia um valor e fa\xE7a um programa que coloque o valor lido na primeira
     posi\xE7\xE3o de um vetor de tamanho 10. Em cada posi\xE7\xE3o subsequente, coloque
     o dobro do valor da posi\xE7\xE3o anterior. Por exemplo, se o valor lido for
     1, os valores do vetor devem ser 1,2,4,8 e assim sucessivamente. Mostre o vetor
     em seguida."
-  inputs:
-  - list:
-    - 123
-  - list:
-    - 454
-  - list:
-    - 432
-  - list:
-    - 11
-  - list:
-    - 0
-  - list:
-    - 111
-  - list:
-    - 2121
-  - list:
-    - 3333
-  - list:
-    - -5
+  tests:
+  - input:
+    - 1
+    output: 1\n2\n4\n8\n16\n32\n64\n128\n256\n512
+  - input:
+    - 3
+    output: 3\n6\n12\n24\n48\n96\n192\n384\n768\n1536
+  - input:
+    - 5
+    output: 5\n10\n20\n40\n80\n160\n320\n640\n1280\n2560

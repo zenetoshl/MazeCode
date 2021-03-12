@@ -35,25 +35,16 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  correctCode: "using System;using System.Collections.Generic;using UnityEngine;using
-    System.Text;namespace teste { class MazeCode {int _loopLimit = 0;string _loopError
-    = null; int _i = 0; int _j = 0;string _output = \"\";List<int> _inputs = new
-    List<int>() {}; List<double> _Dinputs = new List<double>() {};void teste(){_loopLimit
-    = 0;_loopError = null;var a = 0.0;if(_Dinputs.Count > _j)a = _Dinputs[_j++];a
-    = a*a;if(_output.Length >= 1000000) {_loopError = \"Sua sa\xEDda possui muitos
-    caracteres, por favor, confira os loops da sua solu\xE7\xE3o. \"; return;}_output
-    += a+ \" \";}}} "
   objectiveTitle: Area do quadrado
   objective: Leia um valor de ponto flutuante que representa o tamanho dos lados
     de um quadrado. A seguir, calcule a area deste quadrado.
-  inputs:
-  - list:
-    - 5.0
-  - list:
-    - 25.0
-  - list:
-    - 1.0
-  - list:
-    - 6.0
-  - list:
-    - 77.0
+  tests:
+  - input:
+    - 2.0
+    output: 4.0
+  - input:
+    - 3.0
+    output: 9.0
+  - input:
+    - 8.0
+    output: 64.0
