@@ -41,6 +41,7 @@ public class ValidationManager : MonoBehaviour
     public bool hasError = false;
     public GameObject correctWindow;
     public LeanWindow wrongWindow;
+    public bool correct = false;
 
     public TerminalInit ti;
 
@@ -52,6 +53,7 @@ public class ValidationManager : MonoBehaviour
 
     public IEnumerator Validate(){
         hasError = false;
+        correct = false;
         validationMode = true;
         foreach(ResultItem res in results){
             loadingAnimation.SetActive(true);
@@ -75,6 +77,7 @@ public class ValidationManager : MonoBehaviour
             loadingAnimation.SetActive(false);
             correctWindow.SetActive(true);
             validationMode = false;
+            correct = true;
             yield return new WaitForSeconds(1.0f);
             correctWindow.SetActive(false);
             CodeToMaze.instance.ReturnToMaze();

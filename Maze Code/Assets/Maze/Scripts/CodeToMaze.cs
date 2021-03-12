@@ -59,8 +59,7 @@ public class CodeToMaze : MonoBehaviour {
     }
 
     public void ReturnToMaze () {
-        if (!puzzleStatus.runtimeValue) {
-            //o puzzle ainda não havia sido completado
+        if (!puzzleStatus.runtimeValue && ValidationManager.instance.correct) {
             TerminalInventoryManager.puzzleDone = puzzleStatus.destravaSala;
             TerminalInventoryManager.done = true;
             puzzleStatus.runtimeValue = true;

@@ -22,7 +22,6 @@ public class TerminalCancelManager : MonoBehaviour
                     }
                 }
             }
-
             return _instance;
         }
     }
