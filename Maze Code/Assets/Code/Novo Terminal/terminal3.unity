@@ -1696,6 +1696,7 @@ MonoBehaviour:
   hasError: 0
   correctWindow: {fileID: 1035778027431817104}
   wrongWindow: {fileID: 610955438}
+  correct: 0
   ti: {fileID: 1783484069}
   results: []
   fa: {fileID: 150043740}
@@ -5757,6 +5758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582051707130275221, guid: d0623a5b14bec8948b6fdf2c75ffc3dd,
+        type: 3}
+      propertyPath: m_HideSoftKeyboard
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0623a5b14bec8948b6fdf2c75ffc3dd, type: 3}

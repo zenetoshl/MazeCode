@@ -25,7 +25,7 @@ public class MazeToCode : Interactable {
     [SerializeField] private PlayerInventory inventory = null;
     [SerializeField] private Puzzle thisPuzzle = null;
 
-    private FadeAnimation fade;
+    public FadeAnimation fade;
 
     public void Awake () {
         /*

@@ -7,10 +7,29 @@ public class FadeAnimation : MonoBehaviour {
     public Animator animator;
     public float duration;
 
-    public static FadeAnimation current = null;
+    static FadeAnimation _instance;
+    public static FadeAnimation current {
+        get {
+            if (!_instance) {
+                //first try to find one in the scene
+                _instance = FindObjectOfType<FadeAnimation> ();
 
+                if (!_instance) {
+                    //if that fails, make a new one
+                    GameObject go = new GameObject ("FadeAnimation");
+                    _instance = go.AddComponent<FadeAnimation> ();
+
+                    if (!_instance) {
+                        //if that still fails, we have a big problem;
+                        Debug.LogError ("Fatal Error: could not create FadeAnimation");
+                    }
+                }
+            }
+
+            return _instance;
+        }
+    }
     private void Start () {
-        current = this;
     }
 
     public void StartAnimationAndLoad (string sceneName) {
