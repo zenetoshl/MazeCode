@@ -19,6 +19,7 @@ public class TerminalInit : TerminalBlocks
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        Debug.Log(TerminalPrint.printText);
         UIManager.ToggleRunMode(false);
         AfterExec();
         yield return null;

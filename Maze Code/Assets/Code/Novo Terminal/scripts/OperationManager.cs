@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 
 public class OperationManager : MonoBehaviour {
     public static string StartOperation (string input, TerminalEnums.varTypes typeOp, int scope) {
@@ -185,10 +186,10 @@ public class OperationManager : MonoBehaviour {
             else return "";
         } else
         if (typeOp == TerminalEnums.varTypes.Int) {
-            return CalculateInt (Convert.ToInt32 (double.Parse (items[0])), items[1], Convert.ToInt32 (double.Parse (items[2])));
+            return CalculateInt (Convert.ToInt32 (double.Parse (items[0], CultureInfo.InvariantCulture)), items[1], Convert.ToInt32 (double.Parse (items[2], CultureInfo.InvariantCulture)));
         } else
         if (typeOp == TerminalEnums.varTypes.Double) {
-            return CalculateDouble (double.Parse (items[0]), items[1], double.Parse (items[2]));
+            return CalculateDouble (double.Parse (items[0], CultureInfo.InvariantCulture), items[1], double.Parse (items[2], CultureInfo.InvariantCulture));
         } else {
             return items[0] + " " + items[2];
         }
@@ -217,42 +218,42 @@ public class OperationManager : MonoBehaviour {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = "False";
             } else {
-                solution = BoolToString (double.Parse (var1) > double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) > double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == "<") {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = "False";
             } else {
-                solution = BoolToString (double.Parse (var1) < double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) < double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == ">=") {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = "False";
             } else {
-                solution = BoolToString (double.Parse (var1) >= double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) >= double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == "<=") {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = "False";
             } else {
-                solution = BoolToString (double.Parse (var1) <= double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) <= double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == "==") {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = BoolToString (var1 == var2);
             } else {
-                solution = BoolToString (double.Parse (var1) == double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) == double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == "!=") {
             if (var1[0] == '\"' || var2[0] == '\"') {
                 solution = BoolToString (var1 != var2);
             } else {
-                solution = BoolToString (double.Parse (var1) != double.Parse (var2));
+                solution = BoolToString (double.Parse (var1, CultureInfo.InvariantCulture) != double.Parse (var2, CultureInfo.InvariantCulture));
             }
         }
         if (op == "&&") {
