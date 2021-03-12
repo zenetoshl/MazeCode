@@ -20,7 +20,6 @@ public class FadeAnimation : MonoBehaviour {
 
     public void StartAnimationAndLoadAsync (string sceneName) {
         LoadAndAnimateAsync (sceneName);
-
     }
 
     private void LoadAndAnimate (string sceneName) {

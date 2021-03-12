@@ -23,11 +23,11 @@ public abstract class WindowPad : MonoBehaviour {
     public abstract string[] ReplaceAt (string[] arr, string item, int i);
 
     public bool CheckOperation(){
-        int i = operation.Length;
+        int i = operation.Length - 1;
         if(operation[i] == "+" || operation[i] == "-" || operation[i] == "*" || operation[i] == "/" || operation[i] == "%" || operation[i] == ">" || operation[i] == "<" || operation[i] == ">=" || operation[i] == "<=" || operation[i] == "==" || operation[i] == "!=" || operation[i] == "&&" || operation[i] == "||"){
             return false;        
         }
-        for (int j = 0; j < operation.Length - 1; j++) {
+        for (int j = 0; j < operation.Length - 2; j++) {
             if(operation[j] == "+" || operation[j] == "-" || operation[j] == "*" || operation[j] == "/" || operation[j] == "%" || operation[j] == ">" || operation[j] == "<" || operation[j] == ">=" || operation[j] == "<=" || operation[j] == "==" || operation[j] == "!=" || operation[j] == "&&" || operation[j] == "||"){
             j = j + 1;
                 if(operation[j] == "+" || operation[j] == "-" || operation[j] == "*" || operation[j] == "/" || operation[j] == "%" || operation[j] == ">" || operation[j] == "<" || operation[j] == ">=" || operation[j] == "<=" || operation[j] == "==" || operation[j] == "!=" || operation[j] == "&&" || operation[j] == "||"){
