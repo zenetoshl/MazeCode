@@ -17,7 +17,7 @@ public class Sign : Interactable
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(joybutton.Pressed && playerInRange)
         {
