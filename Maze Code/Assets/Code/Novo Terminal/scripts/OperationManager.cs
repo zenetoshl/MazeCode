@@ -15,6 +15,7 @@ public class OperationManager : MonoBehaviour {
         bool begin = true;
         bool found = false;
         int beginVarName = -1;
+        Debug.Log(input);
         for (int i = 0; i < input.Length; i++) {
             if (input[i] == '!' || input[i] == '(' || input[i] == ' ' || input[i] == ')' || i == input.Length - 1) {
                 begin = true;
@@ -73,6 +74,7 @@ public class OperationManager : MonoBehaviour {
                     continue;
         }
         // Ensure all brackets are closed
+        Debug.Log(typeOp);
         if (typeOp == TerminalEnums.varTypes.Bool) {
             return ResolveBoolOp (input, typeOp);
         } else {
@@ -308,17 +310,17 @@ public class OperationManager : MonoBehaviour {
 
     static string CalculateDouble (double var1, string op, double var2) {
         if (op == "*") {
-            return Convert.ToString (var1 * var2);
+            return Convert.ToString (var1 * var2,  CultureInfo.InvariantCulture);
         }
         if (op == "/") {
-            return Convert.ToString (var1 / var2);
+            return Convert.ToString (var1 / var2,  CultureInfo.InvariantCulture);
         }
         if (op == "%") {
-            return Convert.ToString (var1 % var2);
+            return Convert.ToString (var1 % var2,  CultureInfo.InvariantCulture);
         }
         if (op == "+") {
-            return Convert.ToString (var1 + var2);
+            return Convert.ToString (var1 + var2,  CultureInfo.InvariantCulture);
         }
-        return Convert.ToString (var1 - var2);
+        return Convert.ToString (var1 - var2,  CultureInfo.InvariantCulture);
     }
 }

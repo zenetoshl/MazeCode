@@ -30,6 +30,8 @@ public class TerminalArray : TerminalBlocks {
         type = GetType(oldType);
     }
     public override IEnumerator RunBlock () {
+        MarkExec();
+        newType = GetNewType(oldType);
         st.symbolTable[scopeId].CreateVar (name, CreateInitArray (GetInitValue (newType), sizex), newType, sizex);
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         //call Next

@@ -30,6 +30,7 @@ public class TerminalVar : TerminalBlocks {
     public override IEnumerator RunBlock () {
         Debug.Log("Inicializando " + name + "...");
         MarkExec();
+        newType = GetNewType(oldType);
         st.symbolTable[scopeId].CreateVar (name, GetInitValue (newType), newType);
         yield return new WaitForSeconds(ExecTimeManager.instance.execTime);
         if (nextBlock != null  && !TerminalCancelManager.instance.cancel) {
