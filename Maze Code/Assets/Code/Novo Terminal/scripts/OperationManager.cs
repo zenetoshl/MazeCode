@@ -38,9 +38,20 @@ public class OperationManager : MonoBehaviour {
             } else if ((input[i] <= 'z' && input[i] >= 'a') && begin) {
                 found = true;
                 beginVarName = i;
+                
+                    Debug.Log("achou um");
+                if(i == input.Length - 1){
+                    Debug.Log("entrou");
+                        found = true;
+                        input = ReplaceOp (input, beginVarName, i - beginVarName, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName + 1), scope));
+                        i = 0;
+                        continue;
+                }
             }
+            Debug.Log(input[i]);
             begin = false;
         }
+        Debug.Log(input);
         return input;
     }
 
@@ -215,6 +226,8 @@ public class OperationManager : MonoBehaviour {
     }
 
     static string CalculateBool (string var1, string op, string var2) {
+        Debug.Log(var1);
+        Debug.Log(var2);
         string solution = "True";
         if (op == ">") {
             if (var1[0] == '\"' || var2[0] == '\"') {

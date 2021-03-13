@@ -13,7 +13,7 @@ public class BooleanPad : WindowPad {
     }
 
     public override void InsertToOperation (string charPut) {
-        if (!isNumber && charPut == ",") return;
+        if (!isNumber && charPut == ".") return;
         Debug.Log (index);
         Debug.Log (operation);
         if (charPut == "!") {
@@ -90,9 +90,9 @@ public class BooleanPad : WindowPad {
             hasComma = false;
         } else if (IsNumber (charPut)) {
             if (isNumber) {
-                if (hasComma && charPut == ",") {
+                if (hasComma && charPut == ".") {
                     return;
-                } else if (!hasComma && charPut == ",") {
+                } else if (!hasComma && charPut == ".") {
                     hasComma = true;
                 }
                 bufferString = bufferString + charPut;
@@ -137,7 +137,7 @@ public class BooleanPad : WindowPad {
             bufferString = charPut;
             operation = InsertAt (operation, bufferString, index);
         }
-        operationText.text = operation.Join (" ");
+        operationText.text = operation.Join (" ") + " ";
     }
 
     public override void Clear () {
@@ -178,7 +178,7 @@ public class BooleanPad : WindowPad {
         hasComma = false;
         bufferString = "";
         index = index - 1;
-        operationText.text = operation.Join (" ");
+        operationText.text = operation.Join (" ") + " ";
     }
 
     private int FindClosingBrackets (int ind) {
@@ -255,7 +255,7 @@ public class BooleanPad : WindowPad {
             case "7":
             case "8":
             case "9":
-            case ",":
+            case ".":
                 return true;
             default:
                 return false;
