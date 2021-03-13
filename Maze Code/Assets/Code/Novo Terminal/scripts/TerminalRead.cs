@@ -33,6 +33,7 @@ public class TerminalRead : TerminalBlocks
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        
         AfterExec();
         yield return null;
     }

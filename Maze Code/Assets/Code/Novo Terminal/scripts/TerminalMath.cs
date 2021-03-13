@@ -40,7 +40,9 @@ public class TerminalMath : TerminalBlocks
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
+        Debug.Log("Reposta " + result);
         AfterExec();
+        Debug.Log("Reposta " + result);
         yield return null;
     }
     public override void ToUI (){
