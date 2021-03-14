@@ -109,6 +109,7 @@ public class SymbolTable : MonoBehaviour {
         }
 
         public string GetVarValue (string name) {
+            Debug.Log(name);
             try {
                 Symbol s = scope[name];
                 if(s != null)
@@ -163,6 +164,7 @@ public class SymbolTable : MonoBehaviour {
         }
 
         public bool SetVarValue (string name, string value, int i) {
+            Debug.Log(name);
             try {
                 Symbol s = scope[name];
                 if (s.varStructure == TerminalEnums.varStructure.Array && s.sizex >= 0) {
@@ -213,11 +215,8 @@ public class SymbolTable : MonoBehaviour {
 
     private void Awake () {
         instance = this;
-        Reset();
-    }
-
-    private void Start() {
         TerminalEventManager.instance.resetEvent.AddListener(Reset);
+        Reset();
     }
 
     public void Reset(){
@@ -306,11 +305,7 @@ public class SymbolTable : MonoBehaviour {
 
     public bool SetVarValue (string name, string value, int startScope) {
         int searchScope = startScope;
-        Debug.Log("-----------------");
-        PrintSymbolTable();
-        Debug.Log(name);
-        Debug.Log(startScope);
-        while (searchScope >= 0 && symbolTable.Count > searchScope) {
+        while (searchScope >= 0) {
             if (symbolTable[searchScope].SetVarValue (name, value)) {
                 return true;
             } else searchScope = symbolTable[searchScope].parent;
