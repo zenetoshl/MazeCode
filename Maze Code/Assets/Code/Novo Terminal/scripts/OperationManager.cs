@@ -87,9 +87,9 @@ public class OperationManager : MonoBehaviour {
         // Ensure all brackets are closed
         Debug.Log(typeOp);
         if (typeOp == TerminalEnums.varTypes.Bool) {
-            return ResolveBoolOp (input, typeOp);
+            return RemoveSpaces(ResolveBoolOp (input, typeOp));
         } else {
-            return ResolveOp (input, typeOp);
+            return RemoveSpaces(ResolveOp (input, typeOp));
         }
 
     }
