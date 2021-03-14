@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 8
   objetivo: 
   initialValue: 0
-  runtimeValue: 1
+  runtimeValue: 0
   variavel: 3
   leitura: 2
   imprime: 1
@@ -39,14 +39,14 @@ MonoBehaviour:
   objective: Leia 2 valores float A e B. e imprima o maior deles.
   tests:
   - input:
-    - 5.1
+    - 5.2
     - 3.7
-    output: '5.1 '
+    output: 5.2
   - input:
-    - 1.5
-    - 1.6
-    output: '1.6 '
+    - 2.2
+    - 3.4
+    output: 3.4
   - input:
     - 2.5
     - 9.3
-    output: '9.3 '
+    output: 9.3
