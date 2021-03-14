@@ -35,27 +35,21 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  objectiveTitle: Maior valor
-  objective: "Leia N valores inteiros. Apresente ent\xE3o o maior valor lido."
+  objectiveTitle: menor valor
+  objective: "Leia 3 valores inteiros. Apresente ent\xE3o o menor valor lido."
   tests:
   - input:
-    - 4
     - 1
-    - 3
-    - 7
-    - 2
-    output: 7
-  - input:
-    - 2
-    - 8
-    - 7
-    output: 8
-  - input:
-    - 6
-    - 7
     - 3
     - 5
-    - 12
-    - 11
+    output: 1
+  - input:
+    - 8
+    - 2
+    - 7
+    output: 2
+  - input:
+    - 6
     - 1
-    output: 12
+    - 1
+    output: 1
