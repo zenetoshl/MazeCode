@@ -29,20 +29,17 @@ public class TerminalIf : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
-        if (!isScopeCreated) {
-            trueAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
-            falseAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
-            isScopeCreated = true;
-        }
+        trueAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
+        falseAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
         MarkExec();
 
         bool resp = OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, scopeId) == "True";
         uiText.text = "" + resp;
 
-        if (nextTrue != null && resp  && !TerminalCancelManager.instance.cancel) {
+        if (nextTrue != null && !resp  && !TerminalCancelManager.instance.cancel) {
             nextTrue.scopeId = trueAlternativeScopeId;
             yield return StartCoroutine (nextTrue.RunBlock ());
-        } else if (nextFalse != null && !resp  && !TerminalCancelManager.instance.cancel) {
+        } else if (nextFalse != null && resp  && !TerminalCancelManager.instance.cancel) {
             nextFalse.scopeId = falseAlternativeScopeId;
             yield return StartCoroutine (nextFalse.RunBlock ());
         }
