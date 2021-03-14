@@ -12,42 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 17
   m_EditorClassIdentifier: 
-  naSala: 16
-  destravaSala: 17
+  naSala: 4
+  destravaSala: 9
   objetivo: 
   initialValue: 0
-  runtimeValue: 0
-  variavel: 2
+  runtimeValue: 1
+  variavel: 3
   leitura: 1
-  imprime: 1
-  matematica: 2
-  condicional: 0
+  imprime: 2
+  matematica: 3
+  condicional: 2
   loopDefinido: 1
   loopIndefinido: 0
-  vetor: 1
+  vetor: 0
   matriz: 0
-  bonusVariavel: 2
+  bonusVariavel: 1
   bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 2
+  bonusMatematica: 1
   bonusCondicional: 0
   bonusLoopDefinido: 1
   bonusLoopIndefinido: 0
-  bonusVetor: 1
+  bonusVetor: 0
   bonusMatriz: 0
-  objectiveTitle: Vetor
-  objective: "Leia um valor e fa\xE7a um programa que coloque o valor lido na primeira
-    posi\xE7\xE3o de um vetor de tamanho 10. Em cada posi\xE7\xE3o subsequente, coloque
-    o dobro do valor da posi\xE7\xE3o anterior. Por exemplo, se o valor lido for
-    1, os valores do vetor devem ser 1,2,4,8 e assim sucessivamente. Mostre o vetor
-    em seguida."
+  objectiveTitle: Maior valor
+  objective: "Leia N valores inteiros. Apresente ent\xE3o o maior valor lido."
   tests:
   - input:
+    - 4
     - 1
-    output: 1\n2\n4\n8\n16\n32\n64\n128\n256\n512
-  - input:
     - 3
-    output: 3\n6\n12\n24\n48\n96\n192\n384\n768\n1536
+    - 7
+    - 2
+    output: '7 '
   - input:
+    - 2
+    - 8
+    - 7
+    output: '8 '
+  - input:
+    - 6
+    - 7
+    - 3
     - 5
-    output: 5\n10\n20\n40\n80\n160\n320\n640\n1280\n2560
+    - 12
+    - 11
+    - 1
+    output: 12

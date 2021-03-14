@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 12
   objetivo: 
   initialValue: 0
-  runtimeValue: 0
+  runtimeValue: 1
   variavel: 5
   leitura: 4
   imprime: 1
@@ -44,28 +44,28 @@ MonoBehaviour:
     - -24
     - -43
     - -17
-    output: 0
+    output: '0 '
   - input:
     - 45
     - -24
     - -43
     - -17
-    output: 1
+    output: '1 '
   - input:
     - -45
     - -24
     - 43
     - 17
-    output: 2
+    output: '2 '
   - input:
     - 45
     - 24
     - 43
     - -17
-    output: 3
+    output: '3 '
   - input:
     - 45
     - 24
     - 43
     - 17
-    output: 4
+    output: '4 '

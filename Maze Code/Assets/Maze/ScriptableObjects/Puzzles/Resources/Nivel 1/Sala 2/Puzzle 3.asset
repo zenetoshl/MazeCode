@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 3
   objetivo: Descricao do objetivo que sera exibida no Terminal
   initialValue: 0
-  runtimeValue: 0
+  runtimeValue: 1
   variavel: 1
   leitura: 1
   imprime: 1
@@ -41,10 +41,10 @@ MonoBehaviour:
   tests:
   - input:
     - 2.1
-    output: 4.41
+    output: '4.41 '
   - input:
     - 3.1
-    output: 9.61
+    output: '9.61 '
   - input:
     - 8.1
-    output: 65.61
+    output: '65.61 '

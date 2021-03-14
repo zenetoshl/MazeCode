@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 1
   objetivo: da no Terminalbjetivo que sera exibida no Terminal
   initialValue: 0
-  runtimeValue: 0
+  runtimeValue: 1
   variavel: 2
   leitura: 2
   imprime: 1
@@ -42,12 +42,12 @@ MonoBehaviour:
   - input:
     - 10
     - 20
-    output: 30
+    output: '30 '
   - input:
     - 10
     - 10
-    output: 20
+    output: '20 '
   - input:
     - 123
     - 321
-    output: 444
+    output: '444 '

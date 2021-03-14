@@ -16,7 +16,7 @@ MonoBehaviour:
   destravaSala: 8
   objetivo: 
   initialValue: 0
-  runtimeValue: 0
+  runtimeValue: 1
   variavel: 3
   leitura: 2
   imprime: 1
@@ -35,23 +35,18 @@ MonoBehaviour:
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  objectiveTitle: "N\xFAmeros Multiplos"
-  objective: "Leia 2 valores inteiros A e B. Ap\xF3s, imprima \"1\" caso A e B sejam
-    multiplos e \"0\" caso n\xE3o sejam."
+  objectiveTitle: Maior
+  objective: Leia 2 valores float A e B. e imprima o maior deles.
   tests:
   - input:
-    - 2
-    - 3
-    output: 3
+    - 5.1
+    - 3.7
+    output: '5.1 '
   - input:
-    - 15
-    - 5
-    output: 1
+    - 1.5
+    - 1.6
+    output: '1.6 '
   - input:
-    - 2
-    - 9
-    output: 0
-  - input:
-    - 3
-    - 16
-    output: 0
+    - 2.5
+    - 9.3
+    output: '9.3 '

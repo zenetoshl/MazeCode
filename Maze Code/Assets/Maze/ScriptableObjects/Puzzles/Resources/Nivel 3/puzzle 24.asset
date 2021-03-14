@@ -12,41 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 24
   m_EditorClassIdentifier: 
-  naSala: 23
-  destravaSala: 22
+  naSala: 1
+  destravaSala: 6
   objetivo: 
   initialValue: 0
   runtimeValue: 0
   variavel: 3
   leitura: 1
-  imprime: 1
+  imprime: 2
   matematica: 3
-  condicional: 2
-  loopDefinido: 0
-  loopIndefinido: 1
+  condicional: 0
+  loopDefinido: 1
+  loopIndefinido: 0
   vetor: 1
   matriz: 0
-  bonusVariavel: 3
-  bonusLeitura: 1
+  bonusVariavel: 1
+  bonusLeitura: 2
   bonusImprime: 1
-  bonusMatematica: 2
+  bonusMatematica: 4
   bonusCondicional: 0
   bonusLoopDefinido: 1
-  bonusLoopIndefinido: 0
-  bonusVetor: 0
+  bonusLoopIndefinido: 1
+  bonusVetor: 1
   bonusMatriz: 0
-  objectiveTitle: Fibonacci
-  objective: "A seguinte sequ\xEAncia de n\xFAmeros 0 1 1 2 3 5 8 13 21... \xE9 conhecida
-    como s\xE9rie de Fibonacci. Nessa sequ\xEAncia, cada n\xFAmero, depois dos 2
-    primeiros, \xE9 igual \xE0 soma dos 2 anteriores. Escreva um algoritmo que leia
-    um inteiro N  e mostre os N primeiros n\xFAmeros dessa s\xE9rie."
+  objectiveTitle: Quadrado dos Impares
+  objective: "Leia um valor inteiro N. Apresente o quadrado de cada um dos valores
+    impares de 1 at\xE9 N, inclusive N, se for o caso."
   tests:
   - input:
+    - 4
+    - 1
+    - 2
+    - 3
+    - 4
+    output: '1 \n9 '
+  - input:
     - 5
-    output: 0\n1\n1\n2\n3\n5
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    output: '1 \n9 \n25 '
   - input:
-    - 9
-    output: 0\n1\n1\n2\n3\n5\n8\n13\n21\n34
-  - input:
-    - 13
-    output: 0\n1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233
+    - 2
+    - 1
+    - 2
+    output: '1 '

@@ -12,51 +12,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 07
   m_EditorClassIdentifier: 
-  naSala: 6
-  destravaSala: 7
+  naSala: 20
+  destravaSala: 24
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 2
-  leitura: 2
-  imprime: 2
-  matematica: 0
-  condicional: 0
+  variavel: 3
+  leitura: 1
+  imprime: 1
+  matematica: 2
+  condicional: 1
   loopDefinido: 0
   loopIndefinido: 1
   vetor: 0
   matriz: 0
   bonusVariavel: 2
-  bonusLeitura: 1
-  bonusImprime: 1
+  bonusLeitura: 2
+  bonusImprime: 2
   bonusMatematica: 2
-  bonusCondicional: 1
-  bonusLoopDefinido: 1
-  bonusLoopIndefinido: 0
-  bonusVetor: 0
+  bonusCondicional: 2
+  bonusLoopDefinido: 2
+  bonusLoopIndefinido: 2
+  bonusVetor: 1
   bonusMatriz: 0
-  objectiveTitle: Senha
-  objective: "Escreva um programa que repita a leitura de uma senha at\xE9 que ela
-    seja v\xE1lida. Para cada leitura de senha incorreta informada, escrever a mensagem
-    \"0 \". Quando a senha for informada corretamente deve ser impressa a mensagem
-    \"1\" e o algoritmo encerrado. Considere que a senha correta \xE9 o valor 2002."
+  objectiveTitle: Quadrado de pares
+  objective: "lusive N, se for o caso. Apresente o quadrado de cada um dos valores
+    pares, de 1 at\xE9 N, inclusive N, se for o caso."
   tests:
   - input:
-    - 1342
-    - 5421
-    - 2002
-    output: 0\n0\n1
+    - 4
+    - 1
+    - 2
+    - 3
+    - 4
+    output: '4 \n16 '
   - input:
-    - 1345
-    - 2421
-    - 5448
-    - 1342
-    - 2002
-    output: 0\n0\n0\n0\n1
+    - 5
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    output: '4 \n16 '
   - input:
-    - 1345
-    - 2002
-    output: 0\n1
+    - 6
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    output: '4 \n16 \n36 '
   - input:
-    - 2002
-    output: 1
+    - 2
+    - 1
+    - 2
+    output: '4 '
