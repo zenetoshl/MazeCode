@@ -56,7 +56,7 @@ public class SymbolTable : MonoBehaviour {
             try {
                 scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Variable));
                 return true;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Variable);
                 return true;
             }
@@ -67,7 +67,7 @@ public class SymbolTable : MonoBehaviour {
             try {
                 scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Array, i));
                 return true;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Array, i);
                 return true;
             }
@@ -78,7 +78,7 @@ public class SymbolTable : MonoBehaviour {
             try {
                 scope.Add (name, new Symbol (value, type, TerminalEnums.varStructure.Matrix, i, j));
                 return true;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 scope[name] = new Symbol (value, type, TerminalEnums.varStructure.Matrix, i, j);
                 return true;
             }
@@ -90,7 +90,7 @@ public class SymbolTable : MonoBehaviour {
             try {
                 scope[name].varValue = value;
                 return true;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return false;
             }
@@ -101,7 +101,7 @@ public class SymbolTable : MonoBehaviour {
             try {
                 Symbol s = scope[name];
                 return s.varType;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return TerminalEnums.varTypes.Null;
             }
@@ -109,12 +109,13 @@ public class SymbolTable : MonoBehaviour {
         }
 
         public string GetVarValue (string name) {
+            Debug.Log(name);
             try {
                 Symbol s = scope[name];
                 if(s != null)
                 if (s.varStructure == TerminalEnums.varStructure.Variable)
                     return s.varValue;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return null;
             }
@@ -128,7 +129,7 @@ public class SymbolTable : MonoBehaviour {
                     string[] splited = s.varValue.Split (',');
                     return splited[i];
                 }
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return null;
             }
@@ -142,7 +143,7 @@ public class SymbolTable : MonoBehaviour {
                     string[] splited = s.varValue.Split (',');
                     return splited[(i * s.sizex) + j];
                 }
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return null;
             }
@@ -155,7 +156,7 @@ public class SymbolTable : MonoBehaviour {
                 if (s.varStructure == TerminalEnums.varStructure.Variable)
                     ModifyVarValue(name, value);
                     return true;
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return false;
             }
@@ -173,7 +174,7 @@ public class SymbolTable : MonoBehaviour {
                     ModifyVarValue(name, newArr);
                     return true;
                 }
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return false;
             }
@@ -190,7 +191,7 @@ public class SymbolTable : MonoBehaviour {
                     ModifyVarValue(name, newArr);
                     return true;
                 }
-            } catch (ArgumentException) {
+            } catch (Exception) {
                 Debug.Log ("var not found");
                 return false;
             }
@@ -271,7 +272,7 @@ public class SymbolTable : MonoBehaviour {
 
     public string GetVarValue (string name, int startScope) {
         int searchScope = startScope;
-        while (searchScope >= 0) {
+        while (searchScope >= 0 && symbolTable.Count > searchScope) {
             string s = symbolTable[searchScope].GetVarValue (name);
             if (s != null) {
                 return s;
@@ -282,7 +283,7 @@ public class SymbolTable : MonoBehaviour {
 
     public string GetVarValue (string name, int startScope, int i) {
         int searchScope = startScope;
-        while (searchScope >= 0) {
+        while (searchScope >= 0 && symbolTable.Count > searchScope) {
             string s = symbolTable[searchScope].GetVarValue (name, i);
             if (s != null) {
                 return s;

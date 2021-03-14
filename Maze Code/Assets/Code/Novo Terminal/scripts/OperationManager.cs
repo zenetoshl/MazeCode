@@ -35,7 +35,7 @@ public class OperationManager : MonoBehaviour {
                     }
                 }
                 continue;
-            } else if ((input[i] <= 'z' && input[i] >= 'a') && begin) {
+            } else if (((input[i] <= 'z' && input[i] >= 'a') || (input[i] <= 'Z' && input[i] >= 'A')) && begin) {
                 found = true;
                 beginVarName = i;
                 

@@ -102,7 +102,7 @@ public class BooleanPad : WindowPad {
                 hasComma = false;
                 index = index + 1;
                 if (index > 0) {
-                    if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                    if (!IsOp (operation[index - 1]) && !IsBoolOp (operation[index - 1]) && !(operation[index - 1] == "(")) {
                         if (index >= 2) {
                             if (IsBoolOp (operation[index - 2])) {
                                 operation = InsertAt (operation, "==", index);
@@ -112,6 +112,10 @@ public class BooleanPad : WindowPad {
                                 index = index + 1;
                             }
                         }
+                        else {
+                                operation = InsertAt (operation, "==", index);
+                                index = index + 1;
+                            }
                     }
                 }
                 bufferString = charPut;
@@ -122,7 +126,7 @@ public class BooleanPad : WindowPad {
             hasComma = false;
             index = index + 1;
             if (index > 0) {
-                if (!(IsOp (operation[index - 1]) || IsBoolOp (operation[index - 1])) && !(operation[index - 1] == "(")) {
+                if (!IsOp (operation[index - 1]) && !IsBoolOp (operation[index - 1]) && !(operation[index - 1] == "(")) {
                     if (index >= 2) {
                         if (IsBoolOp (operation[index - 2])) {
                             operation = InsertAt (operation, "==", index);
@@ -132,6 +136,10 @@ public class BooleanPad : WindowPad {
                             index = index + 1;
                         }
                     }
+                        else {
+                                operation = InsertAt (operation, "==", index);
+                                index = index + 1;
+                            }
                 }
             }
             bufferString = charPut;
