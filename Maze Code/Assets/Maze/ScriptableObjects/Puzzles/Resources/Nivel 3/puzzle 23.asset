@@ -12,50 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 23
   m_EditorClassIdentifier: 
-  naSala: 1
-  destravaSala: 6
+  naSala: 24
+  destravaSala: 23
   objetivo: 
   initialValue: 0
   runtimeValue: 0
-  variavel: 3
+  variavel: 1
   leitura: 1
-  imprime: 2
-  matematica: 3
-  condicional: 0
+  imprime: 1
+  matematica: 0
+  condicional: 1
   loopDefinido: 1
   loopIndefinido: 0
   vetor: 1
   matriz: 0
-  bonusVariavel: 1
+  bonusVariavel: 2
   bonusLeitura: 2
   bonusImprime: 1
-  bonusMatematica: 4
-  bonusCondicional: 0
-  bonusLoopDefinido: 1
+  bonusMatematica: 1
+  bonusCondicional: 1
+  bonusLoopDefinido: 0
   bonusLoopIndefinido: 1
-  bonusVetor: 1
+  bonusVetor: 0
   bonusMatriz: 0
-  objectiveTitle: Quadrado dos Impares
-  objective: "Leia um valor inteiro N. Apresente o quadrado de cada um dos valores
-    impares de 1 at\xE9 N, inclusive N, se for o caso."
+  objectiveTitle: "N\xFAmeros negativos"
+  objective: "Fa\xE7a um programa que leia um vetor de tamanho N. No final, mostre
+    todos os valores menores ou iguais a 10 Ex: Para uma entrada 0, -5, 63 -8, -9...
+    a sa\xEDda ser\xE1 1, 3, 4..."
   tests:
   - input:
     - 4
-    - 1
-    - 2
+    - 14
+    - 85
+    - 20
     - 3
-    - 4
-    output: 1\n9
+    output: '14 \n85 \n20 '
   - input:
-    - 5
-    - 1
-    - 2
     - 3
-    - 4
-    - 5
-    output: 1\n9\n25
+    - 12
+    - 11
+    - 8
+    output: '12 \n11 '
   - input:
     - 2
     - 1
-    - 2
-    output: 1
+    - 15
+    output: '15 '

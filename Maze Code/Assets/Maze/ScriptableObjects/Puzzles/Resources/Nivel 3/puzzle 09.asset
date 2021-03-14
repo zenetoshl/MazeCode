@@ -12,50 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f768583a11089047bd2568f64998970, type: 3}
   m_Name: puzzle 09
   m_EditorClassIdentifier: 
-  naSala: 4
-  destravaSala: 9
+  naSala: 6
+  destravaSala: 7
   objetivo: 
   initialValue: 0
-  runtimeValue: 0
-  variavel: 3
-  leitura: 1
+  runtimeValue: 1
+  variavel: 2
+  leitura: 2
   imprime: 2
-  matematica: 3
-  condicional: 2
-  loopDefinido: 1
-  loopIndefinido: 0
+  matematica: 0
+  condicional: 0
+  loopDefinido: 0
+  loopIndefinido: 1
   vetor: 0
   matriz: 0
-  bonusVariavel: 1
+  bonusVariavel: 2
   bonusLeitura: 1
   bonusImprime: 1
-  bonusMatematica: 1
-  bonusCondicional: 0
+  bonusMatematica: 2
+  bonusCondicional: 1
   bonusLoopDefinido: 1
   bonusLoopIndefinido: 0
   bonusVetor: 0
   bonusMatriz: 0
-  objectiveTitle: Maior valor
-  objective: "Leia N valores inteiros. Apresente ent\xE3o o maior valor lido."
+  objectiveTitle: Senha
+  objective: "Escreva um programa que repita a leitura de uma senha at\xE9 que ela
+    seja v\xE1lida. Para cada leitura de senha incorreta informada, escrever a mensagem
+    \"0 \". Quando a senha for informada corretamente deve ser impressa a mensagem
+    \"2002\" e o algoritmo encerrado. Considere que a senha correta \xE9 o valor
+    2002."
   tests:
   - input:
-    - 4
-    - 1
-    - 3
-    - 7
-    - 2
-    output: 7
+    - 1342
+    - 5421
+    - 2002
+    output: '0 \n0 \n2002 '
   - input:
-    - 2
-    - 8
-    - 7
-    output: 8
+    - 1345
+    - 2421
+    - 5448
+    - 1342
+    - 2002
+    output: '0 \n0 \n0 \n0 \n2002 '
   - input:
-    - 6
-    - 7
-    - 3
-    - 5
-    - 12
-    - 11
-    - 1
-    output: 12
+    - 1345
+    - 2002
+    output: '0 \n2002 '
+  - input:
+    - 2002
+    output: '2002 '
