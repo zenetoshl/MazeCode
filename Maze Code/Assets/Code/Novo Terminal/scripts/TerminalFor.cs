@@ -33,10 +33,9 @@ public class TerminalFor : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
-        if (!isScopeCreated) {
             alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             isScopeCreated = true;
-        }
+        
         MarkExec();
         if (alternativeBlock != null) {
             SymbolTable st = SymbolTable.instance;

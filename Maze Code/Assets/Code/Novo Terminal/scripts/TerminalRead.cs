@@ -9,12 +9,14 @@ public class TerminalRead : TerminalBlocks
     public string varName;
 
     private Var_Vet_Mat var;
+    private string saveVarName;
 
     private void Start() {
         var = window.transform.Find ("Panel/var_vet_mat").GetComponent<Var_Vet_Mat> ();
     }
 
     public override IEnumerator RunBlock(){
+        saveVarName = varName;
         SymbolTable st = SymbolTable.instance;
         MarkExec();
         if(ValidationManager.instance.validationMode){
@@ -33,7 +35,7 @@ public class TerminalRead : TerminalBlocks
             nextBlock.scopeId = scopeId;
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
-        
+        varName = saveVarName;
         AfterExec();
         yield return null;
     }

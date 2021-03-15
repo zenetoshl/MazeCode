@@ -1596,7 +1596,6 @@ GameObject:
   - component: {fileID: 652120967}
   - component: {fileID: 652120969}
   - component: {fileID: 652120968}
-  - component: {fileID: 652120970}
   - component: {fileID: 652120971}
   - component: {fileID: 652120972}
   - component: {fileID: 652120974}
@@ -1701,21 +1700,6 @@ MonoBehaviour:
   results: []
   fa: {fileID: 150043740}
   loadingAnimation: {fileID: 1465158675}
---- !u!114 &652120970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652120963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c36c00c370dea34ca1fdf9e65c3557f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzle: {fileID: 11400000, guid: 2264f909ac9d3e04bb02cc3081e913e2, type: 2}
-  objectiveTitle: {fileID: 1814289750}
-  objective: {fileID: 2020945131}
 --- !u!114 &652120971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,7 +1737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c36c00c370dea34ca1fdf9e65c3557f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 11400000, guid: cef5b130b8d8d2d4fb043aaeb4d74ca8, type: 2}
   objectiveTitle: {fileID: 1814289750}
   objective: {fileID: 2020945131}
 --- !u!1 &698249837

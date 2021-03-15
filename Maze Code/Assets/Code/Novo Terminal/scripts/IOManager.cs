@@ -36,9 +36,11 @@ public class IOManager : MonoBehaviour
     
 
     public void Write(string s){
+        Debug.Log(s);
         if(output != ""){
             output = output + "\n" + s;
         } else output = s;
+        Debug.Log(output);
     }
 
     public void Read(string s){

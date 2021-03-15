@@ -11,11 +11,18 @@ public class TerminalPrint : TerminalBlocks
     private Var_Vet_Mat var;
     public static string printText = "";
 
+    private string saveVarName;
+
     private void Start() {
         var = window.transform.Find("Panel/var_vet_mat").GetComponent<Var_Vet_Mat>();
     }
     
     public override IEnumerator RunBlock(){
+        saveVarName = varName;
+        Debug.Log(varName);
+        Debug.Log(scopeId);
+        SymbolTable.instance.PrintSymbolTable();
+
         printText = SymbolTable.instance.GetValueFromString(varName, scopeId);
         MarkExec();
 
@@ -29,6 +36,7 @@ public class TerminalPrint : TerminalBlocks
             yield return StartCoroutine (nextBlock.RunBlock ());
         }
         AfterExec();
+        varName = saveVarName;
         yield return null;
     }
     

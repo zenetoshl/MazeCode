@@ -26,10 +26,9 @@ public class TerminalWhile : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
-        if (!isScopeCreated) {
-            alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
-            isScopeCreated = true;
-        }
+        alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
+        isScopeCreated = true;
+        
         MarkExec();
 
         if (alternativeBlock != null) {

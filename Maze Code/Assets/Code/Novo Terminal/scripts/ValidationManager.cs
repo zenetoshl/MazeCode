@@ -60,10 +60,9 @@ public class ValidationManager : MonoBehaviour
             ExecTimeManager.instance.MinExecTime();
             IOManager.instance.inputs = res.input;
             yield return StartCoroutine(ti.RunBlock());
-            Debug.Log("eae");
-
             string outp = IOManager.instance.output;
             if(res.output != outp){
+                Debug.Log(res.output + "!=" + outp);
                 TerminalEventManager.instance.resetEvent.Invoke();
                 validationMode = false;
                 hasError = true;
