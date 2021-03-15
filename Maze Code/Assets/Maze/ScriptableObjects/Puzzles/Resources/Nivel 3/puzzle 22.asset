@@ -44,10 +44,10 @@ MonoBehaviour:
   tests:
   - input:
     - 5
-    output: 1\n2\n4
+    output: 1%%2%%4
   - input:
     - 3
-    output: 3\n6\n12\n24\n48\n96\n192\n384\n768\n1536
+    output: 3%%6%%12%%24%%48%%96%%192%%384%%768%%1536
   - input:
     - 5
-    output: 5\n10\n20\n40\n80\n160\n320\n640\n1280\n2560
+    output: 5%%10%%20%%40%%80%%160%%320%%640%%1280%%2560

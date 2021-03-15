@@ -13,7 +13,6 @@ public class PuzzleManager : MonoBehaviour {
         puzzle = StaticLoadPuzzle.puzzle;
         ValidationManager.instance.results = puzzle.tests;
         CodeToMaze.instance.puzzleStatus = puzzle;
-        
         objectiveTitle.text = puzzle.objectiveTitle;
         objective.text = puzzle.objective;
     }
