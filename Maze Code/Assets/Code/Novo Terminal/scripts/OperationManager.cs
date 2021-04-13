@@ -38,14 +38,11 @@ public class OperationManager : MonoBehaviour {
             } else if (((input[i] <= 'z' && input[i] >= 'a') || (input[i] <= 'Z' && input[i] >= 'A')) && begin) {
                 found = true;
                 beginVarName = i;
-                
-                    Debug.Log("achou um");
                 if(i == input.Length - 1){
-                    Debug.Log("entrou");
-                        found = true;
-                        input = ReplaceOp (input, beginVarName, i - beginVarName, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName + 1), scope));
-                        i = 0;
-                        continue;
+                    found = true;
+                    input = ReplaceOp (input, beginVarName, i - beginVarName, st.GetValueFromString (input.Substring (beginVarName, i - beginVarName + 1), scope));
+                    i = 0;
+                    continue;
                 }
             }
             Debug.Log(input[i]);

@@ -26,10 +26,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler {
             if (t.phase == TouchPhase.Began || t.phase == TouchPhase.Moved) {
                 if (EventSystem.current.IsPointerOverGameObject (t.fingerId)) {
                     _isFingerOverUi = true;
-                    Debug.Log("ta com o dedo em cima");
                 }else {
                     _isFingerOverUi = false;
-                    Debug.Log("não ta com o dedo em cima");
                 }
             } else if(t.phase == TouchPhase.Canceled || t.phase == TouchPhase.Ended){
                 if (_isFingerOverUi) {

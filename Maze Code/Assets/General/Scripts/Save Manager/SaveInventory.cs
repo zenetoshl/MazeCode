@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class SaveInventory : MonoBehaviour {
-    [SerializeField] private PlayerInventory inventory;
+    [SerializeField] public PlayerInventory inventory;
 
     public void SaveScriptables () {
         //ResetScriptables();

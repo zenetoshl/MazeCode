@@ -12,28 +12,26 @@ public class SaveItem : MonoBehaviour
 
     public void SaveScriptables()
     {
-        for (int i = 0; i < objects.Count; i ++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.mzi", i));
+        
+            FileStream file = File.Create(Application.persistentDataPath + "/objcts.itm");
             BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(objects[i]);
+            var json = JsonUtility.ToJson(objects);
             binary.Serialize(file, json);
             file.Close();
-        }
+        
     }
 
     public void LoadScriptables()
     { 
-        for(int i = 0; i < objects.Count; i ++)
-        { 
-            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.mzi", i)))
+       
+            if(File.Exists(Application.persistentDataPath + "/objcts.itm"))
             {
-                FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.mzi", i), FileMode.Open);
+                FileStream file = File.Open(Application.persistentDataPath + "/objcts.itm", FileMode.Open);
                 BinaryFormatter binary = new BinaryFormatter();
-                JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects[i]);
+                JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects);
                 file.Close();
             }
-        }
+        
     }
 
     public void ResetScriptables()
@@ -43,9 +41,9 @@ public class SaveItem : MonoBehaviour
             // Retorna objetos ao estado inicial
             objects[i].runtimeValue = objects[i].initialValue;
             // Exclui arquivos
-            if(File.Exists(Application.persistentDataPath + string.Format("/{0}.mzi", i)))
+            if(File.Exists(Application.persistentDataPath + "/objcts.itm"))
             {
-                File.Delete(Application.persistentDataPath + string.Format("/{0}.mzi", i));
+                File.Delete(Application.persistentDataPath + "/objcts.itm");
             }
         }
         //Debug.Log("Reset Items OK");

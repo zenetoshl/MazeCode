@@ -821,6 +821,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &577896681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4444959686809612225, guid: d34f67b6dec25414bb9d84a66dae4629,
+    type: 3}
+  m_PrefabInstance: {fileID: 703586665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &577896683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577896681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838fe914d75770f41bd7f261a54f25bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveItemManager: {fileID: 439439342}
+  saveSoundConfigManager: {fileID: 869843119}
+  saveCameraManager: {fileID: 809023530}
+  savePositionManager: {fileID: 1396229207}
+  saveInventoryManager: {fileID: 1677254001}
+  savePuzzleManager: {fileID: 1582761218}
 --- !u!1 &607014183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1658,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7384197710121137069, guid: d34f67b6dec25414bb9d84a66dae4629, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d34f67b6dec25414bb9d84a66dae4629, type: 3}
 --- !u!1 &780235935
 GameObject:
@@ -1802,6 +1827,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822291507}
   m_CullTransparentMesh: 0
+--- !u!114 &869843119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7743547411143691800, guid: d34f67b6dec25414bb9d84a66dae4629,
+    type: 3}
+  m_PrefabInstance: {fileID: 703586665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6686dca04ea0149b575df94ad3148d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879039710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,30 +2287,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1396229207}
-        m_MethodName: ResetScriptables
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 809023530}
-        m_MethodName: ResetLimits
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 439439342}
         m_MethodName: ResetScriptables
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 577896683}
+        m_MethodName: ResetPosition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
