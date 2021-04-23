@@ -33,6 +33,9 @@ public class TerminalFor : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
             alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
             isScopeCreated = true;
         
@@ -45,6 +48,9 @@ public class TerminalFor : TerminalBlocks {
             //execução do for
             while (OperationManager.StartOperation (operation, TerminalEnums.varTypes.Bool, alternativeScopeId) == "True" && !TerminalCancelManager.instance.cancel) {
                 //roda o proximo bloco
+                if(TerminalCancelManager.instance.cancel){
+                    break;
+                }
                 yield return StartCoroutine (alternativeBlock.RunBlock ());
                 //passo do for
                 st.SetValueFromString (varName, alternativeScopeId, OperationManager.StartOperation (operation, st.GetVarType (varName, alternativeScopeId), alternativeScopeId));
@@ -64,6 +70,7 @@ public class TerminalFor : TerminalBlocks {
         AfterExec();
         yield return null;
     }
+
     public override void ToUI () {
         varName = var.GetText();
         initialvalue = initial.text;

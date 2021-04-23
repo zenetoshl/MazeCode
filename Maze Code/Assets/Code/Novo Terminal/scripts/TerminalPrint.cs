@@ -18,6 +18,9 @@ public class TerminalPrint : TerminalBlocks
     }
     
     public override IEnumerator RunBlock(){
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         saveVarName = varName;
         Debug.Log(varName);
         Debug.Log(scopeId);

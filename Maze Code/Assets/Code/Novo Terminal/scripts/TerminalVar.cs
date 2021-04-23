@@ -28,6 +28,9 @@ public class TerminalVar : TerminalBlocks {
         ToUI ();
     }
     public override IEnumerator RunBlock () {
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         Debug.Log("Inicializando " + name + "...");
         MarkExec();
         newType = GetNewType(oldType);

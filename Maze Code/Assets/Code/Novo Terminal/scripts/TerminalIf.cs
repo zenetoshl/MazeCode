@@ -29,6 +29,9 @@ public class TerminalIf : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         trueAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
         falseAlternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
         MarkExec();

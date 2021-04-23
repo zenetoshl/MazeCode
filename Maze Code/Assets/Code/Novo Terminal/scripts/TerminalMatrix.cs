@@ -35,6 +35,9 @@ public class TerminalMatrix : TerminalBlocks {
         type = GetType(oldType);
     }
     public override IEnumerator RunBlock () {
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         MarkExec();
         newType = GetNewType(oldType);
         st.symbolTable[scopeId].CreateVar (name, CreateInitMat (GetInitValue (newType), sizex, sizey), newType, sizex, sizey);

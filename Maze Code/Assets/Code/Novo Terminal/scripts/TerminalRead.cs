@@ -16,6 +16,9 @@ public class TerminalRead : TerminalBlocks
     }
 
     public override IEnumerator RunBlock(){
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         saveVarName = varName;
         SymbolTable st = SymbolTable.instance;
         MarkExec();

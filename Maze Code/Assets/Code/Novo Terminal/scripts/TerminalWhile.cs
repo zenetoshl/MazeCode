@@ -26,6 +26,9 @@ public class TerminalWhile : TerminalBlocks {
     }
 
     public override IEnumerator RunBlock () {
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         alternativeScopeId = SymbolTable.instance.CreateScope (scopeId);
         isScopeCreated = true;
         

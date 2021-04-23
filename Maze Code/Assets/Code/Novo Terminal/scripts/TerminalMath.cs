@@ -29,6 +29,9 @@ public class TerminalMath : TerminalBlocks
     }
 
     public override IEnumerator RunBlock(){
+        if(TerminalCancelManager.instance.cancel){
+            yield return null;
+        }
         SymbolTable st = SymbolTable.instance;
         MarkExec();
         string result = OperationManager.StartOperation(operation, st.GetVarType(var, scopeId), scopeId);
