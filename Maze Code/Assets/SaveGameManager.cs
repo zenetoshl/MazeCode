@@ -11,72 +11,64 @@ public class SaveGameManager : MonoBehaviour
     public SavePosition savePositionManager;
     public SaveInventory saveInventoryManager;
     public SavePuzzle savePuzzleManager;
+    public static SaveManager saveInfo = null;
     // Start is called before the first frame update
     void Awake()
     {
-        if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("Start Menu")) return;
-        SaveManager saveInfo = SaveGameInfo.LoadInfo();
-        savePositionManager.position.initialValue = saveInfo.savePosition;
-        saveCameraManager.maxPositionMap.initialValue = saveInfo.maxPositionMap;
-        saveCameraManager.minPositionMap.initialValue = saveInfo.minPositionMap;
-        saveCameraManager.resetMaxPosition.initialValue = saveInfo.resetMaxPosition;
-        saveCameraManager.resetMinPosition.initialValue = saveInfo.resetMinPosition;
-        SaveGame();
-    }
-
-    private void OnDisable () {
-        SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager);
-        Debug.Log("save1");
-        saveItemManager.SaveScriptables ();
-        Debug.Log("save5");
-        saveSoundConfigManager.SaveConfig ();
-        Debug.Log("save2");
-        saveInventoryManager.SaveScriptables ();
-        Debug.Log("save3");
-        savePuzzleManager.SaveScriptables ();
-        Debug.Log("save4");
-    }
-
-    private void OnApplicationFocus (bool focusStatus) {
-        if (!focusStatus) {
-            SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager);
-            Debug.Log("save1");
-            saveItemManager.SaveScriptables ();
-            Debug.Log("save5");
-            saveSoundConfigManager.SaveConfig ();
-            Debug.Log("save2");
-            saveInventoryManager.SaveScriptables ();
-            Debug.Log("save3");
-            savePuzzleManager.SaveScriptables ();
-            Debug.Log("save4");
+        Debug.Log("entrei no awake");
+        if (SceneManager.GetActiveScene ().name == "Start Menu")
+        {
+            saveInfo = SaveGameInfo.LoadInfo(saveCameraManager, saveItemManager.ResetScriptables (), saveInventoryManager.ResetScriptables (), savePuzzleManager.ResetScriptables ());
+        } else
+        if(saveInfo == null){
+            saveInfo = SaveGameInfo.LoadInfo(saveCameraManager, saveItemManager.ResetScriptables (), saveInventoryManager.ResetScriptables (), savePuzzleManager.ResetScriptables ());
+        }
+        
+        if (SceneManager.GetActiveScene ().name != "Start Menu") 
+        {
+            savePositionManager.position.initialValue = saveInfo.savePosition;
+            saveCameraManager.maxPositionMap.initialValue = saveInfo.maxPositionMap;
+            saveCameraManager.minPositionMap.initialValue = saveInfo.minPositionMap;
+            savePuzzleManager.LoadScriptables (saveInfo.savePuzzleManager);
+            saveItemManager.LoadScriptables (saveInfo.saveItemManager);
+            saveInventoryManager.LoadScriptables (saveInfo.saveInventoryManager);
+            saveCameraManager.resetMaxPosition.initialValue = saveInfo.resetMaxPosition;
+            saveCameraManager.resetMinPosition.initialValue = saveInfo.resetMinPosition;
+            saveSoundConfigManager.LoadConfig ();
         }
     }
 
-    private void OnApplicationQuit () {
-        SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager);
-        Debug.Log("save1");
-        saveItemManager.SaveScriptables ();
-        Debug.Log("save5");
-        saveSoundConfigManager.SaveConfig ();
-        Debug.Log("save2");
-        saveInventoryManager.SaveScriptables ();
-        Debug.Log("save3");
-        savePuzzleManager.SaveScriptables ();
-        Debug.Log("save4");
+    private void OnDisable (){
+        if (SceneManager.GetActiveScene ().name != "Start Menu")
+        {
+            SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager, saveItemManager.SaveScriptables (), saveInventoryManager.SaveScriptables (), savePuzzleManager.SaveScriptables ());
+            saveSoundConfigManager.SaveConfig ();
+        }
     }
-    public void SaveGame () {
-        Debug.Log("load1");
-        saveInventoryManager.LoadScriptables ();
-        Debug.Log("load2");
-        saveSoundConfigManager.LoadConfig ();
-        Debug.Log("load4");
-        savePuzzleManager.LoadScriptables ();
-        Debug.Log("load6");
-        saveItemManager.LoadScriptables ();
-        Debug.Log("load acabou");
+    
+    private void OnApplicationFocus (bool focusStatus) {
+        if(focusStatus) return;
+        if (SceneManager.GetActiveScene ().name != "Start Menu") 
+        {
+            SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager, saveItemManager.SaveScriptables (), saveInventoryManager.SaveScriptables (), savePuzzleManager.SaveScriptables ());
+            saveSoundConfigManager.SaveConfig ();
+        }
+    }
+    
+    private void OnApplicationQuit () {
+        if (SceneManager.GetActiveScene ().name != "Start Menu") 
+        {
+            SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager, saveItemManager.SaveScriptables (), saveInventoryManager.SaveScriptables (), savePuzzleManager.SaveScriptables ());
+            saveSoundConfigManager.SaveConfig ();
+        }
     }
 
+    public void SaveGameInformation(){
+        SaveGameInfo.SaveInfo(saveCameraManager, savePositionManager, saveItemManager.SaveScriptables (), saveInventoryManager.SaveScriptables (), savePuzzleManager.SaveScriptables ());
+        saveSoundConfigManager.SaveConfig ();
+    }
+    
     public void ResetPosition(){
-        SaveGameInfo.Reset(saveCameraManager);
+        saveInfo = SaveGameInfo.Reset(saveCameraManager, saveItemManager.ResetScriptables (), saveInventoryManager.ResetScriptables (), savePuzzleManager.ResetScriptables ());
     }
 }

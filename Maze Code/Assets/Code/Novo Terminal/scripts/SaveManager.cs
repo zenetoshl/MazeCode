@@ -10,13 +10,20 @@ public class SaveManager {
     public SerializableVector4 minPositionMap;
     public SerializableVector4 resetMaxPosition;
     public SerializableVector4 resetMinPosition;
+    public List<bool> saveItemManager;
+    public List<int> saveInventoryManager;
+    public List<bool> savePuzzleManager;
 
-    public SaveManager(Vector2 savePosition, VectorValue maxPositionMap, VectorValue minPositionMap, VectorValue resetMaxPosition, VectorValue resetMinPosition){
+    public SaveManager(Vector2 savePosition, VectorValue maxPositionMap, VectorValue minPositionMap, VectorValue resetMaxPosition, 
+    VectorValue resetMinPosition, SaveItem.Items saveItemManager, SaveInventory.Counts saveInventoryManager, SavePuzzle.Puzzles savePuzzleManager){
         this.savePosition = savePosition;
         this.maxPositionMap = maxPositionMap.initialValue;
         this.minPositionMap = minPositionMap.initialValue;
         this.resetMaxPosition = resetMaxPosition.initialValue;
         this.resetMinPosition = resetMinPosition.initialValue;
+        this.saveItemManager = saveItemManager.saveItems;
+        this.saveInventoryManager = saveInventoryManager.saveCounts;
+        this.savePuzzleManager = savePuzzleManager.savePuzzles;
     }
     [System.Serializable]
     public class SerializableVector4

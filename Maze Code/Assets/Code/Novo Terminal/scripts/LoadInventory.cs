@@ -6,7 +6,4 @@ public class LoadInventory : MonoBehaviour
 {
    public SaveInventory saveInventoryManager;
 
-   private void Start() {
-       saveInventoryManager.LoadScriptables ();
-   }
 }

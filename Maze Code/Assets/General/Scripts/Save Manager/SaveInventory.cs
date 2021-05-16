@@ -6,49 +6,44 @@ using UnityEngine;
 
 public class SaveInventory : MonoBehaviour {
     [SerializeField] public PlayerInventory inventory;
+    [System.Serializable]
+    public class Counts{
+        [SerializeField] public List<int> saveCounts = new List<int> {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-    public void SaveScriptables () {
-        //ResetScriptables();
-        for (int i = 0; i < inventory.myInventory.Count; i++) {
-            FileStream file = File.Create (Application.persistentDataPath + string.Format ("/{0}.ivt", i));
-            BinaryFormatter binary = new BinaryFormatter ();
-            var json = JsonUtility.ToJson (inventory.myInventory[i]);
-            binary.Serialize (file, json);
-            file.Close ();
+        public Counts (){
+            saveCounts = new List<int> {0, 0, 0, 0, 0, 0, 0, 0, 0};
         }
     }
+    
+    public static Counts counts = new Counts();
+    public static bool loaded = false;
 
-    public void LoadScriptables () {
-        if(inventory == null) return;
+    public Counts SaveScriptables () {
         for (int i = 0; i < inventory.myInventory.Count; i++) {
-            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.ivt", i))) {
-                Debug.Log("carregando variavel :"+ i);
-                var temp = ScriptableObject.CreateInstance<InventoryItem> ();
-                Debug.Log("antes do fileStream");
-                FileStream file = File.Open (Application.persistentDataPath + string.Format ("/{0}.ivt", i), FileMode.Open);
-                Debug.Log("depois do fileStream");
-                BinaryFormatter binary = new BinaryFormatter ();
-                JsonUtility.FromJsonOverwrite ((string) binary.Deserialize (file), temp);
-                file.Close ();
-                Debug.Log("close");
-                //inventory.myInventory.Add(temp);
-                inventory.myInventory[i].numberHeld = temp.numberHeld;
-                
-            }
+            counts.saveCounts[i] = inventory.myInventory[i].numberHeld;
+            Debug.Log("save " + counts.saveCounts[i]);
+        }
+        return counts;
+    }
+
+    public void LoadScriptables (List<int> c) {
+        Debug.Log("oie");
+        if(inventory == null) return;
+        Debug.Log("aaaaaaaa");
+        for (int i = 0; i < c.Count; i++) {
+           inventory.myInventory[i].numberHeld = c[i];
+           Debug.Log("load " + c[i]);
         }
     }
 
     
 
-    public void ResetScriptables () {
+    public Counts ResetScriptables () {
         for (int i = 0; i < inventory.myInventory.Count; i++) {
             // Zera inventário
             inventory.myInventory[i].numberHeld = 0;
-            // Exclui arquivos
-            if (File.Exists (Application.persistentDataPath + string.Format ("/{0}.ivt", i))) {
-                File.Delete (Application.persistentDataPath + string.Format ("/{0}.ivt", i));
-            }
+            counts.saveCounts[i] = 0;
         }
-        //Debug.Log("Reset Inv OK");
+        return counts;
     }
 }

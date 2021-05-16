@@ -9,43 +9,60 @@ public static class SaveGameInfo
     private static bool reseted;
     public static void SaveInfo(
     SaveCamera saveCameraManager,
-    SavePosition savePositionManager) {
-        if(reseted){
-            return;
-        }
+    SavePosition savePositionManager,
+    SaveItem.Items saveItemManager,
+    SaveInventory.Counts saveInventoryManager,
+    SavePuzzle.Puzzles savePuzzleManager
+    ) {
         BinaryFormatter binary = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/playerInfo.mzcd";
+        string path = Application.persistentDataPath + "/savedGame.mzcd";
         FileStream fileStream = new FileStream(path, FileMode.Create);
-        SaveManager saveInfo = new SaveManager(savePositionManager.position.initialValue, saveCameraManager.maxPositionMap, saveCameraManager.minPositionMap, saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition);
-        binary.Serialize(fileStream, saveInfo);
+        SaveManager saveInfo = new SaveManager(savePositionManager.position.defaultValue, saveCameraManager.maxPositionMap, saveCameraManager.minPositionMap, 
+        saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition, saveItemManager, saveInventoryManager, savePuzzleManager);
+        var json = JsonUtility.ToJson(saveInfo);
+        Debug.Log("SALVANDO ---" + json);
+        binary.Serialize(fileStream, json);
         fileStream.Close();
     }
 
-    public static SaveManager LoadInfo() {
+    public static SaveManager LoadInfo(SaveCamera saveCameraManager, SaveItem.Items resetItemManager,
+    SaveInventory.Counts resetInventoryManager,
+    SavePuzzle.Puzzles resetPuzzleManager) {
         if(reseted){
             reseted = false;
         }
-        if (File.Exists (Application.persistentDataPath + "/playerInfo.mzcd")) {
-            FileStream file = File.Open (Application.persistentDataPath + "/playerInfo.mzcd", FileMode.Open);
+        if (File.Exists (Application.persistentDataPath + "/savedGame.mzcd")) {
+            FileStream file = new FileStream(Application.persistentDataPath + "/savedGame.mzcd", FileMode.Open);
             BinaryFormatter binary = new BinaryFormatter ();
-            SaveManager saveInfo = binary.Deserialize(file) as SaveManager;
-            file.Close ();
-            return saveInfo;
+            var saveInfo = binary.Deserialize(file);
+            SaveManager ahmlk = JsonUtility.FromJson<SaveManager>("" + saveInfo);
+            Debug.Log("LOADING ------" + saveInfo);
+            file.Close();
+            return ahmlk;
         } else {
-            Debug.Log("erro no load: arquivo não encontrado");
-            return null;
+            Debug.Log("erro no load: arquivo não encontrado, resetando...");
+            return Reset(saveCameraManager, resetItemManager, resetInventoryManager, resetPuzzleManager);
         }
     }
 
-    public static void Reset(SaveCamera saveCameraManager) {
+    public static SaveManager Reset(SaveCamera saveCameraManager, SaveItem.Items saveItemManager,
+    SaveInventory.Counts saveInventoryManager,
+    SavePuzzle.Puzzles savePuzzleManager) {
+        
         Vector2 position = new Vector2(0f, 3f);
+        SaveManager saveInfo = new SaveManager(position, saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition, 
+        saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition, saveItemManager, saveInventoryManager, savePuzzleManager);
+        var json = JsonUtility.ToJson(saveInfo);
         BinaryFormatter binary = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/playerInfo.mzcd";
+        string path = Application.persistentDataPath + "/savedGame.mzcd";
         FileStream fileStream = new FileStream(path, FileMode.Create);
-        SaveManager saveInfo = new SaveManager(position, saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition, saveCameraManager.resetMaxPosition, saveCameraManager.resetMinPosition);
         binary.Serialize(fileStream, saveInfo);
         fileStream.Close();
-        reseted = true;
-        Debug.Log("cheguei aqui");
+        if(File.Exists(Application.persistentDataPath + "/savedGame.mzcd"))
+        {
+            File.Delete(Application.persistentDataPath + "/savedGame.mzcd");
+        }
+        Debug.Log(json);
+        return saveInfo;
     }
 }

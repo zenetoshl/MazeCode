@@ -9,51 +9,37 @@ public class SavePuzzle : MonoBehaviour
     [Header("Lista de todos os Puzzles do jogo")]
     public List<Puzzle> objects = new List<Puzzle>();
 
+    [System.Serializable]
+    public class Puzzles{
+        [SerializeField] public List<bool> savePuzzles = new List<bool> {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 
-    public void SaveScriptables()
-    {
-        for (int i = 0; i < objects.Count; i ++)
-        {
-            FileStream file = File.Create(Application.persistentDataPath + "/puzzles.pzl");
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(objects);
-            binary.Serialize(file, json);
-            file.Close();
+        public Puzzles (){
+            savePuzzles = new List<bool> {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
         }
     }
+   public Puzzles puzzles = new Puzzles();
+    public static bool loaded = false;
 
-    public void LoadScriptables()
+    public Puzzles SaveScriptables()
+    {
+        for (int i = 0; i < objects.Count; i++) {
+            puzzles.savePuzzles[i] = objects[i].runtimeValue;
+            Debug.Log("save " + puzzles.savePuzzles[i]);
+        }
+        return puzzles;
+    }
+
+    public void LoadScriptables(List<bool> _puzzles)
     { 
-        for(int i = 0; i < objects.Count; i ++)
-        {
-            if(TerminalInventoryManager.done){
-                if(TerminalInventoryManager.puzzleDone == i + 1){
-                    objects[i].runtimeValue = true;
-                }
-            }
+        puzzles.savePuzzles = _puzzles;
+        for (int i = 0; i < objects.Count; i++) {
+            objects[i].runtimeValue = puzzles.savePuzzles[i];
+            Debug.Log("load " + puzzles.savePuzzles[i]);
         }
-            if(File.Exists(Application.persistentDataPath + "/puzzles.pzl"))
-            {
-                FileStream file = File.Open(Application.persistentDataPath + "/puzzles.pzl", FileMode.Open);
-                BinaryFormatter binary = new BinaryFormatter();
-                JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects);
-                file.Close(); 
-            }
     }
 
-    public void ResetScriptables()
+    public Puzzles ResetScriptables()
     {
-        for(int i = 0; i < objects.Count; i ++)
-        {
-            // Retorna objetos ao estado inicial
-            objects[i].runtimeValue = objects[i].initialValue;
-            // Exclui arquivos
-            
-        }
-        if(File.Exists(Application.persistentDataPath + "/puzzles.pzl"))
-        {
-            File.Delete(Application.persistentDataPath + "/puzzles.pzl");
-        }
-        //Debug.Log("Reset Puzzles OK");
+        return new Puzzles();
     }
 }

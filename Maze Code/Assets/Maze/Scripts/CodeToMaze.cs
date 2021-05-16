@@ -137,14 +137,4 @@ public class CodeToMaze : MonoBehaviour {
             yield return null;
         }
     }
-
-    public void SaveScriptables () {
-        for (int i = 0; i < inventory.myInventory.Count; i++) {
-            FileStream file = File.Create (Application.persistentDataPath + string.Format ("/{0}.inv", i));
-            BinaryFormatter binary = new BinaryFormatter ();
-            var json = JsonUtility.ToJson (inventory.myInventory[i]);
-            binary.Serialize (file, json);
-            file.Close ();
-        }
-    }
 }

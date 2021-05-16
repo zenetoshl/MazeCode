@@ -9,43 +9,50 @@ public class SaveItem : MonoBehaviour
     [Header("Lista de todos os blocos visíveis no Labirinto")]
     public List<BoolValue> objects = new List<BoolValue>();
 
-
-    public void SaveScriptables()
+    [System.Serializable]
+    public class Items
     {
-        
-            FileStream file = File.Create(Application.persistentDataPath + "/objcts.itm");
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(objects);
-            binary.Serialize(file, json);
-            file.Close();
-        
-    }
+        [SerializeField] public List<bool> saveItems = new List<bool> { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,};
 
-    public void LoadScriptables()
-    { 
-       
-            if(File.Exists(Application.persistentDataPath + "/objcts.itm"))
-            {
-                FileStream file = File.Open(Application.persistentDataPath + "/objcts.itm", FileMode.Open);
-                BinaryFormatter binary = new BinaryFormatter();
-                JsonUtility.FromJsonOverwrite((string)binary.Deserialize(file), objects);
-                file.Close();
-            }
-        
-    }
-
-    public void ResetScriptables()
-    {
-        for(int i = 0; i < objects.Count; i ++)
+        public Items()
         {
-            // Retorna objetos ao estado inicial
-            objects[i].runtimeValue = objects[i].initialValue;
-            // Exclui arquivos
-            if(File.Exists(Application.persistentDataPath + "/objcts.itm"))
-            {
-                File.Delete(Application.persistentDataPath + "/objcts.itm");
-            }
+            saveItems = new List<bool> { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,};
         }
-        //Debug.Log("Reset Items OK");
+    }
+    public Items items = new Items();
+    public static bool loaded = false;
+
+    public Items SaveScriptables()
+    {
+        for (int i = 0; i < objects.Count; i++)
+        {
+            items.saveItems[i] = objects[i].runtimeValue;
+            Debug.Log("save " + items.saveItems[i]);
+        }
+        return items;
+    }
+
+    public void LoadScriptables(List<bool> _items)
+    {
+        items.saveItems = _items;
+        for (int i = 0; i < objects.Count; i++)
+        {
+            objects[i].runtimeValue = items.saveItems[i];
+            Debug.Log("load " + items.saveItems[i]);
+        }
+    }
+
+    public Items ResetScriptables()
+    {
+        return new Items();
     }
 }
+
